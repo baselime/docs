@@ -1,0 +1,32 @@
+input: .
+output: dist
+url: docs.baselime.io
+
+edit:
+  repo: https://github.com/Baselime/docs/edit
+  label: Edit on GitHub
+
+branding:
+  title: Baselime
+  label: Docs
+  logo: assets/images/logo.svg
+
+favicon: assets/images/logo.svg
+
+meta:
+  title: " | Baselime - Observability for Serverless "
+
+links:
+- text: Home
+  link: https://baselime.io
+- text: Pricing
+  link: https://baselime.io/pricing
+- text: Twitter
+  link: https://twitter.com/BaselimeHQ
+
+footer:
+  copyright: "© Copyright {{ year }}. [Baselime Limited](https://baselime.io/) All rights reserved."
+
+integrations:
+  crisp:
+    id: d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b
