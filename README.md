@@ -16,4 +16,4 @@ if(baselime.use === "first-time") {
 }
 ```
 
-We currently support serverless services on [AWS](https://aws.amazon.com/). Please find the list of supported services [here](./advanced/supported-services.md).
+Baselime currently support serverless services on [AWS](https://aws.amazon.com/). Please find the list of supported services [here](./advanced/supported-services.md).
