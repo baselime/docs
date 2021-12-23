@@ -1,6 +1,5 @@
 ---
 label: Baselime CLI
-icon: terminal
 ---
 
 # Baselime CLI

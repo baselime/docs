@@ -1,6 +1,5 @@
 ---
 label: Supported Services
-icon: cpu
 order: -1
 ---
 

@@ -1,6 +1,5 @@
 ---
 label: Integration CloudFormation Template
-icon: stack
 order: 0
 ---
 
