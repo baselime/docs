@@ -1,7 +1,6 @@
 ---
 label: Queries, Alerts and Dashbaords
 order: -2
-icon: zap
 ---
 
 # Queries, Alerts and Dashboards

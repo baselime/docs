@@ -1,7 +1,6 @@
 ---
 label: Baselime Concepts
 order: -3
-icon: codescan
 ---
 
 # Baselime Concepts
@@ -28,7 +27,8 @@ Once the telemetry data is ingested, you can run complex queries on your data, f
 
 ## Observability as Code
 
-Observability as Code adapts the principles of Infrastructure as Code to observabiity configurations. Dashboards and alerts are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.
+Observability as Code adapts the principles of Infrastructure as Code to observabiity configurations. Dashboards, queries, alerts and everything else are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.
 
 Baselime helps teams adopt the best practices from software engineering to collaborate and iterate on observability configurations.
 
+With Observability as Code, start treating observability as a first class citizen of the software development cycle, rather than an after-thought.

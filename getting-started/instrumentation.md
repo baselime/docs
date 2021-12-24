@@ -1,7 +1,6 @@
 ---
 label: Instrument your Code
 order: -1
-icon: plug
 ---
 
 # Instrument your Code

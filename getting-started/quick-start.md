@@ -1,7 +1,6 @@
 ---
 label: Quick Start
 order: 0
-icon: rocket
 ---
 
 # Quick Start
@@ -118,8 +117,10 @@ Please refer to [this section](TODO) for how to created Queries with the CLI.
 
 ## Next Steps
 
-After the previous steps, Baselime collects logs and metrics from your Lambda functions. This is a good start, but it can be improved with wide structured events.
+After the previous steps, Baselime collects logs and metrics from your Lambda functions. This is a good start, but it can be improved with wide structured events and traces.
 
-Wide structured events is data your Lambda functions will emit at the end of each invocation. Each event contains the context of the invocation, plus any additional field you add to it at runtime.
+Wide structured events is data your Lambda functions will emit with each invocation. Each event contains the context of the invocation, plus any additional field you add to it at runtime.
 
 Baselime support [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.
+
+Moreover, you haven't experiences the power of Observability as Code yet.
