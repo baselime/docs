@@ -6,21 +6,21 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>API Keys | Baselime - Observability for Serverless</title>
-    <meta name="title" content="API Keys | Baselime - Observability for Serverless">
-    <meta name="description" content="Every programmatic request sent to Baselime must contain an API key. API keys are used to securely communicate with Baselime." />
+    <title>Query Run API | Baselime - Observability for Serverless</title>
+    <meta name="title" content="Query Run API | Baselime - Observability for Serverless">
+    <meta name="description" content="The query run API is used to run queries on Baselime." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.baselime.io/advanced/auth-keys/">
-    <meta property="og:title" content="API Keys | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Every programmatic request sent to Baselime must contain an API key. API keys are used to securely communicate with Baselime.">
+    <meta property="og:url" content="https://docs.baselime.io/api/query-run/">
+    <meta property="og:title" content="Query Run API | Baselime - Observability for Serverless">
+    <meta property="og:description" content="The query run API is used to run queries on Baselime.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.baselime.io/advanced/auth-keys/">
-    <meta property="twitter:title" content="API Keys | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Every programmatic request sent to Baselime must contain an API key. API keys are used to securely communicate with Baselime.">
+    <meta property="twitter:url" content="https://docs.baselime.io/api/query-run/">
+    <meta property="twitter:title" content="Query Run API | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="The query run API is used to run queries on Baselime.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -30,6 +30,7 @@
     <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693725505970" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
     <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693725505970" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.693725505970" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -199,40 +200,111 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="api-keys" class="break-words">
+<doc-anchor-target id="query-run-api" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#api-keys">#</doc-anchor-trigger>
-        <span>API Keys</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#query-run-api">#</doc-anchor-trigger>
+        <span>Query Run API</span>
     </h1>
 </doc-anchor-target>
-<p>Every programmatic request sent to Baselime must contain an API key. API keys are used to securely communicate with Baselime.</p>
+<p>The query run API is used to run queries on Baselime.</p>
+<p>Running a query on Baselime is asynchronous. You submit a query run request, and the API responds with a receipt. You can subsequently poll the query run API to retrieve the query run result.</p>
 <hr />
-<doc-anchor-target id="managing-api-keys">
+<doc-anchor-target id="important-considerations">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#managing-api-keys">#</doc-anchor-trigger>
-        <span>Managing API Keys</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#important-considerations">#</doc-anchor-trigger>
+        <span>Important Considerations</span>
     </h2>
 </doc-anchor-target>
-<p>API keys can be generated and revoked using the CLI, the API or in the Web UI. Only worspace owners and admins can create or revoke API keys.</p>
-<p>API keys work across all namespaces in a workspace. API keys are not linked to users.</p>
-<hr />
-<doc-anchor-target id="permissions">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#permissions">#</doc-anchor-trigger>
-        <span>Permissions</span>
-    </h2>
-</doc-anchor-target>
-<p>API keys can have different permissions that govern access to Baselime resources. By default API keys start with no permissions. In other words, API keys can do nothing in Baselime until you grant them the appropriate permissions.</p>
-<p>The API key permissions are as follows:</p>
 <ul>
-<li><code v-pre>events</code>: can send events to Baselime</li>
-<li><code v-pre>queries</code>: can create, run and manage queries</li>
-<li><code v-pre>dashboards</code>: can create and manage dashboards</li>
-<li><code v-pre>alerts</code>: can create and manage alerts</li>
-<li><code v-pre>defects</code>: can create and manage defects</li>
-<li><code v-pre>conversations</code>: can create an manage comments and conversations on Baselime</li>
-<li><code v-pre>integrations</code>: can create and manage integrations</li>
+<li>Query results cannot exceed 6MB in size. Pagination is available for queries that exceed 6MB in size.</li>
+<li>Query results cannot take more than 10 seconds to run.</li>
+<li>Creating a query run is rate limited at 10 requests per minute per workspace.</li>
 </ul>
+<hr />
+<doc-anchor-target id="create-query-run">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#create-query-run">#</doc-anchor-trigger>
+        <span>Create Query Run</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="request">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request">#</doc-anchor-trigger>
+        <span>Request</span>
+    </h3>
+</doc-anchor-target>
+<p>The payload to create a query run should follow the specs below.</p>
+<ul>
+<li><code v-pre>query_id</code>: the id of the query to run</li>
+<li><code v-pre>from</code>: the datetime UNIX timestamp (with milliseconds) of the start time of the query run</li>
+<li><code v-pre>to</code>: the datetime UNIX timestamp (with milliseconds) of the end time of the query run</li>
+<li><code v-pre>limit</code> [optional]: the maximum number of query results</li>
+<li><code v-pre>offset</code> [optional]: the number of query results to skip</li>
+</ul>
+<p>Sample request:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://go.baselime.io/v1/query_run -X POST  \
+    -H &quot;Authorization: YOUR_API_KEY&quot;  \
+    -d '
+{
+  &quot;query_id&quot;: &quot;abcdefgh&quot;,
+  &quot;from&quot;: 1640404332438,
+  &quot;to&quot;: 1640407932438,
+  &quot;limit&quot;: 120
+}
+'</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sample-response">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-response">#</doc-anchor-trigger>
+        <span>Sample Response</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;query_run&quot;: {
+    &quot;id&quot;: &quot;TfcBkYdh&quot;,
+  }
+}</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="get-query-run">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#get-query-run">#</doc-anchor-trigger>
+        <span>Get Query Run</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="request-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request-1">#</doc-anchor-trigger>
+        <span>Request</span>
+    </h3>
+</doc-anchor-target>
+<p>To retrieve a query run, send a <code v-pre>GET</code> request to <code v-pre>/v1/query_run/&lt;query_run_id&gt;</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://go.baselime.io/v1/query_run/&lt;query_run_id&gt; -X GET  \
+    -H &quot;Authorization: YOUR_API_KEY&quot;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sample-response-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-response-1">#</doc-anchor-trigger>
+        <span>Sample Response</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;query_run&quot;: {
+    &quot;id&quot;: &quot;TfcBkYdh&quot;,
+    &quot;query_id&quot;: &quot;abcdefgh&quot;,
+    &quot;from&quot;: 1640404332438,
+    &quot;to&quot;: 1640407932438,
+    &quot;limit&quot;: 120
+  },
+  &quot;data&quot;: [
+    ... query results ...
+  ]
+}</code></pre>
+</doc-codeblock></div>
 
 
 
@@ -242,7 +314,7 @@
             </div>
 
             <div class="flex flex-wrap items-center justify-between mt-14">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/advanced/auth-keys.md" target="_blank" rel="noopener">
+    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/api/query-run.md" target="_blank" rel="noopener">
         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         <span>Edit on GitHub</span>
     </a>
@@ -252,20 +324,20 @@
 
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/advanced/integration/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/api/queries/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Integration CloudFormation Template</span>
+                <span class="block mt-1">Queries API</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/advanced/materialized-keys/">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/integrations/overview/">
             <span>
                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Materialized Keys</span>
+                <span class="block mt-1">Integrations Overview</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
@@ -313,7 +385,7 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "API Keys", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Query Run API", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
         <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     </body>
 </html>
