@@ -8,7 +8,7 @@ icon: home
 
 ---
 
-[Baselime](https://baselime.io) is an Observability as Code platform based on OpenTelemetry that allows you resolve incidents and performance bottlenecks in your serverless architecture.
+[Baselime](https://baselime.io) is an Observability as Code platform based on OpenTelemetry that allows your team to resolve incidents and performance bottlenecks in your serverless applications.
 
 Baselime currently support serverless services on [AWS](https://aws.amazon.com/).
 

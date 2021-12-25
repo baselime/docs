@@ -31,4 +31,4 @@ Observability as Code adapts the principles of Infrastructure as Code to observa
 
 Baselime helps teams adopt the best practices from software engineering to collaborate and iterate on observability configurations.
 
-With Observability as Code, start treating observability as a first class citizen of the software development cycle, rather than an after-thought.
+With Observability as Code, start treating observability as a first class citizen of the software development life cycle, rather than an after-thought.
