@@ -97,7 +97,7 @@ curl https://go.baselime.io/v1/defects/<defect_id> -X GET  \
 
 ### Request
 
-To update an alert, send a `PUT` request to `/v1/defects/<defect_id>`. The request body should include all fields that you wish to edit on the query. Only included fields will be updated.
+To update an defect, send a `PUT` request to `/v1/defects/<defect_id>`. The request body should include all fields that you wish to edit on the defect. Only included fields will be updated.
 
 !!!
 It is not possible to update the target of a defect.
@@ -153,7 +153,7 @@ curl https://go.baselime.io/v1/alerts/<alert_id> -X DELETE  \
 ```json
 {
   "defect": {
-    "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6""
+    "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6"
   }
 }
 ```
