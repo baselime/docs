@@ -18,3 +18,5 @@ All request payloads should be sent as JSON.
 [!ref Auth API](./auth.md)
 [!ref Queries API](./queries.md)
 [!ref Query Run API](./query-run.md)
+[!ref Alerts API](./alerts.md)
+[!ref Defects API](./defects.md)

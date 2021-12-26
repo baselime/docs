@@ -24,10 +24,10 @@ The payload to create a query should follow the specs below. All fields are opti
 -  `filter_combination`: `AND` or `OR`. If the list of filters contains multiple filters, `filter_combination` defines how they are applied. 
    -  `AND`: find events matching all filters
    -  `OR`: find events matching any filter
--  `group_bys`: a list of `key`/`type` pairs to group your result by.
--  `orders`: a list of objects decribing how to order the query results. Each item should include a `key`, a `type` and a `order` which takes either `ASCENDING` or `DESCENDING`
--  `name`: the name of the query
--  `description`: A description of the query
+- `group_bys`: a list of `key`/`type` pairs to group your result by.
+- `orders`: a list of objects decribing how to order the query results. Each item should include a `key`, a `type` and a `order` which takes either `ASCENDING` or `DESCENDING`
+- `name`: the name of the query
+- `description`: a description of the query
 
 Sample request:
 
