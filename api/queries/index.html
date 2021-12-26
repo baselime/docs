@@ -25,12 +25,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.693725505970" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.693829723329" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693725505970" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693829723329" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693725505970" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.693725505970" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693829723329" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.693829723329" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -240,7 +240,7 @@
 <li><code v-pre>group_bys</code>: a list of <code v-pre>key</code>/<code v-pre>type</code> pairs to group your result by.</li>
 <li><code v-pre>orders</code>: a list of objects decribing how to order the query results. Each item should include a <code v-pre>key</code>, a <code v-pre>type</code> and a <code v-pre>order</code> which takes either <code v-pre>ASCENDING</code> or <code v-pre>DESCENDING</code></li>
 <li><code v-pre>name</code>: the name of the query</li>
-<li><code v-pre>description</code>: A description of the query</li>
+<li><code v-pre>description</code>: a description of the query</li>
 </ul>
 <p>Sample request:</p>
 <div class="codeblock-wrapper"><doc-codeblock>

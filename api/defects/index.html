@@ -6,21 +6,21 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>Baselime Integration CloudFormation Template | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Baselime Integration CloudFormation Template | Baselime - Observability for Serverless">
-    <meta name="description" content="This is the CloudFormation template that is used to connect your AWS account to Baselime." />
+    <title>Defects API | Baselime - Observability for Serverless</title>
+    <meta name="title" content="Defects API | Baselime - Observability for Serverless">
+    <meta name="description" content="The defects API is used to create and manage defects." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.baselime.io/advanced/integration/">
-    <meta property="og:title" content="Baselime Integration CloudFormation Template | Baselime - Observability for Serverless">
-    <meta property="og:description" content="This is the CloudFormation template that is used to connect your AWS account to Baselime.">
+    <meta property="og:url" content="https://docs.baselime.io/api/defects/">
+    <meta property="og:title" content="Defects API | Baselime - Observability for Serverless">
+    <meta property="og:description" content="The defects API is used to create and manage defects.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.baselime.io/advanced/integration/">
-    <meta property="twitter:title" content="Baselime Integration CloudFormation Template | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="This is the CloudFormation template that is used to connect your AWS account to Baselime.">
+    <meta property="twitter:url" content="https://docs.baselime.io/api/defects/">
+    <meta property="twitter:title" content="Defects API | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="The defects API is used to create and manage defects.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -200,223 +200,287 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="baselime-integration-cloudformation-template" class="break-words">
+<doc-anchor-target id="defects-api" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-integration-cloudformation-template">#</doc-anchor-trigger>
-        <span>Baselime Integration CloudFormation Template</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#defects-api">#</doc-anchor-trigger>
+        <span>Defects API</span>
     </h1>
 </doc-anchor-target>
+<p>The defects API is used to create and manage defects.</p>
 <hr />
-<p>This is the CloudFormation template that is used to connect your AWS account to Baselime.</p>
-<p>Please refer to the <a href="../../getting-started/quick-start/">Quick Start</a> for guidelines on how to use this file.</p>
+<doc-anchor-target id="create-defect">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#create-defect">#</doc-anchor-trigger>
+        <span>Create Defect</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="request">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request">#</doc-anchor-trigger>
+        <span>Request</span>
+    </h3>
+</doc-anchor-target>
+<p>The payload to create a defect should follow the specs below.</p>
+<ul>
+<li><code v-pre>target</code>: an object describing the entity to flag as a defect. Each <code v-pre>target</code> should contain:
+<ul>
+<li><code v-pre>type</code>: the type of the target, <code v-pre>EVENT</code> for a single event and <code v-pre>TRACE</code> for a entire trace.</li>
+<li><code v-pre>id</code>: the id of the target.</li>
+</ul>
+</li>
+<li><code v-pre>priority</code>: the priority of the defect, <code v-pre>LOW</code>, <code v-pre>MEDIUM</code>, <code v-pre>HIGH</code>, <code v-pre>URGENT</code>.</li>
+<li><code v-pre>severity</code>: the severity of the defect, <code v-pre>MINOR</code>, <code v-pre>MAJOR</code>, <code v-pre>CRITICAL</code>, <code v-pre>FATAL</code>.</li>
+<li><code v-pre>name</code>: the name of the alert</li>
+<li><code v-pre>description</code>: a description of the alert</li>
+</ul>
+<div class="flex mb-6">
+    <div class="flex-shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3">
+<p>Creating a defect via the API will trigger downstream events, such as notifications to relevant team-members and creating tickets in linked project management software.</p>
+        </div>
+    </div>
+</div>
+<p>Sample request:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Baselime AWS Integration Template</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">Description: This template creates a role and a bucket that can be used by Baselime
-
-Parameters:
-  ExternalParameter:
-    Type: String
-    Default: &lt;BASELIME_EXTERNAL_PARAMETER&gt;
-    Description: External Parameter for securing the role
-  Alias:
-    Type: String
-    Default: &lt;BASELIME_INTEGRATION_ALIAS&gt;
-    Description: Alias for this integration
-
-Resources:
-  BaselimeIntegrationRole:
-    Type: AWS::IAM::Role
-    DeletionPolicy: Retain
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Effect: Allow
-            Action:
-              - sts:AssumeRole
-            Principal:
-              AWS:
-                - &lt;BASELIME_CUSTOMER_ACCOUNT&gt;
-            Sid: &quot;&quot;
-          - Effect: Allow
-            Action:
-              - sts:AssumeRole
-            Principal:
-              AWS:
-                - &lt;BASELIME_ACCOUNT&gt;
-            Sid: &quot;&quot;
-          - Effect: Allow
-            Action:
-              - sts:AssumeRole
-            Principal:
-              Service:
-                - lambda.amazonaws.com
-            Sid: &quot;&quot;
-      ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/ReadOnlyAccess
-        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-      Path: &quot;/&quot;
-  BaselimeIntegrationPolicies:
-    Type: AWS::IAM::Policy
-    Properties:
-      PolicyName: BaselimeIntegration
-      PolicyDocument:
-        Statement:
-          - Effect: Allow
-            Action:
-              - lambda:UpdateFunctionConfiguration
-              - lambda:CreateFunction
-              - lambda:AddPermission
-            Resource:
-              - arn:aws:lambda:*:*:function:*
-          - Effect: Allow
-            Action:
-              - ce:GetCostAndUsageWithResources
-              - ce:GetCostAndUsage
-            Resource:
-              - &quot;*&quot;
-          - Effect: Allow
-            Action:
-              - s3:*
-            Resource:
-              - !Sub |-
-                arn:aws:s3:::${BaselimeS3Bucket}
-              - !Sub |-
-                arn:aws:s3:::${BaselimeS3Bucket}/*
-          - Effect: Allow
-            Action:
-              - sns:Subscribe
-              - sns:Publish
-            Resource:
-              - !Ref BaselimeSNSTopic
-          - Effect: Allow
-            Action:
-              - iam:PassRole
-            Resource:
-              - !GetAtt
-                - BaselimeIntegrationRole
-                - Arn
-          - Effect: Allow
-            Action:
-              - logs:PutSubscriptionFilter
-              - logs:DeleteSubscriptionFilter
-              - logs:DescribeSubscriptionFilters
-              - logs:CreateLogGroup
-              - logs:PutRetentionPolicy
-              - cloudwatch:PutMetricAlarm
-              - cloudwatch:DeleteAlarms
-              - cloudwatch:PutDashboard
-              - cloudwatch:DeleteDashboards
-              - cloudwatch:PutMetricData
-              - cloudwatch:PutMetricStream
-              - cloudwatch:DeleteMetricStream
-              - cloudwatch:StartMetricStreams
-              - cloudwatch:StopMetricStreams
-            Resource:
-              - &quot;*&quot;
-      Roles:
-       - !Ref BaselimeIntegrationRole
-  BaselimeS3Bucket:
-    Type: 'AWS::S3::Bucket'
-    DeletionPolicy: Retain
-  BaselimeS3BucketPolicy:
-    Type: &quot;AWS::S3::BucketPolicy&quot;
-    Properties:
-      Bucket:
-        Ref: BaselimeS3Bucket
-      PolicyDocument:
-        Version: &quot;2012-10-17&quot;
-        Statement:
-          -
-            Sid: &quot;AWSCloudTrailAclCheck&quot;
-            Effect: &quot;Allow&quot;
-            Principal:
-              Service: &quot;cloudtrail.amazonaws.com&quot;
-            Action: &quot;s3:GetBucketAcl&quot;
-            Resource:
-              !Sub |-
-                arn:aws:s3:::${BaselimeS3Bucket}
-          -
-            Sid: &quot;AWSCloudTrailWrite&quot;
-            Effect: &quot;Allow&quot;
-            Principal:
-              Service: &quot;cloudtrail.amazonaws.com&quot;
-            Action: &quot;s3:PutObject&quot;
-            Resource:
-              !Sub |-
-                arn:aws:s3:::${BaselimeS3Bucket}/AWSLogs/${AWS::AccountId}/*
-            Condition:
-              StringEquals:
-                s3:x-amz-acl: &quot;bucket-owner-full-control&quot;
-  BaselimeSNSTopic:
-    Type: AWS::SNS::Topic
-  BaselimeSNSTopicPolicy:
-    Type: &quot;AWS::SNS::TopicPolicy&quot;
-    Properties:
-      Topics:
-        - !Ref BaselimeSNSTopic
-      PolicyDocument:
-        Version: &quot;2008-10-17&quot;
-        Statement:
-          -
-            Sid: &quot;AWSCloudTrailSNSPolicy&quot;
-            Effect: &quot;Allow&quot;
-            Principal:
-              Service: &quot;cloudtrail.amazonaws.com&quot;
-            Resource: &quot;*&quot;
-            Action: &quot;SNS:Publish&quot;
-          -
-            Sid: &quot;BaselimeRoleSNSPolicy&quot;
-            Effect: &quot;Allow&quot;
-            Principal:
-              AWS: !GetAtt
-              - BaselimeIntegrationRole
-              - Arn
-            Resource: &quot;*&quot;
-            Action: &quot;SNS:Publish&quot;
-  BaselimeCloudTrail:
-    Type: AWS::CloudTrail::Trail
-    DependsOn:
-      - BaselimeSNSTopicPolicy
-      - BaselimeS3BucketPolicy
-    Properties:
-        S3BucketName: !Ref BaselimeS3Bucket
-        SnsTopicName: !GetAtt
-                      - BaselimeSNSTopic
-                      - TopicName
-        IsLogging: true
-        EnableLogFileValidation: true
-        IncludeGlobalServiceEvents: true
-  BaselimeReporter:
-    Type: AWS::CloudFormation::CustomResource
-    DependsOn:
-      - BaselimeCloudTrail
-      - BaselimeIntegrationRole
-      - BaselimeIntegrationPolicies
-    Properties:
-      ServiceToken: &lt;BASELIME_SERVICE_TOKEN&gt;
-      RoleArn: !GetAtt
-              - BaselimeIntegrationRole
-              - Arn
-      Region: !Ref AWS::Region
-      BucketName: !Ref BaselimeS3Bucket
-      TopicArn: !Ref BaselimeSNSTopic
-      CloudTrailArn: !Ref BaselimeCloudTrail
-      ExternalParameter: !Ref ExternalParameter
-      Alias: !Ref Alias
-
-
-Outputs:
-  RoleArn:
-    Value: !GetAtt
-          - BaselimeIntegrationRole
-          - Arn
-    Description: The ARN for the role Baselime can use
-  BucketName:
-    Value: !Ref BaselimeS3Bucket
-    Description: The name of the bucket Baselime can use
-  SNSTopic:
-    Value: !Ref BaselimeSNSTopic
-    Description: The ARN of the SNS topic Baselime can use</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://go.baselime.io/v1/defects -X POST  \
+    -H &quot;Authorization: YOUR_API_KEY&quot;  \
+    -d '
+{
+  &quot;target&quot;: {
+    &quot;type&quot;: &quot;EVENT&quot;,
+    &quot;id&quot;: &quot;b47feb84-ce5b-4f2c-b3ec-4875c7e74c8b&quot;
+  },
+  &quot;priority&quot;: &quot;LOW&quot;,
+  &quot;severity&quot;: &quot;MAJOR&quot;,
+  &quot;name&quot;: &quot;Sample defect&quot;,
+  &quot;description&quot;: &quot;A sample description&quot;
+}
+'</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sample-response">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-response">#</doc-anchor-trigger>
+        <span>Sample Response</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;defect&quot;: {
+    &quot;id&quot;: &quot;1f5199de-52e4-4e30-89ee-762a15c0c5b6&quot;
+  }
+}</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="get-defect">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#get-defect">#</doc-anchor-trigger>
+        <span>Get Defect</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="request-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request-1">#</doc-anchor-trigger>
+        <span>Request</span>
+    </h3>
+</doc-anchor-target>
+<p>To retrieve a defect, send a <code v-pre>GET</code> request to <code v-pre>/v1/defects/&lt;defect_id&gt;</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://go.baselime.io/v1/defects/&lt;defect_id&gt; -X GET  \
+    -H &quot;Authorization: YOUR_API_KEY&quot;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sample-response-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-response-1">#</doc-anchor-trigger>
+        <span>Sample Response</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;defect&quot;: {
+    &quot;id&quot;: &quot;1f5199de-52e4-4e30-89ee-762a15c0c5b6&quot;,
+    &quot;target&quot;: {
+      &quot;type&quot;: &quot;EVENT&quot;,
+      &quot;id&quot;: &quot;b47feb84-ce5b-4f2c-b3ec-4875c7e74c8b&quot;
+    },
+    &quot;priority&quot;: &quot;LOW&quot;,
+    &quot;severity&quot;: &quot;MAJOR&quot;,
+    &quot;name&quot;: &quot;Sample defect&quot;,
+    &quot;description&quot;: &quot;A sample description&quot;,
+    &quot;resolved&quot;: false,
+    &quot;created_at&quot;: &quot;2021-12-25T04:24:38Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-12-25T04:24:38Z&quot;,
+    &quot;author&quot;: &quot;d98f27fc-f472-4338-ac3e-55d3089ff6fb&quot;
+  }
+}</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="update-defect">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#update-defect">#</doc-anchor-trigger>
+        <span>Update Defect</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="request-2">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request-2">#</doc-anchor-trigger>
+        <span>Request</span>
+    </h3>
+</doc-anchor-target>
+<p>To update an alert, send a <code v-pre>PUT</code> request to <code v-pre>/v1/defects/&lt;defect_id&gt;</code>. The request body should include all fields that you wish to edit on the query. Only included fields will be updated.</p>
+<div class="flex mb-6">
+    <div class="flex-shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3">
+<p>It is not possible to update the target of a defect.</p>
+        </div>
+    </div>
+</div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://go.baselime.io/v1/defects/&lt;defect_id&gt; -X PUT  \
+    -H &quot;Authorization: YOUR_API_KEY&quot;  \
+    -d '
+{
+  &quot;resolved&quot;: true,
+}
+'</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sample-response-2">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-response-2">#</doc-anchor-trigger>
+        <span>Sample Response</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;defect&quot;: {
+    &quot;id&quot;: &quot;1f5199de-52e4-4e30-89ee-762a15c0c5b6&quot;,
+    &quot;target&quot;: {
+      &quot;type&quot;: &quot;EVENT&quot;,
+      &quot;id&quot;: &quot;b47feb84-ce5b-4f2c-b3ec-4875c7e74c8b&quot;
+    },
+    &quot;priority&quot;: &quot;LOW&quot;,
+    &quot;severity&quot;: &quot;MAJOR&quot;,
+    &quot;name&quot;: &quot;Sample defect&quot;,
+    &quot;description&quot;: &quot;A sample description&quot;,
+    &quot;resolved&quot;: true,
+    &quot;created_at&quot;: &quot;2021-12-25T04:24:38Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-12-25T04:24:38Z&quot;,
+    &quot;author&quot;: &quot;d98f27fc-f472-4338-ac3e-55d3089ff6fb&quot;
+  }
+}</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="delete-defect">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#delete-defect">#</doc-anchor-trigger>
+        <span>Delete Defect</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="request-3">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request-3">#</doc-anchor-trigger>
+        <span>Request</span>
+    </h3>
+</doc-anchor-target>
+<p>To delete an defect, send a <code v-pre>DELETE</code> request to <code v-pre>/v1/defects/&lt;defect_id&gt;</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://go.baselime.io/v1/alerts/&lt;alert_id&gt; -X DELETE  \
+    -H &quot;Authorization: YOUR_API_KEY&quot;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sample-response-3">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-response-3">#</doc-anchor-trigger>
+        <span>Sample Response</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;defect&quot;: {
+    &quot;id&quot;: &quot;1f5199de-52e4-4e30-89ee-762a15c0c5b6&quot;&quot;
+  }
+}</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="list-defects">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#list-defects">#</doc-anchor-trigger>
+        <span>List Defects</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="request-4">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request-4">#</doc-anchor-trigger>
+        <span>Request</span>
+    </h3>
+</doc-anchor-target>
+<p>To list defects, send a <code v-pre>GET</code> request to <code v-pre>/v1/defects/</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://go.baselime.io/v1/defects -X GET  \
+    -H &quot;Authorization: YOUR_API_KEY&quot;</code></pre>
+</doc-codeblock></div>
+<div class="flex mb-6">
+    <div class="flex-shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3">
+<p>Filter only resolved or active defects with a query parameter to the request: <code v-pre>/v1/defects?resolved=true</code></p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="sample-response-4">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-response-4">#</doc-anchor-trigger>
+        <span>Sample Response</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;defects&quot;: [
+    {
+      &quot;id&quot;: &quot;1f5199de-52e4-4e30-89ee-762a15c0c5b6&quot;,
+      &quot;target&quot;: {
+        &quot;type&quot;: &quot;EVENT&quot;,
+        &quot;id&quot;: &quot;b47feb84-ce5b-4f2c-b3ec-4875c7e74c8b&quot;
+      },
+      &quot;priority&quot;: &quot;LOW&quot;,
+      &quot;severity&quot;: &quot;MAJOR&quot;,
+      &quot;name&quot;: &quot;Sample defect&quot;,
+      &quot;description&quot;: &quot;A sample description&quot;,
+      &quot;resolved&quot;: true,
+      &quot;created_at&quot;: &quot;2021-12-25T04:24:38Z&quot;,
+      &quot;updated_at&quot;: &quot;2021-12-25T04:24:38Z&quot;,
+      &quot;author&quot;: &quot;d98f27fc-f472-4338-ac3e-55d3089ff6fb&quot;
+    }
+    ... more defects ...
+  ]
+}</code></pre>
 </doc-codeblock></div>
 
 
@@ -427,7 +491,7 @@ Outputs:
             </div>
 
             <div class="flex flex-wrap items-center justify-between mt-14">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/advanced/integration.md" target="_blank" rel="noopener">
+    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/api/defects.md" target="_blank" rel="noopener">
         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         <span>Edit on GitHub</span>
     </a>
@@ -437,20 +501,20 @@ Outputs:
 
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/integrations/overview/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/api/alerts/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Integrations Overview</span>
+                <span class="block mt-1">Alerts API</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/advanced/auth-keys/">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/integrations/overview/">
             <span>
                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">API Keys</span>
+                <span class="block mt-1">Integrations Overview</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
@@ -498,7 +562,7 @@ Outputs:
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Integration CloudFormation Template", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Defects API", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
         <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     </body>
 </html>
