@@ -6,21 +6,21 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>Queries, Alerts and Dashboards | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Queries, Alerts and Dashboards | Baselime - Observability for Serverless">
-    <meta name="description" content="You can defined queries and alerts in the Baselime UI but this section is a quick start on how to defined them with the Baselime CLI." />
+    <title>Discovered Keys | Baselime - Observability for Serverless</title>
+    <meta name="title" content="Discovered Keys | Baselime - Observability for Serverless">
+    <meta name="description" content="Discovered keys are keys automatically generated from your events and traces." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.baselime.io/getting-started/queries/">
-    <meta property="og:title" content="Queries, Alerts and Dashboards | Baselime - Observability for Serverless">
-    <meta property="og:description" content="You can defined queries and alerts in the Baselime UI but this section is a quick start on how to defined them with the Baselime CLI.">
+    <meta property="og:url" content="https://docs.baselime.io/advanced/discovered-keys/">
+    <meta property="og:title" content="Discovered Keys | Baselime - Observability for Serverless">
+    <meta property="og:description" content="Discovered keys are keys automatically generated from your events and traces.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.baselime.io/getting-started/queries/">
-    <meta property="twitter:title" content="Queries, Alerts and Dashboards | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="You can defined queries and alerts in the Baselime UI but this section is a quick start on how to defined them with the Baselime CLI.">
+    <meta property="twitter:url" content="https://docs.baselime.io/advanced/discovered-keys/">
+    <meta property="twitter:title" content="Discovered Keys | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="Discovered keys are keys automatically generated from your events and traces.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -200,68 +200,162 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="queries-alerts-and-dashboards" class="break-words">
+<doc-anchor-target id="discovered-keys" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#queries-alerts-and-dashboards">#</doc-anchor-trigger>
-        <span>Queries, Alerts and Dashboards</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#discovered-keys">#</doc-anchor-trigger>
+        <span>Discovered Keys</span>
     </h1>
 </doc-anchor-target>
+<p>Discovered keys are keys automatically generated from your events and traces.</p>
 <hr />
-<p>You can defined queries and alerts in the <a href="https://baselime.io">Baselime UI</a> but this section is a quick start on how to defined them with the Baselime CLI.</p>
-<p>Baselime supports Observability as Code: defining your observability configurations as code, rather than clicking around in a web UI. The entire platform is driven by YAML files that you can track in your version control.</p>
-<p>Create a <code v-pre>.baselime.yml</code> file in the root of your project folder, and use it to define queries, alerts and dashboards.</p>
-<p>You can use the CLI to apply your observability configurations.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime apply</code></pre>
-</doc-codeblock></div>
-<p>All queries, alerts and dashboards created in the web UI can be exported as YAML files.</p>
-<hr />
-<doc-anchor-target id="queries">
+<doc-anchor-target id="lambda-discovered-keys">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#queries">#</doc-anchor-trigger>
-        <span>Queries</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#lambda-discovered-keys">#</doc-anchor-trigger>
+        <span>Lambda Discovered Keys</span>
     </h2>
 </doc-anchor-target>
-<p>This is a sample query which retrieves <code v-pre>error.code</code>, <code v-pre>status</code> and <code v-pre>message</code> from three namespaces (<code v-pre>my-function-name-1</code>, <code v-pre>my-function-name-2</code> and <code v-pre>my-sns-topic-1</code>) and events matching a set of filters and grouped by <code v-pre>status</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title">.baselime.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.0.1
-application: Sample Application
-description: Sample Description
+<p>The Lambda service automatically write logs at the beginning and end of every Lambda function invocation. There logs are parsed as events in Baselime, and keys are automatically discivered from those messages.</p>
+<doc-anchor-target id="start-log-message">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#start-log-message">#</doc-anchor-trigger>
+        <span><code v-pre>START</code> Log Message</span>
+    </h3>
+</doc-anchor-target>
+<p>The following keys are discovered from the <code v-pre>START</code> message:</p>
+<ul>
+<li><code v-pre>@type</code>: is always <code v-pre>START</code></li>
+<li><code v-pre>@requestId</code>: the request ID of the Lambda invocation</li>
+<li><code v-pre>@version</code>: the invoked version of the Lambda function</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json"> START RequestId: d5d410e5-7406-5a1b-888e-4aa7492a313d Version: $LATEST
 
-queries:
-  - name: Sample Query
-    namespaces:
-      - type: lambda
-        value: my-function-name-1
-      - type: lambda
-        value: my-function-name-2
-      - type: sns
-        value: my-sns-topic-1
-    fields:
-      - type: string
-        key: &quot;error.code&quot;
-      - type: number
-        key: &quot;status&quot;
-      - type: string
-        key: &quot;message&quot;
-    filters:
-      - key: &quot;error.code&quot;
-        type: string
-        operation: &quot;=&quot;
-        value: &quot;ValidationException&quot;
-      - key: &quot;@billedDuration&quot;
-        type: number
-        operation: &quot;&gt;&quot;
-        formula:
-          - value: 2
-          - type: operator
-            value: &quot;*&quot;
-          - type: key
-            value: &quot;@initDuration&quot;
-    groupBy:
-      - type: string
-        key: &quot;status&quot;</code></pre>
+{
+  @type: &quot;START&quot;,
+  @requestId: &quot;d5d410e5-7406-5a1b-888e-4aa7492a313d&quot;,
+  @version: &quot;$LATEST&quot;
+} </code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="end-log-message">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#end-log-message">#</doc-anchor-trigger>
+        <span><code v-pre>END</code> Log Message</span>
+    </h3>
+</doc-anchor-target>
+<p>The following keys are discovered from the <code v-pre>END</code> message:</p>
+<ul>
+<li><code v-pre>@type</code>: is always <code v-pre>END</code></li>
+<li><code v-pre>@requestId</code>: the request ID of the Lambda invocation</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json"> END RequestId: d5d410e5-7406-5a1b-888e-4aa7492a313d
+
+{
+  @type: &quot;END&quot;,
+  @requestId: &quot;d5d410e5-7406-5a1b-888e-4aa7492a313d&quot;,
+} </code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="report-log-message">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#report-log-message">#</doc-anchor-trigger>
+        <span><code v-pre>REPORT</code> Log Message</span>
+    </h3>
+</doc-anchor-target>
+<p>The following keys are discovered from the <code v-pre>REPORT</code> message:</p>
+<ul>
+<li><code v-pre>@type</code>: is always <code v-pre>REPORT</code></li>
+<li><code v-pre>@requestId</code>: the request ID of the Lambda invocation</li>
+<li><code v-pre>@duration</code>: the duration in milliseconds</li>
+<li><code v-pre>@billedDuration</code>: the billed duration in milliseconds</li>
+<li><code v-pre>@memorySize</code>: the total memory available to the invocation, in MB</li>
+<li><code v-pre>@maxMemoryUsed</code>: the max memory used, in MB</li>
+<li><code v-pre>@initDuration</code>: the duration of the lambda initialisation in milliseconds (cold starts)</li>
+</ul>
+<p>If the Lambda function is instrumented with XRAY, additional keys are discovered:</p>
+<ul>
+<li><code v-pre>@xRAYTraceId</code>: the XRAY trace ID</li>
+<li><code v-pre>@segmentId</code>: the XRAY segment ID</li>
+<li><code v-pre>@sampled</code>: always <code v-pre>true</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">REPORT RequestId: 8fc6f963-411b-58b5-8483-a32130c0f45d Duration: 201.67 ms Billed Duration: 202 ms Memory Size: 2048 MB Max Memory Used: 81 MB Init Duration: 480.25 ms XRAY TraceId: 1-61c86fa4-59b3c6d959653c527fd10966 SegmentId: 107ea78a5750a811 Sampled: true
+
+{
+  @type: &quot;REPORT&quot;,
+  @requestId: &quot;8fc6f963-411b-58b5-8483-a32130c0f45d&quot;,
+  @duration: 201.67,
+  @billedDuration: 202,
+  @memorySize: 2048,
+  @maxMemoryUsed: 81,
+  @initDuration: 480.25,
+  @xRAYTraceId: &quot;1-61c86fa4-59b3c6d959653c527fd10966&quot;,
+  @segmentId: &quot;107ea78a5750a811&quot;,
+  @sampled: true
+} </code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="timeout-invocations">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#timeout-invocations">#</doc-anchor-trigger>
+        <span>Timeout Invocations</span>
+    </h3>
+</doc-anchor-target>
+<p>If your async Lambda invocation times out, Additional keys are automatically discovered:</p>
+<ul>
+<li><code v-pre>@timedOut</code>: always <code v-pre>true</code></li>
+<li><code v-pre>@timeout</code>: the duration after which the invocation timed-out in seconds</li>
+<li><code v-pre>@message</code>: always <code v-pre>Task timed out after {@timeout} seconds</code></li>
+<li><code v-pre>@timestamp</code>: the timestamp at the moment the invocation timed out.</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json"> 2021-12-26T13:15:48.760Z 5b252591-51c6-5d15-87a9-7fd33ce32be4 Task timed out after 15.01 seconds
+
+{
+  @timestamp: &quot;2021-12-26T13:15:48.760Z&quot;,
+  @requestId: &quot;5b252591-51c6-5d15-87a9-7fd33ce32be4&quot;,
+  @timedOut: true,
+  @message: &quot;Task timed out after 15.01 seconds&quot;,
+  @timeout: 15.01
+} </code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="consolelog-log-message">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#consolelog-log-message">#</doc-anchor-trigger>
+        <span><code v-pre>console.log</code> Log Message</span>
+    </h3>
+</doc-anchor-target>
+<p>We recommend writing directly to <code v-pre>stdout</code> and <code v-pre>stderr</code> from your Lambda functions. For Node.js environments, AWS Lambda uses a modified version of <code v-pre>console.log</code> (and other <code v-pre>console</code> logging functions) to write to <code v-pre>stdout</code> and <code v-pre>stderr</code>. These add fields to the log message which are parsed in discovered keys.</p>
+<ul>
+<li><code v-pre>@timestamp</code>: the timestamp at the moment the log message was written</li>
+<li><code v-pre>@requestId</code>: the request ID of the Lambda invocation</li>
+<li><code v-pre>LogLevel</code>: the log level (<code v-pre>INFO</code>, <code v-pre>DEBUG</code>, <code v-pre>WARN</code>, <code v-pre>ERROR</code>)</li>
+<li><code v-pre>@message</code>: the message.</li>
+</ul>
+<div class="flex mb-6">
+    <div class="flex-shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3">
+<p>If the message in <code v-pre>@message</code> is a JSON object, Baselime will parse it, otherwise it will be considered a <code v-pre>string</code>.</p>
+        </div>
+    </div>
+</div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json"> 2021-12-26T14:00:19.258Z e578aebe-054e-4844-835c-66a75d3112cf ERROR Error doing something.
+
+{
+  @timestamp: &quot;2021-12-26T14:00:19.258Z&quot;,
+  @requestId: &quot;e578aebe-054e-4844-835c-66a75d3112cf&quot;,
+  LogLevel: &quot;ERROR&quot;,
+  @message: &quot;Error doing something.&quot;
+} </code></pre>
 </doc-codeblock></div>
 
 
@@ -272,7 +366,7 @@ queries:
             </div>
 
             <div class="flex flex-wrap items-center justify-between mt-14">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/getting-started/queries.md" target="_blank" rel="noopener">
+    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/advanced/discovered-keys.md" target="_blank" rel="noopener">
         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         <span>Edit on GitHub</span>
     </a>
@@ -282,20 +376,20 @@ queries:
 
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/getting-started/instrumentation/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/advanced/auth-keys/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Instrument your Code</span>
+                <span class="block mt-1">API Keys</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/getting-started/concepts/">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/advanced/materialized-keys/">
             <span>
                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Baselime Concepts</span>
+                <span class="block mt-1">Materialized Keys</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
@@ -343,7 +437,7 @@ queries:
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Queries, Alerts and Dashbaords", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Discovered Keys", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
         <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     </body>
 </html>

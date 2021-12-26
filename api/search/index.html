@@ -6,21 +6,21 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>Queries, Alerts and Dashboards | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Queries, Alerts and Dashboards | Baselime - Observability for Serverless">
-    <meta name="description" content="You can defined queries and alerts in the Baselime UI but this section is a quick start on how to defined them with the Baselime CLI." />
+    <title>Search API | Baselime - Observability for Serverless</title>
+    <meta name="title" content="Search API | Baselime - Observability for Serverless">
+    <meta name="description" content="The search API is used to search through your events on Baselime." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.baselime.io/getting-started/queries/">
-    <meta property="og:title" content="Queries, Alerts and Dashboards | Baselime - Observability for Serverless">
-    <meta property="og:description" content="You can defined queries and alerts in the Baselime UI but this section is a quick start on how to defined them with the Baselime CLI.">
+    <meta property="og:url" content="https://docs.baselime.io/api/search/">
+    <meta property="og:title" content="Search API | Baselime - Observability for Serverless">
+    <meta property="og:description" content="The search API is used to search through your events on Baselime.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.baselime.io/getting-started/queries/">
-    <meta property="twitter:title" content="Queries, Alerts and Dashboards | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="You can defined queries and alerts in the Baselime UI but this section is a quick start on how to defined them with the Baselime CLI.">
+    <meta property="twitter:url" content="https://docs.baselime.io/api/search/">
+    <meta property="twitter:title" content="Search API | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="The search API is used to search through your events on Baselime.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -200,68 +200,123 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="queries-alerts-and-dashboards" class="break-words">
+<doc-anchor-target id="search-api" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#queries-alerts-and-dashboards">#</doc-anchor-trigger>
-        <span>Queries, Alerts and Dashboards</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#search-api">#</doc-anchor-trigger>
+        <span>Search API</span>
     </h1>
 </doc-anchor-target>
+<p>The search API is used to search through your events on Baselime.</p>
+<p>Searching for a terms in your events on Baselime is asynchronous. You submit a search request, and the API responds with a receipt. You can subsequently poll the search API to retrieve the search result.</p>
 <hr />
-<p>You can defined queries and alerts in the <a href="https://baselime.io">Baselime UI</a> but this section is a quick start on how to defined them with the Baselime CLI.</p>
-<p>Baselime supports Observability as Code: defining your observability configurations as code, rather than clicking around in a web UI. The entire platform is driven by YAML files that you can track in your version control.</p>
-<p>Create a <code v-pre>.baselime.yml</code> file in the root of your project folder, and use it to define queries, alerts and dashboards.</p>
-<p>You can use the CLI to apply your observability configurations.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime apply</code></pre>
-</doc-codeblock></div>
-<p>All queries, alerts and dashboards created in the web UI can be exported as YAML files.</p>
-<hr />
-<doc-anchor-target id="queries">
+<doc-anchor-target id="important-considerations">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#queries">#</doc-anchor-trigger>
-        <span>Queries</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#important-considerations">#</doc-anchor-trigger>
+        <span>Important Considerations</span>
     </h2>
 </doc-anchor-target>
-<p>This is a sample query which retrieves <code v-pre>error.code</code>, <code v-pre>status</code> and <code v-pre>message</code> from three namespaces (<code v-pre>my-function-name-1</code>, <code v-pre>my-function-name-2</code> and <code v-pre>my-sns-topic-1</code>) and events matching a set of filters and grouped by <code v-pre>status</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title">.baselime.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.0.1
-application: Sample Application
-description: Sample Description
-
-queries:
-  - name: Sample Query
-    namespaces:
-      - type: lambda
-        value: my-function-name-1
-      - type: lambda
-        value: my-function-name-2
-      - type: sns
-        value: my-sns-topic-1
-    fields:
-      - type: string
-        key: &quot;error.code&quot;
-      - type: number
-        key: &quot;status&quot;
-      - type: string
-        key: &quot;message&quot;
-    filters:
-      - key: &quot;error.code&quot;
-        type: string
-        operation: &quot;=&quot;
-        value: &quot;ValidationException&quot;
-      - key: &quot;@billedDuration&quot;
-        type: number
-        operation: &quot;&gt;&quot;
-        formula:
-          - value: 2
-          - type: operator
-            value: &quot;*&quot;
-          - type: key
-            value: &quot;@initDuration&quot;
-    groupBy:
-      - type: string
-        key: &quot;status&quot;</code></pre>
+<ul>
+<li>Search results cannot exceed 6MB in size. Pagination is available for search requests that exceed 6MB in size.</li>
+<li>Search results cannot take more than 10 seconds to run.</li>
+<li>Creating a search request is rate limited at 10 requests per minute per workspace.</li>
+</ul>
+<hr />
+<doc-anchor-target id="create-search">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#create-search">#</doc-anchor-trigger>
+        <span>Create Search</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="request">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request">#</doc-anchor-trigger>
+        <span>Request</span>
+    </h3>
+</doc-anchor-target>
+<p>The payload to create a search should follow the specs below.</p>
+<ul>
+<li><code v-pre>term</code>: the term to search through the events</li>
+<li><code v-pre>namespaces</code>: a list of namespaces to search across. Each namespace must contain a <code v-pre>type</code> and a <code v-pre>value</code>.</li>
+<li><code v-pre>from</code>: the datetime UNIX timestamp (with milliseconds) of the start time of the search</li>
+<li><code v-pre>to</code>: the datetime UNIX timestamp (with milliseconds) of the end time of the search</li>
+<li><code v-pre>limit</code> [optional]: the maximum number of search results</li>
+<li><code v-pre>offset</code> [optional]: the number of search results to skip</li>
+</ul>
+<p>Sample request:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://go.baselime.io/v1/search -X POST  \
+    -H &quot;Authorization: YOUR_API_KEY&quot;  \
+    -d '
+{
+  &quot;term&quot;: &quot;error&quot;,
+  &quot;namespaces&quot;: [
+    {
+      &quot;type&quot;: &quot;lambda&quot;,
+      &quot;value&quot;: &quot;prod-user-login&quot;
+    }
+  ],
+  &quot;from&quot;: 1640404332438,
+  &quot;to&quot;: 1640407932438,
+  &quot;limit&quot;: 120
+}
+'</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sample-response">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-response">#</doc-anchor-trigger>
+        <span>Sample Response</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;search&quot;: {
+    &quot;id&quot;: &quot;TfcBkYdh&quot;,
+  }
+}</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="get-search">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#get-search">#</doc-anchor-trigger>
+        <span>Get Search</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="request-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request-1">#</doc-anchor-trigger>
+        <span>Request</span>
+    </h3>
+</doc-anchor-target>
+<p>To retrieve a query run, send a <code v-pre>GET</code> request to <code v-pre>/v1/search/&lt;search_id&gt;</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://go.baselime.io/v1/search/&lt;search_id&gt; -X GET  \
+    -H &quot;Authorization: YOUR_API_KEY&quot;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="sample-response-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-response-1">#</doc-anchor-trigger>
+        <span>Sample Response</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;search&quot;: {
+    &quot;id&quot;: &quot;TfcBkYdh&quot;,
+    &quot;term&quot;: &quot;error&quot;,
+    &quot;namespaces&quot;: [
+      {
+        &quot;type&quot;: &quot;lambda&quot;,
+        &quot;value&quot;: &quot;prod-user-login&quot;
+      }
+    ],
+    &quot;from&quot;: 1640404332438,
+    &quot;to&quot;: 1640407932438,
+    &quot;limit&quot;: 120
+  },
+  &quot;data&quot;: [
+    ... search results ...
+  ]
+}</code></pre>
 </doc-codeblock></div>
 
 
@@ -272,7 +327,7 @@ queries:
             </div>
 
             <div class="flex flex-wrap items-center justify-between mt-14">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/getting-started/queries.md" target="_blank" rel="noopener">
+    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/api/search.md" target="_blank" rel="noopener">
         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         <span>Edit on GitHub</span>
     </a>
@@ -282,20 +337,20 @@ queries:
 
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/getting-started/instrumentation/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/api/materialized-keys/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Instrument your Code</span>
+                <span class="block mt-1">Materialized Keys API</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/getting-started/concepts/">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/integrations/overview/">
             <span>
                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Baselime Concepts</span>
+                <span class="block mt-1">Integrations Overview</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
@@ -343,7 +398,7 @@ queries:
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Queries, Alerts and Dashbaords", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Search API", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
         <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     </body>
 </html>
