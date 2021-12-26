@@ -36,7 +36,12 @@ curl https://go.baselime.io/v1/queries -X POST  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
 {
-  "namespaces": ["prod-user-login"],
+  "namespaces": [
+    {
+      "type": "lambda",
+      "value": "prod-user-login"
+    }
+  ],
   "calculations": [{ "operator": "MAX" , "key": "@billedDuration", "type": "number"}],
   "filters": [
     {"key": "@duration", "operation": ">", "value": "200"},
@@ -80,7 +85,12 @@ curl https://go.baselime.io/v1/queries/<query_id> -X GET  \
 {
   "query": {
     "id": "abcdefgh",
-    "namespaces": ["prod-user-login"],
+    "namespaces": [
+      {
+        "type": "lambda",
+        "value": "prod-user-login"
+      }
+    ],
     "calculations": [{ "operator": "MAX" , "key": "@billedDuration", "type": "number"}],
     "filters": [
       {"key": "@duration", "operation": ">", "value": "200"},
@@ -111,7 +121,16 @@ curl https://go.baselime.io/v1/queries/<query_id> -X PUT  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
 {
-  "namespaces": ["prod-user-login", "prod-user-signup"],
+  "namespaces": [
+    {
+      "type": "lambda",
+      "value": "prod-user-login"
+    },
+    {
+      "type": "lambda",
+      "value": "prod-user-signup"
+    }
+  ],
   "filter_combination": "AND",
   "name": "Updated sample query",
 }
@@ -124,7 +143,16 @@ curl https://go.baselime.io/v1/queries/<query_id> -X PUT  \
 {
   "query": {
     "id": "abcdefgh",
-    "namespaces": ["prod-user-login", "prod-user-signup"],
+    "namespaces": [
+      {
+        "type": "lambda",
+        "value": "prod-user-login"
+      },
+      {
+        "type": "lambda",
+        "value": "prod-user-signup"
+      }
+    ],
     "calculations": [{ "operator": "MAX" , "key": "@billedDuration", "type": "number"}],
     "filters": [
       {"key": "@duration", "operation": ">", "value": "200"},
@@ -185,7 +213,16 @@ curl https://go.baselime.io/v1/queries -X GET  \
   "queries": [
     {
       "id": "abcdefgh",
-      "namespaces": ["prod-user-login", "prod-user-signup"],
+      "namespaces": [
+        {
+          "type": "lambda",
+          "value": "prod-user-login"
+        },
+        {
+          "type": "lambda",
+          "value": "prod-user-signup"
+        }
+      ],
       "calculations": [{ "operator": "MAX" , "key": "@billedDuration", "type": "number"}],
       "filters": [
         {"key": "@duration", "operation": ">", "value": "200"},
