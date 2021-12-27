@@ -26,6 +26,10 @@ baselime [options] <command> <subcommand> [parameters]
 
 ## CLI Refernce
 
+[!ref apply](./reference/apply.md)
 [!ref auth](./reference/auth.md)
 [!ref aws](./reference/aws.md)
+[!ref init](./reference/init.md)
+[!ref keys](./reference/keys.md)
+[!ref query-run](./reference/query-run.md)
 
