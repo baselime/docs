@@ -60,7 +60,7 @@ We've open-sourced the CloudFormation template [here](../extending/integration.m
 You can generate and download this template through the [Baselime Web UI](https://baselime.io) or with the CLI:
 
 ```bash #
-baselime integration create-template \
+baselime aws create-template \
   --account <AWS_ACCOUNT_ID> \
   --region <AWS_REGION> \
   --alias <INTEGRATION_ALIAS>
@@ -99,6 +99,8 @@ The power of Baselime is in it's query engine.
 
 You can create queries in the [Baselime UI](https://baselime.io) or using the CLI.
 
+### Query in the Web UI
+
 In the UI:
 1. Navigate to `Queries` in the left navigation bar. Click on `New Query`.
 2. Select a timeframe. By default it's the past hour.
@@ -111,7 +113,69 @@ Now you should you see all the data gathered from your Lambda functions matching
 
 You can save the query and share it with your team.
 
-Please refer to [this section](TODO) for how to created Queries with the CLI.
+### Query with the CLI
+
+In root of your project folder, initialise a new Baselime file.
+
+```bash #
+baselime init
+```
+
+This will create a `.baselime.yml` file.
+
+```yaml # .baselime.yml
+version: 0.0.0.1
+
+application: Sample Application
+description: Sample Description
+```
+
+Add a query to your `.baselime.yml` file.
+
+```yaml # .baselime.yml
+version: 0.0.0.1
+
+application: Sample Application
+description: Sample Description
+
+queries:
+  - ref: test-query
+    name: A Test Query
+    namespaces:
+      - type: lambda
+        value: <lambda_function_name>
+    calculations:
+      - operator: COUNT
+    filters:
+      - key: "error.code"
+        type: string
+        operation: "="
+        value: "ValidationException"
+    groupBy:
+      - type: string
+        key: "status"
+```
+
+Apply the changes to the `.baselime.yml` file to Baselime
+
+```bash #
+baselime apply
+
+# Outputs
+# Created queries:
+#   - test-query: <created_query_id>
+```
+
+To visualise the results of the query run in the Web UI:
+
+``` bash #
+baselime query-run <created_query_id> \
+  --from <start_time_unix_in_ms> \
+  --to <end_time_unix_in_ms> \
+  --ui
+```
+
+This command will open the Baselime Web UI with the results for the given query run.
 
 ---
 
@@ -122,5 +186,3 @@ After the previous steps, Baselime collects logs and metrics from your Lambda fu
 Wide structured events is data your Lambda functions will emit with each invocation. Each event contains the context of the invocation, plus any additional field you add to it at runtime.
 
 Baselime support [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.
-
-Moreover, you haven't experiences the power of Observability as Code yet.
