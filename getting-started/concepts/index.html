@@ -25,11 +25,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.693847397091" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.693921019496" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693847397091" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693921019496" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693847397091" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693921019496" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -221,7 +221,10 @@
         <span>Telemetry Data</span>
     </h2>
 </doc-anchor-target>
-<p>In order to improve the observability of your serverless systems, your systems need to emit telemtry data in the form of wide structured events. Baselime ingests those events from your appliations and allows you to interact with it through its various clients in near-real-time.</p>
+<p>Once you onboard on Baselime, Baselime will start to automatically collect logs, metrics and various other data types from your serverless applications.</p>
+<p>In order to improve the observability of your serverless systems, your systems need to emit telemetry data in the form of spans and traces.</p>
+<p>Spans are data describing an event which happenned in your systems, the context in which it hapenned and any additional attribute around the event. The combination of related spans are a trace. Spans and traces allow you to investigate and resolve issues more efficiently than with logs and metrics.</p>
+<p>Baselime ingests those events from your appliations and allows you to interact with them through its various clients in near-real-time.</p>
 <p>Once the telemetry data is ingested, you can run complex queries on your data, filtering across any dimension or formula, grouping and aggregating as you please. This allows you to interrogate your systems at a fine level and isolate a single user, a single service or a single transaction; or query across multiple dimensions to get a higher level overview.</p>
 <hr />
 <doc-anchor-target id="observability-as-code">
@@ -233,6 +236,15 @@
 <p>Observability as Code adapts the principles of Infrastructure as Code to observabiity configurations. Dashboards, queries, alerts and everything else are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.</p>
 <p>Baselime helps teams adopt the best practices from software engineering to collaborate and iterate on observability configurations.</p>
 <p>With Observability as Code, start treating observability as a first class citizen of the software development life cycle, rather than an after-thought.</p>
+<hr />
+<doc-anchor-target id="debug-and-test-in-prod">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#debug-and-test-in-prod">#</doc-anchor-trigger>
+        <span>Debug and Test in Prod</span>
+    </h2>
+</doc-anchor-target>
+<p>Baselime collects telemetry data from your applications in prod. It correlates logs, metrics, traces and all the events your systems emit.</p>
+<p>This allows your team to investigate and resolve incidents without relying on adding additional log messages when there&#x27;s an outage. You can search through requests, events payloads, database requests, etc... across your serverless applications.</p>
 
 
 

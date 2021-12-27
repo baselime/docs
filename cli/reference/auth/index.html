@@ -6,21 +6,21 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>Roles and Permissions | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Roles and Permissions | Baselime - Observability for Serverless">
-    <meta name="description" content="Baselime empowers software engineering teams to gain a deeper understanding of their serverless infrastructure." />
+    <title>auth | Baselime - Observability for Serverless</title>
+    <meta name="title" content="auth | Baselime - Observability for Serverless">
+    <meta name="description" content="The auth command logs a user into the Baselime dashboard." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.baselime.io/security/roles/">
-    <meta property="og:title" content="Roles and Permissions | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Baselime empowers software engineering teams to gain a deeper understanding of their serverless infrastructure.">
+    <meta property="og:url" content="https://docs.baselime.io/cli/reference/auth/">
+    <meta property="og:title" content="auth | Baselime - Observability for Serverless">
+    <meta property="og:description" content="The auth command logs a user into the Baselime dashboard.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.baselime.io/security/roles/">
-    <meta property="twitter:title" content="Roles and Permissions | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Baselime empowers software engineering teams to gain a deeper understanding of their serverless infrastructure.">
+    <meta property="twitter:url" content="https://docs.baselime.io/cli/reference/auth/">
+    <meta property="twitter:title" content="auth | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="The auth command logs a user into the Baselime dashboard.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -30,6 +30,7 @@
     <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693921019496" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
     <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693921019496" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.693921019496" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -199,37 +200,18 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="roles-and-permissions" class="break-words">
+<doc-anchor-target id="auth" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#roles-and-permissions">#</doc-anchor-trigger>
-        <span>Roles and Permissions</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#auth">#</doc-anchor-trigger>
+        <span>auth</span>
     </h1>
 </doc-anchor-target>
 <hr />
-<p>Baselime empowers <strong>software engineering teams</strong> to gain a deeper understanding of their serverless infrastructure. Team members can collaborate on Baselime, share knowledge and break down silos. We achieve this with the help of user roles.</p>
-<p>There are 4 types of user roles in Baselime workspaces, with different permissions.</p>
-<doc-tabs>
-<doc-tab id="owner">
-<template #title>Owner</template>
-<p>Workspace owners control billing and all destructive actions on the workspace.</p>
-<p>Each workspace can have a single owner, typically the person who created the workspace.</p>
-<p>Workspace owner permissions can be transferred.</p>
-</doc-tab>
-<doc-tab id="admin">
-<template #title>Admin</template>
-<p>Workspace admins control billing and all destructive actions on items within the workspace, but cannot delete the workspace itself.</p>
-<p>It&#x27;s possible to have multiple workspace admins within a workspace.</p>
-</doc-tab>
-<doc-tab id="collaborator">
-<template #title>Collaborator</template>
-<p>Collaborators are the default role.</p>
-<p>They can perform all actions on Baselime, with the exception of destructive actions on private items of other users.</p>
-</doc-tab>
-<doc-tab id="guest">
-<template #title>Guest</template>
-<p>Guests have read-only access to data within Baselime.</p>
-</doc-tab>
-</doc-tabs>
+<p>The <code v-pre>auth</code> command logs a user into the Baselime dashboard.</p>
+<p>It will create a new Baselime account if one doesn&#x27;t already exist.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">baselime auth</code></pre>
+</doc-codeblock></div>
 
 
 
@@ -239,7 +221,7 @@
             </div>
 
             <div class="flex flex-wrap items-center justify-between mt-14">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/security/roles.md" target="_blank" rel="noopener">
+    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/cli/reference/auth.md" target="_blank" rel="noopener">
         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         <span>Edit on GitHub</span>
     </a>
@@ -249,20 +231,20 @@
 
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/security/overview/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/cli/reference/apply/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Security Overview</span>
+                <span class="block mt-1">apply</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/security/privacy/">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/cli/reference/aws/">
             <span>
                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Data Privacy</span>
+                <span class="block mt-1">aws</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
@@ -310,7 +292,7 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Roles and Permissions", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "auth", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
         <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     </body>
 </html>

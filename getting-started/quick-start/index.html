@@ -25,12 +25,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.693847397091" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.693921019496" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693847397091" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693921019496" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693847397091" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.693847397091" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693921019496" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.693921019496" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -262,7 +262,7 @@
 <p>We&#x27;ve open-sourced the CloudFormation template <a href="../extending/integration.md">here</a>.</p>
 <p>You can generate and download this template through the <a href="https://baselime.io">Baselime Web UI</a> or with the CLI:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime integration create-template \
+<pre class="language-bash"><code v-pre class="language-bash">baselime aws create-template \
   --account &lt;AWS_ACCOUNT_ID&gt; \
   --region &lt;AWS_REGION&gt; \
   --alias &lt;INTEGRATION_ALIAS&gt;</code></pre>
@@ -334,6 +334,12 @@
 </doc-anchor-target>
 <p>The power of Baselime is in it&#x27;s query engine.</p>
 <p>You can create queries in the <a href="https://baselime.io">Baselime UI</a> or using the CLI.</p>
+<doc-anchor-target id="query-in-the-web-ui">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#query-in-the-web-ui">#</doc-anchor-trigger>
+        <span>Query in the Web UI</span>
+    </h3>
+</doc-anchor-target>
 <p>In the UI:</p>
 <ol>
 <li>Navigate to <code v-pre>Queries</code> in the left navigation bar. Click on <code v-pre>New Query</code>.</li>
@@ -345,7 +351,72 @@
 </ol>
 <p>Now you should you see all the data gathered from your Lambda functions matching the criteria of your query.</p>
 <p>You can save the query and share it with your team.</p>
-<p>Please refer to <a href="TODO">this section</a> for how to created Queries with the CLI.</p>
+<doc-anchor-target id="query-with-the-cli">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#query-with-the-cli">#</doc-anchor-trigger>
+        <span>Query with the CLI</span>
+    </h3>
+</doc-anchor-target>
+<p>In root of your project folder, initialise a new Baselime file.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">baselime init</code></pre>
+</doc-codeblock></div>
+<p>This will create a <code v-pre>.baselime.yml</code> file.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">.baselime.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.0.1
+
+application: sample-application
+description: Sample Description</code></pre>
+</doc-codeblock></div>
+<p>Add a query to your <code v-pre>.baselime.yml</code> file.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">.baselime.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.0.1
+
+application: sample-application
+description: Sample Description
+
+queries:
+  - ref: test-query
+    name: A Test Query
+    namespaces:
+      - type: lambda
+        value: &lt;lambda_function_name&gt;
+    calculations:
+      - operator: COUNT
+    filters:
+      - key: &quot;error.code&quot;
+        type: string
+        operation: &quot;=&quot;
+        value: &quot;ValidationException&quot;
+    groupBy:
+      - type: string
+        key: &quot;status&quot;</code></pre>
+</doc-codeblock></div>
+<p>Apply the changes to the <code v-pre>.baselime.yml</code> file to Baselime</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">baselime apply
+
+# Outputs
+# Created queries:
+#   - test-query: &lt;created_query_id&gt;</code></pre>
+</doc-codeblock></div>
+<p>To visualise the results of the query run in the Web UI:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">baselime query-run &lt;created_query_id&gt; \
+  --from &lt;start_time_unix_in_ms&gt; \
+  --to &lt;end_time_unix_in_ms&gt; \
+  --ui</code></pre>
+</doc-codeblock></div>
+<p>This command will open the Baselime Web UI with the results for the given query run.</p>
+<p>To save the query results in a file instead:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">baselime query-run &lt;created_query_id&gt; \
+  --from &lt;start_time_unix_in_ms&gt; \
+  --to &lt;end_time_unix_in_ms&gt; \
+  &gt;&gt; data.json</code></pre>
+</doc-codeblock></div>
 <hr />
 <doc-anchor-target id="next-steps">
     <h2>
@@ -353,10 +424,8 @@
         <span>Next Steps</span>
     </h2>
 </doc-anchor-target>
-<p>After the previous steps, Baselime collects logs and metrics from your Lambda functions. This is a good start, but it can be improved with wide structured events and traces.</p>
-<p>Wide structured events is data your Lambda functions will emit with each invocation. Each event contains the context of the invocation, plus any additional field you add to it at runtime.</p>
+<p>After the previous steps, Baselime collects logs and metrics from your Lambda functions. This is a good start, but it can be improved with traces.</p>
 <p>Baselime support <a href="https://opentelemetry.io/">OpenTelemetry</a> to instrument your Lambda functions.</p>
-<p>Moreover, you haven&#x27;t experiences the power of Observability as Code yet.</p>
 
 
 

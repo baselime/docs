@@ -8,29 +8,29 @@
     <!-- Primary Meta Tags -->
     <title>Queries, Alerts and Dashboards | Baselime - Observability for Serverless</title>
     <meta name="title" content="Queries, Alerts and Dashboards | Baselime - Observability for Serverless">
-    <meta name="description" content="You can defined queries and alerts in the Baselime UI but this section is a quick start on how to defined them with the Baselime CLI." />
+    <meta name="description" content="This section is a quick start on how to defined them with the Baselime CLI." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/getting-started/queries/">
     <meta property="og:title" content="Queries, Alerts and Dashboards | Baselime - Observability for Serverless">
-    <meta property="og:description" content="You can defined queries and alerts in the Baselime UI but this section is a quick start on how to defined them with the Baselime CLI.">
+    <meta property="og:description" content="This section is a quick start on how to defined them with the Baselime CLI.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/getting-started/queries/">
     <meta property="twitter:title" content="Queries, Alerts and Dashboards | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="You can defined queries and alerts in the Baselime UI but this section is a quick start on how to defined them with the Baselime CLI.">
+    <meta property="twitter:description" content="This section is a quick start on how to defined them with the Baselime CLI.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.693847397091" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.693921019496" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693847397091" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.693921019496" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693847397091" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.693847397091" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.693921019496" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.693921019496" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -207,9 +207,12 @@
     </h1>
 </doc-anchor-target>
 <hr />
-<p>You can defined queries and alerts in the <a href="https://baselime.io">Baselime UI</a> but this section is a quick start on how to defined them with the Baselime CLI.</p>
-<p>Baselime supports Observability as Code: defining your observability configurations as code, rather than clicking around in a web UI. The entire platform is driven by YAML files that you can track in your version control.</p>
+<p>This section is a quick start on how to defined them with the Baselime CLI.</p>
+<p>Baselime supports Observability as Code: defining your observability configurations as code, rather than clicking in a web UI. The entire platform is driven by YAML files that you can track in your version control.</p>
 <p>Create a <code v-pre>.baselime.yml</code> file in the root of your project folder, and use it to define queries, alerts and dashboards.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">baselime init</code></pre>
+</doc-codeblock></div>
 <p>You can use the CLI to apply your observability configurations.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-bash"><code v-pre class="language-bash">baselime apply</code></pre>
@@ -222,29 +225,29 @@
         <span>Queries</span>
     </h2>
 </doc-anchor-target>
-<p>This is a sample query which retrieves <code v-pre>error.code</code>, <code v-pre>status</code> and <code v-pre>message</code> from three namespaces (<code v-pre>my-function-name-1</code>, <code v-pre>my-function-name-2</code> and <code v-pre>my-sns-topic-1</code>) and events matching a set of filters and grouped by <code v-pre>status</code>.</p>
+<p>This is a sample query which returns the maximum <code v-pre>@duration</code> from three namespaces (<code v-pre>my-function-name-1</code>, <code v-pre>my-function-name-2</code> and <code v-pre>my-sns-topic-1</code>)  for events matching a set of filters and grouped by <code v-pre>status</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title">.baselime.yml</div>
 <pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.0.1
-application: Sample Application
+
+application: sample-application
 description: Sample Description
 
 queries:
-  - name: Sample Query
+  - ref: sample-query
+    name: Sample Query
+    description: Sample query description
     namespaces:
       - type: lambda
-        value: my-function-name-1
+        value: &quot;my-function-name-1&quot;
       - type: lambda
-        value: my-function-name-2
+        value: &quot;my-function-name-2&quot;
       - type: sns
-        value: my-sns-topic-1
-    fields:
-      - type: string
-        key: &quot;error.code&quot;
+        value: &quot;my-sns-topic-1&quot;
+    calcultations:
+      - operator: MAX
+      - key: &quot;@duration&quot;
       - type: number
-        key: &quot;status&quot;
-      - type: string
-        key: &quot;message&quot;
     filters:
       - key: &quot;error.code&quot;
         type: string
@@ -253,16 +256,55 @@ queries:
       - key: &quot;@billedDuration&quot;
         type: number
         operation: &quot;&gt;&quot;
-        formula:
-          - value: 2
-          - type: operator
-            value: &quot;*&quot;
-          - type: key
-            value: &quot;@initDuration&quot;
+        value:
+          key: &quot;@initDuration&quot;
+          type: &quot;number&quot;
     groupBy:
       - type: string
         key: &quot;status&quot;</code></pre>
 </doc-codeblock></div>
+<hr />
+<doc-anchor-target id="alerts">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#alerts">#</doc-anchor-trigger>
+        <span>Alerts</span>
+    </h2>
+</doc-anchor-target>
+<p>You can now create an alert based on the previous query. Reference the query ID with the <code v-pre>!ref</code> function.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">.baselime.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.0.1
+
+application: sample-application
+description: Sample Description
+
+queries:
+  - ref: sample-query
+    # ... query parameters ... #
+
+alerts:
+  - ref: sample-alert
+    name: Sample alert
+    description: Sample alert description
+    query: !ref sample-query
+    threshold:
+      operator: &quot;&gt;&quot;
+      value: 5
+    frequency: 3600
+    destinations:
+      - type: email
+        target: test@acme.com
+      - type: slack
+        target: &quot;#devs&quot; </code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="dashboards">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dashboards">#</doc-anchor-trigger>
+        <span>Dashboards</span>
+    </h2>
+</doc-anchor-target>
+<p>Under construction</p>
 
 
 
