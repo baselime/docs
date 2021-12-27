@@ -1,12 +1,9 @@
 ---
-label: Baselime CLI
+label: Install
+order: -1
 ---
 
-# Baselime CLI
-
----
-
-The Baselime CLI allows you to interact with your observability configurations and telemetry data through your command line.
+# Install
 
 ---
 
@@ -31,7 +28,7 @@ The CLI can be installed manually:
 curl -s https://get.baselime.io | bash
 ```
 
-#### Linux
+### Linux
 
 You can download and install the Baselime CLI for your prefered Linux distribution: 
 

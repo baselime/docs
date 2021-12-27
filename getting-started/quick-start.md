@@ -126,7 +126,7 @@ This will create a `.baselime.yml` file.
 ```yaml # .baselime.yml
 version: 0.0.0.1
 
-application: Sample Application
+application: sample-application
 description: Sample Description
 ```
 
@@ -135,7 +135,7 @@ Add a query to your `.baselime.yml` file.
 ```yaml # .baselime.yml
 version: 0.0.0.1
 
-application: Sample Application
+application: sample-application
 description: Sample Description
 
 queries:
@@ -168,7 +168,7 @@ baselime apply
 
 To visualise the results of the query run in the Web UI:
 
-``` bash #
+```bash #
 baselime query-run <created_query_id> \
   --from <start_time_unix_in_ms> \
   --to <end_time_unix_in_ms> \
@@ -179,7 +179,7 @@ This command will open the Baselime Web UI with the results for the given query 
 
 To save the query results in a file instead:
 
-``` bash #
+```bash #
 baselime query-run <created_query_id> \
   --from <start_time_unix_in_ms> \
   --to <end_time_unix_in_ms> \

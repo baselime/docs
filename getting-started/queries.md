@@ -34,7 +34,7 @@ This is a sample query which returns the maximum `@duration` from three namespac
 ```yaml # .baselime.yml
 version: 0.0.0.1
 
-application: Sample Application
+application: sample-application
 description: Sample Description
 
 queries:
@@ -43,11 +43,11 @@ queries:
     description: Sample query description
     namespaces:
       - type: lambda
-        value: my-function-name-1
+        value: "my-function-name-1"
       - type: lambda
-        value: my-function-name-2
+        value: "my-function-name-2"
       - type: sns
-        value: my-sns-topic-1
+        value: "my-sns-topic-1"
     calcultations:
       - operator: MAX
       - key: "@duration"
@@ -77,7 +77,7 @@ You can now create an alert based on the previous query. Reference the query ID 
 ```yaml .baselime.yml
 version: 0.0.0.1
 
-application: Sample Application
+application: sample-application
 description: Sample Description
 
 queries:
