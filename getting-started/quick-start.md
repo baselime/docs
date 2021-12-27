@@ -47,7 +47,7 @@ Follow the onboarding process:
 
 ## Step 3: Connect your AWS Account
 
-In order to ingest data from your serverless systems, Baselime needs to connect to your AWS Account. This is done by running a deploying a CloudFormation template onto your account.
+In order to ingest data from your serverless systems, Baselime needs to connect to your AWS Account. This is done by deploying a CloudFormation template onto your account.
 
 The CloudFormation template will:
 - Create a role with read-only access to your account, plus permission to create a Lambda Function and add permissions to it

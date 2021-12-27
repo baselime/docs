@@ -7,7 +7,7 @@ order: -2
 
 ---
 
-This section is a quick start on how to defined them with the Baselime CLI.
+This section is a quick start on how to define Queries, Alerts and Dashboards with the Baselime CLI.
 
 Baselime supports Observability as Code: defining your observability configurations as code, rather than clicking in a web UI. The entire platform is driven by YAML files that you can track in your version control.
 

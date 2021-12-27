@@ -10,12 +10,12 @@ icon: home
 
 [Baselime](https://baselime.io) is an Observability as Code platform based on OpenTelemetry that allows your team to resolve incidents and performance bottlenecks in your serverless applications.
 
-Baselime currently support serverless services on [AWS](https://aws.amazon.com/).
+Baselime currently supports serverless services on [AWS](https://aws.amazon.com/).
 
 ---
 ## Events, Logs, Metrics and Traces
 
-Your serverless runtimes and infrastructe emit telemetry data in various formats. That's usually the missing context when debugging defects and incidents. Baselime doesn't re-invent the wheel. Baselime gathers data from your serverless applications from:
+Your serverless runtimes and infrastructe emit telemetry data in various formats. That's usually the missing context when debugging defects and incidents. Baselime doesn't re-invent the wheel. It gathers data from your serverless applications from:
 - Direct integration with AWS services through CloudFormation
 - OpenTelemetry to capture runtime traces
 - Logs and Metrics from CloudWatch
@@ -40,7 +40,7 @@ The primary user interface with Baselime is the [Baselime CLI](../docs/cli/insta
 
 ## Queries, Alerts and Dashboard
 
-Query your data, using any of the Baselime clients, to get a deeper understaning of your production systems. Create and share alerts and dashboard based on your the results of your queries.
+Query your data, using any of the Baselime clients, to get a deeper understaning of your production systems. Create and share alerts and dashboard based on the results of your queries.
 
 ---
 
