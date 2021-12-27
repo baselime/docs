@@ -177,12 +177,19 @@ baselime query-run <created_query_id> \
 
 This command will open the Baselime Web UI with the results for the given query run.
 
+To save the query results in a file instead:
+
+``` bash #
+baselime query-run <created_query_id> \
+  --from <start_time_unix_in_ms> \
+  --to <end_time_unix_in_ms> \
+  >> data.json
+```
+
 ---
 
 ## Next Steps
 
-After the previous steps, Baselime collects logs and metrics from your Lambda functions. This is a good start, but it can be improved with wide structured events and traces.
-
-Wide structured events is data your Lambda functions will emit with each invocation. Each event contains the context of the invocation, plus any additional field you add to it at runtime.
+After the previous steps, Baselime collects logs and metrics from your Lambda functions. This is a good start, but it can be improved with traces.
 
 Baselime support [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.

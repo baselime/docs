@@ -56,6 +56,12 @@ Baselime integrates with the tools you already use. From version control platfor
 
 ---
 
+## Made for Developers
+
+Monitoring and observability platforms are usually built with operations professionals as primary users; Baselime puts the developer at the center of the observability efforts of your teams.
+
+---
+
 Get Started in just 4 steps!
 
 ```ts
