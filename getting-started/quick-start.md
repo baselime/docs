@@ -15,7 +15,7 @@ All you need is:
 - Permissions to deploy a [CloudFormation](https://aws.amazon.com/cloudformation/) stack with IAM role.
 - A deployed application leveraging [AWS Lambda](https://aws.amazon.com/lambda/) and other [AWS serverless services](https://aws.amazon.com/serverless/)
 
-If you do not have an application, you can use one of our [example applications](TODO).
+If you do not have an application, you can use one of our [example applications](https://github.com/Baselime/examples).
 
 ---
 
