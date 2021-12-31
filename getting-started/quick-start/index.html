@@ -25,12 +25,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.694038996873" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.694260969136" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.694038996873" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.694260969136" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.694038996873" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.694038996873" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.694260969136" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.694260969136" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -227,14 +227,14 @@
 <pre class="language-bash"><code v-pre class="language-bash">curl -s https://get.baselime.io | sudo bash</code></pre>
 </doc-codeblock></div>
 <hr />
-<doc-anchor-target id="step-2-signup-for-baselime">
+<doc-anchor-target id="step-2-sign-up-for-baselime">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-2-signup-for-baselime">#</doc-anchor-trigger>
-        <span>Step 2: Signup for Baselime</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#step-2-sign-up-for-baselime">#</doc-anchor-trigger>
+        <span>Step 2: Sign up for Baselime</span>
     </h2>
 </doc-anchor-target>
 <p>Baselime has a free usage tier.</p>
-<p>You can signup using the <a href="../../cli/install/">Baselime CLI</a>.</p>
+<p>You can sign up using the <a href="../../cli/install/">Baselime CLI</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-bash"><code v-pre class="language-bash">baselime auth</code></pre>
 </doc-codeblock></div>
@@ -256,7 +256,7 @@
 <ul>
 <li>Create a role with read-only access to your account, plus permission to create a Lambda Function and add permissions to it</li>
 <li>An S3 Bucket, to store usage data</li>
-<li>An SNS Topic, used to signal new data in the aforementionned S3 Bucket</li>
+<li>An SNS Topic, used to signal new data in the aforementioned S3 Bucket</li>
 <li>A CloudTrail Trail, used to register changes to your serverless architecture</li>
 </ul>
 <p>We&#x27;ve open-sourced the CloudFormation template <a href="../extending/integration.md">here</a>.</p>
@@ -343,8 +343,8 @@
 <p>In the UI:</p>
 <ol>
 <li>Navigate to <code v-pre>Queries</code> in the left navigation bar. Click on <code v-pre>New Query</code>.</li>
-<li>Select a timeframe. By default it&#x27;s the past hour.</li>
-<li>Select the namespaces you want to query. These are the Lambda functions in your account and region. By default, queries run accross all namespaces.</li>
+<li>Select a time frame. By default it&#x27;s the past hour.</li>
+<li>Select the namespaces you want to query. These are the Lambda functions in your account and region. By default, queries run across all namespaces.</li>
 <li>Select the fields you want to retrieve, or the function you want to run. <code v-pre>COUNT</code> is a good start.</li>
 <li>Add filters and group-bys to your query.</li>
 <li>Click <code v-pre>Run Query</code></li>

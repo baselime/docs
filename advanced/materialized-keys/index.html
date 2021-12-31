@@ -8,28 +8,28 @@
     <!-- Primary Meta Tags -->
     <title>Materialized Keys | Baselime - Observability for Serverless</title>
     <meta name="title" content="Materialized Keys | Baselime - Observability for Serverless">
-    <meta name="description" content="Materialized keys are the result of calcultations on one or multiple existing keys in your events." />
+    <meta name="description" content="Materialized keys are the result of calculations on one or multiple existing keys in your events." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/advanced/materialized-keys/">
     <meta property="og:title" content="Materialized Keys | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Materialized keys are the result of calcultations on one or multiple existing keys in your events.">
+    <meta property="og:description" content="Materialized keys are the result of calculations on one or multiple existing keys in your events.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/advanced/materialized-keys/">
     <meta property="twitter:title" content="Materialized Keys | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Materialized keys are the result of calcultations on one or multiple existing keys in your events.">
+    <meta property="twitter:description" content="Materialized keys are the result of calculations on one or multiple existing keys in your events.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.694038996873" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.694260969136" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.694038996873" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.694260969136" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.694038996873" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.694260969136" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -205,7 +205,7 @@
         <span>Materialized Keys</span>
     </h1>
 </doc-anchor-target>
-<p>Materialized keys are the result of calcultations on one or multiple existing keys in your events.</p>
+<p>Materialized keys are the result of calculations on one or multiple existing keys in your events.</p>
 <hr />
 <doc-anchor-target id="reference">
     <h2>
@@ -235,7 +235,7 @@
         </div>
     </div>
 </div>
-<p>Examaple <code v-pre>materialized_key</code>: <code v-pre>LESS(PLUS($@duration, $@initDuration), 100)</code>. This will return true for every event where the sum of the <code v-pre>@duration</code> and <code v-pre>@initDuration</code> is less than <code v-pre>100</code>.</p>
+<p>Example <code v-pre>materialized_key</code>: <code v-pre>LESS(PLUS($@duration, $@initDuration), 100)</code>. This will return true for every event where the sum of the <code v-pre>@duration</code> and <code v-pre>@initDuration</code> is less than <code v-pre>100</code>.</p>
 <doc-anchor-target id="list-of-operators">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#list-of-operators">#</doc-anchor-trigger>
@@ -266,7 +266,7 @@
 <li><code v-pre>MIN</code>: minimum</li>
 <li><code v-pre>MAX</code>: maximum</li>
 <li><code v-pre>PLUS</code>: sum</li>
-<li><code v-pre>MINUS</code>: substract</li>
+<li><code v-pre>MINUS</code>: subtract</li>
 <li><code v-pre>MULTIPLY</code>: multiply</li>
 <li><code v-pre>DIVIDE</code>: divide</li>
 <li><code v-pre>MODULO</code>: modulo</li>
