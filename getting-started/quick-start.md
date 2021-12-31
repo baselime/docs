@@ -27,11 +27,11 @@ curl -s https://get.baselime.io | sudo bash
 
 ---
 
-## Step 2: Signup for Baselime
+## Step 2: Sign up for Baselime
 
 Baselime has a free usage tier.
 
-You can signup using the [Baselime CLI](../cli/install.md).
+You can sign up using the [Baselime CLI](../cli/install.md).
 
 ```bash #
 baselime auth
@@ -52,7 +52,7 @@ In order to ingest data from your serverless systems, Baselime needs to connect 
 The CloudFormation template will:
 - Create a role with read-only access to your account, plus permission to create a Lambda Function and add permissions to it
 - An S3 Bucket, to store usage data
-- An SNS Topic, used to signal new data in the aforementionned S3 Bucket
+- An SNS Topic, used to signal new data in the aforementioned S3 Bucket
 - A CloudTrail Trail, used to register changes to your serverless architecture
 
 We've open-sourced the CloudFormation template [here](../extending/integration.md).
@@ -103,8 +103,8 @@ You can create queries in the [Baselime UI](https://baselime.io) or using the CL
 
 In the UI:
 1. Navigate to `Queries` in the left navigation bar. Click on `New Query`.
-2. Select a timeframe. By default it's the past hour.
-3. Select the namespaces you want to query. These are the Lambda functions in your account and region. By default, queries run accross all namespaces.
+2. Select a time frame. By default it's the past hour.
+3. Select the namespaces you want to query. These are the Lambda functions in your account and region. By default, queries run across all namespaces.
 4. Select the fields you want to retrieve, or the function you want to run. `COUNT` is a good start.
 5. Add filters and group-bys to your query.
 6. Click `Run Query`

@@ -15,7 +15,7 @@ Baselime currently supports serverless services on [AWS](https://aws.amazon.com/
 ---
 ## Events, Logs, Metrics and Traces
 
-Your serverless runtimes and infrastructe emit telemetry data in various formats. That's usually the missing context when debugging defects and incidents. Baselime doesn't re-invent the wheel. It gathers data from your serverless applications from:
+Your serverless runtime and infrastructure emit telemetry data in various formats. That's usually the missing context when debugging defects and incidents. Baselime doesn't re-invent the wheel. It gathers data from your serverless applications from:
 - Direct integration with AWS services through CloudFormation
 - OpenTelemetry to capture runtime traces
 - Logs and Metrics from CloudWatch
@@ -24,13 +24,13 @@ Your serverless runtimes and infrastructe emit telemetry data in various formats
 
 ## Baselime Data Storage
 
-Baselime [securely stores](../docs/security/overview.md) your telemetry data per namesapce. A namespace is typically a Lambda function. Namespaces help partition your data and facilitate querying your data.
+Baselime [securely stores](../docs/security/overview.md) your telemetry data per namespace. A namespace is typically a Lambda function. Namespaces help partition your data and facilitate querying your data.
 
 ---
 
 ## Observability as Code
 
-Typically, monitoring and observanility solutions let you define your configurations in web-based user interfaces.
+Typically, monitoring and observability solutions let you define your configurations in web-based user interfaces.
 
 On Baselime, you define your observability configurations in human-readable declarative configuration files. This allows you to create a blueprint that you can version, share and re-use. On Baselime, observability is a first-class citizen of your software development process.
 
@@ -40,7 +40,7 @@ The primary user interface with Baselime is the [Baselime CLI](../docs/cli/insta
 
 ## Queries, Alerts and Dashboard
 
-Query your data, using any of the Baselime clients, to get a deeper understaning of your production systems. Create and share alerts and dashboard based on the results of your queries.
+Query your data, using any of the Baselime clients, to get a deeper understanding of your production systems. Create and share alerts and dashboard based on the results of your queries.
 
 ---
 

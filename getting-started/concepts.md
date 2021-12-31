@@ -23,9 +23,9 @@ Once you onboard on Baselime, Baselime will start to automatically collect logs,
 
 In order to improve the observability of your serverless systems, your systems need to emit telemetry data in the form of spans and traces.
 
-Spans are data describing an event which happenned in your systems, the context in which it hapenned and any additional attribute around the event. The combination of related spans are a trace. Spans and traces allow you to investigate and resolve issues more efficiently than with logs and metrics.   
+Spans are data describing an event which happened in your systems, the context in which it happened and any additional attribute around the event. The combination of related spans are a trace. Spans and traces allow you to investigate and resolve issues more efficiently than with logs and metrics.   
 
-Baselime ingests those events from your appliations and allows you to interact with them through its various clients in near-real-time.
+Baselime ingests those events from your applications and allows you to interact with them through its various clients in near-real-time.
 
 Once the telemetry data is ingested, you can run complex queries on your data, filtering across any dimension or formula, grouping and aggregating as you please. This allows you to interrogate your systems at a fine level and isolate a single user, a single service or a single transaction; or query across multiple dimensions to get a higher level overview.
 
@@ -33,7 +33,7 @@ Once the telemetry data is ingested, you can run complex queries on your data, f
 
 ## Observability as Code
 
-Observability as Code adapts the principles of Infrastructure as Code to observabiity configurations. Dashboards, queries, alerts and everything else are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.
+Observability as Code adapts the principles of Infrastructure as Code to observability configurations. Dashboards, queries, alerts and everything else are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.
 
 Baselime helps teams adopt the best practices from software engineering to collaborate and iterate on observability configurations.
 

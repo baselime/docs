@@ -24,7 +24,7 @@ baselime query-run <query_id>\
 - `--to`: the datetime UNIX timestamp (with milliseconds) of the end time of the query run
 - `--limit` [optional]: the maximum number of query results
 - `--offset` [optional]: the number of query results to skip
-- `--ui` [optional]: displat the query results in the Baselime Web UI
+- `--ui` [optional]: display the query results in the Baselime Web UI
 
 ### Outputs
 

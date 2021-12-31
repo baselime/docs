@@ -1,5 +1,5 @@
 ---
-label: Queries, Alerts and Dashbaords
+label: Queries, Alerts and Dashboards
 order: -2
 ---
 
@@ -48,7 +48,7 @@ queries:
         value: "my-function-name-2"
       - type: sns
         value: "my-sns-topic-1"
-    calcultations:
+    calculations:
       - operator: MAX
       - key: "@duration"
       - type: number

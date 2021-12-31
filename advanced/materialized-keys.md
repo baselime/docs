@@ -5,7 +5,7 @@ order: -3
 
 # Materialized Keys
 
-Materialized keys are the result of calcultations on one or multiple existing keys in your events.
+Materialized keys are the result of calculations on one or multiple existing keys in your events.
 
 ---
 
@@ -21,7 +21,7 @@ Materialized keys work a lot like Excel functions. A `materialized_key` consists
 Materialized keys can only take existing `key`s of type `number`.
 !!! 
 
-Examaple `materialized_key`: `LESS(PLUS($@duration, $@initDuration), 100)`. This will return true for every event where the sum of the `@duration` and `@initDuration` is less than `100`.
+Example `materialized_key`: `LESS(PLUS($@duration, $@initDuration), 100)`. This will return true for every event where the sum of the `@duration` and `@initDuration` is less than `100`.
 
 ### List of operators
 
@@ -37,7 +37,7 @@ Examaple `materialized_key`: `LESS(PLUS($@duration, $@initDuration), 100)`. This
   - `MIN`: minimum
   - `MAX`: maximum
   - `PLUS`: sum
-  - `MINUS`: substract
+  - `MINUS`: subtract
   - `MULTIPLY`: multiply
   - `DIVIDE`: divide
   - `MODULO`: modulo

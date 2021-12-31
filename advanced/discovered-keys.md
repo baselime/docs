@@ -11,7 +11,7 @@ Discovered keys are keys automatically generated from your events and traces.
 
 ## Lambda Discovered Keys
 
-The Lambda service automatically write logs at the beginning and end of every Lambda function invocation. There logs are parsed as events in Baselime, and keys are automatically discivered from those messages.
+The Lambda service automatically write logs at the beginning and end of every Lambda function invocation. There logs are parsed as events in Baselime, and keys are automatically discovered from those messages.
 
 ### `START` Log Message
 

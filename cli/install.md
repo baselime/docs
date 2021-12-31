@@ -30,7 +30,7 @@ curl -s https://get.baselime.io | bash
 
 ### Linux
 
-You can download and install the Baselime CLI for your prefered Linux distribution: 
+You can download and install the Baselime CLI for your preferred Linux distribution: 
 
 ```bash #
 curl -s https://get.baselime.io | sudo bash
@@ -40,7 +40,7 @@ curl -s https://get.baselime.io | sudo bash
 
 ## Upgrade
 
-To upgrade the Baselime CLI through your prefered package manager, please refer to its documentation.
+To upgrade the Baselime CLI through your preferred package manager, please refer to its documentation.
 
 To manually upgrade the Baselime CLI:
 

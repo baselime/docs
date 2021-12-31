@@ -20,11 +20,11 @@ baselime [options] <command> <subcommand> [parameters]
 
 - `--integration`: the specific connected AWS account to use
 - `--version`: display the version of the CLI
-- `--help`: displat the help
+- `--help`: display the help
 
 ---
 
-## CLI Refernce
+## CLI Reference
 
 [!ref apply](./reference/apply.md)
 [!ref auth](./reference/auth.md)

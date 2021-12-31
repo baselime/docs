@@ -16,7 +16,7 @@ The queries API is used to create and manage queries.
 The payload to create a query should follow the specs below. All fields are optional:
 
 - `namespaces`: a list of namespaces to run the query against
-- `keys`: a list of objects representing the fields to retrieve, Each `key` constists of a `key` (the name of the key to retrieve) and its `type`.
+- `keys`: a list of objects representing the fields to retrieve, Each `key` consists of a `key` (the name of the key to retrieve) and its `type`.
 - `calculations`: a list of calculations to perform on the events. Calculations consist of a `key`, a `type` and `operator`. If the `operator` is `COUNT`, a key is not necessary. `calculations` and `keys` cannot be used simultaneously. 
 - `filters`: a list of objects representing the filters to apply to the query. Each filter consists of a `key`, an `operation` and a `value`. The value could be:
   -  a literal value
@@ -25,7 +25,7 @@ The payload to create a query should follow the specs below. All fields are opti
    -  `AND`: find events matching all filters
    -  `OR`: find events matching any filter
 - `group_bys`: a list of `key`/`type` pairs to group your result by.
-- `orders`: a list of objects decribing how to order the query results. Each item should include a `key`, a `type` and a `order` which takes either `ASCENDING` or `DESCENDING`
+- `orders`: a list of objects describing how to order the query results. Each item should include a `key`, a `type` and a `order` which takes either `ASCENDING` or `DESCENDING`
 - `name`: the name of the query
 - `description`: a description of the query
 
