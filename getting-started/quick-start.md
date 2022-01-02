@@ -7,7 +7,7 @@ order: 0
 
 ---
 
-Integrating with [Baselime](https://baselime.io) and getting deep insights into your production serverless systems takes less 5 minutes.
+Integrating with [Baselime](https://baselime.io) and getting deep insights into your production serverless systems takes less than 5 minutes.
 
 All you need is:
 - An [AWS Account](https://aws.amazon.com/)
@@ -88,7 +88,7 @@ If you do not complete any of the above steps, Baselime will not be able to inge
 !!!
 
 !!!warning 
-If you do not see any data in the Baselime UI within seconds of completing these steps, something went wrong. Please contact us.
+If you do not see any data in the Baselime UI within seconds of completing these steps, something went wrong. Please [contact us](mailto:support@baselime.io).
 !!!
 
 ---

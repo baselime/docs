@@ -76,8 +76,8 @@ NODE_OPTIONS="--require tracing"
 ```
 Alternatively, it should be the first file required at the top of your handler file.
 
-+++ Python
-+++
+<!-- +++ Python
++++ -->
 
 
 

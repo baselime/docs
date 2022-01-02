@@ -15,7 +15,7 @@ Baselime currently supports serverless services on [AWS](https://aws.amazon.com/
 ---
 ## Events, Logs, Metrics and Traces
 
-Your serverless runtime and infrastructure emit telemetry data in various formats. That's usually the missing context when debugging defects and incidents. Baselime doesn't re-invent the wheel. It gathers data from your serverless applications from:
+Your serverless runtime and infrastructure emit telemetry data in various formats. That's usually the missing context when debugging defects and incidents. Baselime doesn't re-invent the wheel. Data is gathered data in your serverless application from:
 - Direct integration with AWS services through CloudFormation
 - OpenTelemetry to capture runtime traces
 - Logs and Metrics from CloudWatch

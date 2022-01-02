@@ -72,7 +72,7 @@ queries:
 
 ## Alerts
 
-You can now create an alert based on the previous query. Reference the query ID with the `!ref` function.
+You can create an alert based on the previous query. Reference the query ID with the `!ref` function.
 
 ```yaml .baselime.yml
 version: 0.0.0.1
@@ -104,4 +104,4 @@ alerts:
 
 ## Dashboards
 
-Under construction
+Under construction.
