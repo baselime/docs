@@ -25,12 +25,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.694525605012" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.694535536025" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.694525605012" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.694535536025" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.694525605012" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.694525605012" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.694535536025" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.694535536025" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -224,7 +224,7 @@
 <ul>
 <li><code v-pre>namespaces</code>: a list of namespaces to run the query against</li>
 <li><code v-pre>keys</code>: a list of objects representing the fields to retrieve, Each <code v-pre>key</code> consists of a <code v-pre>key</code> (the name of the key to retrieve) and its <code v-pre>type</code>.</li>
-<li><code v-pre>calculations</code>: a list of calculations to perform on the events. Calculations consist of a <code v-pre>key</code>, a <code v-pre>type</code> and <code v-pre>operator</code>. If the <code v-pre>operator</code> is <code v-pre>COUNT</code>, a key is not necessary. <code v-pre>calculations</code> and <code v-pre>keys</code> cannot be used simultaneously.</li>
+<li><code v-pre>calculations</code>: a list of calculations to perform on the events. Calculations consist of a <code v-pre>key</code> and <code v-pre>operator</code>. If the <code v-pre>operator</code> is <code v-pre>COUNT</code>, a key is not necessary. <code v-pre>calculations</code> and <code v-pre>keys</code> cannot be used simultaneously.</li>
 <li><code v-pre>filters</code>: a list of objects representing the filters to apply to the query. Each filter consists of a <code v-pre>key</code>, an <code v-pre>operation</code> and a <code v-pre>value</code>. The value could be:
 <ul>
 <li>a literal value</li>
@@ -254,7 +254,7 @@
       &quot;value&quot;: &quot;prod-user-login&quot;
     }
   ],
-  &quot;calculations&quot;: [{ &quot;operator&quot;: &quot;MAX&quot; , &quot;key&quot;: &quot;@billedDuration&quot;, &quot;type&quot;: &quot;number&quot;}],
+  &quot;calculations&quot;: [{ &quot;operator&quot;: &quot;MAX&quot; , &quot;key&quot;: &quot;@billedDuration&quot;}],
   &quot;filters&quot;: [
     {&quot;key&quot;: &quot;@duration&quot;, &quot;operation&quot;: &quot;&gt;&quot;, &quot;value&quot;: &quot;200&quot;},
     {&quot;key&quot;: &quot;@sampled&quot;, &quot;operation&quot;: &quot;=&quot;, &quot;value&quot;: true}
@@ -314,7 +314,7 @@
         &quot;value&quot;: &quot;prod-user-login&quot;
       }
     ],
-    &quot;calculations&quot;: [{ &quot;operator&quot;: &quot;MAX&quot; , &quot;key&quot;: &quot;@billedDuration&quot;, &quot;type&quot;: &quot;number&quot;}],
+    &quot;calculations&quot;: [{ &quot;operator&quot;: &quot;MAX&quot; , &quot;key&quot;: &quot;@billedDuration&quot;}],
     &quot;filters&quot;: [
       {&quot;key&quot;: &quot;@duration&quot;, &quot;operation&quot;: &quot;&gt;&quot;, &quot;value&quot;: &quot;200&quot;},
       {&quot;key&quot;: &quot;@sampled&quot;, &quot;operation&quot;: &quot;=&quot;, &quot;value&quot;: true}
@@ -384,7 +384,7 @@
         &quot;value&quot;: &quot;prod-user-signup&quot;
       }
     ],
-    &quot;calculations&quot;: [{ &quot;operator&quot;: &quot;MAX&quot; , &quot;key&quot;: &quot;@billedDuration&quot;, &quot;type&quot;: &quot;number&quot;}],
+    &quot;calculations&quot;: [{ &quot;operator&quot;: &quot;MAX&quot; , &quot;key&quot;: &quot;@billedDuration&quot;}],
     &quot;filters&quot;: [
       {&quot;key&quot;: &quot;@duration&quot;, &quot;operation&quot;: &quot;&gt;&quot;, &quot;value&quot;: &quot;200&quot;},
       {&quot;key&quot;: &quot;@sampled&quot;, &quot;operation&quot;: &quot;=&quot;, &quot;value&quot;: true}
@@ -470,7 +470,7 @@
           &quot;value&quot;: &quot;prod-user-signup&quot;
         }
       ],
-      &quot;calculations&quot;: [{ &quot;operator&quot;: &quot;MAX&quot; , &quot;key&quot;: &quot;@billedDuration&quot;, &quot;type&quot;: &quot;number&quot;}],
+      &quot;calculations&quot;: [{ &quot;operator&quot;: &quot;MAX&quot; , &quot;key&quot;: &quot;@billedDuration&quot;}],
       &quot;filters&quot;: [
         {&quot;key&quot;: &quot;@duration&quot;, &quot;operation&quot;: &quot;&gt;&quot;, &quot;value&quot;: &quot;200&quot;},
         {&quot;key&quot;: &quot;@sampled&quot;, &quot;operation&quot;: &quot;=&quot;, &quot;value&quot;: true}
