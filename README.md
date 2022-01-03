@@ -50,12 +50,6 @@ Baselime is built for **teams**. Collaborate with your team on the findings and 
 
 ---
 
-## Integrations
-
-Baselime integrates with the tools you already use. From version control platforms to communication channels and code editors.
-
----
-
 ## Made for Developers
 
 Monitoring and observability platforms are usually built with operations professionals as primary users; Baselime puts the developer at the center of the observability efforts of your teams.
