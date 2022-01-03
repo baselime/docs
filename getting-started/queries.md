@@ -51,7 +51,6 @@ queries:
     calculations:
       - operator: MAX
       - key: "@duration"
-      - type: number
     filters:
       - key: "error.code"
         type: string

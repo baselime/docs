@@ -17,7 +17,7 @@ The payload to create a query should follow the specs below. All fields are opti
 
 - `namespaces`: a list of namespaces to run the query against
 - `keys`: a list of objects representing the fields to retrieve, Each `key` consists of a `key` (the name of the key to retrieve) and its `type`.
-- `calculations`: a list of calculations to perform on the events. Calculations consist of a `key`, a `type` and `operator`. If the `operator` is `COUNT`, a key is not necessary. `calculations` and `keys` cannot be used simultaneously. 
+- `calculations`: a list of calculations to perform on the events. Calculations consist of a `key` and `operator`. If the `operator` is `COUNT`, a key is not necessary. `calculations` and `keys` cannot be used simultaneously. 
 - `filters`: a list of objects representing the filters to apply to the query. Each filter consists of a `key`, an `operation` and a `value`. The value could be:
   -  a literal value
   -  another `key`/`type` pair; the key can be a [materialized key](../advanced/materialized-keys.md)
@@ -42,7 +42,7 @@ curl https://go.baselime.io/v1/queries -X POST  \
       "value": "prod-user-login"
     }
   ],
-  "calculations": [{ "operator": "MAX" , "key": "@billedDuration", "type": "number"}],
+  "calculations": [{ "operator": "MAX" , "key": "@billedDuration"}],
   "filters": [
     {"key": "@duration", "operation": ">", "value": "200"},
     {"key": "@sampled", "operation": "=", "value": true}
@@ -91,7 +91,7 @@ curl https://go.baselime.io/v1/queries/<query_id> -X GET  \
         "value": "prod-user-login"
       }
     ],
-    "calculations": [{ "operator": "MAX" , "key": "@billedDuration", "type": "number"}],
+    "calculations": [{ "operator": "MAX" , "key": "@billedDuration"}],
     "filters": [
       {"key": "@duration", "operation": ">", "value": "200"},
       {"key": "@sampled", "operation": "=", "value": true}
@@ -153,7 +153,7 @@ curl https://go.baselime.io/v1/queries/<query_id> -X PUT  \
         "value": "prod-user-signup"
       }
     ],
-    "calculations": [{ "operator": "MAX" , "key": "@billedDuration", "type": "number"}],
+    "calculations": [{ "operator": "MAX" , "key": "@billedDuration"}],
     "filters": [
       {"key": "@duration", "operation": ">", "value": "200"},
       {"key": "@sampled", "operation": "=", "value": true}
@@ -223,7 +223,7 @@ curl https://go.baselime.io/v1/queries -X GET  \
           "value": "prod-user-signup"
         }
       ],
-      "calculations": [{ "operator": "MAX" , "key": "@billedDuration", "type": "number"}],
+      "calculations": [{ "operator": "MAX" , "key": "@billedDuration"}],
       "filters": [
         {"key": "@duration", "operation": ">", "value": "200"},
         {"key": "@sampled", "operation": "=", "value": true}
