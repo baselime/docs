@@ -25,6 +25,7 @@ To auto-instrument your Node.js Lambda function, you need to install the followi
 npm install --save @opentelemetry/api
 npm install --save @opentelemetry/instrumentation
 npm install --save @opentelemetry/auto-instrumentations-node
+npm install --save @opentelemetry/exporter-otlp-http
 npm install --save @opentelemetry/instrumentation-aws-lambda
 npm install --save @opentelemetry/instrumentation-http
 npm install --save @opentelemetry/sdk-trace-base
@@ -39,6 +40,7 @@ const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
 const { AwsLambdaInstrumentation } = require('@opentelemetry/instrumentation-aws-lambda');
 const { registerInstrumentations } = require('@opentelemetry/instrumentation');
 const { getNodeAutoInstrumentations } = require("@opentelemetry/auto-instrumentations-node");
+const { OTLPTraceExporter } = require("@opentelemetry/exporter-otlp-http");
 
 const provider = new NodeTracerProvider();
 provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
@@ -56,12 +58,15 @@ provider.addSpanProcessor(
 provider.register();
 
 registerInstrumentations({
- instrumentations: [
-   getNodeAutoInstrumentations(),
-   new AwsLambdaInstrumentation({
-     disableAwsContextPropagation: true
-   })
- ],
+  instrumentations: [
+    getNodeAutoInstrumentations(),
+    new AwsLambdaInstrumentation({
+      requestHook: (span, { event, context }) => {
+        span.setAttribute('cloud.region', process.env.AWS_REGION);
+      },
+      disableAwsContextPropagation: true
+    })
+  ],
 });
 ```
 

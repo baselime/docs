@@ -11,18 +11,8 @@ order: -1
 
 ### MacOS
 
-#### Homebrew
 
-The common way to install the Baselime CLI on MacOS is through [brew](https://brew.sh/).
-
-```bash #
-brew tap baselime/baselime-cli
-brew install baselime-cli
-```
-
-#### Manual
-
-The CLI can be installed manually:
+You can download and install the Baselime CLI on MacOS:
 
 ```bash #
 curl -s https://get.baselime.io | bash
