@@ -25,12 +25,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.694535536025" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.694612330582" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.694535536025" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.694612330582" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.694535536025" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.694535536025" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.694612330582" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.694612330582" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -225,6 +225,7 @@
 <pre class="language-bash"><code v-pre class="language-bash">npm install --save @opentelemetry/api
 npm install --save @opentelemetry/instrumentation
 npm install --save @opentelemetry/auto-instrumentations-node
+npm install --save @opentelemetry/exporter-otlp-http
 npm install --save @opentelemetry/instrumentation-aws-lambda
 npm install --save @opentelemetry/instrumentation-http
 npm install --save @opentelemetry/sdk-trace-base
@@ -238,6 +239,7 @@ const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
 const { AwsLambdaInstrumentation } = require('@opentelemetry/instrumentation-aws-lambda');
 const { registerInstrumentations } = require('@opentelemetry/instrumentation');
 const { getNodeAutoInstrumentations } = require(&quot;@opentelemetry/auto-instrumentations-node&quot;);
+const { OTLPTraceExporter } = require(&quot;@opentelemetry/exporter-otlp-http&quot;);
 
 const provider = new NodeTracerProvider();
 provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
@@ -255,12 +257,15 @@ provider.addSpanProcessor(
 provider.register();
 
 registerInstrumentations({
- instrumentations: [
-   getNodeAutoInstrumentations(),
-   new AwsLambdaInstrumentation({
-     disableAwsContextPropagation: true
-   })
- ],
+  instrumentations: [
+    getNodeAutoInstrumentations(),
+    new AwsLambdaInstrumentation({
+      requestHook: (span, { event, context }) =&gt; {
+        span.setAttribute('cloud.region', process.env.AWS_REGION);
+      },
+      disableAwsContextPropagation: true
+    })
+  ],
 });</code></pre>
 </doc-codeblock></div>
 <p>Deploy your Lambda function using your favourite IaC solution, or in the AWS Console.</p>
