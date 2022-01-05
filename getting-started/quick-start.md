@@ -22,7 +22,7 @@ If you do not have an application, you can use one of our [example applications]
 ## Step 1: Install the Baselime CLI
 
 ```bash #
-curl -s https://get.baselime.io | sudo bash
+curl -s https://get.baselime.io | bash
 ```
 
 ---
@@ -55,7 +55,7 @@ The CloudFormation template will:
 - An SNS Topic, used to signal new data in the aforementioned S3 Bucket
 - A CloudTrail Trail, used to register changes to your serverless architecture
 
-We've open-sourced the CloudFormation template [here](../extending/integration.md).
+We've open-sourced the CloudFormation template [here](../integrations/integration.md).
 
 You can generate and download this template through the [Baselime Web UI](https://baselime.io) or with the CLI:
 

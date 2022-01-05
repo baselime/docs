@@ -1,6 +1,6 @@
 ---
 label: Integration CloudFormation Template
-order: 0
+order: -1
 ---
 
 # Baselime Integration CloudFormation Template

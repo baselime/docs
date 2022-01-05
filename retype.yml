@@ -19,10 +19,10 @@ meta:
 links:
 - text: Home
   link: https://baselime.io
-- text: Signup
-  link: https://baselime.io/signup
 - text: Pricing
   link: https://baselime.io/pricing
+- text: Signup
+  link: https://baselime.io/signup
 - text: Twitter
   link: https://twitter.com/BaselimeHQ
 

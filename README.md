@@ -56,11 +56,8 @@ Monitoring and observability platforms are usually built with operations profess
 
 ---
 
-Get Started in just 4 steps!
-
 ```ts
 if(baselime.use === "first-time") {
   return quickStart();
 }
 ```
-

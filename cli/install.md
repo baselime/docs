@@ -23,7 +23,7 @@ curl -s https://get.baselime.io | bash
 You can download and install the Baselime CLI for your preferred Linux distribution: 
 
 ```bash #
-curl -s https://get.baselime.io | sudo bash
+curl -s https://get.baselime.io | bash
 ```
 
 ---
@@ -35,5 +35,5 @@ To upgrade the Baselime CLI through your preferred package manager, please refer
 To manually upgrade the Baselime CLI:
 
 ```bash #
-sudo baselime upgrade
+baselime upgrade
 ```
