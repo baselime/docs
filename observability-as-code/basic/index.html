@@ -6,21 +6,21 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>Data Privacy | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Data Privacy | Baselime - Observability for Serverless">
-    <meta name="description" content="You can keep your sensitive data private when working with Baselime." />
+    <title>Basic Observability as Code | Baselime - Observability for Serverless</title>
+    <meta name="title" content="Basic Observability as Code | Baselime - Observability for Serverless">
+    <meta name="description" content="The following example describes a simple query checking statistics of the execution cold start duration of a couple of Lambda functions and sets an..." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.baselime.io/security/privacy/">
-    <meta property="og:title" content="Data Privacy | Baselime - Observability for Serverless">
-    <meta property="og:description" content="You can keep your sensitive data private when working with Baselime.">
+    <meta property="og:url" content="https://docs.baselime.io/observability-as-code/basic/">
+    <meta property="og:title" content="Basic Observability as Code | Baselime - Observability for Serverless">
+    <meta property="og:description" content="The following example describes a simple query checking statistics of the execution cold start duration of a couple of Lambda functions and sets an...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.baselime.io/security/privacy/">
-    <meta property="twitter:title" content="Data Privacy | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="You can keep your sensitive data private when working with Baselime.">
+    <meta property="twitter:url" content="https://docs.baselime.io/observability-as-code/basic/">
+    <meta property="twitter:title" content="Basic Observability as Code | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="The following example describes a simple query checking statistics of the execution cold start duration of a couple of Lambda functions and sets an...">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -200,44 +200,87 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="data-privacy" class="break-words">
+<doc-anchor-target id="basic-observability-as-code" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#data-privacy">#</doc-anchor-trigger>
-        <span>Data Privacy</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#basic-observability-as-code">#</doc-anchor-trigger>
+        <span>Basic Observability as Code</span>
     </h1>
 </doc-anchor-target>
-<hr />
-<p>You can keep your sensitive data private when working with Baselime. Configure Data Privacy policies to keep your sensitive data private, whilst Baselime collects telemetry data from your serverless stack.</p>
-<hr />
-<doc-anchor-target id="data-privacy-policies">
+<p>The following example describes a simple query checking statistics of the execution cold start duration of a couple of Lambda functions and sets an email alert when the cold starts exceed a threshold. This is just to give a sense of the overall structure of a <code v-pre>.baselime.yml</code> file.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">.baselime.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.1
+application: demo
+description: demo app
+
+queries:
+  cold-start-durations:
+    name: lambda functions cold start duration
+    parameters:
+      dataset: logs
+      namespaces:
+        - functionA
+        - functionB
+      calculations:
+        - P99(@initDuration)
+alerts:
+  error-cold-starts:
+    name: Execssive cold start durations
+    parameters:
+      query: cold-start-durations
+      threshold:
+        operation: &quot;&gt;&quot;
+        value: 2000
+      frequency: 10
+      duration: 10
+    destinations:
+      - type: email
+        target: me@acme.com</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="observaility-as-code">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#data-privacy-policies">#</doc-anchor-trigger>
-        <span>Data Privacy Policies</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#observaility-as-code">#</doc-anchor-trigger>
+        <span>Observaility as Code</span>
     </h2>
 </doc-anchor-target>
-<p>You can prevent specific data fields from being ingested in Baselime. Either by blocking them entirely, or obfuscating the value stored in Baselime. blocked and obfuscated data fields can be specified across an entire workspace or per namespace.</p>
-<doc-anchor-target id="blocking-data-fields">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#blocking-data-fields">#</doc-anchor-trigger>
-        <span>Blocking Data Fields</span>
-    </h3>
-</doc-anchor-target>
-<p>Blocked keys will not be stored in Baselime. They will not be available in queries, visualisations or text-search fields.</p>
-<p>Data fields can be blocked in the Baselime Web UI or using the CLI.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime keys block 'user.email' --namespace 'login-lambda'</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="obfuscating-data-fields">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#obfuscating-data-fields">#</doc-anchor-trigger>
-        <span>Obfuscating Data Fields</span>
-    </h3>
-</doc-anchor-target>
-<p>Obfuscated keys will be stored in Baselime, but scrambled as a Base64-encoded ASCII from the original data. It should be noted that it is possible to retrieve the value of the obfuscated value.</p>
-<p>Data fields can be obfuscated in the Baselime Web UI or using the CLI</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime keys obfuscate 'user.email' --namespace 'login-lambda'</code></pre>
-</doc-codeblock></div>
+<p>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">root</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>/observability-as-code/reference/root/</span>
+    </div>
+    <a href="/observability-as-code/reference/root/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">queries</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>/observability-as-code/reference/queries/</span>
+    </div>
+    <a href="/observability-as-code/reference/queries/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">alerts</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>/observability-as-code/reference/alerts/</span>
+    </div>
+    <a href="/observability-as-code/reference/alerts/" class="absolute block inset-0"></a>
+</div>
+</p>
 
 
 
@@ -247,7 +290,7 @@
             </div>
 
             <div class="flex flex-wrap items-center justify-between mt-14">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/security/privacy.md" target="_blank" rel="noopener">
+    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/observability-as-code/basic.md" target="_blank" rel="noopener">
         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         <span>Edit on GitHub</span>
     </a>
@@ -257,20 +300,20 @@
 
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/security/roles/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/observability-as-code/overview/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Roles and Permissions</span>
+                <span class="block mt-1">Overview</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/cli/overview/">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/observability-as-code/reference/root/">
             <span>
                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Overview</span>
+                <span class="block mt-1">Root properties</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
@@ -318,7 +361,7 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Data Privacy", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Basic Observability as Code", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
         <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     </body>
 </html>
