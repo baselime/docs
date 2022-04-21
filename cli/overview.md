@@ -3,33 +3,9 @@ label: Overview
 order: 0
 ---
 
-# Overview
+# Baselime CLI Documentation
 
-The Baselime CLI allows you to interact with your observability configurations and telemetry data through your command line.
+This is the documentation for the Baselime CLI. It is relevant to anyone working with Baselime's CLI-based workflows; this includes developers who use Terraform CLI by itself, as well as those who use Baselime CLI alongside other Baselime products.
 
----
-
-## Synopsis
-
-```bash #
-baselime [options] <command> <subcommand> [parameters]
-```
----
-
-## Options
-
-- `--integration`: the specific connected AWS account to use
-- `--version`: display the version of the CLI
-- `--help`: display the help
-
----
-
-## CLI Reference
-
-[!ref apply](./reference/apply.md)
-[!ref auth](./reference/auth.md)
-[!ref aws](./reference/aws.md)
-[!ref init](./reference/init.md)
-[!ref keys](./reference/keys.md)
-[!ref query-run](./reference/query-run.md)
+Notably, thid documentation does not cover the specifications of the `.baselime.yml` file. For that, see the [Observability as Code Documentation](../observability-as-code/overview.md).
 

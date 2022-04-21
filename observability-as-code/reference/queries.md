@@ -1,0 +1,62 @@
+---
+label: Queries
+order: -1
+---
+
+Here is a list of all the available root properties sitting under `queries` in the .baselime.yml`.
+
+```yaml .baselime.yml
+# Start listing the queries. Queries are represented as an object where the key is the reference (ref) of the query,
+# and the value is an object describing the query 
+queries:
+  
+  # Reference (ref) of the query
+  random-num-gen-value:
+    
+    # Required: Name of the query
+    name: demo-name
+    
+    # Optional: Description of the query
+    description: demo-description
+    
+    # Required: Query parameters
+    parameters:
+      
+      # Required: The dataset to run the query against
+      dataset: logs
+      
+      # Optional: The namespaces to filter when running the query. Default: Will include all available namespaces
+      namespaces:
+        - baselime-nodejs-demo-dev-demo
+      
+      # Optional: A flag on wether to include or exclude specified namespaces. Default: INCLUDE
+      namespaceCombination: INCLUDE # Possible values: INCLUDE, EXCLUDE
+      
+      # Required: The calculations to perform when performing the query, represented as an array of strings.
+      # The structure of the strings is outlines further in following sections of this page
+      calculations:
+        - MAX(@message.extra.number)
+        - MIN(@message.extra.number)
+        - AVG(@message.extra.number)
+        - COUNT
+      
+      # Optional: The filters to apply to matching events when running the query.
+      # Default: Will not apply any filters on the query.
+      filters:
+        - key: "@message.message"
+          operation: =
+          value: "Generated a random number"
+```
+
+## Query calculations
+
+Each query calculation is a string adhering to the following specifications: `operator(key)`:
+- `operator`: a computation to be performed the key. For further details, please check the [list of supported operators](../../advanced/supported-operations.md).
+- `key`: the event property to perform the calculation on.
+
+## Query filters
+
+Each query filter is an object with three manadory properties:
+- `key`: the event property to filter against.
+- `value`: the value to compare the key against.
+- `operation`: an operation used to compare the key against the value. For further details, please check the [list of supported operations](../../advanced/supported-operations.md).

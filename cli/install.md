@@ -15,7 +15,7 @@ order: -1
 You can download and install the Baselime CLI on MacOS:
 
 ```bash #
-curl -s https://get.baselime.io | bash
+curl -s https://get.baselime.io/macos | bash
 ```
 
 ### Linux
@@ -23,7 +23,7 @@ curl -s https://get.baselime.io | bash
 You can download and install the Baselime CLI for your preferred Linux distribution: 
 
 ```bash #
-curl -s https://get.baselime.io | bash
+curl -s https://get.baselime.io/linux | bash
 ```
 
 ---
