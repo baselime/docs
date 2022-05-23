@@ -6,41 +6,44 @@ label: init
 
 ---
 
-The `init` command is used initialise Baselime in a new or existing application.
+The `init` command is used to prepare your working directory for other commands.
 
 
 ```bash #
-baselime init \
-  [--application <APPLICATION_NAME>] \
-  [--description <APPLICATION_DESCRIPTION>] \
+baselime init --application <application_name> --description <description>
 ```
 
 ### Options
 
-- `--application`: the name of the application, defaults to the name of the working directory
-- `--description`: the description of the application, defaults to `null`
+- `--application`: Name of the application
+- `--description`: Description of the application
 
-### Outputs
+### Examples
 
-Running this command will create a `.baselime.yml` file in the working directory
-
-### Example
+#### Example 1: Interactively initialise an application
 
 Command:
 
 ```bash #
-baselime init \
-  --application sample-application \
-  --description "This is a sample description of the application" \
+baselime init
 ```
 
 Output:
 
-```yaml .baselime.yml
-version: 0.0.0.1
+Intercative.
 
-application: sample-application
-description: This is a sample description of the application
+#### Example 2: Initialise an application with options
+
+Command:
+
+```bash #
+baselime init --application api --description "The api that powers our web application"
+```
+
+Output:
+
+```bash #
+✔ .baselime.yml Generated
 ```
 
 

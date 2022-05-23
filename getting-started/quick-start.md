@@ -31,13 +31,7 @@ curl -s https://get.baselime.io | bash
 
 Baselime has a free usage tier.
 
-You can sign up using the [Baselime CLI](../cli/install.md).
-
-```bash #
-baselime auth
-```
-
-You will get a window in your browser to create an account.
+Signup on the [Baselime app](https://baselime.io/signup).
 
 Follow the onboarding process:
 1. Create a workspace. Typically this will be the name of your organisation.
@@ -60,7 +54,8 @@ We've open-sourced the CloudFormation template [here](../integrations/integratio
 You can generate and download this template through the [Baselime Web UI](https://baselime.io) or with the CLI:
 
 ```bash #
-baselime aws create-template \
+baselime environments setup \
+  --type aws \
   --account <AWS_ACCOUNT_ID> \
   --region <AWS_REGION> \
   --alias <INTEGRATION_ALIAS>
@@ -118,16 +113,15 @@ You can save the query and share it with your team.
 In root of your project folder, initialise a new Baselime file.
 
 ```bash #
-baselime init
+baselime init --application demo
 ```
 
 This will create a `.baselime.yml` file.
 
 ```yaml # .baselime.yml
-version: 0.0.0.1
+version: 0.0.1
 
-application: sample-application
-description: Sample Description
+application: demo
 ```
 
 Add a query to your `.baselime.yml` file.
@@ -135,56 +129,29 @@ Add a query to your `.baselime.yml` file.
 ```yaml # .baselime.yml
 version: 0.0.0.1
 
-application: sample-application
-description: Sample Description
+application: demo
+description: A demo app
 
 queries:
-  - ref: test-query
-    name: A Test Query
-    namespaces:
-      - type: lambda
-        value: <lambda_function_name>
+  demo-query:
+    dataset: logs
     calculations:
-      - operator: COUNT
-    filters:
-      - key: "error.code"
-        type: string
-        operation: "="
-        value: "ValidationException"
-    groupBy:
-      - type: string
-        key: "status"
+      - COUNT
 ```
 
 Apply the changes to the `.baselime.yml` file to Baselime
 
 ```bash #
 baselime apply
-
-# Outputs
-# Created queries:
-#   - test-query: <created_query_id>
 ```
 
-To visualise the results of the query run in the Web UI:
+To run a query in your command line:
 
 ```bash #
-baselime query-run <created_query_id> \
-  --from <start_time_unix_in_ms> \
-  --to <end_time_unix_in_ms> \
-  --ui
+baselime queries run --application demo --ref demo-query
 ```
 
-This command will open the Baselime Web UI with the results for the given query run.
-
-To save the query results in a file instead:
-
-```bash #
-baselime query-run <created_query_id> \
-  --from <start_time_unix_in_ms> \
-  --to <end_time_unix_in_ms> \
-  >> data.json
-```
+This will output the results of the query in the command line, with a link that will allow you to open the results on the Web UI.
 
 ---
 

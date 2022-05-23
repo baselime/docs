@@ -1,30 +1,30 @@
 ---
-label: apply
+label: destroy
 ---
 
-# apply
+# destroy
 
 ---
 
-Create or update observability configurations
+Destroy previously-created observability configurations
 
 
 ```bash #
-baselime apply
+baselime destroy
 ```
 
 ### Options
 
-- `--config`: Baselime configuration file to execute. Defaults to `.baselime.yml`
+- `--config`: Baselime configuration file to destroy. Defaults to `.baselime.yml`
 
 ### Examples
 
-#### Example 1: Applying the default config file
+#### Example 1: Destroying the default config file
 
 Command:
 
 ```bash #
-baselime apply
+baselime destroy
 ```
 
 Output:
@@ -34,12 +34,12 @@ Output:
 ✔ Submitted your observability configurations. id: 01G3R48M4QVDYH7NF79AWT4K0D
 ```
 
-#### Example 2: Applying a configuration file
+#### Example 2: Destroying a configuration file
 
 Command:
 
 ```bash #
-baselime apply --config custom.yml
+baselime destroy --config custom.yml
 ```
 
 Output:

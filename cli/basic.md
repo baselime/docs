@@ -10,28 +10,27 @@ We refer to the `baselime` command line tool as the `Baselime CLI` elsewhere in 
 To view a list of the commands available in your current version of the Baselime CLI, run `baselime --help`:
 
 ```txt
-baselime [command] 
+baselime [command]
+The power of Baselime in the command-line
 
 Commands:
-  baselime init                             Prepare your working directory for other commands
-  baselime validate                         Check whether the configuration is valid
-  baselime plan                             Show changes required by the current configuration
-  baselime apply [subcommand]               Create or update observability configurations
-  baselime auth                             Obtain and save credentials for an environment
-  baselime destroy                          Destroy previously-created observability configurations
-  baselime logout                           Remove locally-stored credentials for an environment
-  baselime refresh                          Update the state to match remote systems
-  
-  baselime aws <subcommand>                 Operations on AWS environment integrations
-  [args]                             
-  baselime queries <subcommand>             Operations on queries
-  [args]
-  baselime alerts <subcommand>              Operations on alerts
-  [args]
+  baselime alerts        Manage alerts
+  baselime applications  Manage applications
+  baselime apply         Create or update observability configurations
+  baselime auth          Manage authentication state
+  baselime destroy       Destroy previously-created observability configurations
+  baselime environments  Manage environments
+  baselime events        Manage events
+  baselime init          Prepare your working directory for other commands
+  baselime namespaces    Manage namespaces
+  baselime plan          Show changes required by the current configuration
+  baselime queries       Manage queries
+  baselime refresh       Update the state to match remote systems
+  baselime validate      Check whether the configuration is valid
 
 Options:
-      --version  Show the current Baselime CLI version                                        [boolean]
-  -h, --help     Show this help output, or the help for a specified command or subcommand     [boolean]
+  -h, --help     Show this help output, or the help for a specified command or subcommand                                         [boolean]
+  -v, --version  Show the current Baselime CLI version                                                                            [boolean]
 ```
 
 (The output from your current Baselime CLI version might differ from the above example).
@@ -42,12 +41,31 @@ The built-in help describes the most important and relevant characteristics of e
 
 ---
 
+## Common options
+
+- `--profile`: Use a specific profile from your credentials folder
+- `--quiet`: Disable console output
+- `--debug`: Turn on debug logging
+- `--format`: The formating style for the command output.
+  - `json`
+  - `table`
+
+---
+
 ## CLI Reference
 
-[!ref init](./reference/init.md)
+
+[!ref alerts](./reference/alerts.md)
+[!ref applications](./reference/applications.md)
 [!ref apply](./reference/apply.md)
 [!ref auth](./reference/auth.md)
-[!ref aws](./reference/aws.md)
-[!ref keys](./reference/keys.md)
-[!ref query-run](./reference/query-run.md)
+[!ref destroy](./reference/destroy.md)
+[!ref environments](./reference/environments.md)
+[!ref events](./reference/events.md)
+[!ref init](./reference/init.md)
+[!ref namespaces](./reference/namespaces.md)
+[!ref plan](./reference/plan.md)
+[!ref queries](./reference/queries.md)
+[!ref refresh](./reference/refresh.md)
+[!ref validate](./reference/validate.md)
 

@@ -4,15 +4,14 @@ icon: home
 ---
 # Welcome to Baselime
 
-![](./assets/images/logo-wide.svg)
-
----
-
 [Baselime](https://baselime.io) is an Observability as Code platform based on OpenTelemetry that makes it easy for your team to resolve incidents and performance bottlenecks in your serverless applications.
 
 Baselime currently supports serverless services on [AWS](https://aws.amazon.com/).
 
+![](./assets/images/cli.svg)
+
 ---
+
 ## Events, Logs, Metrics and Traces
 
 Your serverless runtime and infrastructure emit telemetry data in various formats. That's usually the missing context when debugging defects and incidents. Baselime doesn't re-invent the wheel. Data is gathered in your serverless application from:

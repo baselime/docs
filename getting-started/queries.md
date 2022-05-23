@@ -29,42 +29,58 @@ All queries, alerts and dashboards created in the web UI can be exported as YAML
 
 ## Queries
 
-This is a sample query which returns the maximum `@duration` from three namespaces (`my-function-name-1`, `my-function-name-2` and `my-sns-topic-1`)  for events matching a set of filters and grouped by `status`.
+You can create queries using the `.baselime.yml` file.
 
 ```yaml # .baselime.yml
-version: 0.0.0.1
-
-application: sample-application
-description: Sample Description
+version: 0.0.1
+application: api
+description: The API that powers our web application
 
 queries:
-  - ref: sample-query
-    name: Sample Query
-    description: Sample query description
-    namespaces:
-      - type: lambda
-        value: "my-function-name-1"
-      - type: lambda
-        value: "my-function-name-2"
-      - type: sns
-        value: "my-sns-topic-1"
-    calculations:
-      - operator: MAX
-      - key: "@duration"
-    filters:
-      - key: "error.code"
-        type: string
-        operation: "="
-        value: "ValidationException"
-      - key: "@billedDuration"
-        type: number
-        operation: ">"
-        value:
-          key: "@initDuration"
-          type: "number"
-    groupBy:
-      - type: string
-        key: "status"
+  lambda-duration:
+    name: duration of the lambda execution
+    description: how long does it take to execute the lambda function?
+    parameters:
+      dataset: logs
+      calculations:
+        - MAX(@duration)
+        - MIN(@duration)
+        - P99(@duration)
+  response-time:
+    description: how longs does the handler take to process a request?
+    parameters:
+      dataset: logs
+      calculations:
+        - MAX(extra.duration)
+        - MIN(extra.duration)
+        - P99(extra.duration)
+      filters:
+       - key: message
+         operation: "="
+         value: "RESPONSE"
+```
+
+---
+
+## Channels
+
+You can create channels that are sinks where messages can be sent from Baselime
+
+```yaml # .baselime.yml
+version: 0.0.1
+application: api
+description: The API that powers our web application
+
+queries:
+  lambda-duration:
+    # ... query parameters ... #
+
+channels:
+  developers:
+    type: email
+    targets:
+      - mail1@mail.com
+      - mail2@mail.com 
 ```
 
 ---
@@ -74,33 +90,35 @@ queries:
 You can create an alert based on the previous query. Reference the query ID with the `!ref` function.
 
 ```yaml .baselime.yml
-version: 0.0.0.1
+version: 0.0.1
 
-application: sample-application
-description: Sample Description
+application: api
+description: The API that powers our web application
 
 queries:
-  - ref: sample-query
+  lambda-duration:
     # ... query parameters ... #
 
+channels:
+  developers:
+    # ... channel parameters ... #
+
 alerts:
-  - ref: sample-alert
-    name: Sample alert
-    description: Sample alert description
-    query: !ref sample-query
-    threshold:
-      operator: ">"
-      value: 5
-    frequency: 3600
-    destinations:
-      - type: email
-        target: test@acme.com
-      - type: slack
-        target: "#devs" 
+  critical-response-time:
+    name: It takes too long to respond to requests
+    parameters:
+      query: lambda-duration
+      threshold:
+        operation: ">"
+        value: 2000
+      frequency: 5
+      duration: 5
+    channels:
+      - developers 
 ```
 
 ---
 
 ## Dashboards
 
-Under construction.
+Coming soon.
