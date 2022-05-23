@@ -8,29 +8,29 @@
     <!-- Primary Meta Tags -->
     <title>Install | Baselime - Observability for Serverless</title>
     <meta name="title" content="Install | Baselime - Observability for Serverless">
-    <meta name="description" content="You can download and install the Baselime CLI on MacOS:" />
+    <meta name="description" content="You can download and install the Baselime CLI on MacOS" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/cli/install/">
     <meta property="og:title" content="Install | Baselime - Observability for Serverless">
-    <meta property="og:description" content="You can download and install the Baselime CLI on MacOS:">
+    <meta property="og:description" content="You can download and install the Baselime CLI on MacOS">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/cli/install/">
     <meta property="twitter:title" content="Install | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="You can download and install the Baselime CLI on MacOS:">
+    <meta property="twitter:description" content="You can download and install the Baselime CLI on MacOS">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.703875433825" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.706619550791" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.703875433825" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.706619550791" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.703875433825" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.703875433825" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.706619550791" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.706619550791" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -219,9 +219,30 @@
         <span>MacOS</span>
     </h3>
 </doc-anchor-target>
-<p>You can download and install the Baselime CLI on MacOS:</p>
+<p>You can download and install the Baselime CLI on MacOS</p>
+<doc-anchor-target id="homebrew-coming-soon">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#homebrew-coming-soon">#</doc-anchor-trigger>
+        <span>Homebrew (Coming soon)</span>
+    </h4>
+</doc-anchor-target>
+<p>You can install the Baselime CLI using <a href="https://brew.sh/">Homebrew</a>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">brew tap baselime/tap
+brew install baselime</code></pre>
+</doc-codeblock></div>
+<p>To update:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">brew upgrade baselime</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="manual">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#manual">#</doc-anchor-trigger>
+        <span>Manual</span>
+    </h4>
+</doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">curl -s https://get.baselime.io/macos | bash</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">curl -s https://get.baselime.io | bash</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="linux">
     <h3>
@@ -231,19 +252,34 @@
 </doc-anchor-target>
 <p>You can download and install the Baselime CLI for your preferred Linux distribution:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">curl -s https://get.baselime.io/linux | bash</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">curl -s https://get.baselime.io | sudo bash</code></pre>
 </doc-codeblock></div>
-<hr />
-<doc-anchor-target id="upgrade">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#upgrade">#</doc-anchor-trigger>
-        <span>Upgrade</span>
-    </h2>
+<doc-anchor-target id="using-npm">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-npm">#</doc-anchor-trigger>
+        <span>Using <a href="https://npmjs.com">npm</a></span>
+    </h3>
 </doc-anchor-target>
-<p>To upgrade the Baselime CLI through your preferred package manager, please refer to its documentation.</p>
-<p>To manually upgrade the Baselime CLI:</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime upgrade</code></pre>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npm install @baselime/cli -g</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="download-the-compiled-binary">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#download-the-compiled-binary">#</doc-anchor-trigger>
+        <span>Download the compiled binary</span>
+    </h3>
+</doc-anchor-target>
+<p>Binary releases are available on <a href="https://github.com/baselime/cli/releases/latest">GitHub Releases</a>.</p>
+<doc-anchor-target id="validate-installation">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#validate-installation">#</doc-anchor-trigger>
+        <span>Validate installation</span>
+    </h3>
+</doc-anchor-target>
+<p>In all cases the installation can be validated by running <code v-pre>baselime -v</code> in the terminal:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">baselime -v
+0.0.2</code></pre>
 </doc-codeblock></div>
 
 

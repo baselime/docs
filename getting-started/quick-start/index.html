@@ -25,12 +25,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.703875433825" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.706619550791" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.703875433825" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.706619550791" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.703875433825" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.703875433825" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.706619550791" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.706619550791" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -234,11 +234,7 @@
     </h2>
 </doc-anchor-target>
 <p>Baselime has a free usage tier.</p>
-<p>You can sign up using the <a href="../../cli/install/">Baselime CLI</a>.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime auth</code></pre>
-</doc-codeblock></div>
-<p>You will get a window in your browser to create an account.</p>
+<p>Signup on the <a href="https://baselime.io/signup">Baselime app</a>.</p>
 <p>Follow the onboarding process:</p>
 <ol>
 <li>Create a workspace. Typically this will be the name of your organisation.</li>
@@ -262,7 +258,8 @@
 <p>We&#x27;ve open-sourced the CloudFormation template <a href="../../integrations/integration/">here</a>.</p>
 <p>You can generate and download this template through the <a href="https://baselime.io">Baselime Web UI</a> or with the CLI:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime aws create-template \
+<pre class="language-bash"><code v-pre class="language-bash">baselime environments setup \
+  --type aws \
   --account &lt;AWS_ACCOUNT_ID&gt; \
   --region &lt;AWS_REGION&gt; \
   --alias &lt;INTEGRATION_ALIAS&gt;</code></pre>
@@ -359,64 +356,38 @@
 </doc-anchor-target>
 <p>In root of your project folder, initialise a new Baselime file.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime init</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime init --application demo</code></pre>
 </doc-codeblock></div>
 <p>This will create a <code v-pre>.baselime.yml</code> file.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title">.baselime.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.0.1
+<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.1
 
-application: sample-application
-description: Sample Description</code></pre>
+application: demo</code></pre>
 </doc-codeblock></div>
 <p>Add a query to your <code v-pre>.baselime.yml</code> file.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title">.baselime.yml</div>
 <pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.0.1
 
-application: sample-application
-description: Sample Description
+application: demo
+description: A demo app
 
 queries:
-  - ref: test-query
-    name: A Test Query
-    namespaces:
-      - type: lambda
-        value: &lt;lambda_function_name&gt;
+  demo-query:
+    dataset: logs
     calculations:
-      - operator: COUNT
-    filters:
-      - key: &quot;error.code&quot;
-        type: string
-        operation: &quot;=&quot;
-        value: &quot;ValidationException&quot;
-    groupBy:
-      - type: string
-        key: &quot;status&quot;</code></pre>
+      - COUNT</code></pre>
 </doc-codeblock></div>
 <p>Apply the changes to the <code v-pre>.baselime.yml</code> file to Baselime</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime apply
-
-# Outputs
-# Created queries:
-#   - test-query: &lt;created_query_id&gt;</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime apply</code></pre>
 </doc-codeblock></div>
-<p>To visualise the results of the query run in the Web UI:</p>
+<p>To run a query in your command line:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime query-run &lt;created_query_id&gt; \
-  --from &lt;start_time_unix_in_ms&gt; \
-  --to &lt;end_time_unix_in_ms&gt; \
-  --ui</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime queries run --application demo --ref demo-query</code></pre>
 </doc-codeblock></div>
-<p>This command will open the Baselime Web UI with the results for the given query run.</p>
-<p>To save the query results in a file instead:</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime query-run &lt;created_query_id&gt; \
-  --from &lt;start_time_unix_in_ms&gt; \
-  --to &lt;end_time_unix_in_ms&gt; \
-  &gt;&gt; data.json</code></pre>
-</doc-codeblock></div>
+<p>This will output the results of the query in the command line, with a link that will allow you to open the results on the Web UI.</p>
 <hr />
 <doc-anchor-target id="next-steps">
     <h2>

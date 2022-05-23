@@ -8,29 +8,29 @@
     <!-- Primary Meta Tags -->
     <title>apply | Baselime - Observability for Serverless</title>
     <meta name="title" content="apply | Baselime - Observability for Serverless">
-    <meta name="description" content="The apply command is used apply the changes made to the Baselime config file onto the Baselime platform." />
+    <meta name="description" content="Create or update observability configurations" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/cli/reference/apply/">
     <meta property="og:title" content="apply | Baselime - Observability for Serverless">
-    <meta property="og:description" content="The apply command is used apply the changes made to the Baselime config file onto the Baselime platform.">
+    <meta property="og:description" content="Create or update observability configurations">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/cli/reference/apply/">
     <meta property="twitter:title" content="apply | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="The apply command is used apply the changes made to the Baselime config file onto the Baselime platform.">
+    <meta property="twitter:description" content="Create or update observability configurations">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.703875433825" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.706619550791" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.703875433825" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.706619550791" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.703875433825" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.703875433825" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.706619550791" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.706619550791" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -207,10 +207,9 @@
     </h1>
 </doc-anchor-target>
 <hr />
-<p>The <code v-pre>apply</code> command is used apply the changes made to the Baselime config file onto the Baselime platform.</p>
+<p>Create or update observability configurations</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime apply \
-  [--file &lt;BASELIME_FILE&gt;] \</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime apply</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="options">
     <h3>
@@ -219,20 +218,19 @@
     </h3>
 </doc-anchor-target>
 <ul>
-<li><code v-pre>--file</code>: the Baselime configuration file. Defaults to <code v-pre>.baselime.yml</code></li>
+<li><code v-pre>--config</code>: Baselime configuration file to execute. Defaults to <code v-pre>.baselime.yml</code></li>
 </ul>
-<doc-anchor-target id="outputs">
+<doc-anchor-target id="examples">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#outputs">#</doc-anchor-trigger>
-        <span>Outputs</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#examples">#</doc-anchor-trigger>
+        <span>Examples</span>
     </h3>
 </doc-anchor-target>
-<p>The resources created on the Baselime platform.</p>
-<doc-anchor-target id="example">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#example">#</doc-anchor-trigger>
-        <span>Example</span>
-    </h3>
+<doc-anchor-target id="example-1-applying-the-default-config-file">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-1-applying-the-default-config-file">#</doc-anchor-trigger>
+        <span>Example 1: Applying the default config file</span>
+    </h4>
 </doc-anchor-target>
 <p>Command:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
@@ -240,11 +238,23 @@
 </doc-codeblock></div>
 <p>Output:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">Created queries:
-  - test-query: &lt;created_query_id&gt;
-Created alerts:
-  - test-alert: &lt;created_alert_id&gt;
-# ... more created resources ... #</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">✔ Valid configuration file
+✔ Submitted your observability configurations. id: 01G3R48M4QVDYH7NF79AWT4K0D</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="example-2-applying-a-configuration-file">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-2-applying-a-configuration-file">#</doc-anchor-trigger>
+        <span>Example 2: Applying a configuration file</span>
+    </h4>
+</doc-anchor-target>
+<p>Command:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">baselime apply --config custom.yml</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">✔ Valid configuration file
+✔ Submitted your observability configurations. id: 05GYB48M4QVJHT7NF79AWT4KIH</code></pre>
 </doc-codeblock></div>
 
 
@@ -265,11 +275,11 @@ Created alerts:
 
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/cli/basic/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/cli/reference/applications/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Basic CLI Features</span>
+                <span class="block mt-1">applications</span>
             </span>
         </a>
     </div>
