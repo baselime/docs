@@ -12,37 +12,25 @@ application: api
 description: The api that powers our web application
 
 queries:
-  lambda-duration:
-    name: duration of the lambda execution
-    description: how long does it take to execute the lambda function?
+  lambda-invocation-duration:
+    name: Duration of the lambda execution
+    description: How long does it take to execute the lambda function?
     parameters:
       dataset: logs
       calculations:
         - MAX(@duration)
         - MIN(@duration)
+        - AVG(@duration)
         - P99(@duration)
-  response-time:
-    description: how longs does the handler take to process a request?
-    parameters:
-      dataset: logs
-      calculations:
-        - MAX(extra.duration)
-        - MIN(extra.duration)
-        - P99(extra.duration)
-      filters:
-        - key: message
-          operation: "="
-          value: "RESPONSE"
+
 alerts:
-  critical-response-time:
-    name: it takes too long to respond to requests
+  critical-invocation-duration:
+    name: Lambda invocations take more than 15 seconds
     parameters:
-      query: response-time
-      threshold:
-        operation: ">"
-        value: 2000
-      frequency: 5
-      duration: 5
+      query: lambda-invocation-duration
+      threshold: :> 15000
+      frequency: 30
+      duration: 30
     channels:
       - developers
 
@@ -50,8 +38,8 @@ channels:
   developers:
     type: email
     targets:
-      - mail1@mail.com
-      - mail2@mail.com 
+      - exmple@email.com
+      - exmple@email.com
 ```
 
 
@@ -59,5 +47,5 @@ channels:
 
 [!ref root](./reference/root.md)
 [!ref queries](./reference/queries.md)
-[!ref channels](./reference/channels.md)
 [!ref alerts](./reference/alerts.md)
+[!ref channels](./reference/channels.md)

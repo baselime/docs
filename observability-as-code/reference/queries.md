@@ -3,9 +3,9 @@ label: Queries
 order: -1
 ---
 
-Here is a list of all the available root properties sitting under `queries` in the .baselime.yml`.
+The available properties sitting under `queries` in the `.baselime.yml`.
 
-```yaml .baselime.yml
+```yaml # .baselime.yml
 # Start listing the queries. Queries are represented as an object where the key is the reference (ref) of the query,
 # and the value is an object describing the query 
 queries:
@@ -14,10 +14,10 @@ queries:
   random-num-gen-value:
     
     # Required: Name of the query
-    name: demo-name
+    name: demo name
     
     # Optional: Description of the query
-    description: demo-description
+    description: demo description
     
     # Required: Query parameters
     parameters:
@@ -27,36 +27,36 @@ queries:
       
       # Optional: The namespaces to filter when running the query. Default: Will include all available namespaces
       namespaces:
-        - baselime-nodejs-demo-dev-demo
+        - demo-lambda
       
       # Optional: A flag on wether to include or exclude specified namespaces. Default: INCLUDE
-      namespaceCombination: INCLUDE # Possible values: INCLUDE, EXCLUDE
+      namespaceCombination: INCLUDE # Possible values: INCLUDE, EXCLUDE, STARTS_WITH
       
       # Required: The calculations to perform when performing the query, represented as an array of strings.
-      # The structure of the strings is outlines further in following sections of this page
       calculations:
-        - MAX(@message.extra.number)
-        - MIN(@message.extra.number)
-        - AVG(@message.extra.number)
+        - MAX(@duration)
+        - MIN(@duration)
+        - AVG(@duration)
+        - P99(@duration)
         - COUNT
       
       # Optional: The filters to apply to matching events when running the query.
       # Default: Will not apply any filters on the query.
       filters:
-        - key: "@message.message"
-          operation: =
-          value: "Generated a random number"
+        - "@message := REPORT"
 ```
 
 ## Query calculations
 
-Each query calculation is a string adhering to the following specifications: `operator(key)`:
-- `operator`: a computation to be performed the key. For further details, please check the [list of supported operators](../../advanced/supported-operations.md).
+Each query calculation is a string that can be represented as `operator(key)`
+- `operator`: a computation to be performed the key. For further details, please check the [list of accepted operators](../../advanced/accepted-operations.md).
 - `key`: the event property to perform the calculation on.
+
+However, the `COUNT` calculation does not require a `key`.
 
 ## Query filters
 
-Each query filter is an object with three manadory properties:
+Each query filter is a string that can be represented as `key :operation value`
 - `key`: the event property to filter against.
+- `operation`: an operation used to compare the key against the value. For further details, please check the [list of accepted operations](../../advanced/accepted-operations.md).
 - `value`: the value to compare the key against.
-- `operation`: an operation used to compare the key against the value. For further details, please check the [list of supported operations](../../advanced/supported-operations.md).
