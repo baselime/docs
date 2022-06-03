@@ -32,3 +32,7 @@ footer:
 integrations:
   crisp:
     id: d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b
+
+search:
+  hotkeys:
+    - "/"
