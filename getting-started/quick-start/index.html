@@ -25,12 +25,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.706619550791" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.707564553990" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.706619550791" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.707564553990" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.706619550791" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.706619550791" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.707564553990" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.707564553990" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -358,26 +358,63 @@
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-bash"><code v-pre class="language-bash">baselime init --application demo</code></pre>
 </doc-codeblock></div>
-<p>This will create a <code v-pre>.baselime.yml</code> file.</p>
+<p>The Baselime CLI will initialise your current directory with a <code v-pre>.baselime.yml</code> file. It will automatically add a query, an alert, and an email channel to deliver the alert to.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title">.baselime.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.1
-
-application: demo</code></pre>
-</doc-codeblock></div>
-<p>Add a query to your <code v-pre>.baselime.yml</code> file.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title">.baselime.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.0.1
-
+<pre class="language-yaml"><code v-pre class="language-yaml">version: 0.0.3
 application: demo
-description: A demo app
-
+description: &quot;&quot;
 queries:
-  demo-query:
-    dataset: logs
-    calculations:
-      - COUNT</code></pre>
+  lambda-invocations-durations:
+    name: The duration of lambda invocations
+    description: Statistics on the duration of lambda invocations across the stack
+    parameters:
+      dataset: logs
+      calculations:
+        - MAX(@duration)
+        - MIN(@duration)
+        - AVG(@duration)
+        - P99(@duration)
+      filters:
+        - &quot;@message := REPORT&quot;
+      filterCombination: AND
+alerts:
+  long-lambda-invocations:
+    name: A Lambda invocation lasted more than 15seconds
+    parameters:
+      query: lambda-invocations-durations
+      frequency: 30
+      duration: 30
+      threshold: :&gt; 15000
+    channels:
+      - developers
+channels:
+  developers:
+    type: email
+    targets:
+      - example@email.com</code></pre>
+</doc-codeblock></div>
+<p>Don&#x27;t hesitate to tweak the query and the alert. The complete set of parameters for the <code v-pre>.baselime.yml</code> file can be found in the <a href="../../observability-as-code/overview/">Observability as Code</a> section.</p>
+<div class="flex mb-6">
+    <div class="flex-shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3">
+<p>Please make sure you change the email address in the channel from <code v-pre>example@email.com</code> to an email address you monitor.</p>
+        </div>
+    </div>
+</div>
+<p>Validate your <code v-pre>.baselime.yml</code> configuration file</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">baselime validate
+✔ Valid configuration file</code></pre>
 </doc-codeblock></div>
 <p>Apply the changes to the <code v-pre>.baselime.yml</code> file to Baselime</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
@@ -385,7 +422,7 @@ queries:
 </doc-codeblock></div>
 <p>To run a query in your command line:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">baselime queries run --application demo --ref demo-query</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime queries run --application demo --ref lambda-invocations-durations</code></pre>
 </doc-codeblock></div>
 <p>This will output the results of the query in the command line, with a link that will allow you to open the results on the Web UI.</p>
 <hr />
@@ -396,7 +433,7 @@ queries:
     </h2>
 </doc-anchor-target>
 <p>After the previous steps, Baselime collects logs and metrics from your Lambda functions. This is a good start, but it can be improved with traces.</p>
-<p>Baselime support <a href="https://opentelemetry.io/">OpenTelemetry</a> to instrument your Lambda functions.</p>
+<p>Baselime supports <a href="https://opentelemetry.io/">OpenTelemetry</a> to instrument your Lambda functions.</p>
 
 
 

@@ -8,28 +8,29 @@
     <!-- Primary Meta Tags -->
     <title>Channels | Baselime - Observability for Serverless</title>
     <meta name="title" content="Channels | Baselime - Observability for Serverless">
-    <meta name="description" content="Coming soon." />
+    <meta name="description" content="The available properties sitting under channels in the .baselime.yml." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/observability-as-code/reference/channels/">
     <meta property="og:title" content="Channels | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Coming soon.">
+    <meta property="og:description" content="The available properties sitting under channels in the .baselime.yml.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/observability-as-code/reference/channels/">
     <meta property="twitter:title" content="Channels | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Coming soon.">
+    <meta property="twitter:description" content="The available properties sitting under channels in the .baselime.yml.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.706619550791" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.707564553990" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.706619550791" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.707564553990" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.706619550791" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.707564553990" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.707564553990" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -205,7 +206,25 @@
         <span>Channels</span>
     </h1>
 </doc-anchor-target>
-<p>Coming soon.</p>
+<p>The available properties sitting under <code v-pre>channels</code> in the <code v-pre>.baselime.yml</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">.baselime.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml"># Start listing the channels. Channels are represented as an object where the key is the reference (ref) of the channel,
+# and the value is an object describing the channel 
+channels:
+  
+  # Reference (ref) of the channel
+  developers:
+    
+    # Required: The type of the channel
+    # Accepted values: email
+    type: email
+    
+    # Required: The targets to notify in this channel
+    targets:
+     - example@email.com
+    </code></pre>
+</doc-codeblock></div>
 
 
 
@@ -286,7 +305,7 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Channels", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Channels", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
         <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     </body>
 </html>

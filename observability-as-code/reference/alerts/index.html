@@ -8,28 +8,29 @@
     <!-- Primary Meta Tags -->
     <title>Alerts | Baselime - Observability for Serverless</title>
     <meta name="title" content="Alerts | Baselime - Observability for Serverless">
-    <meta name="description" content="Coming soon." />
+    <meta name="description" content="The available properties sitting under alerts in the .baselime.yml." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/observability-as-code/reference/alerts/">
     <meta property="og:title" content="Alerts | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Coming soon.">
+    <meta property="og:description" content="The available properties sitting under alerts in the .baselime.yml.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/observability-as-code/reference/alerts/">
     <meta property="twitter:title" content="Alerts | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Coming soon.">
+    <meta property="twitter:description" content="The available properties sitting under alerts in the .baselime.yml.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.706619550791" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.707564553990" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.706619550791" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.707564553990" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.706619550791" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.707564553990" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.707564553990" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -205,7 +206,53 @@
         <span>Alerts</span>
     </h1>
 </doc-anchor-target>
-<p>Coming soon.</p>
+<p>The available properties sitting under <code v-pre>alerts</code> in the <code v-pre>.baselime.yml</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title">.baselime.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml"># Start listing the alerts. Alerts are represented as an object where the key is the reference (ref) of the alert,
+# and the value is an object describing the alert 
+alerts:
+  
+  # Reference (ref) of the alert
+  random-num-gen-value:
+    
+    # Required: Name of the alert
+    name: demo name
+    
+    # Optional: Description of the alert
+    description: demo description
+    
+    # Required: Alert parameters
+    parameters:
+      
+      # Required: The reference (ref) of query to run on at regular intervals for the alert. This query must be within the same application as the alert. 
+      # Please note that if the query has multiple calculations, the alert will be based off the first listed calculation in the array of calculations of the query
+      query: ref-of-an-existing-query
+
+      # Required: The frequency reprensents how often, in minutes, to check for the threshold condition
+      frequency: 30
+
+      # Required: The duration is the time range, in minutes, of data that the alert will check. 
+      duration: 30
+      
+      # Required: The threshold is a string representing the condition to be met to trigger an alert
+      threshold: :&gt; 200
+      
+      # Required: Channels are the references (ref) of the recipients to notify when the threshold condition is met. All channels must be within the same application as the alert 
+      channels:
+        - developers</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="alert-threshold">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#alert-threshold">#</doc-anchor-trigger>
+        <span>Alert threshold</span>
+    </h2>
+</doc-anchor-target>
+<p>The alert threshold is a string that can be represented as <code v-pre>:operation value</code></p>
+<ul>
+<li><code v-pre>operation</code>: an operation used to compare the first results of the query against the value. For further details, please check the <a href="../../../advanced/accepted-operations/">list of accepted operations</a>.</li>
+<li><code v-pre>value</code>: the value to compare the first result of the query against.</li>
+</ul>
 
 
 
@@ -286,7 +333,7 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Alerts", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Alerts", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
         <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     </body>
 </html>
