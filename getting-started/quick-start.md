@@ -116,27 +116,54 @@ In root of your project folder, initialise a new Baselime file.
 baselime init --application demo
 ```
 
-This will create a `.baselime.yml` file.
+The Baselime CLI will initialise your current directory with a `.baselime.yml` file. It will automatically add a query, an alert, and an email channel to deliver the alert to. 
 
 ```yaml # .baselime.yml
-version: 0.0.1
-
+version: 0.0.3
 application: demo
+description: ""
+queries:
+  lambda-invocations-durations:
+    name: The duration of lambda invocations
+    description: Statistics on the duration of lambda invocations across the stack
+    parameters:
+      dataset: logs
+      calculations:
+        - MAX(@duration)
+        - MIN(@duration)
+        - AVG(@duration)
+        - P99(@duration)
+      filters:
+        - "@message := REPORT"
+      filterCombination: AND
+alerts:
+  long-lambda-invocations:
+    name: A Lambda invocation lasted more than 15seconds
+    parameters:
+      query: lambda-invocations-durations
+      frequency: 30
+      duration: 30
+      threshold: :> 15000
+    channels:
+      - developers
+channels:
+  developers:
+    type: email
+    targets:
+      - example@email.com
 ```
 
-Add a query to your `.baselime.yml` file.
+Don't hesitate to tweak the query and the alert. The complete set of parameters for the `.baselime.yml` file can be found in the [Observability as Code](../observability-as-code/overview.md) section.
 
-```yaml # .baselime.yml
-version: 0.0.0.1
+!!!warning 
+Please make sure you change the email address in the channel from `example@email.com` to an email address you monitor.
+!!!
 
-application: demo
-description: A demo app
+Validate your `.baselime.yml` configuration file
 
-queries:
-  demo-query:
-    dataset: logs
-    calculations:
-      - COUNT
+```bash #
+baselime validate
+✔ Valid configuration file
 ```
 
 Apply the changes to the `.baselime.yml` file to Baselime
@@ -148,7 +175,7 @@ baselime apply
 To run a query in your command line:
 
 ```bash #
-baselime queries run --application demo --ref demo-query
+baselime queries run --application demo --ref lambda-invocations-durations
 ```
 
 This will output the results of the query in the command line, with a link that will allow you to open the results on the Web UI.
@@ -159,4 +186,4 @@ This will output the results of the query in the command line, with a link that 
 
 After the previous steps, Baselime collects logs and metrics from your Lambda functions. This is a good start, but it can be improved with traces.
 
-Baselime support [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.
+Baselime supports [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.
