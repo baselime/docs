@@ -17,6 +17,16 @@ The goal of [Baselime](https://baselime.io) is to empower your teams to:
 
 ---
 
+## Observability as Code
+
+Observability as Code adapts the principles of Infrastructure as Code to observability configurations. Dashboards, queries, alerts and everything else are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.
+
+Baselime helps your team adopt the best practices from software engineering to collaborate and iterate on observability configurations.
+
+With Observability as Code, start treating observability as a first class citizen of the software development life cycle, rather than an after-thought.
+
+---
+
 ## Telemetry Data
 
 Once you onboard on Baselime, Baselime will start to automatically collect logs, metrics and various other data types from your serverless applications.
@@ -31,17 +41,7 @@ Once the telemetry data is ingested, you can run complex queries on your data, f
 
 ---
 
-## Observability as Code
-
-Observability as Code adapts the principles of Infrastructure as Code to observability configurations. Dashboards, queries, alerts and everything else are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.
-
-Baselime helps teams adopt the best practices from software engineering to collaborate and iterate on observability configurations.
-
-With Observability as Code, start treating observability as a first class citizen of the software development life cycle, rather than an after-thought.
-
----
-
-## Debug and Test in Prod
+## Debug in Prod
 
 Baselime collects telemetry data from your applications in prod. It correlates logs, metrics, traces and all the events your systems emit.
 
