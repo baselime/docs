@@ -12,7 +12,7 @@ Baselime can ingest your events through our HTTP API. All requests should be mad
 
 ```bash # :icon-terminal: terminal
 curl -X 'POST' 'https://events.baselime.io/v1/<dataset>/<namespace>' \
-  -H 'Authorization: x-api-key $BASELIME_API_KEY' \
+  -H 'x-api-key: $BASELIME_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '[
         {"key1":"value1","key2":"value2"},
