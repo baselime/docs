@@ -5,7 +5,7 @@ order: -1
 
 The available properties sitting under `queries` in the `.baselime.yml`.
 
-```yaml # .baselime.yml
+```yaml # :icon-code: .baselime.yml
 # Start listing the queries. Queries are represented as an object where the key is the reference (ref) of the query,
 # and the value is an object describing the query 
 queries:

@@ -12,7 +12,7 @@ The `applications` command is used to manage applications.
 
 List all the applications.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime applications list
 ```
 
@@ -22,13 +22,13 @@ baselime applications list
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime applications list
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Fetching your applications
 ╔═══════════╤═══════════════════════════╗
 ║ Name      │ Created                   ║
@@ -44,7 +44,7 @@ Output:
 
 Return the description of an application.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime applications describe --name <application_name>
 ```
 
@@ -58,13 +58,13 @@ baselime applications describe --name <application_name>
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime applications describe --name api
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Fethcing application api
 ╔═══════════╤═════════╤═══════════════╤═══════════════════════════╤═══════════════════════════╗
 ║ Name      │ Status  │ Deployment Id │ Created                   │ Updated                   ║

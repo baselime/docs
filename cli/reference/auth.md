@@ -12,7 +12,7 @@ The `auth` command is used to manage authentication state.
 
 Obtain and save credentials for an environment
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime auth login
 ```
 
@@ -26,7 +26,7 @@ baselime auth login
 
 Remove locally-stored credentials for an environment
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime auth logout
 ```
 
@@ -36,7 +36,7 @@ baselime auth logout
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime auth logout
 ```
 
@@ -48,12 +48,12 @@ Intercative.
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime auth logout --profile prod
 ```
 
 Output:
 
-```bash #
+```txt # :icon-code: output
 ✔ Deleted credentials from your workstation
 ```

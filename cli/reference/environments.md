@@ -12,7 +12,7 @@ The `environments` command is used to manage environments.
 
 List all the environments.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime applications list
 ```
 
@@ -22,13 +22,13 @@ baselime applications list
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime environments list
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Fetching your environments
 ╔═══════════╤════════════════╤═════════════╤═══════════════════════════╗
 ║ Alias     │ Account        │ Region      │ Created                   ║
@@ -44,7 +44,7 @@ Output:
 
 Setup a new environment.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime environments setup --type aws --account <account_numner> --region <region> --alias <alias>
 ```
 
@@ -61,7 +61,7 @@ baselime environments setup --type aws --account <account_numner> --region <regi
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime environments setup --type aws --account <account_numner> --region <region> --alias <alias>
 ```
 

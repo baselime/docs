@@ -5,7 +5,7 @@ order: -2
 
 The available properties sitting under `alerts` in the `.baselime.yml`.
 
-```yaml # .baselime.yml
+```yaml # :icon-code: .baselime.yml
 # Start listing the alerts. Alerts are represented as an object where the key is the reference (ref) of the alert,
 # and the value is an object describing the alert 
 alerts:

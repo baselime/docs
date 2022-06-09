@@ -21,7 +21,7 @@ Moreover, Baselime will be able to collect traces across your Lambda invocations
 
 To auto-instrument your Node.js Lambda function, you need to install the following packages:
 
-```bash #
+```bash # :icon-terminal: terminal
 npm install --save @opentelemetry/api
 npm install --save @opentelemetry/instrumentation
 npm install --save @opentelemetry/auto-instrumentations-node
@@ -34,7 +34,7 @@ npm install --save @opentelemetry/sdk-trace-node
 
 Next you need to initialise OpenTelemetry in your Lambda function. Create a `tracing.js` file that will be executed as the first step of your Lambda invocation.
 
-```js # tracing.js
+```js # :icon-code: tracing.js
 const { SimpleSpanProcessor, ConsoleSpanExporter } = require("@opentelemetry/sdk-trace-base");
 const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
 const { AwsLambdaInstrumentation } = require('@opentelemetry/instrumentation-aws-lambda');

@@ -9,7 +9,7 @@ label: destroy
 Destroy previously-created observability configurations
 
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime destroy
 ```
 
@@ -23,13 +23,13 @@ baselime destroy
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime destroy
 ```
 
 Output:
 
-```bash #
+```txt # :icon-code: output
 ✔ Valid configuration file
 ✔ Submitted your observability configurations. id: 01G3R48M4QVDYH7NF79AWT4K0D
 ```
@@ -38,13 +38,13 @@ Output:
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime destroy --config custom.yml
 ```
 
 Output:
 
-```bash #
+```txt # :icon-code: output
 ✔ Valid configuration file
 ✔ Submitted your observability configurations. id: 05GYB48M4QVJHT7NF79AWT4KIH
 ```

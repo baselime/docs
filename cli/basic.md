@@ -9,7 +9,7 @@ We refer to the `baselime` command line tool as the `Baselime CLI` elsewhere in 
 
 To view a list of the commands available in your current version of the Baselime CLI, run `baselime --help`:
 
-```txt
+```txt # :icon-code: output
 baselime [command]
 The power of Baselime in the command-line
 

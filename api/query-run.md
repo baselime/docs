@@ -33,7 +33,7 @@ The payload to create a query run should follow the specs below.
 
 Sample request:
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/query_run -X POST  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -48,7 +48,7 @@ curl https://go.baselime.io/v1/query_run -X POST  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "query_run": {
     "id": "TfcBkYdh",
@@ -64,14 +64,14 @@ curl https://go.baselime.io/v1/query_run -X POST  \
 
 To retrieve a query run, send a `GET` request to `/v1/query_run/<query_run_id>`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/query_run/<query_run_id> -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "query_run": {
     "id": "TfcBkYdh",

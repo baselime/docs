@@ -12,7 +12,7 @@ The `alerts` command is used to manage alerts.
 
 List all the alerts.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime alerts list
 ```
 
@@ -27,13 +27,13 @@ baselime alerts list
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime alerts list
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Fetching your alerts
 ╔════════╤═════════════╤═════════════════════════╤═════════════════════════╤═══════════════════════════╗
 ║ Id     │ Application │ Ref                     │ Name                    │ Created                   ║
@@ -49,13 +49,13 @@ Output:
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime alerts list --application api
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Fetching your alerts
 ╔════════╤═════════════╤═════════════════════════╤═════════════════════════╤═══════════════════════════╗
 ║ Id     │ Application │ Ref                     │ Name                    │ Created                   ║

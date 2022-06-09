@@ -12,7 +12,7 @@ The `events` command is used to manage events.
 
 Search for a needle in a dataset.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime events search --datset <dataset> --needle <needle>
 ```
 
@@ -30,13 +30,13 @@ baselime events search --datset <dataset> --needle <needle>
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime events search --dataset logs --needle "email address not found"
 ```
 
 Output:
 
-```bash #
+```txt # :icon-code: output
 ```
 
 ---
@@ -45,7 +45,7 @@ Output:
 
 Stream a dataset.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime stream --dataset <dataset_name> --namespaces <space_1> <space_2>
 ```
 
@@ -63,13 +63,13 @@ baselime stream --dataset <dataset_name> --namespaces <space_1> <space_2>
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime stream --dataset logs --namespaces namespace_1 namespace_2 --follow
 ```
 
 Output:
 
-```bash #
+```txt # :icon-code: output
 2022-05-23 10:18:18.741 namespace_1 {"message": "Test message"}
 2022-05-23 10:18:18.742 namespace_2 {"@type":"END","@requestId":"8af8ed70-d252-4c8e-98c3-e7de57c51ed9"}
 2022-05-23 10:18:18.742 namespace_2 {"@type":"REPORT","@requestId":"8af8ed70-d252-4c8e-98c3-e7de57c51ed9","@duration":91.35,"@billedDuration":92 "@memorySize":2048,"@maxMemoryUsed":100}

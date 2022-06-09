@@ -6,7 +6,7 @@ order: -1
 The following example describes a simple query checking statistics of the execution cold start duration of a couple of Lambda functions and sets an email alert when the cold starts exceed a threshold. This is just to give a sense of the overall structure of a `.baselime.yml` file.
 
 
-```yaml # .baselime.yml
+```yaml # :icon-code: .baselime.yml
 version: 0.0.1
 application: api
 description: The api that powers our web application

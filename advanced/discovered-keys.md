@@ -20,7 +20,7 @@ The following keys are discovered from the `START` message:
 - `@requestId`: the request ID of the Lambda invocation
 - `@version`: the invoked version of the Lambda function
 
-```json
+```json # :icon-code: output
  START RequestId: d5d410e5-7406-5a1b-888e-4aa7492a313d Version: $LATEST
 
 {
@@ -36,7 +36,7 @@ The following keys are discovered from the `END` message:
 - `@type`: is always `END`
 - `@requestId`: the request ID of the Lambda invocation
 
-```json
+```json # :icon-code: output
  END RequestId: d5d410e5-7406-5a1b-888e-4aa7492a313d
 
 {
@@ -62,7 +62,7 @@ If the Lambda function is instrumented with XRAY, additional keys are discovered
 - `@segmentId`: the XRAY segment ID
 - `@sampled`: always `true`
 
-```json
+```json # :icon-code: output
 REPORT RequestId: 8fc6f963-411b-58b5-8483-a32130c0f45d Duration: 201.67 ms Billed Duration: 202 ms Memory Size: 2048 MB Max Memory Used: 81 MB Init Duration: 480.25 ms XRAY TraceId: 1-61c86fa4-59b3c6d959653c527fd10966 SegmentId: 107ea78a5750a811 Sampled: true
 
 {
@@ -87,7 +87,7 @@ If your async Lambda invocation times out, Additional keys are automatically dis
 - `@message`: always `Task timed out after {@timeout} seconds`
 - `@timestamp`: the timestamp at the moment the invocation timed out.
 
-```json
+```json # :icon-code: output
  2021-12-26T13:15:48.760Z 5b252591-51c6-5d15-87a9-7fd33ce32be4 Task timed out after 15.01 seconds
 
 {
@@ -112,7 +112,7 @@ We recommend writing directly to `stdout` and `stderr` from your Lambda function
 If the message in `@message` is a JSON object, Baselime will parse it, otherwise it will be considered a `string`.
 !!!
 
-```json
+```json # :icon-code: output
  2021-12-26T14:00:19.258Z e578aebe-054e-4844-835c-66a75d3112cf ERROR Error doing something.
 
 {

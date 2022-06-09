@@ -29,7 +29,7 @@ Creating a defect via the API will trigger downstream events, such as notificati
 
 Sample request:
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/defects -X POST  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -48,7 +48,7 @@ curl https://go.baselime.io/v1/defects -X POST  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "defect": {
     "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6"
@@ -64,14 +64,14 @@ curl https://go.baselime.io/v1/defects -X POST  \
 
 To retrieve a defect, send a `GET` request to `/v1/defects/<defect_id>`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/defects/<defect_id> -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "defect": {
     "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6",
@@ -103,7 +103,7 @@ To update an defect, send a `PUT` request to `/v1/defects/<defect_id>`. The requ
 It is not possible to update the target of a defect.
 !!!
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/defects/<defect_id> -X PUT  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -115,7 +115,7 @@ curl https://go.baselime.io/v1/defects/<defect_id> -X PUT  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "defect": {
     "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6",
@@ -143,14 +143,14 @@ curl https://go.baselime.io/v1/defects/<defect_id> -X PUT  \
 
 To delete an defect, send a `DELETE` request to `/v1/defects/<defect_id>`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/alerts/<alert_id> -X DELETE  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "defect": {
     "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6"
@@ -166,7 +166,7 @@ curl https://go.baselime.io/v1/alerts/<alert_id> -X DELETE  \
 
 To list defects, send a `GET` request to `/v1/defects/`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/defects -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
@@ -177,7 +177,7 @@ Filter only resolved or active defects with a query parameter to the request: `/
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "defects": [
     {

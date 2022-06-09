@@ -9,7 +9,7 @@ label: init
 The `init` command is used to prepare your working directory for other commands.
 
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime init --application <application_name> --description <description>
 ```
 
@@ -24,7 +24,7 @@ baselime init --application <application_name> --description <description>
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime init
 ```
 
@@ -36,13 +36,13 @@ Intercative.
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime init --application api --description "The api that powers our web application"
 ```
 
 Output:
 
-```bash #
+```txt # :icon-code: output
 ✔ .baselime.yml Generated
 ```
 

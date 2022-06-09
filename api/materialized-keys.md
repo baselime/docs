@@ -21,7 +21,7 @@ The payload to create a materialized key should follow the specs below.
 
 Sample request:
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/materialized_key -X POST  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -35,7 +35,7 @@ curl https://go.baselime.io/v1/materialized_key -X POST  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "materialized_key": {
     "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6"
@@ -51,14 +51,14 @@ curl https://go.baselime.io/v1/materialized_key -X POST  \
 
 To retrieve a materialized key, send a `GET` request to `/v1/materialized_key/<materialized_key_id>`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/materialized_key/<materialized_key_id> -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "materialized_key": {
     "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6",
@@ -80,14 +80,14 @@ curl https://go.baselime.io/v1/materialized_key/<materialized_key_id> -X GET  \
 
 To retrieve a materialized key, send a `GET` request to `/v1/materialized_key?alias=<materialized_alias>`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/materialized_key?alias=<materialized_alias> -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "materialized_key": {
     "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6",
@@ -109,7 +109,7 @@ curl https://go.baselime.io/v1/materialized_key?alias=<materialized_alias> -X GE
 
 To update an materialized key, send a `PUT` request to `/v1/materialized_key/<materialized_key_id>`. The request body should include all fields that you wish to edit on the materialized key. Only included fields will be updated.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/materialized_key/<materialized_key_id> -X PUT  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -122,7 +122,7 @@ curl https://go.baselime.io/v1/materialized_key/<materialized_key_id> -X PUT  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "materialized_key": {
     "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6",
@@ -148,14 +148,14 @@ To delete an materialized key, send a `DELETE` request to `/v1/materialized_key_
 It is not possible to delete materialized keys that are being used by other queries
 !!!
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/materialized_key/<materialized_key_id> -X DELETE  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "materialized_key": {
     "id": "1f5199de-52e4-4e30-89ee-762a15c0c5b6"
@@ -171,14 +171,14 @@ curl https://go.baselime.io/v1/materialized_key/<materialized_key_id> -X DELETE 
 
 To list materialized key, send a `GET` request to `/v1/materialized_key/`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/materialized_key -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "materialized_key": [
     {

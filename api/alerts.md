@@ -24,7 +24,7 @@ The payload to create an alert should follow the specs below.
 
 Sample request:
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/alerts -X POST  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -53,7 +53,7 @@ curl https://go.baselime.io/v1/alerts -X POST  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "alert": {
     "id": "abcdefgh"
@@ -69,14 +69,14 @@ curl https://go.baselime.io/v1/alerts -X POST  \
 
 To retrieve an alert, send a `GET` request to `/v1/alerts/<alert_id>`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/alerts/<alert_id> -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "alert": {
     "id": "ZbcdXfFh",
@@ -113,7 +113,7 @@ curl https://go.baselime.io/v1/alerts/<alert_id> -X GET  \
 
 To update an alert, send a `PUT` request to `/v1/alerts/<alert_id>`. The request body should include all fields that you wish to edit on the alert. Only included fields will be updated.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/alerts/<alert_id> -X PUT  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -126,7 +126,7 @@ curl https://go.baselime.io/v1/alerts/<alert_id> -X PUT  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "alert": {
     "id": "ZbcdXfFh",
@@ -163,14 +163,14 @@ curl https://go.baselime.io/v1/alerts/<alert_id> -X PUT  \
 
 To delete an alert, send a `DELETE` request to `/v1/alerts/<alert_id>`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/alerts/<alert_id> -X DELETE  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "alert": {
     "id": "ZbcdXfFh"
@@ -186,14 +186,14 @@ curl https://go.baselime.io/v1/alerts/<alert_id> -X DELETE  \
 
 To list alerts, send a `GET` request to `/v1/alerts/`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/alerts -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "alerts": [
     {

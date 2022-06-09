@@ -12,7 +12,7 @@ The `queries` command is used to manage queries.
 
 List all the queries.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime queries list
 ```
 
@@ -27,13 +27,13 @@ baselime queries list
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime queries list
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Fetching your queries
 ╔════════╤═════════════╤═════════════════════════════╤═══════════════════════════════════════════╤═══════════════════════════╗
 ║ Id     │ Application │ Ref                         │ Name                                      │ Created                   ║
@@ -57,13 +57,12 @@ Output:
 
 Command:
 
-```bash #
-baselime queries list --application demo
+```bash # :icon-terminal: terminalbaselime queries list --application demo
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Fetching your queries
 ╔════════╤═════════════╤═════════════════════════╤═══════════════════════════════════════════╤═══════════════════════════╗
 ║ Id     │ Application │ Ref                     │ Name                                      │ Created                   ║
@@ -81,7 +80,7 @@ Output:
 
 Run a query.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime queries run --application <application_name> --ref <query_ref> --from 2days --to 1day
 ```
 
@@ -100,13 +99,13 @@ baselime queries run --application <application_name> --ref <query_ref> --from 2
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime queries run --id c2qPyC --from 3hours --to now
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Running the query
 ╔═══════════════╤═════════╤═══════════════════════════╤═══════════════════════════╤═════════╤═══════════════════════════╗
 ║ Id            │ QueryId │ From                      │ To                        │ Status  │ Created                   ║
@@ -124,20 +123,20 @@ Output:
 ╟────────────────────────────┼───────╢
 ║ COUNT                      │ 10    ║
 ╚════════════════════════════╧═══════╝
-Follow this url: https://console.baselime.cc/workspaces/KeEDAtw3oxbV/envs/KoeZFW/queries/c2qPyC/1653302481818
+Follow this url: https://ui.baselime.io/workspaces/KeEDAtw3oxbV/envs/KoeZFW/queries/c2qPyC/1653302481818
 ```
 
 #### Example 2: Run a query passing its application and ref
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime queries run --application api --ref lambda-duration --from 2days --to 1day
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Running the query
 ╔═══════════════╤═════════╤═══════════════════════════╤═══════════════════════════╤═════════╤═══════════════════════════╗
 ║ Id            │ QueryId │ From                      │ To                        │ Status  │ Created                   ║
@@ -153,5 +152,5 @@ Output:
 ╟────────────────┼────────────────────╢
 ║ P99(@duration) │ 322.98440000000005 ║
 ╚════════════════╧════════════════════╝
-Follow this url: https://console.baselime.cc/workspaces/KeEDAtw3oxbV/envs/KoeZFW/queries/1DLRye/1653302639712
+Follow this url: https://ui.baselime.io/workspaces/KeEDAtw3oxbV/envs/KoeZFW/queries/1DLRye/1653302639712
 ```

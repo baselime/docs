@@ -13,13 +13,13 @@ Baselime supports Observability as Code: defining your observability configurati
 
 Create a `.baselime.yml` file in the root of your project folder, and use it to define queries, alerts and dashboards.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime init
 ```
 
 You can use the CLI to apply your observability configurations.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime apply
 ```
 
@@ -31,7 +31,7 @@ All queries, alerts and dashboards created in the web UI can be exported as YAML
 
 You can create queries using the `.baselime.yml` file.
 
-```yaml # .baselime.yml
+```yaml # :icon-code: .baselime.yml
 version: 0.0.1
 application: api
 description: The API that powers our web application
@@ -66,7 +66,7 @@ queries:
 
 You can create channels that are sinks where messages can be sent from Baselime
 
-```yaml # .baselime.yml
+```yaml # :icon-code: .baselime.yml
 version: 0.0.1
 application: api
 description: The API that powers our web application
@@ -89,7 +89,7 @@ channels:
 
 You can create an alert based on the previous query. Reference the query ID with the `!ref` function.
 
-```yaml .baselime.yml
+```yaml # :icon-code: .baselime.yml
 version: 0.0.1
 
 application: api

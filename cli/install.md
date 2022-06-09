@@ -16,20 +16,20 @@ You can download and install the Baselime CLI on MacOS
 #### Homebrew (Coming soon)
 You can install the Baselime CLI using [Homebrew](https://brew.sh/).
 
-```bash
+```bash # :icon-terminal: terminal
 brew tap baselime/tap
 brew install baselime
 ```
 
 To update:
 
-```bash
+```bash # :icon-terminal: terminal
 brew upgrade baselime
 ```
 
 #### Manual
 
-```bash #
+```bash # :icon-terminal: terminal
 curl -s https://get.baselime.io | bash
 ```
 
@@ -37,13 +37,13 @@ curl -s https://get.baselime.io | bash
 
 You can download and install the Baselime CLI for your preferred Linux distribution: 
 
-```bash #
+```bash # :icon-terminal: terminal
 curl -s https://get.baselime.io | sudo bash
 ```
 
 ### Using [npm](https://npmjs.com)
 
-```bash
+```bash # :icon-terminal: terminal
 npm install @baselime/cli -g
 ```
 
@@ -55,7 +55,7 @@ Binary releases are available on [GitHub Releases](https://github.com/baselime/c
 
 In all cases the installation can be validated by running `baselime -v` in the terminal:
 
-```bash
+```bash # :icon-terminal: terminal
 baselime -v
 0.0.2
 ```

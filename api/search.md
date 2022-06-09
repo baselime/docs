@@ -34,7 +34,7 @@ The payload to create a search should follow the specs below.
 
 Sample request:
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/search -X POST  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -55,7 +55,7 @@ curl https://go.baselime.io/v1/search -X POST  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "search": {
     "id": "TfcBkYdh",
@@ -71,14 +71,14 @@ curl https://go.baselime.io/v1/search -X POST  \
 
 To retrieve a query run, send a `GET` request to `/v1/search/<search_id>`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/search/<search_id> -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "search": {
     "id": "TfcBkYdh",

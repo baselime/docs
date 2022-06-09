@@ -21,7 +21,7 @@ If you do not have an application, you can use one of our [example applications]
 
 ## Step 1: Install the Baselime CLI
 
-```bash #
+```bash # :icon-terminal: terminal
 curl -s https://get.baselime.io | bash
 ```
 
@@ -53,7 +53,7 @@ We've open-sourced the CloudFormation template [here](../integrations/integratio
 
 You can generate and download this template through the [Baselime Web UI](https://baselime.io) or with the CLI:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime environments setup \
   --type aws \
   --account <AWS_ACCOUNT_ID> \
@@ -67,7 +67,9 @@ Once you've generated and downloaded the template, you must deploy it to your AW
 Please make sure you're using the correct credentials to deploy to the correct account and the correct region.
 !!!
 
-```bash #
+:icon-star:
+
+```bash # :icon-terminal: terminal
 aws cloudformation create-stack \
   --stack-name baselime-integration \
   --template-body file://<FULL_PATH_TO_FILE> \
@@ -112,13 +114,13 @@ You can save the query and share it with your team.
 
 In root of your project folder, initialise a new Baselime file.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime init --application demo
 ```
 
 The Baselime CLI will initialise your current directory with a `.baselime.yml` file. It will automatically add a query, an alert, and an email channel to deliver the alert to. 
 
-```yaml # .baselime.yml
+```yaml # :icon-code: .baselime.yml
 version: 0.0.3
 application: demo
 description: ""
@@ -161,20 +163,20 @@ Please make sure you change the email address in the channel from `example@email
 
 Validate your `.baselime.yml` configuration file
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime validate
 ✔ Valid configuration file
 ```
 
 Apply the changes to the `.baselime.yml` file to Baselime
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime apply
 ```
 
 To run a query in your command line:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime queries run --application demo --ref lambda-invocations-durations
 ```
 

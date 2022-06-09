@@ -55,7 +55,7 @@ Monitoring and observability platforms are usually built with operations profess
 
 ---
 
-```ts
+```js # :icon-code: quick-start.js
 if(baselime.use === "first-time") {
   return quickStart();
 }

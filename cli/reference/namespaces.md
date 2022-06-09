@@ -12,7 +12,7 @@ The `namespaces` command is used to manage namespaces.
 
 List all the namespaces.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime namespaces list
 ```
 
@@ -29,13 +29,13 @@ baselime namespaces list
 
 Command:
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime namespaces list --dataset logs --from 2hours --to now
 ```
 
 Output:
 
-```txt
+```txt # :icon-code: output
 ✔ Fetching your namespaces
 ╔═════════════════════════════╤═════════════════════════╗
 ║ Namespace                   │ Last ingested           ║

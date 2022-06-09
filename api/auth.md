@@ -13,7 +13,7 @@ The auth API is used to validate an authentication key and to verify the actions
 
 ### Request
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/auth \
     -X GET \
     -H "Authorization: YOUR_API_KEY" 
@@ -23,7 +23,7 @@ curl https://go.baselime.io/v1/auth \
 
 The expected response is:
 
-```json
+```json # :icon-code: output
 {
   "permissions": {
     "events": true,

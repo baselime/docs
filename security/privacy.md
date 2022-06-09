@@ -21,7 +21,7 @@ Blocked keys will not be stored in Baselime. They will not be available in queri
 
 Data fields can be blocked in the Baselime Web UI or using the CLI.
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime keys block 'user.email' --namespace 'login-lambda'
 ```
 
@@ -31,6 +31,6 @@ Obfuscated keys will be stored in Baselime, but scrambled as a Base64-encoded AS
 
 Data fields can be obfuscated in the Baselime Web UI or using the CLI
 
-```bash #
+```bash # :icon-terminal: terminal
 baselime keys obfuscate 'user.email' --namespace 'login-lambda'
 ```

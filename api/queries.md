@@ -31,7 +31,7 @@ The payload to create a query should follow the specs below. All fields are opti
 
 Sample request:
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/queries -X POST  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -58,7 +58,7 @@ curl https://go.baselime.io/v1/queries -X POST  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "query": {
     "id": "abcdefgh"
@@ -74,14 +74,14 @@ curl https://go.baselime.io/v1/queries -X POST  \
 
 To retrieve a query, send a `GET` request to `/v1/queries/<query_id>`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/queries/<query_id> -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "query": {
     "id": "abcdefgh",
@@ -116,7 +116,7 @@ curl https://go.baselime.io/v1/queries/<query_id> -X GET  \
 
 To update a query, send a `PUT` request to `/v1/queries/<query_id>`. The request body should include all fields that you wish to edit on the query. Only included fields will be updated.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/queries/<query_id> -X PUT  \
     -H "Authorization: YOUR_API_KEY"  \
     -d '
@@ -139,7 +139,7 @@ curl https://go.baselime.io/v1/queries/<query_id> -X PUT  \
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "query": {
     "id": "abcdefgh",
@@ -178,14 +178,14 @@ curl https://go.baselime.io/v1/queries/<query_id> -X PUT  \
 
 To delete a query, send a `DELETE` request to `/v1/queries/<query_id>`. If other resources such as alerts use the current query, the delete operation will fail and respond with status code `403`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/queries/<query_id> -X DELETE  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "query": {
     "id": "abcdefgh"
@@ -201,14 +201,14 @@ curl https://go.baselime.io/v1/queries/<query_id> -X DELETE  \
 
 To list queries, send a `GET` request to `/v1/queries/`.
 
-```bash
+```bash # :icon-terminal: terminal
 curl https://go.baselime.io/v1/queries -X GET  \
     -H "Authorization: YOUR_API_KEY"
 ```
 
 ### Sample Response
 
-```json
+```json # :icon-code: output
 {
   "queries": [
     {
