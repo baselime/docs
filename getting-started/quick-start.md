@@ -180,12 +180,10 @@ To run a query in your command line:
 baselime queries run --application demo --ref lambda-invocations-durations
 ```
 
-This will output the results of the query in the command line, with a link that will allow you to open the results on the Web UI.
+This will output the results of the query in the command line, with a link that will redirect to the results in the Web UI.
 
 ---
 
 ## Next Steps
 
-After the previous steps, Baselime collects logs and metrics from your Lambda functions. This is a good start, but it can be improved with traces.
-
-Baselime supports [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.
+Now you can setup our observability as code. Next up is to send more telemetry data to Baselime.

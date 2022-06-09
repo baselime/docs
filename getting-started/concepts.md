@@ -1,6 +1,6 @@
 ---
 label: Baselime Concepts
-order: -3
+order: -2
 ---
 
 # Baselime Concepts
@@ -46,3 +46,15 @@ Once the telemetry data is ingested, you can run complex queries on your data, f
 Baselime collects telemetry data from your applications in prod. It correlates logs, metrics, traces and all the events your systems emit.
 
 This allows your team to investigate and resolve incidents without relying on adding additional log messages when there's an outage. You can search through requests, events payloads, database requests, etc... across your serverless applications.
+
+---
+
+## Datasets
+
+Your telemetry data is organised in datasets in Baselime. A dataset is collection of similar or related events events.
+
+---
+
+## Namespaces
+
+Namespaces are additional dimensions to further organise your data such that you can slice and dice when running queries. A typical namespace would be the name of the serverless function emitting the telemetry data. 

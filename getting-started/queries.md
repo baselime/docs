@@ -1,6 +1,6 @@
 ---
 label: Queries, Alerts and Dashboards
-order: -2
+order: -1
 ---
 
 # Queries, Alerts and Dashboards
@@ -9,7 +9,7 @@ order: -2
 
 This section is a quick start on how to define Queries, Alerts and Dashboards with the Baselime CLI.
 
-Baselime supports Observability as Code: defining your observability configurations as code, rather than clicking in a web UI. The entire platform is driven by YAML files that you can track in your version control.
+Baselime is based on Observability as Code: defining your observability configurations as code, rather than point-and-click web UIs. Our entire platform is driven by YAML files that you can track in your version control.
 
 Create a `.baselime.yml` file in the root of your project folder, and use it to define queries, alerts and dashboards.
 

@@ -1,13 +1,13 @@
 ---
-label: Instrument your Code
+label: OpenTelemetry Instrumentation
 order: -1
 ---
 
-# Instrument your Code
+# OpenTelemetry Instrumentation
 
 ---
 
-Baselime support [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.
+Baselime supports [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.
 
 ---
 
@@ -23,9 +23,9 @@ To auto-instrument your Node.js Lambda function, you need to install the followi
 
 ```bash # :icon-terminal: terminal
 npm install --save @opentelemetry/api
-npm install --save @opentelemetry/instrumentation
 npm install --save @opentelemetry/auto-instrumentations-node
 npm install --save @opentelemetry/exporter-otlp-http
+npm install --save @opentelemetry/instrumentation
 npm install --save @opentelemetry/instrumentation-aws-lambda
 npm install --save @opentelemetry/instrumentation-http
 npm install --save @opentelemetry/sdk-trace-base
@@ -35,7 +35,7 @@ npm install --save @opentelemetry/sdk-trace-node
 Next you need to initialise OpenTelemetry in your Lambda function. Create a `tracing.js` file that will be executed as the first step of your Lambda invocation.
 
 ```js # :icon-code: tracing.js
-const { SimpleSpanProcessor, ConsoleSpanExporter } = require("@opentelemetry/sdk-trace-base");
+const { SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
 const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
 const { AwsLambdaInstrumentation } = require('@opentelemetry/instrumentation-aws-lambda');
 const { registerInstrumentations } = require('@opentelemetry/instrumentation');
@@ -43,16 +43,16 @@ const { getNodeAutoInstrumentations } = require("@opentelemetry/auto-instrumenta
 const { OTLPTraceExporter } = require("@opentelemetry/exporter-otlp-http");
 
 const provider = new NodeTracerProvider();
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+
 provider.addSpanProcessor(
-    new SimpleSpanProcessor(
-        new CollectorTraceExporter({
-            url: 'https://otel.baselime.io/',
-            headers: {
-                Authorization: process.env.BASELIME_API_KEY
-            }
-        })
-    )
+  new SimpleSpanProcessor(
+    new OTLPTraceExporter({
+      url: 'https://otel.baselime.io/',
+      headers: {
+        Authorization: process.env.BASELIME_API_KEY
+      }
+    })
+  )
 );
 
 provider.register();
