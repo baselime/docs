@@ -25,11 +25,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.707564553990" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.708104384204" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.707564553990" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.708104384204" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.707564553990" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.708104384204" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -215,6 +215,16 @@
 <li>Improve collaboration within and across teams on production systems</li>
 </ul>
 <hr />
+<doc-anchor-target id="observability-as-code">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#observability-as-code">#</doc-anchor-trigger>
+        <span>Observability as Code</span>
+    </h2>
+</doc-anchor-target>
+<p>Observability as Code adapts the principles of Infrastructure as Code to observability configurations. Dashboards, queries, alerts and everything else are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.</p>
+<p>Baselime helps your team adopt the best practices from software engineering to collaborate and iterate on observability configurations.</p>
+<p>With Observability as Code, start treating observability as a first class citizen of the software development life cycle, rather than an after-thought.</p>
+<hr />
 <doc-anchor-target id="telemetry-data">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#telemetry-data">#</doc-anchor-trigger>
@@ -227,24 +237,30 @@
 <p>Baselime ingests those events from your applications and allows you to interact with them through its various clients in near-real-time.</p>
 <p>Once the telemetry data is ingested, you can run complex queries on your data, filtering across any dimension or formula, grouping and aggregating as you please. This allows you to interrogate your systems at a fine level and isolate a single user, a single service or a single transaction; or query across multiple dimensions to get a higher level overview.</p>
 <hr />
-<doc-anchor-target id="observability-as-code">
+<doc-anchor-target id="debug-in-prod">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#observability-as-code">#</doc-anchor-trigger>
-        <span>Observability as Code</span>
-    </h2>
-</doc-anchor-target>
-<p>Observability as Code adapts the principles of Infrastructure as Code to observability configurations. Dashboards, queries, alerts and everything else are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.</p>
-<p>Baselime helps teams adopt the best practices from software engineering to collaborate and iterate on observability configurations.</p>
-<p>With Observability as Code, start treating observability as a first class citizen of the software development life cycle, rather than an after-thought.</p>
-<hr />
-<doc-anchor-target id="debug-and-test-in-prod">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#debug-and-test-in-prod">#</doc-anchor-trigger>
-        <span>Debug and Test in Prod</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#debug-in-prod">#</doc-anchor-trigger>
+        <span>Debug in Prod</span>
     </h2>
 </doc-anchor-target>
 <p>Baselime collects telemetry data from your applications in prod. It correlates logs, metrics, traces and all the events your systems emit.</p>
 <p>This allows your team to investigate and resolve incidents without relying on adding additional log messages when there&#x27;s an outage. You can search through requests, events payloads, database requests, etc... across your serverless applications.</p>
+<hr />
+<doc-anchor-target id="datasets">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#datasets">#</doc-anchor-trigger>
+        <span>Datasets</span>
+    </h2>
+</doc-anchor-target>
+<p>Your telemetry data is organised in datasets in Baselime. A dataset is collection of similar or related events events.</p>
+<hr />
+<doc-anchor-target id="namespaces">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#namespaces">#</doc-anchor-trigger>
+        <span>Namespaces</span>
+    </h2>
+</doc-anchor-target>
+<p>Namespaces are additional dimensions to further organise your data such that you can slice and dice when running queries. A typical namespace would be the name of the serverless function emitting the telemetry data.</p>
 
 
 
@@ -274,10 +290,10 @@
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/security/overview/">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/sending-data/overview/">
             <span>
                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Security Overview</span>
+                <span class="block mt-1">Sending Data Overview</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
