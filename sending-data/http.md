@@ -37,6 +37,8 @@ Requests must be made to the `/<dataset>/<namespace>` route:
 - `<dataset>` is an existing dataset
 - `<namespace>` is created automatically for you when events are received, if it didn't exist beforehand
 
+The request body must be an array of JSON objects. Any element of the array that cannot be parsed as valid JSON will be rejected.
+
 ---
 
 ## Authentication
@@ -75,17 +77,17 @@ The HTTP API will return the following response codes.
 
 ### Successfull responses
 
-| Status Code | Body                              | Meaning { class="compact" }                           |
-|-------------|-----------------------------------|-------------------------------------------------------|
-| 202         | `{"message": "Request Accepted"}` | All the events were successfully queued for ingestion |
+| Status Code | Body                                  | Meaning { class="compact" }                           |
+|-------------|---------------------------------------|-------------------------------------------------------|
+| 202         | ```{"message": "Request Accepted"}``` | All the events were successfully queued for ingestion |
 
 ### Failure responses
 
 | Status Code | Body                              | Meaning { class="compact" }                           |
 |-------------|-----------------------------------|-------------------------------------------------------|
-| 405         | `{"message": "Method Not Allowed"}` | The HTTP method is now allowed |
-| 401         | `{"message": "Unauthorised"}` | Missing or invalid API Key |
-| 400        | `{"message": "Bad Request"}` | - Missing or invalid path parameters (`v1`, `<dataset>` or `<namespace>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `32kb` size limit |
+| 405         | ```{"message": "Method Not Allowed"}``` | The HTTP method is now allowed |
+| 401         | ```{"message": "Unauthorised"}``` | Missing or invalid API Key |
+| 400        | ```{"message": "Bad Request"}``` | - Missing or invalid path parameters (`v1`, `<dataset>` or `<namespace>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `32kb` size limit <br /> - At least one of the events could not be parsed as valid JSON |
 
 
 
