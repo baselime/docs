@@ -43,7 +43,7 @@ queries:
       # Optional: The filters to apply to matching events when running the query.
       # Default: Will not apply any filters on the query.
       filters:
-        - "@message := REPORT"
+        - "@type := REPORT"
 ```
 
 ## Query calculations

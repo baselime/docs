@@ -67,8 +67,6 @@ Once you've generated and downloaded the template, you must deploy it to your AW
 Please make sure you're using the correct credentials to deploy to the correct account and the correct region.
 !!!
 
-:icon-star:
-
 ```bash # :icon-terminal: terminal
 aws cloudformation create-stack \
   --stack-name baselime-integration \
@@ -99,16 +97,14 @@ You can create queries in the [Baselime UI](https://baselime.io) or using the CL
 ### Query in the Web UI
 
 In the UI:
-1. Navigate to `Queries` in the left navigation bar. Click on `New Query`.
-2. Select a time frame. By default it's the past hour.
-3. Select the namespaces you want to query. These are the Lambda functions in your account and region. By default, queries run across all namespaces.
-4. Select the fields you want to retrieve, or the function you want to run. `COUNT` is a good start.
-5. Add filters and group-bys to your query.
-6. Click `Run Query`
+1. Navigate to `Queries` in the navigation bar. Click on `New Query`.
+2. Select a template, for example the template for getting stats on cold starts.
+3. Select a time frame. By default it's the past hour.
+4. Click `Run Query`
 
-Now you should you see all the data gathered from your Lambda functions matching the criteria of your query.
+Baselime will compute and display the results of your query.
 
-You can save the query and share it with your team.
+Navigate to the Events tab to display the events matching the criteria of your query.
 
 ### Query with the CLI
 
@@ -136,7 +132,7 @@ queries:
         - AVG(@duration)
         - P99(@duration)
       filters:
-        - "@message := REPORT"
+        - "@type := REPORT"
       filterCombination: AND
 alerts:
   long-lambda-invocations:
@@ -152,14 +148,11 @@ channels:
   developers:
     type: email
     targets:
-      - example@email.com
+      - your_email@email.com
 ```
 
 Don't hesitate to tweak the query and the alert. The complete set of parameters for the `.baselime.yml` file can be found in the [Observability as Code](../observability-as-code/overview.md) section.
 
-!!!warning 
-Please make sure you change the email address in the channel from `example@email.com` to an email address you monitor.
-!!!
 
 Validate your `.baselime.yml` configuration file
 
