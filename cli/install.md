@@ -13,7 +13,7 @@ order: -1
 
 You can download and install the Baselime CLI on MacOS
 
-#### Homebrew (Coming soon)
+#### Homebrew
 You can install the Baselime CLI using [Homebrew](https://brew.sh/).
 
 ```bash # :icon-terminal: terminal
