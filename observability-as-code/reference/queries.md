@@ -32,7 +32,7 @@ queries:
       # Optional: A flag on wether to include or exclude specified namespaces. Default: INCLUDE
       namespaceCombination: INCLUDE # Possible values: INCLUDE, EXCLUDE, STARTS_WITH
       
-      # Required: The calculations to perform when performing the query, represented as an array of strings.
+      # Required: The calculations to perform when performing the query, represented as an array of strings
       calculations:
         - MAX(@duration)
         - MIN(@duration)
@@ -40,10 +40,20 @@ queries:
         - P99(@duration)
         - COUNT
       
-      # Optional: The filters to apply to matching events when running the query.
-      # Default: Will not apply any filters on the query.
+      # Optional: Filter events based on additional criteria
+      # Default: Will not apply any filters on the query
       filters:
         - "@type := REPORT"
+
+      # Optional: If multiple filters are provided, defines how to combine them
+      # Default: Will filter only events that match all the criteria specified in filters
+      filterCombination: AND # Possible values: AND, OR
+
+      # Optional: Split results of the calculation based on the value of a specific attribute
+      # Default: Will not do any group by.
+      groupBy:
+        - type: string # Possible values: string, number, boolean
+        - value: "@memorySize"
 ```
 
 ## Query calculations

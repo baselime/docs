@@ -133,7 +133,9 @@ queries:
         - P99(@duration)
       filters:
         - "@type := REPORT"
-      filterCombination: AND
+      groupBy:
+        type: number
+        value: "@memorySize"
 alerts:
   long-lambda-invocations:
     name: A Lambda invocation lasted more than 15seconds
