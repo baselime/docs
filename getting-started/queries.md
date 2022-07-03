@@ -55,9 +55,7 @@ queries:
         - MIN(extra.duration)
         - P99(extra.duration)
       filters:
-       - key: message
-         operation: "="
-         value: "RESPONSE"
+        - message := RESPONSE
 ```
 
 ---
@@ -108,9 +106,7 @@ alerts:
     name: It takes too long to respond to requests
     parameters:
       query: lambda-duration
-      threshold:
-        operation: ">"
-        value: 2000
+      threshold: :> 2000
       frequency: 5
       duration: 5
     channels:
