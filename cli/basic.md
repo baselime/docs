@@ -18,6 +18,8 @@ Commands:
   baselime applications  Manage applications
   baselime apply         Create or update observability configurations
   baselime auth          Manage authentication state
+  baselime channels      Manage channels
+  baselime charts        Manage charts
   baselime destroy       Destroy previously-created observability configurations
   baselime environments  Manage environments
   baselime events        Manage events
@@ -26,6 +28,7 @@ Commands:
   baselime plan          Show changes required by the current configuration
   baselime queries       Manage queries
   baselime refresh       Update the state to match remote systems
+  baselime upgrade       Upgrades the Baselime CLI to the latest version
   baselime validate      Check whether the configuration is valid
 
 Options:
@@ -59,6 +62,8 @@ The built-in help describes the most important and relevant characteristics of e
 [!ref applications](./reference/applications.md)
 [!ref apply](./reference/apply.md)
 [!ref auth](./reference/auth.md)
+[!ref channels](./reference/channels.md)
+[!ref charts](./reference/charts.md)
 [!ref destroy](./reference/destroy.md)
 [!ref environments](./reference/environments.md)
 [!ref events](./reference/events.md)
@@ -67,5 +72,6 @@ The built-in help describes the most important and relevant characteristics of e
 [!ref plan](./reference/plan.md)
 [!ref queries](./reference/queries.md)
 [!ref refresh](./reference/refresh.md)
+[!ref upgrade](./reference/upgrade.md)
 [!ref validate](./reference/validate.md)
 
