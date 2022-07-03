@@ -25,12 +25,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.709901511512" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.710182857653" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.709901511512" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.710182857653" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.709901511512" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.709901511512" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.710182857653" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.710182857653" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -235,7 +235,7 @@ queries:
       # Optional: A flag on wether to include or exclude specified namespaces. Default: INCLUDE
       namespaceCombination: INCLUDE # Possible values: INCLUDE, EXCLUDE, STARTS_WITH
       
-      # Required: The calculations to perform when performing the query, represented as an array of strings.
+      # Required: The calculations to perform when performing the query, represented as an array of strings
       calculations:
         - MAX(@duration)
         - MIN(@duration)
@@ -243,10 +243,20 @@ queries:
         - P99(@duration)
         - COUNT
       
-      # Optional: The filters to apply to matching events when running the query.
-      # Default: Will not apply any filters on the query.
+      # Optional: Filter events based on additional criteria
+      # Default: Will not apply any filters on the query
       filters:
-        - &quot;@type := REPORT&quot;</code></pre>
+        - &quot;@type := REPORT&quot;
+
+      # Optional: If multiple filters are provided, defines how to combine them
+      # Default: Will filter only events that match all the criteria specified in filters
+      filterCombination: AND # Possible values: AND, OR
+
+      # Optional: Split results of the calculation based on the value of a specific attribute
+      # Default: Will not do any group by.
+      groupBy:
+        - type: string # Possible values: string, number, boolean
+        - value: &quot;@memorySize&quot;</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="query-calculations">
     <h2>
