@@ -23,7 +23,7 @@ Your serverless runtime and infrastructure emit telemetry data in various format
 
 ## Baselime Data Storage
 
-Baselime [securely stores](../docs/security/overview.md) your telemetry data per namespace. A namespace is typically a Lambda function. Namespaces help partition your data and facilitate querying your data.
+Baselime [securely stores](./security/overview.md) your telemetry data per namespace. A namespace is typically a Lambda function. Namespaces help partition your data and facilitate querying your data.
 
 ---
 
@@ -33,7 +33,7 @@ Typically, monitoring and observability solutions let you define your configurat
 
 On Baselime, you define your observability configurations in human-readable declarative configuration files. This allows you to create a blueprint that you can version, share and re-use. On Baselime, observability is a first-class citizen of your software development process.
 
-The primary user interface with Baselime is the [Baselime CLI](../docs/cli/install.md).
+The primary user interface with Baselime is the [Baselime CLI](./cli/install.md).
 
 ---
 
