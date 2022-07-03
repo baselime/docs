@@ -27,12 +27,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.710183849893" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.710183980889" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.710183849893" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.710183980889" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.710183849893" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.710183849893" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.710183980889" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.710183980889" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -235,7 +235,7 @@
         <span>Baselime Data Storage</span>
     </h2>
 </doc-anchor-target>
-<p>Baselime <a href="../docs/security/overview.md">securely stores</a> your telemetry data per namespace. A namespace is typically a Lambda function. Namespaces help partition your data and facilitate querying your data.</p>
+<p>Baselime <a href="security/overview/">securely stores</a> your telemetry data per namespace. A namespace is typically a Lambda function. Namespaces help partition your data and facilitate querying your data.</p>
 <hr />
 <doc-anchor-target id="observability-as-code">
     <h2>
@@ -245,7 +245,7 @@
 </doc-anchor-target>
 <p>Typically, monitoring and observability solutions let you define your configurations in web-based user interfaces.</p>
 <p>On Baselime, you define your observability configurations in human-readable declarative configuration files. This allows you to create a blueprint that you can version, share and re-use. On Baselime, observability is a first-class citizen of your software development process.</p>
-<p>The primary user interface with Baselime is the <a href="../docs/cli/install.md">Baselime CLI</a>.</p>
+<p>The primary user interface with Baselime is the <a href="cli/install/">Baselime CLI</a>.</p>
 <hr />
 <doc-anchor-target id="queries-alerts-and-dashboard">
     <h2>
