@@ -13,7 +13,7 @@ description: The api that powers our web application
 
 queries:
   lambda-invocation-duration:
-    name: Duration of the lambda execution
+    name: Duration of the lambda invocations
     description: How long does it take to execute the lambda function?
     parameters:
       dataset: logs
@@ -40,6 +40,20 @@ channels:
     targets:
       - exmple@email.com
       - exmple@email.com
+
+charts:
+  lambda-invocations-durations:
+    type: timeseries
+    name: Lambda invocation duration
+    parameters:
+      query: lambda-invocation-duration
+      duration: 15
+
+dashboards:
+  main-dashboard:
+    name: Main dashboard
+    charts:
+      - lambda-invocations-durations
 ```
 
 
@@ -49,3 +63,5 @@ channels:
 [!ref queries](./reference/queries.md)
 [!ref alerts](./reference/alerts.md)
 [!ref channels](./reference/channels.md)
+[!ref charts](./reference/charts.md)
+[!ref dashboards](./reference/dashboards.md)
