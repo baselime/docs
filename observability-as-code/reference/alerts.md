@@ -22,7 +22,7 @@ alerts:
     # Required: Alert parameters
     parameters:
       
-      # Required: The reference (ref) of query to run on at regular intervals for the alert. This query must be within the same application as the alert. 
+      # Required: The reference (ref) of query to run at regular intervals for the alert. This query must be within the same application as the alert. 
       # Please note that if the query has multiple calculations, the alert will be based off the first listed calculation in the array of calculations of the query
       query: ref-of-an-existing-query
 
