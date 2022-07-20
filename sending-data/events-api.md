@@ -1,13 +1,13 @@
 ---
-label: HTTP API
+label: Events API
 order: -2
 ---
 
-# HTTP API
+# Events API
 
 ---
 
-Baselime can ingest your events through our HTTP API. All requests should be made via HTTPS to `events.baselime.io`.
+Baselime can ingest your events through our Events API. All requests should be made via HTTPS to `events.baselime.io`.
 
 
 ```bash # :icon-terminal: terminal
