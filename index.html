@@ -27,12 +27,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/images/logo.svg" rel="icon" />
-    <link href="/resources/css/retype.css?v=1.11.2.712348333464" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=1.11.2.712601124485" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.712348333464" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.712601124485" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.712348333464" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.712348333464" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.712601124485" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.712601124485" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -216,17 +216,28 @@
 </figure>
 </p>
 <hr />
+<doc-anchor-target id="observability-as-code">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#observability-as-code">#</doc-anchor-trigger>
+        <span>Observability as Code</span>
+    </h2>
+</doc-anchor-target>
+<p>Typically, monitoring and observability solutions let you define your configurations in web-based user interfaces.</p>
+<p>Baselime empowers you to write your observability configurations in human-readable declarative configuration files, alongside your application code. This lets you create a blueprint that you can version, share and re-use. Observability becomes a first-class citizen of your software development process.</p>
+<p>The primary interface to interact with Baselime is the <a href="cli/install/">Baselime CLI</a>.</p>
+<hr />
 <doc-anchor-target id="events-logs-metrics-and-traces">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#events-logs-metrics-and-traces">#</doc-anchor-trigger>
         <span>Events, Logs, Metrics and Traces</span>
     </h2>
 </doc-anchor-target>
-<p>Your serverless runtime and infrastructure emit telemetry data in various formats. That&#x27;s usually the missing context when debugging defects and incidents. Baselime doesn&#x27;t re-invent the wheel. Data is gathered in your serverless application from:</p>
+<p>Serverless runtimes and infrastructures emit telemetry data in various formats. These are usually the missing context when debugging defects and incidents. Baselime doesn&#x27;t re-invent the wheel. Data is gathered in your serverless application from:</p>
 <ul>
 <li>Direct integration with AWS services through CloudFormation</li>
 <li>OpenTelemetry to capture runtime traces</li>
 <li>Logs and Metrics from CloudWatch</li>
+<li>An Events API which empowers you to send events directly through HTTP</li>
 </ul>
 <hr />
 <doc-anchor-target id="baselime-data-storage">
@@ -236,16 +247,6 @@
     </h2>
 </doc-anchor-target>
 <p>Baselime <a href="security/overview/">securely stores</a> your telemetry data per namespace. A namespace is typically a Lambda function. Namespaces help partition your data and facilitate querying your data.</p>
-<hr />
-<doc-anchor-target id="observability-as-code">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#observability-as-code">#</doc-anchor-trigger>
-        <span>Observability as Code</span>
-    </h2>
-</doc-anchor-target>
-<p>Typically, monitoring and observability solutions let you define your configurations in web-based user interfaces.</p>
-<p>On Baselime, you define your observability configurations in human-readable declarative configuration files. This allows you to create a blueprint that you can version, share and re-use. On Baselime, observability is a first-class citizen of your software development process.</p>
-<p>The primary user interface with Baselime is the <a href="cli/install/">Baselime CLI</a>.</p>
 <hr />
 <doc-anchor-target id="queries-alerts-and-dashboard">
     <h2>
@@ -269,7 +270,7 @@
         <span>Made for Developers</span>
     </h2>
 </doc-anchor-target>
-<p>Monitoring and observability platforms are usually built with operations professionals as primary users; Baselime puts the developer at the center of the observability efforts of your teams.</p>
+<p>Monitoring and observability platforms are usually built with operations professionals as primary users; Baselime puts the developer at the center of the observability efforts of your teams. Baselime shifts left observability in your developement lifecycles.</p>
 <hr />
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> quick-start.js</div>
