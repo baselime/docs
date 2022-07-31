@@ -40,7 +40,7 @@ An example telemetry event looks like:
   "command": "apply",
   "timestamp": 1659020253591,
   "properties": {
-    "config": ".baselime.yml"
+    "config": ".baselime"
   }
 }
 ```

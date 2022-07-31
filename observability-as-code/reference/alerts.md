@@ -3,15 +3,16 @@ label: Alerts
 order: -2
 ---
 
-The available properties sitting under `alerts` in the `.baselime.yml`.
+The reference to declaring an alert in any YAML file within the `.baselime` folder.
 
-```yaml # :icon-code: .baselime.yml
-# Start listing the alerts. Alerts are represented as an object where the key is the reference (ref) of the alert,
-# and the value is an object describing the alert 
-alerts:
-  
-  # Reference (ref) of the alert
-  random-num-gen-value:
+```yaml # :icon-code: .baselime/demo.yml
+# Reference (ref) of the alert
+random-num-gen-value:
+  # Required: Type of resource, must be "alert"
+  type: alert
+
+  # Required: The properties of the resource
+  properties:
     
     # Required: Name of the alert
     name: demo name
@@ -24,7 +25,7 @@ alerts:
       
       # Required: The reference (ref) of query to run at regular intervals for the alert. This query must be within the same application as the alert. 
       # Please note that if the query has multiple calculations, the alert will be based off the first listed calculation in the array of calculations of the query
-      query: ref-of-an-existing-query
+      query: !ref ref-of-an-existing-query
 
       # Required: The frequency reprensents how often, in minutes, to check for the threshold condition
       frequency: 30
@@ -37,8 +38,12 @@ alerts:
       
       # Required: Channels are the references (ref) of the recipients to notify when the threshold condition is met. All channels must be within the same application as the alert 
       channels:
-        - developers
+        - !ref ref-of-an-existing-channel
+        - !ref ref-of-another-existing-channel
+        - !ref ref-of-a-third-existing-channel
 ```
+
+---
 
 ## Alert threshold
 

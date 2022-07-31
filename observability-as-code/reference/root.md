@@ -1,11 +1,11 @@
 ---
-label: Root properties
+label: index.yml
 order: 0
 ---
 
-Here is a list of all the available root properties in `.baselime.yml`.
+A list of all the available root properties in mandatory `index.yml` file in the `.baselime` folder.
 
-```yaml .baselime.yml
+```yaml # :icon-code: .baselime/index.yml
 # Version number - the version of the Baselime CLI used to generate or deploy this file
 version: 0.0.1 
 

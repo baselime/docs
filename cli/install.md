@@ -9,7 +9,7 @@ order: -1
 
 ## Installation
 
-### MacOS
++++ MacOS
 
 You can download and install the Baselime CLI on MacOS
 
@@ -33,7 +33,8 @@ brew upgrade baselime
 curl -s https://get.baselime.io | bash
 ```
 
-### Linux
++++ Linux
+
 
 You can download and install the Baselime CLI for your preferred Linux distribution: 
 
@@ -41,15 +42,17 @@ You can download and install the Baselime CLI for your preferred Linux distribut
 curl -s https://get.baselime.io | sudo bash
 ```
 
-### Using [npm](https://npmjs.com)
++++ Using [npm](https://npmjs.com)
 
 ```bash # :icon-terminal: terminal
 npm install @baselime/cli -g
 ```
 
-### Download the compiled binary
++++ Download the compiled binary
 
 Binary releases are available on [GitHub Releases](https://github.com/baselime/cli/releases/latest).
+
++++ 
 
 ### Validate installation
 
@@ -57,5 +60,5 @@ In all cases the installation can be validated by running `baselime -v` in the t
 
 ```bash # :icon-terminal: terminal
 baselime -v
-0.0.2
+0.0.7
 ```

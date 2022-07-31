@@ -3,15 +3,16 @@ label: Channels
 order: -3
 ---
 
-The available properties sitting under `channels` in the `.baselime.yml`.
+The reference to declaring a channel in any YAML file within the `.baselime` folder.
 
-```yaml # :icon-code: .baselime.yml
-# Start listing the channels. Channels are represented as an object where the key is the reference (ref) of the channel,
-# and the value is an object describing the channel 
-channels:
-  
-  # Reference (ref) of the channel
-  developers:
+```yaml # :icon-code: .baselime/demo.yml
+# Reference (ref) of the channel
+developers:
+  # Required: Type of resource, must be "channel"
+  type: channel
+
+  # Required: The properties of the resource
+  properties:
     
     # Required: The type of the channel
     # Accepted values: email

@@ -43,7 +43,7 @@ baselime init --application api --description "The api that powers our web appli
 Output:
 
 ```txt # :icon-code: output
-✔ .baselime.yml Generated
+✔ .baselime folder Generated
 ```
 
 

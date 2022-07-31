@@ -3,16 +3,17 @@ label: Queries
 order: -1
 ---
 
-The available properties sitting under `queries` in the `.baselime.yml`.
+The reference to declaring a query in any YAML file within the `.baselime` folder.
 
-```yaml # :icon-code: .baselime.yml
-# Start listing the queries. Queries are represented as an object where the key is the reference (ref) of the query,
-# and the value is an object describing the query 
-queries:
-  
-  # Reference (ref) of the query
-  random-num-gen-value:
-    
+```yaml # :icon-code: .baselime/demo.yml
+# Reference (ref) of the query
+random-num-gen-value:
+  # Required: Type of resource, must be "query"
+  type: query
+
+  # Required: The properties of the resource
+  properties:
+ 
     # Required: Name of the query
     name: demo name
     
@@ -34,16 +35,17 @@ queries:
       
       # Required: The calculations to perform when performing the query, represented as an array of strings
       calculations:
-        - MAX(@duration)
-        - MIN(@duration)
-        - AVG(@duration)
-        - P99(@duration)
+        - MAX(@initDuration)
+        - MIN(@initDuration)
+        - AVG(@initDuration)
+        - P99(@initDuration)
         - COUNT
       
       # Optional: Filter events based on additional criteria
       # Default: Will not apply any filters on the query
       filters:
         - "@type := REPORT"
+        - "@duration :> 10"
 
       # Optional: If multiple filters are provided, defines how to combine them
       # Default: Will filter only events that match all the criteria specified in filters
@@ -56,6 +58,8 @@ queries:
         - value: "@memorySize"
 ```
 
+---
+
 ## Query calculations
 
 Each query calculation is a string that can be represented as `operator(key)`
@@ -63,6 +67,8 @@ Each query calculation is a string that can be represented as `operator(key)`
 - `key`: the event property to perform the calculation on.
 
 However, the `COUNT` calculation does not require a `key`.
+
+---
 
 ## Query filters
 

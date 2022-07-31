@@ -3,18 +3,37 @@ label: Basic Observability as Code
 order: -1
 ---
 
-The following example describes a simple query checking statistics of the execution cold start duration of a couple of Lambda functions and sets an email alert when the cold starts exceed a threshold. This is just to give a sense of the overall structure of a `.baselime.yml` file.
+For every project, developers must create a `index.yml` file in the root of the `.baselime` folder. This file is used to specify metadata on the project. This can be initialised with the Baselime CLI.
+
+``` bash # :icon-terminal: terminal
+baselime init
+```
+
+Once the `.baselime` folder has been initialised, Observability as Code configurations can be defined in any YAML file in the `.baselime` folder or any of its subfolder.
+
+!!!warning 
+It should be noted that the Baselime CLI reserves a `.out` folder at the root of the `.baselime` folder where OaC configurations will be ignored.
+!!!
+
+The following example shows a simple example of the files present within the `.baselime` folder.
+
++++ index.yml
+
+```yaml # :icon-code: .baselime/index.yml
+version: 0.0.3
+application: users-management
+description: Doing the users management
+```
+
++++ demo.yml
 
 
-```yaml # :icon-code: .baselime.yml
-version: 0.0.1
-application: api
-description: The api that powers our web application
-
-queries:
-  lambda-invocation-duration:
-    name: Duration of the lambda invocations
-    description: How long does it take to execute the lambda function?
+```yaml # :icon-code: .baselime/demo.yml
+lambda-invocations-durations:
+  type: query
+  properties:
+    name: The duration of lambda invocations
+    description: Statistics on the duration of lambda invocations across the stack
     parameters:
       dataset: logs
       calculations:
@@ -22,44 +41,55 @@ queries:
         - MIN(@duration)
         - AVG(@duration)
         - P99(@duration)
+      filters:
+        - "@type := REPORT"
+      groupBy:
+        type: number
+        value: "@memorySize"
 
-alerts:
-  critical-invocation-duration:
-    name: Lambda invocations take more than 15 seconds
+long-lambda-invocations:
+  type: alert
+  properties:
+    name: Lambda invocations lasted more than 15seconds
     parameters:
-      query: lambda-invocation-duration
-      threshold: :> 15000
+      query: !ref lambda-invocations-durations
       frequency: 30
       duration: 30
+      threshold: :> 15000
     channels:
-      - developers
+      - !ref developers
 
-channels:
-  developers:
+developers:
+  type: channel
+  properties:
     type: email
     targets:
-      - exmple@email.com
-      - exmple@email.com
+      - email@email.com
 
-charts:
-  lambda-invocations-durations:
+lambda-invocations-durations-chart:
+  type: chart
+  properties:
     type: timeseries
-    name: Lambda invocation duration
+    name: A random chart
     parameters:
-      query: lambda-invocation-duration
+      query: !ref lambda-invocations-durations
       duration: 15
 
-dashboards:
-  main-dashboard:
+main-dashboard:
+  type: dashboard
+  properties:
     name: Main dashboard
     charts:
-      - lambda-invocations-durations
+      - !ref lambda-invocations-durations-chart
+
 ```
 
++++
 
+---
 ## Observaility as Code
 
-[!ref root](./reference/root.md)
+[!ref index](./reference/root.md)
 [!ref queries](./reference/queries.md)
 [!ref alerts](./reference/alerts.md)
 [!ref channels](./reference/channels.md)

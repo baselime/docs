@@ -7,7 +7,7 @@ order: 0
 
 ---
 
-Integrating with [Baselime](https://baselime.io) and getting deep insights into your production serverless systems takes less than 5 minutes.
+Getting started with [Baselime](https://baselime.io) and starting discovering the benefits of Observability as Code (OaC) takes less than 5 minutes.
 
 All you need is:
 - An [AWS Account](https://aws.amazon.com/)
@@ -15,15 +15,39 @@ All you need is:
 - Permissions to deploy a [CloudFormation](https://aws.amazon.com/cloudformation/) stack with IAM role.
 - A deployed application leveraging [AWS Lambda](https://aws.amazon.com/lambda/) and other [AWS serverless services](https://aws.amazon.com/serverless/)
 
-If you do not have an application, you can use one of our [example applications](https://github.com/Baselime/examples).
+If you do not have a deployed application, you can use one of our [example applications](https://github.com/Baselime/examples).
 
 ---
 
 ## Step 1: Install the Baselime CLI
 
++++ MacOs
+
+#### Using Homebrew
+
 ```bash # :icon-terminal: terminal
+# Add Baselime brew repository
+brew tap baselime/tap
+
+# Install the CLI
+brew install baselime
+```
+
+#### Manual Install
+
+```bash # :icon-terminal: terminal
+# Install the Baselime CLI on MacOS manually
 curl -s https://get.baselime.io | bash
 ```
+
++++ Linux
+
+```bash # :icon-terminal: terminal
+# Download and install the Baselime CLI on every Linux distribution
+curl -s https://get.baselime.io | bash
+```
+
++++
 
 ---
 
@@ -31,7 +55,7 @@ curl -s https://get.baselime.io | bash
 
 Baselime has a free usage tier.
 
-Signup on the [Baselime app](https://baselime.io/signup).
+Signup on the [Baselime console](https://baselime.io/signup).
 
 Follow the onboarding process:
 1. Create a workspace. Typically this will be the name of your organisation.
@@ -39,13 +63,23 @@ Follow the onboarding process:
 
 ---
 
-## Step 3: Connect your AWS Account
+## Step 3: Log in the Baselime CLI
 
-In order to ingest data from your serverless systems, Baselime needs to connect to your AWS Account. This is done by deploying a CloudFormation template onto your account.
+After creating an account, you should log in the Baselime CLI.
+
+```bash # :icon-terminal: terminal
+baselime login
+```
+
+---
+
+## Step 4: Connect your AWS Account
+
+In order to ingest data from your serverless systems, Baselime needs to connect to your AWS Account. This is done by deploying a CloudFormation template onto your AWS account.
 
 The CloudFormation template will:
 - Create a role with read-only access to your account, plus permission to create a Lambda Function and add permissions to it
-- An S3 Bucket, to store usage data
+- An S3 Bucket, to store CloudTrail data
 - An SNS Topic, used to signal new data in the aforementioned S3 Bucket
 - A CloudTrail Trail, used to register changes to your serverless architecture
 
@@ -70,100 +104,93 @@ Please make sure you're using the correct credentials to deploy to the correct a
 ```bash # :icon-terminal: terminal
 aws cloudformation create-stack \
   --stack-name baselime-integration \
-  --template-body file://<FULL_PATH_TO_FILE> \
-  --capabilities CAPABILITY_NAMED_IAM
+  --capabilities CAPABILITY_NAMED_IAM \
+  --template-body file://<FULL_PATH_TO_FILE>
 ```
 
 Telemetry data (in the form of logs and metrics) should now be automatically ingested from your AWS account to Baselime and should be available through our various clients. Structured log messages sent to `stdout` or `stderr` from your Lambda functions will be sent to Baselime as events.
 
-Send a request to or invoke any deployed AWS Lambda function in your account and you should see data from it in the Baselime UI within seconds. 
+Send a request to or invoke any deployed AWS Lambda function in your account and you should see data from it in the Baselime UI within seconds. Moreover, you can stream all the events ingeste in Baselime directly in your terminal.
+
+```bash # :icon-terminal: terminal
+baselime events stream --follow
+```
 
 !!!warning 
 If you do not complete any of the above steps, Baselime will not be able to ingest data from your AWS account.
 !!!
 
 !!!warning 
-If you do not see any data in the Baselime UI within seconds of completing these steps, something went wrong. Please [contact us](mailto:support@baselime.io).
+If you do not see any data in the Baselime UI or using the `stream` command within seconds of completing the above steps, something went wrong. Please [contact us](mailto:support@baselime.io).
 !!!
 
 ---
 
-## Step 4: Query your data
+## Step 5: Deploy your observability
 
-The power of Baselime is in it's query engine.
+The power of Baselime is in its Observability as Code (OaC) capabilities. Baselime empowers you and your team to manage observability resources as code.
 
-You can create queries in the [Baselime UI](https://baselime.io) or using the CLI.
-
-### Query in the Web UI
-
-In the UI:
-1. Navigate to `Queries` in the navigation bar. Click on `New Query`.
-2. Select a template, for example the template for getting stats on cold starts.
-3. Select a time frame. By default it's the past hour.
-4. Click `Run Query`
-
-Baselime will compute and display the results of your query.
-
-Navigate to the Events tab to display the events matching the criteria of your query.
-
-### Query with the CLI
-
-In root of your project folder, initialise a new Baselime file.
+In the root of your project folder, initialise a new Baselime config folder.
 
 ```bash # :icon-terminal: terminal
 baselime init --application demo
 ```
 
-The Baselime CLI will initialise your current directory with a `.baselime.yml` file. It will automatically add a query, an alert, and an email channel to deliver the alert to. 
+The Baselime CLI will initialise your working directory with a `.baselime` folder. It will automatically add sample observability resources (queries, alerts and alert channels) to get you started. 
 
-```yaml # :icon-code: .baselime.yml
+```yaml # :icon-code: .baselime/index.yml
 version: 0.0.3
 application: demo
 description: ""
-queries:
-  lambda-invocations-durations:
-    name: The duration of lambda invocations
-    description: Statistics on the duration of lambda invocations across the stack
+```
+
+```yaml # :icon-code: .baselime/demo.yml
+lambda-cold-start-durations:
+  type: query
+  properties:
+    name: Duration of lambda cold-starts
+    description: How long do cold starts take on our API?
     parameters:
       dataset: logs
       calculations:
-        - MAX(@duration)
-        - MIN(@duration)
-        - AVG(@duration)
-        - P99(@duration)
+        - MAX(@initDuration)
+        - MIN(@initDuration)
+        - AVG(@initDuration)
+        - P99(@initDuration)
+        - COUNT
       filters:
         - "@type := REPORT"
-      groupBy:
-        type: number
-        value: "@memorySize"
-alerts:
-  long-lambda-invocations:
-    name: A Lambda invocation lasted more than 15seconds
+      filterCombination: AND
+critical-cold-start-duration:
+  type: alert
+  properties:
+    name: Lambda cold-starts take more than 2 seconds
     parameters:
-      query: lambda-invocations-durations
+      query: !ref lambda-cold-start-durations
       frequency: 30
       duration: 30
-      threshold: :> 15000
+      threshold: :> 2000
     channels:
-      - developers
-channels:
-  developers:
+      - !ref developers
+developers:
+  type: channel
+  properties:
     type: email
     targets:
       - your_email@email.com
 ```
 
-Don't hesitate to tweak the query and the alert. The complete set of parameters for the `.baselime.yml` file can be found in the [Observability as Code](../observability-as-code/overview.md) section.
+Don't hesitate to tweak the query and the alert. The complete set of parameters for the `.baselime` folder can be found in the [Observability as Code](../observability-as-code/overview.md) section.
 
 
-Validate your `.baselime.yml` configuration file
+Validate your `.baselime` configuration folder
 
 ```bash # :icon-terminal: terminal
 baselime validate
-✔ Valid configuration file
+✔ Valid configuration folder
 ```
 
-Apply the changes to the `.baselime.yml` file to Baselime
+Apply the changes to the `.baselime` folder to Baselime
 
 ```bash # :icon-terminal: terminal
 baselime apply
@@ -172,7 +199,7 @@ baselime apply
 To run a query in your command line:
 
 ```bash # :icon-terminal: terminal
-baselime queries run --application demo --ref lambda-invocations-durations
+baselime queries run --application demo --ref lambda-cold-start-durations
 ```
 
 This will output the results of the query in the command line, with a link that will redirect to the results in the Web UI.
@@ -181,4 +208,4 @@ This will output the results of the query in the command line, with a link that 
 
 ## Next Steps
 
-Now you can setup our observability as code. Next up is to send more telemetry data to Baselime.
+Now you can setup our Observability as Code (OaC). Next up is to send more telemetry data to Baselime.
