@@ -133,7 +133,7 @@ The power of Baselime is in its Observability as Code (OaC) capabilities. Baseli
 In the root of your project folder, initialise a new Baselime config folder.
 
 ```bash # :icon-terminal: terminal
-baselime init --application demo
+baselime init --application demo --template @baselime/basic-lambdas-logs
 ```
 
 The Baselime CLI will initialise your working directory with a `.baselime` folder. It will automatically add sample observability resources (queries, alerts and alert channels) to get you started. 
