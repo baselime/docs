@@ -97,16 +97,13 @@ baselime environments setup \
 
 Once you've generated and downloaded the template, you must deploy it to your AWS Account.
 
+Baselime automatically opens a your default browser with the link to deploy the downloaded CloudFormation template.
+
 !!!warning AWS Credentials
 Please make sure you're using the correct credentials to deploy to the correct account and the correct region.
 !!!
 
-```bash # :icon-terminal: terminal
-aws cloudformation create-stack \
-  --stack-name baselime-integration \
-  --capabilities CAPABILITY_NAMED_IAM \
-  --template-body file://<FULL_PATH_TO_FILE>
-```
+Follow the instructions on CloudFormation without changing any of the provided values.
 
 Telemetry data (in the form of logs and metrics) should now be automatically ingested from your AWS account to Baselime and should be available through our various clients. Structured log messages sent to `stdout` or `stderr` from your Lambda functions will be sent to Baselime as events.
 
@@ -136,7 +133,7 @@ In the root of your project folder, initialise a new Baselime config folder.
 baselime init --application demo --template @baselime/basic-lambdas-logs
 ```
 
-The Baselime CLI will initialise your working directory with a `.baselime` folder. It will automatically add sample observability resources (queries, alerts and alert channels) to get you started. 
+The Baselime CLI will initialise your working directory with a `.baselime` folder. It will automatically add sample observability resources (queries, alerts and alert channels) based on the template you selected in the previous command. This would help getting you started. 
 
 ```yaml # :icon-code: .baselime/index.yml
 version: 0.0.3
