@@ -62,3 +62,13 @@ In all cases the installation can be validated by running `baselime -v` in the t
 baselime -v
 0.0.7
 ```
+
+## Login
+
+After creating an account, if you already have a Baselime account, you should log in the Baselime CLI.
+
+```bash # :icon-terminal: terminal
+baselime login
+```
+
+Otherwise, you can sign up on the Baselime UI.
