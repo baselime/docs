@@ -10,13 +10,14 @@ The `init` command is used to prepare your working directory for other commands.
 
 
 ```bash # :icon-terminal: terminal
-baselime init --application <application_name> --description <description>
+baselime init --application <application_name> --description <description> --template <template>
 ```
 
 ### Options
 
 - `--application`: Name of the application
 - `--description`: Description of the application
+- `--template`: The template to initialise the folder with
 
 ### Examples
 
@@ -37,7 +38,7 @@ Intercative.
 Command:
 
 ```bash # :icon-terminal: terminal
-baselime init --application api --description "The api that powers our web application"
+baselime init --application api --description "The api that powers our web application" --template @workspace/template-name
 ```
 
 Output:
