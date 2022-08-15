@@ -54,8 +54,8 @@ random-num-gen-value:
       # Optional: Split results of the calculation based on the value of a specific attribute
       # Default: Will not do any group by.
       groupBy:
-        - type: string # Possible values: string, number, boolean
-        - value: "@memorySize"
+        type: string # Possible values: string, number, boolean
+        value: "@memorySize"
 ```
 
 ---
