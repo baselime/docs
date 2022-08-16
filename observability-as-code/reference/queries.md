@@ -30,7 +30,7 @@ random-num-gen-value:
       namespaces:
         - demo-lambda
       
-      # Optional: A flag on wether to include or exclude specified namespaces. Default: INCLUDE
+      # Optional: A flag on whether to include or exclude specified namespaces. Default: INCLUDE
       namespaceCombination: INCLUDE # Possible values: INCLUDE, EXCLUDE, STARTS_WITH
       
       # Required: The calculations to perform when performing the query, represented as an array of strings
@@ -54,8 +54,8 @@ random-num-gen-value:
       # Optional: Split results of the calculation based on the value of a specific attribute
       # Default: Will not do any group by.
       groupBy:
-        - type: string # Possible values: string, number, boolean
-        - value: "@memorySize"
+        type: string # Possible values: string, number, boolean
+        value: "@memorySize"
 ```
 
 ---
