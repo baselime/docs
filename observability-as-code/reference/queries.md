@@ -30,7 +30,7 @@ random-num-gen-value:
       namespaces:
         - demo-lambda
       
-      # Optional: A flag on wether to include or exclude specified namespaces. Default: INCLUDE
+      # Optional: A flag on whether to include or exclude specified namespaces. Default: INCLUDE
       namespaceCombination: INCLUDE # Possible values: INCLUDE, EXCLUDE, STARTS_WITH
       
       # Required: The calculations to perform when performing the query, represented as an array of strings
