@@ -17,9 +17,61 @@ All you need is:
 
 If you do not have a deployed application, you can use one of our [example applications](https://github.com/Baselime/examples).
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/12696f2f3fad44538cbc6b79a4c9cebf" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 ---
 
-## Step 1: Install the Baselime CLI
+## Step 1: Sign up for Baselime
+
+Baselime has a free usage tier.
+
+Signup on the [Baselime console](https://baselime.io/signup).
+
+Follow the onboarding process:
+1. Create a workspace. Typically this will be the name of your organisation.
+2. Connect your AWS Account
+
+---
+
+## Step 2: Connect your AWS Account
+
+In order to ingest data from your serverless systems, Baselime needs to connect to your AWS Account. This is done by deploying a CloudFormation template onto your AWS account.
+
+The CloudFormation template will:
+- Create a role with read-only access to your account, plus permission to create a Lambda Function and add permissions to it
+- An S3 Bucket, to store CloudTrail data
+- An SNS Topic, used to signal new data in the aforementioned S3 Bucket
+- A CloudTrail Trail, used to register changes to your serverless architecture
+
+We've open-sourced the CloudFormation template [here](../integrations/integration.md).
+
+You can generate and download this template through the [Baselime Web UI](https://baselime.io).
+
+Once you've generated and downloaded the template, you must deploy it to your AWS Account.
+
+Baselime automatically opens a your default browser with the link to deploy the downloaded CloudFormation template.
+
+!!!warning AWS Credentials
+Please make sure you're using the correct credentials to deploy to the correct account and the correct region.
+!!!
+
+Follow the instructions on CloudFormation without changing any of the provided values.
+
+Telemetry data (in the form of logs and metrics) should now be automatically ingested from your AWS account to Baselime and should be available through our various clients. Structured log messages sent to `stdout` or `stderr` from your Lambda functions will be sent to Baselime as events.
+
+Send a request to or invoke any deployed AWS Lambda function in your account and you should see data from it in the Baselime UI within seconds. Moreover, you can stream all the events ingeste in Baselime directly in your terminal.
+
+!!!warning 
+If you do not complete any of the above steps, Baselime will not be able to ingest data from your AWS account.
+!!!
+
+!!!warning 
+If you do not see any data in the Baselime UI or using the `stream` command within seconds of completing the above steps, something went wrong. Please [contact us](mailto:support@baselime.io).
+!!!
+
+---
+
+## Step 3: Install the Baselime CLI
 
 +++ MacOs
 
@@ -51,79 +103,21 @@ curl -s https://get.baselime.io | bash
 
 ---
 
-## Step 2: Sign up for Baselime
-
-Baselime has a free usage tier.
-
-Signup on the [Baselime console](https://baselime.io/signup).
-
-Follow the onboarding process:
-1. Create a workspace. Typically this will be the name of your organisation.
-2. Invite your team. Baselime works best when collaborating with team mates.
-
----
-
-## Step 3: Log in the Baselime CLI
+## Step 4: Log in the Baselime CLI
 
 After creating an account, you should log in the Baselime CLI.
 
 ```bash # :icon-terminal: terminal
-baselime login
+baselime auth login
 ```
-
----
-
-## Step 4: Connect your AWS Account
-
-In order to ingest data from your serverless systems, Baselime needs to connect to your AWS Account. This is done by deploying a CloudFormation template onto your AWS account.
-
-The CloudFormation template will:
-- Create a role with read-only access to your account, plus permission to create a Lambda Function and add permissions to it
-- An S3 Bucket, to store CloudTrail data
-- An SNS Topic, used to signal new data in the aforementioned S3 Bucket
-- A CloudTrail Trail, used to register changes to your serverless architecture
-
-We've open-sourced the CloudFormation template [here](../integrations/integration.md).
-
-You can generate and download this template through the [Baselime Web UI](https://baselime.io) or with the CLI:
-
-```bash # :icon-terminal: terminal
-baselime environments setup \
-  --type aws \
-  --account <AWS_ACCOUNT_ID> \
-  --region <AWS_REGION> \
-  --alias <INTEGRATION_ALIAS>
-```
-
-Once you've generated and downloaded the template, you must deploy it to your AWS Account.
-
-Baselime automatically opens a your default browser with the link to deploy the downloaded CloudFormation template.
-
-!!!warning AWS Credentials
-Please make sure you're using the correct credentials to deploy to the correct account and the correct region.
-!!!
-
-Follow the instructions on CloudFormation without changing any of the provided values.
-
-Telemetry data (in the form of logs and metrics) should now be automatically ingested from your AWS account to Baselime and should be available through our various clients. Structured log messages sent to `stdout` or `stderr` from your Lambda functions will be sent to Baselime as events.
-
-Send a request to or invoke any deployed AWS Lambda function in your account and you should see data from it in the Baselime UI within seconds. Moreover, you can stream all the events ingeste in Baselime directly in your terminal.
-
-```bash # :icon-terminal: terminal
-baselime events stream --follow
-```
-
-!!!warning 
-If you do not complete any of the above steps, Baselime will not be able to ingest data from your AWS account.
-!!!
-
-!!!warning 
-If you do not see any data in the Baselime UI or using the `stream` command within seconds of completing the above steps, something went wrong. Please [contact us](mailto:support@baselime.io).
-!!!
 
 ---
 
 ## Step 5: Deploy your observability
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/291b7f4c21f54e1c8cbe8df4d64059f6" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+</br>
 
 The power of Baselime is in its Observability as Code (OaC) capabilities. Baselime empowers you and your team to manage observability resources as code.
 
