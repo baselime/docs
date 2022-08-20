@@ -25,7 +25,7 @@ If you do not have a deployed application, you can use one of our [example appli
 
 Baselime has a free usage tier.
 
-Signup on the [Baselime console](https://baselime.io/signup).
+Signup on the [Baselime console](https://console.baselime.io).
 
 Follow the onboarding process:
 1. Create a workspace. Typically this will be the name of your organisation.
@@ -35,7 +35,7 @@ Follow the onboarding process:
 
 ## Step 2: Connect your AWS Account
 
-In order to ingest data from your serverless systems, Baselime needs to connect to your AWS Account. This is done by deploying a CloudFormation template onto your AWS account.
+In order to ingest data from your serverless systems, Baselime needs to connect to your AWS account. This is done by deploying a CloudFormation template onto your AWS account.
 
 The CloudFormation template will:
 - Create a role with read-only access to your account, plus permission to create a Lambda Function and add permissions to it
@@ -45,7 +45,7 @@ The CloudFormation template will:
 
 We've open-sourced the CloudFormation template [here](../integrations/integration.md).
 
-You can generate and download this template through the [Baselime Web UI](https://baselime.io).
+You can generate and download this template through the [Baselime Console](https://console.baselime.io).
 
 Once you've generated and downloaded the template, you must deploy it to your AWS Account.
 
@@ -193,7 +193,7 @@ To run a query in your command line:
 baselime queries run --application demo --ref lambda-cold-start-durations
 ```
 
-This will output the results of the query in the command line, with a link that will redirect to the results in the Web UI.
+This will output the results of the query in the command line, with a link that will redirect to the results in the web console.
 
 ---
 

@@ -19,7 +19,7 @@ You can prevent specific data fields from being ingested in Baselime. Either by 
 
 Blocked keys will not be stored in Baselime. They will not be available in queries, visualisations or text-search fields.
 
-Data fields can be blocked in the Baselime Web UI or using the CLI.
+Data fields can be blocked in the Baselime web console or using the CLI.
 
 ```bash # :icon-terminal: terminal
 baselime keys block 'user.email' --namespace 'login-lambda'
@@ -29,7 +29,7 @@ baselime keys block 'user.email' --namespace 'login-lambda'
 
 Obfuscated keys will be stored in Baselime, but scrambled as a Base64-encoded ASCII from the original data. It should be noted that it is possible to retrieve the value of the obfuscated value.
 
-Data fields can be obfuscated in the Baselime Web UI or using the CLI
+Data fields can be obfuscated in the Baselime web console or using the CLI
 
 ```bash # :icon-terminal: terminal
 baselime keys obfuscate 'user.email' --namespace 'login-lambda'

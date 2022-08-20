@@ -23,8 +23,6 @@ You can use the CLI to apply your observability configurations.
 baselime apply
 ```
 
-All queries, alerts and dashboards created in the web UI can be exported as YAML files.
-
 ---
 
 ## Queries
