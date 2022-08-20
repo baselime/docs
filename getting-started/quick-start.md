@@ -47,19 +47,15 @@ We've open-sourced the CloudFormation template [here](../integrations/integratio
 
 You can generate and download this template through the [Baselime Console](https://console.baselime.io).
 
-Once you've generated and downloaded the template, you must deploy it to your AWS Account.
-
-Baselime automatically opens a your default browser with the link to deploy the downloaded CloudFormation template.
+Once you've generated and downloaded the template, you must deploy it to your AWS Account. Baselime automatically opens a new tab in your default browser with the link to deploy the downloaded CloudFormation template. Simply follow the step in CloudFormation without changing any of the provided values to deploy the stack on your AWS account.
 
 !!!warning AWS Credentials
 Please make sure you're using the correct credentials to deploy to the correct account and the correct region.
 !!!
 
-Follow the instructions on CloudFormation without changing any of the provided values.
+Telemetry data (in the form of logs and metrics) should now be automatically ingested from your AWS account to Baselime and should be available through our various clients. Structured logs sent to `stdout` or `stderr` from your Lambda functions will be sent to Baselime as events.
 
-Telemetry data (in the form of logs and metrics) should now be automatically ingested from your AWS account to Baselime and should be available through our various clients. Structured log messages sent to `stdout` or `stderr` from your Lambda functions will be sent to Baselime as events.
-
-Send a request to or invoke any deployed AWS Lambda function in your account and you should see data from it in the Baselime UI within seconds. Moreover, you can stream all the events ingeste in Baselime directly in your terminal.
+Send a request to or invoke any deployed AWS Lambda function in your account and you should see data from it in the Baselime console within seconds. Moreover, you can stream all the events ingeste in Baselime directly in your terminal.
 
 !!!warning 
 If you do not complete any of the above steps, Baselime will not be able to ingest data from your AWS account.
