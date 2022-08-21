@@ -1,0 +1,206 @@
+Description: This template creates a role and a bucket that can be used by Baselime
+
+Parameters:
+  ExternalParameter:
+    Type: String
+    Default: <BASELIME_EXTERNAL_PARAMETER>
+    Description: External Parameter for securing the role
+  Alias:
+    Type: String
+    Default: <BASELIME_INTEGRATION_ALIAS>
+    Description: Alias for this integration
+
+Resources:
+  BaselimeIntegrationRole:
+    Type: AWS::IAM::Role
+    DeletionPolicy: Retain
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              AWS:
+                - <BASELIME_CUSTOMER_ACCOUNT>
+            Sid: ""
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              AWS:
+                - <BASELIME_ACCOUNT>
+            Sid: ""
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Sid: ""
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Path: "/"
+  BaselimeIntegrationPolicies:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: BaselimeIntegration
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - lambda:UpdateFunctionConfiguration
+              - lambda:CreateFunction
+              - lambda:AddPermission
+            Resource:
+              - arn:aws:lambda:*:*:function:*
+          - Effect: Allow
+            Action:
+              - ce:GetCostAndUsageWithResources
+              - ce:GetCostAndUsage
+            Resource:
+              - "*"
+          - Effect: Allow
+            Action:
+              - s3:*
+            Resource:
+              - !Sub |-
+                arn:aws:s3:::${BaselimeS3Bucket}
+              - !Sub |-
+                arn:aws:s3:::${BaselimeS3Bucket}/*
+          - Effect: Allow
+            Action:
+              - sns:Subscribe
+              - sns:Publish
+            Resource:
+              - !Ref BaselimeSNSTopic
+          - Effect: Allow
+            Action:
+              - iam:PassRole
+            Resource:
+              - !GetAtt
+                - BaselimeIntegrationRole
+                - Arn
+          - Effect: Allow
+            Action:
+              - logs:PutSubscriptionFilter
+              - logs:DeleteSubscriptionFilter
+              - logs:DescribeSubscriptionFilters
+              - logs:CreateLogGroup
+              - logs:PutRetentionPolicy
+              - cloudwatch:PutMetricAlarm
+              - cloudwatch:DeleteAlarms
+              - cloudwatch:PutDashboard
+              - cloudwatch:DeleteDashboards
+              - cloudwatch:PutMetricData
+              - cloudwatch:PutMetricStream
+              - cloudwatch:DeleteMetricStream
+              - cloudwatch:StartMetricStreams
+              - cloudwatch:StopMetricStreams 
+            Resource:
+              - "*"
+      Roles:
+       - !Ref BaselimeIntegrationRole
+  BaselimeS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+  BaselimeS3BucketPolicy: 
+    Type: "AWS::S3::BucketPolicy"
+    Properties: 
+      Bucket: 
+        Ref: BaselimeS3Bucket
+      PolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+          - 
+            Sid: "AWSCloudTrailAclCheck"
+            Effect: "Allow"
+            Principal: 
+              Service: "cloudtrail.amazonaws.com"
+            Action: "s3:GetBucketAcl"
+            Resource: 
+              !Sub |-
+                arn:aws:s3:::${BaselimeS3Bucket}
+          - 
+            Sid: "AWSCloudTrailWrite"
+            Effect: "Allow"
+            Principal: 
+              Service: "cloudtrail.amazonaws.com"
+            Action: "s3:PutObject"
+            Resource:
+              !Sub |-
+                arn:aws:s3:::${BaselimeS3Bucket}/AWSLogs/${AWS::AccountId}/*
+            Condition: 
+              StringEquals:
+                s3:x-amz-acl: "bucket-owner-full-control"
+  BaselimeSNSTopic:
+    Type: AWS::SNS::Topic
+  BaselimeSNSTopicPolicy: 
+    Type: "AWS::SNS::TopicPolicy"
+    Properties: 
+      Topics: 
+        - !Ref BaselimeSNSTopic
+      PolicyDocument: 
+        Version: "2008-10-17"
+        Statement: 
+          - 
+            Sid: "AWSCloudTrailSNSPolicy"
+            Effect: "Allow"
+            Principal: 
+              Service: "cloudtrail.amazonaws.com"
+            Resource: "*"
+            Action: "SNS:Publish"
+          - 
+            Sid: "BaselimeRoleSNSPolicy"
+            Effect: "Allow"
+            Principal: 
+              AWS: !GetAtt
+              - BaselimeIntegrationRole
+              - Arn
+            Resource: "*"
+            Action: "SNS:Publish"
+  BaselimeCloudTrail:
+    Type: AWS::CloudTrail::Trail
+    DependsOn:
+      - BaselimeSNSTopicPolicy
+      - BaselimeS3BucketPolicy
+    Properties: 
+        S3BucketName: !Ref BaselimeS3Bucket
+        SnsTopicName: !GetAtt
+                      - BaselimeSNSTopic
+                      - TopicName
+        IsLogging: true
+        EnableLogFileValidation: true
+        IncludeGlobalServiceEvents: true
+  BaselimeReporter:
+    Type: AWS::CloudFormation::CustomResource
+    DependsOn:
+      - BaselimeCloudTrail
+      - BaselimeIntegrationRole
+      - BaselimeIntegrationPolicies
+    Properties:
+      ServiceToken: <BASELIME_SERVICE_TOKEN>
+      RoleArn: !GetAtt
+              - BaselimeIntegrationRole
+              - Arn
+      Region: !Ref AWS::Region
+      BucketName: !Ref BaselimeS3Bucket
+      TopicArn: !Ref BaselimeSNSTopic
+      CloudTrailArn: !Ref BaselimeCloudTrail
+      ExternalParameter: !Ref ExternalParameter
+      Alias: !Ref Alias
+
+
+Outputs:
+  RoleArn:
+    Value: !GetAtt
+          - BaselimeIntegrationRole
+          - Arn
+    Description: The ARN for the role Baselime can use
+  BucketName:
+    Value: !Ref BaselimeS3Bucket
+    Description: The name of the bucket Baselime can use
+  SNSTopic:
+    Value: !Ref BaselimeSNSTopic
+    Description: The ARN of the SNS topic Baselime can use
