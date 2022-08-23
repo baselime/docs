@@ -23,10 +23,10 @@ API keys can have different permissions that govern access to Baselime resources
 
 The API key permissions are as follows:
 
+- `alerts`: can create and manage alerts
+- `applications`: can create and manage applications
+- `dashboards`: can create and manage dashboards
+- `defects`: can create and manage defects
+- `environments`: can create and manage environments
 - `events`: can send events to Baselime
 - `queries`: can create, run and manage queries
-- `dashboards`: can create and manage dashboards
-- `alerts`: can create and manage alerts
-- `defects`: can create and manage defects
-- `conversations`: can create an manage comments and conversations on Baselime
-- `integrations`: can create and manage integrations

@@ -26,13 +26,13 @@ The expected response is:
 ```json # :icon-code: output
 {
   "permissions": {
-    "events": true,
-    "queries": true,
-    "dashboards": true,
     "alerts": true,
+    "applications": true,
+    "dashboards": true,
     "defects": true,
-    "conversations": false,
-    "integrations": true
+    "environments": true,
+    "events": false,
+    "queries": true
   }
 }
 ```
