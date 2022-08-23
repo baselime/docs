@@ -20,6 +20,6 @@ Baselime provides secure service for your telemetry data.
 
 ---
 
-## Integration Security
+## Connector Security
 
-Baselime integrate through CloudFormation, and secure the integration with a unique code.
+Baselime connects to your AWS account through CloudFormation, and secure the connection with a unique code.

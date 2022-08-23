@@ -25,7 +25,7 @@ The primary interface to interact with Baselime is the [Baselime CLI](./cli/inst
 ## Events, Logs, Metrics and Traces
 
 Serverless runtimes and infrastructures emit telemetry data in various formats. These are usually the missing context when debugging defects and incidents. Baselime doesn't re-invent the wheel. Data is gathered in your serverless application from:
-- Direct integration with AWS services through CloudFormation
+- Direct Connectors with AWS services through CloudFormation
 - OpenTelemetry to capture runtime traces
 - Logs and Metrics from CloudWatch
 - An Events API which empowers you to send events directly through HTTP

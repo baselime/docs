@@ -1,9 +1,9 @@
 ---
-label: Integration CloudFormation Template
+label: AWS Connector CloudFormation Template
 order: -1
 ---
 
-# Baselime Integration CloudFormation Template
+# Baselime AWS Connector CloudFormation Template
 
 ---
 

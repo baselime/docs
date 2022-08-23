@@ -43,7 +43,7 @@ The CloudFormation template will:
 - An SNS Topic, used to signal new data in the aforementioned S3 Bucket
 - A CloudTrail Trail, used to register changes to your serverless architecture
 
-We've open-sourced the CloudFormation template [here](../integrations/integration.md).
+We've open-sourced the CloudFormation template [here](../connectors/cloudformation-connector.md).
 
 You can generate and download this template through the [Baselime Console](https://console.baselime.io).
 
