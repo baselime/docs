@@ -15,11 +15,11 @@ developers:
   properties:
     
     # Required: The type of the channel
-    # Accepted values: email
-    type: email
+    # Accepted values: email, slack
+    type: slack
     
     # Required: The targets to notify in this channel
     targets:
-     - example@email.com
+     - general # the name of the slack channel to alert, must be a public channe;
     
 ```
