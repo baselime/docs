@@ -53,7 +53,7 @@ Output:
 ✨ 6 queries
 ```
 
-#### Example 2: Listing all alerts for an application
+#### Example 2: Listing all queries for an application
 
 Command:
 
@@ -86,6 +86,7 @@ baselime queries run --application <application_name> --ref <query_ref> --from 2
 
 ### Options
 
+- `--environment`: Environment id
 - `--application`: Name of the application
 - `--ref`: Query reference
 - `--from`: UTC start time - may also be relative eg: 1h, 20mins
