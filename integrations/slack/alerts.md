@@ -6,7 +6,7 @@ order: -2
 You can set one or multiple Slack channels to receive automated alerts.
 
 ```yaml # :icon-code: .baselime/demo.yml
-# Reference (ref) of the channel
+# Channel ID
 developers:
   type: channel
   properties:    

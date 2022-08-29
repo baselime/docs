@@ -6,7 +6,7 @@ order: -3
 The reference to declaring a channel in any YAML file within the `.baselime` folder.
 
 ```yaml # :icon-code: .baselime/demo.yml
-# Reference (ref) of the channel
+# Channel ID
 developers:
   # Required: Type of resource, must be "channel"
   type: channel

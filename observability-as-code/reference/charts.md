@@ -6,7 +6,7 @@ order: -4
 The reference to declaring a chart in any YAML file within the `.baselime` folder.
 
 ```yaml # :icon-code: .baselime/demo.yml
-# Reference (ref) of the chart
+# Chart ID
 random-num-gen-value:
   # Required: Type of resource, must be "chart"
   type: chart
@@ -23,8 +23,8 @@ random-num-gen-value:
     # Required: Charts parameters
     parameters:
       
-      # Required: The reference (ref) of query to run for the chart. This query must be within the same application as the chart. 
-      query: !ref demo-query-ref
+      # Required: The id of the query to run for the chart. This query must be within the same application as the chart. 
+      query: !ref demo-query-id
       
       # Required: The time range, in minutes, of data to be displayed in the chart. 
       duration: 15

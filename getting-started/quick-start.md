@@ -186,7 +186,7 @@ baselime apply
 To run a query in your command line:
 
 ```bash # :icon-terminal: terminal
-baselime queries run --application demo --ref lambda-cold-start-durations
+baselime queries run --application demo --id lambda-cold-start-durations
 ```
 
 This will output the results of the query in the command line, with a link that will redirect to the results in the web console.

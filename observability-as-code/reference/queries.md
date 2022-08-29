@@ -6,7 +6,7 @@ order: -1
 The reference to declaring a query in any YAML file within the `.baselime` folder.
 
 ```yaml # :icon-code: .baselime/demo.yml
-# Reference (ref) of the query
+# Query ID
 random-num-gen-value:
   # Required: Type of resource, must be "query"
   type: query
