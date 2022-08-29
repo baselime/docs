@@ -15,11 +15,11 @@ developers:
   properties:
     
     # Required: The type of the channel
-    # Accepted values: email, slack
+    # Accepted values: email, slack, webhook
     type: slack
     
     # Required: The targets to notify in this channel
+    # When channel type is Webhook, this must be a valid URL
     targets:
-     - general # the name of the slack channel to alert, must be a public channe;
-    
+     - general # the name of the slack channel to alert, must be a public channel;
 ```
