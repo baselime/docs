@@ -16,18 +16,7 @@ Enable Baselime's telemetry collection.
 baselime telemetry enable
 ```
 
-## disable
-
-Disable Baselime's telemetry collection.
-
-```bash # :icon-terminal: terminal
-baselime telemetry disable
-```
-
-
 ### Examples
-
-#### Example 1: Enable telemetry collection
 
 Command:
 
@@ -42,7 +31,17 @@ Status: Enabled
 Baselime telemetry is completely anonymous. Thank you for participating!
 ```
 
-#### Example 2: Disable telemetry collection
+---
+
+## disable
+
+Disable Baselime's telemetry collection.
+
+```bash # :icon-terminal: terminal
+baselime telemetry disable
+```
+
+### Examples
 
 Command:
 
