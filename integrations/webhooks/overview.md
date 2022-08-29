@@ -10,54 +10,56 @@ The Webhook integration enables you and your team to send POST requests to an ht
 To set this up, set ``[channel].properties.type`` to webhook and a valid URL in the targets array.
 
 ```yaml # :icon-code: .baselime/demo.yml
-developers:
+internal-bot:
   type: channel
   properties:
     type: webhook
     targets:
-     - https://awebhookendpoint.com/alerts 
+     - https://webhooks.acme.com/bot
 ```
 
-An example structure of the webhook POST request body
+When an alert triggers to a webhook channel, HTTP requests are made to the channel targets using the `/POST` method. Each request carries an event similar to the example outlines below. 
 
-```JSON
+
+```json # :icon-code: 
 {
     "workspace": {
-      "id": "",
-      "name": ""
+        "id": "acme",
+        "name": "Acme Inc"
     },
     "environment": {
-      "id": "",
-      "alias": ""
+        "id": "prod",
+        "alias": "prod"
     },
-    "application": "",
+    "application": "user-authentication",
     "alert": {
-      "id": "",
-      "name": "",
-      "description": ""
+        "id": "high-latency",
+        "name": "Requests have a very high latency",
+        "description": ""
     },
     "check": {
-      "id": "",
-      "time": "",
-      "timeframe": "",
-      "key": "",
-      "value": "",
-      "threshold": {
-        "operation": "",
-        "value": ""
-      },
+        "id": "1661346772147",
+        "time": "2022-08-24T13:12:52+00:00",
+        "timeframe": {
+            "from": 1661343172147,
+            "to": 1661346772147
+        },
+        "key": "MAX(latency)",
+        "value": "118440",
+        "threshold": {
+            "operation": ">",
+            "value": 2000
+        }
     },
     "query": {
-      "id": "",
-      "name": "",
-      "description": ""
+        "id": "latency",
+        "name": "Computes the latency on the requests",
+        "description": ""
     },
     "channel": {
-      "id": "",
-      "name": "",
-      "type": "",
-      "userId": ""
+        "id": "internal-bot",
+        "type": "webhook"
     },
-    "url": ""
+    "url": "https://console.baselime.cc/acme/prod/user-authentication/alerts/high-latency/1661346772147"
 }
 ```
