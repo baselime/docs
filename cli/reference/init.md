@@ -6,8 +6,7 @@ label: init
 
 ---
 
-The `init` command is used to prepare your working directory for other commands.
-
+The `init` command is used to initialise your local folder with metadata about your application.
 
 ```bash # :icon-terminal: terminal
 baselime init --application <application_name> --description <description> --template <template>

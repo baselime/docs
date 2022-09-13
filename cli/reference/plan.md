@@ -18,7 +18,7 @@ The `plan` command:
 - Submits the current resources configuration to the Baselime backend which returns a comparison between the current configuration and the existing resources state.
 - Proposes a set of change actions that should, if applied, make the remote observability resources match the local configuration.
 
-The plan command alone will not carry out any of the proposed changes to the Baselime backend. It is intended to be used to check if the changes match the expected result before using the `baselime apply` command.
+The `plan` command alone will not carry out any of the proposed changes to the Baselime backend. It is intended to be used to check if the changes match the expected result before using the `baselime apply` command.
 
 If you are using Baselime directly in an interactive terminal and you expect to apply the changes Baselime proposes, you can alternatively run `baselime apply` directly. By default, the `apply` command automatically generates a new plan and prompts for you to approve it.
 

@@ -3,13 +3,15 @@ label: Basic Observability as Code
 order: -1
 ---
 
-For every project, developers must create a `index.yml` file in the root of the `.baselime` folder. This file is used to specify metadata on the project. This can be initialised with the Baselime CLI.
+For every application, developers must create a `index.yml` file in the root of the `.baselime` folder. This file is used to specify metadata on the application. This can be initialised with the Baselime CLI.
 
 ``` bash # :icon-terminal: terminal
 baselime init
 ```
 
-Once the `.baselime` folder has been initialised, Observability as Code configurations can be defined in any YAML file in the `.baselime` folder or any of its subfolder.
+This is an interactive command to initialise the `.baselime` folder. The command prompts the user for a list of serverless functions that are part of the application being initialised.
+
+Once the `.baselime` folder has been initialised, Observability as Code configurations can be defined in any `YAML` file in the `.baselime` folder or any of its subfolder.
 
 !!!warning 
 It should be noted that the Baselime CLI reserves a `.out` folder at the root of the `.baselime` folder where OaC configurations will be ignored.
@@ -20,9 +22,14 @@ The following example shows a simple example of the files present within the `.b
 +++ index.yml
 
 ```yaml # :icon-code: .baselime/index.yml
-version: 0.0.3
+version: 0.0.15
 application: users-management
-description: Doing the users management
+provider: aws
+
+infrastructure:
+  functions:
+    - function-A
+    - function-B
 ```
 
 +++ demo.yml
@@ -42,7 +49,7 @@ lambda-invocations-durations:
         - AVG(@duration)
         - P99(@duration)
       filters:
-        - "@type := REPORT"
+        - "@type = REPORT"
       groupBy:
         type: number
         value: "@memorySize"
@@ -55,7 +62,7 @@ long-lambda-invocations:
       query: !ref lambda-invocations-durations
       frequency: 30
       duration: 30
-      threshold: :> 15000
+      threshold: "> 15000"
     channels:
       - !ref developers
 
