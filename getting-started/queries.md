@@ -50,7 +50,7 @@ lambda-duration:
         - MIN(extra.duration)
         - P99(extra.duration)
       filters:
-        - message := RESPONSE
+        - message = RESPONSE
 ```
 
 ---
@@ -84,7 +84,7 @@ critical-response-time:
     name: It takes too long to respond to requests
     parameters:
       query: !ref lambda-duration
-      threshold: :> 2000
+      threshold: "> 2000"
       frequency: 5
       duration: 5
     channels:
