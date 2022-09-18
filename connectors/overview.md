@@ -9,4 +9,4 @@ order: 0
 
 Baselime uses connctors to automatically ingest telemetry data from your cloud environments.
 
-[!ref AWS CloudFormation Connector](./cloudformation-connector.md)
+[!ref icon="../assets/images/logos/aws.svg"](./aws.md)
