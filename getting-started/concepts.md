@@ -36,10 +36,22 @@ Once the telemetry data is ingested, you can run complex queries on your data, f
 
 ## Datasets
 
-Your telemetry data is organised in datasets in Baselime. A dataset is collection of similar or related events events.
+Your telemetry data is organised in `datasets` in Baselime. A dataset is collection of similar or related events events.
 
 ---
 
 ## Namespaces
 
-Namespaces are additional dimensions to further organise your data such that you can slice and dice when running queries. A typical namespace would be the name of the serverless function emitting the telemetry data. 
+Namespaces are additional dimensions to further organise your data such that you can slice and dice when running queries. A typical `namespace` would be the name of the serverless function emitting the telemetry data.
+
+---
+
+## Applications
+
+Distributed systems are complex and it is necessary to define virtual boundaries between sub-systems to make sense of the whole architecture. A typical distributed system has multiple services, storage layers, gateways, etc... with names that are constantly changing.
+
+An `application` in Baselime is a group of services that work together to accomplish a goal. For example, a payment service would be considered an application. Although it communicates with other services in the architecture, it usually encapsulates multiple compute, storage, event propagation and gateway resources, all working towards the goal of helping customers successfully purchase goods and services.
+
+Typically, an `application` would be a repo or a sub-folder if using a monorepo flow.
+
+Grouping cloud resources by application lets you and your team filter, query, visualise and get alert on telemetry data specific to the application, rather than accros the entire stack. 
