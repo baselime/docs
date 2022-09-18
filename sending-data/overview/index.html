@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.716825794886">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.716825932487">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,12 +31,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.716825794886" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.716825932487" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.716825794886" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.716825932487" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.716825794886" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.716825794886" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.716825932487" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.716825932487" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -271,10 +271,10 @@
 <p>The generic string will be wrapped in a <code v-pre>message</code> attribute, and the JSON data will be wrapped in a <code v-pre>data</code> attribute.</p>
 <hr />
 <doc-anchor-target id="examples">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#examples">#</doc-anchor-trigger>
         <span>Examples</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <p>Here are examples of automatic semi-structured logs detection.</p>
 <div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
@@ -355,7 +355,7 @@
     </div>
     <div class="docs-columns-code docs-columns-content border-r border-gray-200 dark:border-dark-650">
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">localdomain {&quot;metadata&quot;:{&quot;server_name&quot;:&quot;Optimus&quot;,&quot;local_time_zone&quot;:&quot;GMT+1&quot;,&quot;created_at&quot;:1631689974}} sudo[14170]</code></pre>
+<pre class="language-none"><code v-pre class="language-none">localdomain {&quot;metadata&quot;:{&quot;name&quot;:&quot;Optimus&quot;,&quot;local_time_zone&quot;:&quot;GMT+1&quot;,&quot;created_at&quot;:1631689974}} sudo[14170]</code></pre>
 </doc-codeblock></div>
     </div>
     <div class="docs-columns-code docs-columns-content">
@@ -364,7 +364,7 @@
   &quot;message&quot;: &quot;localdomain - sudo[14170]&quot;,
   &quot;data&quot;: {
     &quot;metadata&quot;: {
-      &quot;server_name&quot;: &quot;Optimus&quot;,
+      &quot;name&quot;: &quot;Optimus&quot;,
       &quot;local_time_zone&quot;: &quot;GMT+1&quot;,
       &quot;created_at&quot;: 1631689974
     }
