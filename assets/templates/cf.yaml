@@ -3,15 +3,15 @@ Description: This template creates a role and a bucket that can be used by Basel
 Parameters:
   ExternalParameter:
     Type: String
-    Default: <BASELIME_EXTERNAL_PARAMETER>
+    Default: <BASELIME_WORKSPACE_ID>
     Description: External Parameter for securing the role
   Alias:
     Type: String
-    Default: <BASELIME_INTEGRATION_ALIAS>
-    Description: Alias for this integration
+    Default: <BASELIME_ENVIRONMENT_ALIAS>
+    Description: Alias for this environment
 
 Resources:
-  BaselimeIntegrationRole:
+  BaselimeEnvironmentRole:
     Type: AWS::IAM::Role
     DeletionPolicy: Retain
     Properties:
@@ -42,19 +42,26 @@ Resources:
         - arn:aws:iam::aws:policy/ReadOnlyAccess
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
       Path: "/"
-  BaselimeIntegrationPolicies:
+  BaselimeEnvironmentPolicies:
     Type: AWS::IAM::Policy
+    DeletionPolicy: Retain
     Properties:
-      PolicyName: BaselimeIntegration
+      PolicyName: BaselimeEnvironment
       PolicyDocument:
         Statement:
           - Effect: Allow
             Action:
               - lambda:UpdateFunctionConfiguration
+              - lambda:UpdateFunctionCode
               - lambda:CreateFunction
               - lambda:AddPermission
             Resource:
               - arn:aws:lambda:*:*:function:*
+          - Effect: Allow
+            Action:
+              - lambda:UpdateFunctionCode
+            Resource:
+              - arn:aws:lambda:*:*:function:baselime-*
           - Effect: Allow
             Action:
               - ce:GetCostAndUsageWithResources
@@ -80,7 +87,7 @@ Resources:
               - iam:PassRole
             Resource:
               - !GetAtt
-                - BaselimeIntegrationRole
+                - BaselimeEnvironmentRole
                 - Arn
           - Effect: Allow
             Action:
@@ -101,7 +108,7 @@ Resources:
             Resource:
               - "*"
       Roles:
-       - !Ref BaselimeIntegrationRole
+       - !Ref BaselimeEnvironmentRole
   BaselimeS3Bucket:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
@@ -156,7 +163,7 @@ Resources:
             Effect: "Allow"
             Principal: 
               AWS: !GetAtt
-              - BaselimeIntegrationRole
+              - BaselimeEnvironmentRole
               - Arn
             Resource: "*"
             Action: "SNS:Publish"
@@ -177,12 +184,12 @@ Resources:
     Type: AWS::CloudFormation::CustomResource
     DependsOn:
       - BaselimeCloudTrail
-      - BaselimeIntegrationRole
-      - BaselimeIntegrationPolicies
+      - BaselimeEnvironmentRole
+      - BaselimeEnvironmentPolicies
     Properties:
       ServiceToken: <BASELIME_SERVICE_TOKEN>
       RoleArn: !GetAtt
-              - BaselimeIntegrationRole
+              - BaselimeEnvironmentRole
               - Arn
       Region: !Ref AWS::Region
       BucketName: !Ref BaselimeS3Bucket
@@ -195,7 +202,7 @@ Resources:
 Outputs:
   RoleArn:
     Value: !GetAtt
-          - BaselimeIntegrationRole
+          - BaselimeEnvironmentRole
           - Arn
     Description: The ARN for the role Baselime can use
   BucketName:
