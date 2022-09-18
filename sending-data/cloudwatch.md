@@ -1,9 +1,9 @@
 ---
-label: CloudWatch Logs Subscription Filters
+label: CloudWatch Logs
 order: -1
 ---
 
-# CloudWatch Subscription Filters
+# CloudWatch Logs
 
 ---
 

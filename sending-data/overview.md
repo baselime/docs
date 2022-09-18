@@ -10,7 +10,7 @@ order: 1
 Baselime ingests your telemetry data and allows you to observe your production environments.
 
 You can send your telemetry data to Baselime with either of:
-[!ref Automatic CloudWatch logs subscription filters](./cloudwatch.md)
+[!ref Automatic CloudWatch logs](./cloudwatch.md)
 [!ref Events API](./events-api.md)
 [!ref Automatic CloudTrail events](./cloudtrail)
 [!ref Auto-instrumentation with OpenTelemetry (Coming Soon)](./otel.md)
