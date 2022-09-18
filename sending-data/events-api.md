@@ -65,9 +65,9 @@ The HTTP API validates the provided events and returns a `400 Bad Request` statu
 ### Data types
 
 Baselime supports basic data types for the value of each key or nested key of any event:
-- string
-- boolean
-- number
+- `string`
+- `boolean`
+- `number`
 
 ---
 
