@@ -30,8 +30,6 @@ Baselime automatically detects log events that contain JSON data, but is prepend
 
 The generic string will be wrapped in a `message` attribute, and the JSON data will be wrapped in a `data` attribute.
 
----
-
 ### Examples
 
 Here are examples of automatic semi-structured logs detection.
