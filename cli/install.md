@@ -68,7 +68,7 @@ baselime -v
 After creating an account, if you already have a Baselime account, you should log in the Baselime CLI.
 
 ```bash # :icon-terminal: terminal
-baselime login
+baselime auth login
 ```
 
 Otherwise, you can sign up on the Baselime UI.
