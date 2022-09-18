@@ -32,7 +32,7 @@ The generic string will be wrapped in a `message` attribute, and the JSON data w
 
 ---
 
-## Examples
+### Examples
 
 Here are examples of automatic semi-structured logs detection.
 
@@ -90,7 +90,7 @@ User Data {"user":{"id":"7467c534-3759-11ed-a261-0242ac120002","email":"john@jim
 
 ||| Raw event
 ```txt
-localdomain {"metadata":{"server_name":"Optimus","local_time_zone":"GMT+1","created_at":1631689974}} sudo[14170]
+localdomain {"metadata":{"name":"Optimus","local_time_zone":"GMT+1","created_at":1631689974}} sudo[14170]
 ```
 ||| Parsed data
 ```json
@@ -98,7 +98,7 @@ localdomain {"metadata":{"server_name":"Optimus","local_time_zone":"GMT+1","crea
   "message": "localdomain - sudo[14170]",
   "data": {
     "metadata": {
-      "server_name": "Optimus",
+      "name": "Optimus",
       "local_time_zone": "GMT+1",
       "created_at": 1631689974
     }
