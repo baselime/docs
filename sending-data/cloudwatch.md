@@ -1,19 +1,27 @@
 ---
-label: Discovered Keys
-order: -2
+label: CloudWatch Logs Subscription Filters
+order: -1
 ---
 
-# Discovered Keys
-
-Discovered keys are keys automatically generated from your events and traces.
+# CloudWatch Subscription Filters
 
 ---
 
-## Lambda Discovered Keys
+Once you connect your AWS account to Baselime, Baselime automatically create [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html) to automatically ingest logs from your Lambda functions.
+
+---
+
+## Discovered Keys
+
+Baselime automatically discovers key - value pairs from your AWS Lambdo logs. This empowers you to run complex queries and setup alerts on data that otherwise would be difficult to work with from the AWS Lambda service. For instance, from the discovered keys from the Lambda logs, it's possible to set alerts on the maximum memory used by lambda functions during execution, compared to the amount of memory they are assigned at deployment time.
+
+---
+
+### Lambda Discovered Keys
 
 The Lambda service automatically write logs at the beginning and end of every Lambda function invocation. There logs are parsed as events in Baselime, and keys are automatically discovered from those messages.
 
-### `START` Log Message
+#### `START` Log Message
 
 The following keys are discovered from the `START` message:
 - `@type`: is always `START`
@@ -30,7 +38,7 @@ The following keys are discovered from the `START` message:
 } 
 ```
 
-### `END` Log Message
+#### `END` Log Message
 
 The following keys are discovered from the `END` message:
 - `@type`: is always `END`
@@ -45,7 +53,7 @@ The following keys are discovered from the `END` message:
 } 
 ```
 
-### `REPORT` Log Message
+#### `REPORT` Log Message
 
 The following keys are discovered from the `REPORT` message:
 - `@type`: is always `REPORT`
@@ -79,7 +87,7 @@ REPORT RequestId: 8fc6f963-411b-58b5-8483-a32130c0f45d Duration: 201.67 ms Bille
 } 
 ```
 
-### Timeout Invocations
+#### Timeout Invocations
 
 If your async Lambda invocation times out, Additional keys are automatically discovered:
 - `@timedOut`: always `true`
@@ -99,7 +107,7 @@ If your async Lambda invocation times out, Additional keys are automatically dis
 } 
 ```
 
-### `console.log` Log Message
+#### `console.log` Log Message
 
 We recommend writing directly to `stdout` and `stderr` from your Lambda functions. For Node.js environments, AWS Lambda uses a modified version of `console.log` (and other `console` logging functions) to write to `stdout` and `stderr`. These add fields to the log message which are parsed in discovered keys.
 
@@ -109,7 +117,7 @@ We recommend writing directly to `stdout` and `stderr` from your Lambda function
 - `@message`: the message.
 
 !!!
-If the message in `@message` is a JSON object, Baselime will parse it, otherwise it will be considered a `string`.
+If the message in `@message` is a valid JSON object, Baselime will parse it, otherwise it will be considered a `string`.
 !!!
 
 ```json # :icon-code: output

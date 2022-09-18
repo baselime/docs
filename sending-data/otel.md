@@ -1,17 +1,17 @@
 ---
 label: OpenTelemetry Instrumentation
-order: -1
+order: -3
 ---
 
-# OpenTelemetry Instrumentation
-
----
-
-Baselime supports [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.
+# OpenTelemetry Instrumentation [Coming Soon]
 
 ---
 
-## OpenTelemetry Auto-Instrumentation
+Baselime supports [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions. [Coming Soon]
+
+---
+
+## OpenTelemetry Auto-Instrumentation [Coming Soon]
 
 With OpenTelemetry you can add auto-instrumentation to your Lambda functions. This will collect basic instrumentation to incoming and outgoing requests to your Lambda, as well as Lambda invocations data.
 

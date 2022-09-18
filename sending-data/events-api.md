@@ -58,9 +58,9 @@ baselime auth status
 The HTTP API validates the provided events and returns a `400 Bad Request` status code if any of the events fail validation with a list of all the events that failed validation. If some events pass validation and others fail, we will ingest the events that pass validation. If you encounter a `400 Bad Request` error when submitting events to the HTTP API, the events that failed validation will be listed in the body of the request under the `invalid` key.
 
 ### High-level requirements
-- Baselime accepts up to **6MB** of uncompressed data per request 
+- Baselime accepts up to `6MB` of uncompressed data per request 
 - Each event must be a properly formatted JSON
-- Each event must be smaller than **32kb** of uncompressed JSON
+- Each event must be smaller than `32kb` of uncompressed JSON
 
 ### Data types
 
@@ -73,7 +73,9 @@ Baselime supports basic data types for the value of each key or nested key of an
 
 ## API Response codes
 
-The HTTP API will return the following response codes.
+Baselime returns a `202` response for all valid requests to the HTTP Events API, and a range on of non-`200` responses for errors.
+
+We welcome feeback on API responses and error messages. Reach out to us in our [Slack community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ) with any request or suggestion you may have.
 
 ### Successfull responses
 
@@ -88,6 +90,7 @@ The HTTP API will return the following response codes.
 | 405         | ```{"message": "Method Not Allowed"}``` | The HTTP method is now allowed |
 | 401         | ```{"message": "Unauthorised"}``` | Missing or invalid API Key |
 | 400        | ```{"message": "Bad Request"}``` | - Missing or invalid path parameters (`v1`, `<dataset>` or `<namespace>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `32kb` size limit <br /> - At least one of the events could not be parsed as valid JSON |
+| 500         | ```{"message": "Internal Error"}``` | An unexpected error occured |
 
 
 
