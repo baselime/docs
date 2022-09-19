@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.716851257911">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.716902009060">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,12 +31,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../resources/css/retype.css?v=2.4.0.716851257911" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.716902009060" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.716851257911" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.716902009060" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.716851257911" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.716851257911" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.716902009060" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.716902009060" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -201,16 +201,16 @@
 </doc-anchor-target>
 <p>The <code v-pre>events</code> command is used to manage events.</p>
 <hr />
-<doc-anchor-target id="search">
+<doc-anchor-target id="stream">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#search">#</doc-anchor-trigger>
-        <span>search</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#stream">#</doc-anchor-trigger>
+        <span>stream</span>
     </h2>
 </doc-anchor-target>
-<p>Search for a needle in a dataset.</p>
+<p>Stream telemetry data to your terminal.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
-<pre class="language-bash"><code v-pre class="language-bash">baselime events search --datset &lt;dataset&gt; --needle &lt;needle&gt;</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime stream --datasets &lt;dataset_name&gt; --namespaces &lt;space_1&gt; &lt;space_2&gt;</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="options">
     <h3>
@@ -221,60 +221,24 @@
 <ul>
 <li><code v-pre>--from</code>: UTC start time - may also be relative eg: 1h, 20mins</li>
 <li><code v-pre>--to</code>: UTC end time - may also be relative eg: 1h, 20mins, now</li>
-<li><code v-pre>--dataset</code>: Dataset to search</li>
+<li><code v-pre>--datasets</code>: The datasets to stream</li>
+<li><code v-pre>--filters</code>: A set of filters to apply to the stream; multiple filters can be passed</li>
+<li><code v-pre>--needle</code>: A string to search in the stream</li>
+<li><code v-pre>--regex</code>: A regular expression to search in the stream. If there&#x27;s both a needle and a regex, the regex takes priority</li>
+<li><code v-pre>--match-case</code>: Match case if a needle is specified</li>
 <li><code v-pre>--namespaces</code>: The namespaces to search; if no namespace is specified all namespaces will be searched; multiple namespaces can be passed</li>
-<li><code v-pre>--needle</code>: Needle to search in the dataset</li>
+<li><code v-pre>--combination</code>: The combination to use when multiple namespaces are specified</li>
+<li><code v-pre>--follow</code>: Wait for additional data to be appended when the end of streams is reached</li>
+</ul>
+<p>Each filter is a string that can be represented as <code v-pre>&lt;key&gt; &lt;operation&gt; &lt;value&gt;</code></p>
+<ul>
+<li><code v-pre>&lt;key&gt;</code>: the event property to filter against.</li>
+<li><code v-pre>&lt;operation&gt;</code>: an operation used to compare the key against the value. For further details, please check the <a href="../../../advanced/accepted-operations/">list of accepted operations</a>.</li>
+<li><code v-pre>&lt;value&gt;</code>: the value to compare the key against.</li>
 </ul>
 <doc-anchor-target id="examples">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#examples">#</doc-anchor-trigger>
-        <span>Examples</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="example-1-search-for-a-needle-in-a-dataset">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#example-1-search-for-a-needle-in-a-dataset">#</doc-anchor-trigger>
-        <span>Example 1: Search for a needle in a dataset</span>
-    </h4>
-</doc-anchor-target>
-<p>Command:</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
-<pre class="language-bash"><code v-pre class="language-bash">baselime events search --dataset logs --needle &quot;email address not found&quot;</code></pre>
-</doc-codeblock></div>
-<p>Output:</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> output</div>
-<pre class="language-none"><code v-pre class="language-none"></code></pre>
-</doc-codeblock></div>
-<hr />
-<doc-anchor-target id="stream">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#stream">#</doc-anchor-trigger>
-        <span>stream</span>
-    </h2>
-</doc-anchor-target>
-<p>Stream a dataset.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
-<pre class="language-bash"><code v-pre class="language-bash">baselime stream --dataset &lt;dataset_name&gt; --namespaces &lt;space_1&gt; &lt;space_2&gt;</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="options-1">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#options-1">#</doc-anchor-trigger>
-        <span>Options</span>
-    </h3>
-</doc-anchor-target>
-<ul>
-<li><code v-pre>--from</code>: UTC start time - may also be relative eg: 1h, 20mins</li>
-<li><code v-pre>--to</code>: UTC end time - may also be relative eg: 1h, 20mins, now</li>
-<li><code v-pre>--dataset</code>: Dataset to search</li>
-<li><code v-pre>--namespaces</code>: The namespaces to search; if no namespace is specified all namespaces will be searched; multiple namespaces can be passed</li>
-<li><code v-pre>--follow</code>: Wait for additional data to be appended when the end of streams is reached</li>
-</ul>
-<doc-anchor-target id="examples-1">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#examples-1">#</doc-anchor-trigger>
         <span>Examples</span>
     </h3>
 </doc-anchor-target>
@@ -287,7 +251,7 @@
 <p>Command:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
-<pre class="language-bash"><code v-pre class="language-bash">baselime stream --dataset logs --namespaces namespace_1 namespace_2 --follow</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime stream --datasets &lt;dataset_name&gt; --follow</code></pre>
 </doc-codeblock></div>
 <p>Output:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
@@ -297,6 +261,54 @@
 2022-05-23 10:18:18.742 namespace_2 {&quot;@type&quot;:&quot;REPORT&quot;,&quot;@requestId&quot;:&quot;8af8ed70-d252-4c8e-98c3-e7de57c51ed9&quot;,&quot;@duration&quot;:91.35,&quot;@billedDuration&quot;:92 &quot;@memorySize&quot;:2048,&quot;@maxMemoryUsed&quot;:100}
 
 // More events... </code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="example-2-stream-all-datasets-with-filters-and-find-a-needle-and-follow">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-2-stream-all-datasets-with-filters-and-find-a-needle-and-follow">#</doc-anchor-trigger>
+        <span>Example 2: Stream all datasets with filters and find a needle, and follow</span>
+    </h4>
+</doc-anchor-target>
+<p>Command:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
+<pre class="language-bash"><code v-pre class="language-bash">baselime stream --filters &quot;&lt;key&gt; &lt;operation&gt; &lt;value&gt;&quot; --needle &quot;&lt;needle&gt;&quot; --follow</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> output</div>
+<pre class="language-none"><code v-pre class="language-none">// Events... </code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="example-3-stream-a-dataset-with-filters-and-find-all-events-matching-a-regular-expression">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-3-stream-a-dataset-with-filters-and-find-all-events-matching-a-regular-expression">#</doc-anchor-trigger>
+        <span>Example 3: Stream a dataset with filters and find all events matching a regular expression</span>
+    </h4>
+</doc-anchor-target>
+<p>Command:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
+<pre class="language-bash"><code v-pre class="language-bash">baselime stream --filters &quot;&lt;key&gt; &lt;operation&gt; &lt;value&gt;&quot; --regex &quot;&lt;regex&gt;&quot; --follow</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> output</div>
+<pre class="language-none"><code v-pre class="language-none">// Events... </code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="example-4-stream-multiple-namespaces-in-a-dataset">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-4-stream-multiple-namespaces-in-a-dataset">#</doc-anchor-trigger>
+        <span>Example 4: Stream multiple namespaces in a dataset</span>
+    </h4>
+</doc-anchor-target>
+<p>Command:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
+<pre class="language-bash"><code v-pre class="language-bash">baselime stream --datasets &lt;dataset_name&gt; --namespaces &lt;space_1&gt; &lt;space_2&gt;</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> output</div>
+<pre class="language-none"><code v-pre class="language-none">// Events... </code></pre>
 </doc-codeblock></div>
 
                                 
