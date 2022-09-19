@@ -62,17 +62,17 @@ random-num-gen-value:
 
 ## Query calculations
 
-Each query calculation is a string that can be represented as `operator(key)`
-- `operator`: a computation to be performed the key. For further details, please check the [list of accepted operators](../../advanced/accepted-operations.md).
-- `key`: the event property to perform the calculation on.
+Each query calculation is a string that can be represented as `<operator>(<key>)`
+- `<operator>`: a computation to be performed the key. For further details, please check the [list of accepted operators](../../advanced/accepted-operations.md).
+- `<key>`: the event property to perform the calculation on.
 
-However, the `COUNT` calculation does not require a `key`.
+However, the `COUNT` calculation does not require a `<key>`.
 
 ---
 
 ## Query filters
 
-Each query filter is a string that can be represented as `key operation value`
-- `key`: the event property to filter against.
-- `operation`: an operation used to compare the key against the value. For further details, please check the [list of accepted operations](../../advanced/accepted-operations.md).
-- `value`: the value to compare the key against.
+Each query filter is a string that can be represented as `<key> <operation> <value>`
+- `<key>`: the event property to filter against.
+- `<operation>`: an operation used to compare the key against the value. For further details, please check the [list of accepted operations](../../advanced/accepted-operations.md).
+- `<value>`: the value to compare the key against.

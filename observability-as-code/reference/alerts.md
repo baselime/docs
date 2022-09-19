@@ -47,6 +47,6 @@ random-num-gen-value:
 
 ## Alert threshold
 
-The alert threshold is a string that can be represented as `operation value`
-- `operation`: an operation used to compare the first results of the query against the value. For further details, please check the [list of accepted operations](../../advanced/accepted-operations.md).
-- `value`: the value to compare the first result of the query against.
+The alert threshold is a string that can be represented as `<operation> <value>`
+- `<operation>`: an operation used to compare the first results of the query against the value. For further details, please check the [list of accepted operations](../../advanced/accepted-operations.md).
+- `<value>`: the value to compare the first result of the query against.
