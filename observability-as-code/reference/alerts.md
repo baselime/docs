@@ -14,7 +14,7 @@ random-num-gen-value:
   # Required: The properties of the resource
   properties:
     
-    # Required: Name of the alert
+    # Optional: Name of the alert
     name: demo name
     
     # Optional: Description of the alert
@@ -27,8 +27,8 @@ random-num-gen-value:
       # Please note that if the query has multiple calculations, the alert will be based off the first listed calculation in the array of calculations of the query
       query: !ref id-of-an-existing-query
 
-      # Required: The frequency reprensents how often, in minutes, to check for the threshold condition
-      frequency: 30
+      # Required: The frequency reprensents how often to check for the threshold condition: in minutes or using a cron declaring [https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions]
+      frequency: 30 # or a cron expression - 0/30 * * * ? *
 
       # Required: The duration is the time range, in minutes, of data that the alert will check. 
       duration: 30

@@ -14,7 +14,7 @@ random-num-gen-value:
   # Required: The properties of the resource
   properties:
     
-    # Required: Name of the chart
+    # Optional: Name of the chart
     name: demo name
 
     # Required: Type of the chart

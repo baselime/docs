@@ -18,19 +18,19 @@ baselime namespaces list
 
 ### Options
 
-- `--dataset`: Dataset
+- `--application`: Application name
 - `--from`: UTC start time - may also be relative eg: 1h, 20mins
 - `--to`: UTC end time - may also be relative eg: 1h, 20mins, now
 
 
 ### Examples
 
-#### Example 1: Listing all namespaces for the past 2 hours
+#### Example 1: Listing all namespaces ingested for an application for the past 2 hours
 
 Command:
 
 ```bash # :icon-terminal: terminal
-baselime namespaces list --dataset logs --from 2hours --to now
+baselime namespaces list --application api --from 2hours --to now
 ```
 
 Output:

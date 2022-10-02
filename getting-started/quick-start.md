@@ -47,7 +47,7 @@ We've open-sourced the CloudFormation template [here](../connectors/cloudformati
 
 You can generate and download this template through the [Baselime Console](https://console.baselime.io).
 
-Once you've generated and downloaded the template, you must deploy it to your AWS Account. Baselime automatically opens a new tab in your default browser with the link to deploy the downloaded CloudFormation template. Simply follow the step in CloudFormation without changing any of the provided values to deploy the stack on your AWS account.
+Once you've generated and downloaded the template, you must deploy it to your AWS Account. Baselime automatically opens a new tab in your default browser with the link to deploy the downloaded CloudFormation template. Follow the step in CloudFormation without changing any of the provided values to deploy the stack on your AWS account.
 
 !!!warning AWS Credentials
 Please make sure you're using the correct credentials to deploy to the correct account and the correct region.

@@ -20,7 +20,7 @@ The Baselime AWS Connector helps your team automatically:
 
 ## Setup
 
-The connector is an automated flow based on a CloudFormation template that can be defined using a simple wizard.
+The connector is an automated flow based on a CloudFormation template that can be defined using a wizard.
 
 It can be done using the Baselime CLI or throught the web console.
 

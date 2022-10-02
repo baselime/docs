@@ -17,7 +17,7 @@ Once the `.baselime` folder has been initialised, Observability as Code configur
 It should be noted that the Baselime CLI reserves a `.out` folder at the root of the `.baselime` folder where OaC configurations will be ignored.
 !!!
 
-The following example shows a simple example of the files present within the `.baselime` folder.
+The following example shows a basic example of the files present within the `.baselime` folder.
 
 +++ index.yml
 

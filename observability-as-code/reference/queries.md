@@ -14,7 +14,7 @@ random-num-gen-value:
   # Required: The properties of the resource
   properties:
  
-    # Required: Name of the query
+    # Optional: Name of the query
     name: demo name
     
     # Optional: Description of the query

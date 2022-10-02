@@ -14,7 +14,7 @@ main-dashboard:
   # Required: The properties of the resource
   properties:
     
-    # Required: Name of the dashbaord
+    # Optional: Name of the dashbaord
     name: Main dashbaord
 
     # Optional: Description of the dashbaord
