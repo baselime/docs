@@ -14,7 +14,7 @@ random-num-gen-value:
   # Required: The properties of the resource
   properties:
  
-    # Required: Name of the stream
+    # Name of the stream
     name: demo name
 
     # Required: stream parameters
@@ -27,11 +27,24 @@ random-num-gen-value:
       namespaces:
         - demo-lambda
 
+      # Optional: A flag on whether to include or exclude specified namespaces. Default: INCLUDE
+      namespaceCombination: INCLUDE # Possible values: INCLUDE, EXCLUDE, STARTS_WITH
+      
       # Optional: Filter events based on additional criteria
       # Default: Will not apply any filters on the stream
       filters:
         - "@type := REPORT"
         - "@duration :> 10"
+
+      # Optional: If multiple filters are provided, defines how to combine them
+      # Default: Will filter only events that match all the criteria specified in filters
+      filterCombination: AND # Possible values: AND, OR
+
+      # Optional: A needle is a search object containing an item, isRegex and matchCase booleans.
+      needle:
+        item: "message" # A string to search for in your events.
+        isRegex: false # optional, default: false.
+        matchCase: false # optional, default: false. 
 
 ```
 
