@@ -33,8 +33,8 @@ random-num-gen-value:
       # Optional: Filter events based on additional criteria
       # Default: Will not apply any filters on the stream
       filters:
-        - "@type := REPORT"
-        - "@duration :> 10"
+        - "@type = REPORT"
+        - "@duration > 10"
 
       # Optional: If multiple filters are provided, defines how to combine them
       # Default: Will filter only events that match all the criteria specified in filters
@@ -52,7 +52,8 @@ random-num-gen-value:
 
 ## stream filters
 
-Each stream filter is a string that can be represented as `key :operation value`
-- `key`: the event property to filter against.
-- `operation`: an operation used to compare the key against the value. For further details, please check the [list of accepted operations](../../advanced/accepted-operations.md).
-- `value`: the value to compare the key against.
+Each stream filter is a string that can be represented as `<key> <operation> <value>`
+- `<key>`: the event property to filter against.
+- `<operation>`: an operation used to compare the key against the value. For further details, please check the [list of accepted operations](../../advanced/accepted-operations.md).
+- `<value>`: the value to compare the key against.
+
