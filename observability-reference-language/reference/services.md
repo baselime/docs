@@ -127,7 +127,7 @@ In this example, the `threshold` variable has a default value of `> 30`, and dif
 To use this variable in an ORL query or alert, you can use the {{ variable }} syntax:
 
 ```yaml # :icon-code: .baselime/index.yml
-query:
+test-query:
   type: alert
   properties:
     parameters:
@@ -182,17 +182,17 @@ This ORL service is for a microservices architecture that is hosted on AWS.
 ```yaml # :icon-code: .baselime/index.yml
 version: 0.0.15
 service: MyMicroservices
-description: My microservices architecture hosted on GCP
+description: My microservices architecture hosted on AWS
 provider: aws
 infrastructure:
   stacks:
-    - baselime/lambda-logs-basics
-    - baselime/dynamodb-db-metrics-basics
-    - baselime/s3-metrics-basics
+    - microservice-1-stack
+    - microservice-2-stack
+    - database-stack
 templates:
-  - workspace1/template3
-  - workspace1/template4
-  - workspace2/template5
+  - baselime/lambda-logs-basics
+  - baselime/dynamodb-db-metrics-basics
+  - baselime/s3-metrics-basics
 variables:
   threshold:
     default: '> 50'
