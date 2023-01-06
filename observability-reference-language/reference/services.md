@@ -131,7 +131,7 @@ query:
   type: alert
   properties:
     parameters:
-      threshold: {{ threshold }}
+      threshold: '{{ threshold }}'
     # ... other properties
 ```
 In this example, the `threshold` variable will be replaced with the appropriate value depending on the environment in which the service is deployed.
