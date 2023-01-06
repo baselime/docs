@@ -146,7 +146,7 @@ lambda-cold-start-durations:
         - P99(@initDuration)
         - COUNT
       filters:
-        - "@type := REPORT"
+        - "@type = REPORT"
       filterCombination: AND
 critical-cold-start-duration:
   type: alert
@@ -156,7 +156,7 @@ critical-cold-start-duration:
       query: !ref lambda-cold-start-durations
       frequency: 30
       duration: 30
-      threshold: :> 2000
+      threshold: "> 2000"
     channels:
       - !ref developers
 developers:
