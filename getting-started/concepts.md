@@ -6,52 +6,55 @@ order: -1
 # Baselime Concepts
 ---
 
-When adopting serverless architectures, there's usually and explosion in operational complexity. Highly distributed microservices leveraging serverless functions, databases, event buses, and event queues make it extremely difficult to track and understand how the systems are behaving and how defects and incidents occur.
-
-The goal of [Baselime](https://baselime.io) is to empower you and your teams to:
-- Stay ahead of bugs and defects with the powers of Observability as Code 
-- Solve issues before they impact actual users and customers
-- Deeply understand how your production systems are behaving
-- Improve collaboration within and across teams on production systems
+Before we continue, we need to learn some of the core Baselime concepts: Observability as Code, datasets, namespaces, and services. They are crucial to understanding how the platform functions. In this page, you will learn about these concepts and how they can help you effectively use Baselime to monitor and troubleshoot your serverless applications.
 
 ---
 
 ## Observability as Code
 
-Observability as Code adapts the principles of Infrastructure as Code to observability configurations. Dashboards, queries, alerts and everything else are configured and automated through Continuous Deployment pipelines, are source-controlled, and are repeatable across teams and environments.
+In Baselime, Observability as Code refers to the ability to define and manage your observability configurations using code, rather than using a graphical user interface. This allows you to version control your observability configurations, automate their deployment, and more easily share and collaborate with your team.
 
-Baselime helps your team adopt the best practices from software engineering to collaborate and iterate on observability configurations. By shifting left observability in your software developement lifecycles, write your observability configuration simultaneously with your application code, making them a first-class citizen of your codebase, rather than a post-deployment after-thougt.
+To implement Observability as Code in Baselime, you will use the Baselime Observability Reference Language (ORL). ORL is a domain-specific language that is used to define observability configurations in a `.baselime` folder in your code repository. The `.baselime` folder contains one or more YAML files that define the various aspects of your observability configurations, such as alerts, dashboards, and integrations.
 
----
+The `.baselime` folder must contain an `index.yaml` file, which represents metadata about your service, including its name, description, and details about the cloud infrastructure of the service. The `index.yaml` file also lists the observability templates that your service uses, as well as any variables that are used in those templates.
 
-## Telemetry Data
+To create and manage your observability configurations using ORL, you can use the Baselime CLI and various commands such as `baselime init`, `baselime push`, `baselime pull` or `baselime plan`. These commands allow you to manage all aspects of your observability configurations from your termnial or your CI/CD pipelines.
 
-Once you sign-up to Baselime and connect your AWS account, Baselime starts to automatically collect logs, metrics and various other data types from your serverless applications.
-
-Baselime ingests those events from your applications and empowers you to interact with them through its various clients in near-real-time.
-
-Once the telemetry data is ingested, you can run complex queries on your data, filtering across any dimension or formula, grouping and aggregating as you please. This lets you to interrogate your systems at a fine level and isolate a single user, a single service or a single transaction; or query across multiple dimensions to get a higher level overview.
+In addition to these commands, you can use the `baselime report` command to report on the health of your service. The `baselime report` command generates a report that includes information such as the status of your alerts, the performance of your service, and any issues or errors that have been detected. You can view the report in your terminal, or you can integrate it with tools such as GitHub, Slack, or PagerDuty to receive notifications and alerts about the health of your service. When you use the `baselime report` command, the generated report is based on the observability configurations that you have defined in your `.baselime` folder using ORL.
 
 ---
 
-## Datasets
+## Datasets 
 
-Your telemetry data is organised in `datasets` in Baselime. A dataset is collection of similar or related events events.
+In Baselime, a dataset is a structured collection of telemetry data that is collected from your serverless applications. Datasets are used to store and query your observability data, and are organized into namespaces.
+
+Baselime supports three types of datasets: logs, metrics, and traces. You can also create your own custom datasets. In addition to these datasets, Baselime includes a dataset for CloudTrail data, which is collected from your AWS account and used to track changes to your serverless architecture.
+
+- Logs are structured or unstructured text data that are generated by your serverless applications and services. Examples of log data include log messages, error messages, and debug information.
+- Metrics are numerical data that represent the performance and behavior of your serverless applications and services.  Examples of metric data specific to serverless architectures include average execution duration of Lambda functions, number of invocations of Lambda functions, and number of requests served by API Gateway.
+-  Traces are data that represent the flow of requests through your serverless applications and services. Traces include information about the individual requests and their dependencies, as well as any errors or issues that occurred during processing.
+
+Baselime automatically blocks certain keys, such as email addresses, passwords, and API keys, from being ingested into your datasets. You can also block additional keys as needed by using the `baselime datasets block` command. For example, you might use this command to block sensitive data such as credit card numbers from being ingested into your datasets.
+
+Baselime provides multiple interfaces for viewing and querying your datasets, including a web console, a CLI, and integrations with other tools such as GitHub, Slack, and Jenkins. You can use these interfaces to explore and analyze your datasets, and to troubleshoot issues in your serverless applications.
 
 ---
 
 ## Namespaces
 
-Namespaces are additional dimensions to further organise your data such that you can slice and dice when running queries. A typical `namespace` would be the name of the serverless function emitting the telemetry data.
+In Baselime, a namespace is a logical grouping of data within a dataset. You can use namespaces to slice and dice your observability data in order to better understand the behavior and performance of your serverless applications.
+
+Namespaces are automatically inferred from the ingested data and represent the various components of your serverless architecture, such as Lambda functions, DynamoDB tables, and API Gateway APIs. You can use the Baselime CLI or web console to switch between namespaces and view the data for a specific component of your architecture.
+
+Namespaces are also used to organize and access your observability data. You can use the `baselime namespaces list` command to view a list of all the namespaces ingested in your account.
 
 ---
 
-## Applications
+## Services
 
-Distributed systems are complex and it is necessary to define virtual boundaries between sub-systems to make sense of the whole architecture. A typical distributed system has multiple services, storage layers, gateways, etc... with names that are constantly changing.
+In Baselime, a service is a logical grouping of cloud resources (such as Lambda functions, databases, and event buses) that represents a specific component of your serverless architecture. It typically corresponds to a repository in your version control system, or a folder in your mono-repo if you use one. Each service is used to organize the telemetry data around the mental model of how your overall application works.
 
-An `application` in Baselime is a group of services that work together to accomplish a goal. For example, a payment service would be considered an application. Although it communicates with other services in the architecture, it usually encapsulates multiple compute, storage, event propagation and gateway resources, all working towards the goal of helping customers successfully purchase goods and services.
+For example, you might have a service called order-management with multiple Lambda functions, databases, and event queues. In Baselime you can run queries within the service, and query only the data emitted by one of the cloud resources that is part of the service, without the clutter of the rest of your architecture. This enables you to isolate, manage and query the observability for each component of your architecture separately.
 
-Typically, an `application` would be a repo or a sub-folder if using a monorepo flow.
+Services in Baselime are defined by the CloudFormation stacks you create when setting up the service, either through the Baselime Console or using the baselime init command. To view a list of all the available services in your account, use the baselime services list command.
 
-Grouping cloud resources by application lets you and your team filter, query, visualise and get alert on telemetry data specific to the application, rather than accros the entire stack. 

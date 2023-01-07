@@ -1,198 +1,176 @@
 ---
-label: Quick Start
+label: Quickstart
 order: 0
 ---
 
-# Quick Start
+# Quickstart Guide
 
 ---
 
-Getting started with [Baselime](https://baselime.io) and starting discovering the benefits of Observability as Code (OaC) takes less than 5 minutes.
+Welcome to Baselime! This quickstart guide will help you get up and running with the platform in just a few simple steps.
+
 
 All you need is:
 - An [AWS Account](https://aws.amazon.com/)
-- The [AWS CLI](https://aws.amazon.com/cli/)
 - Permissions to deploy a [CloudFormation](https://aws.amazon.com/cloudformation/) stack with IAM role.
 - A deployed application leveraging [AWS Lambda](https://aws.amazon.com/lambda/) and other [AWS serverless services](https://aws.amazon.com/serverless/)
 
 If you do not have a deployed application, you can use one of our [example applications](https://github.com/Baselime/examples).
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/12696f2f3fad44538cbc6b79a4c9cebf" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
 ---
 
 ## Step 1: Sign up for Baselime
 
-Baselime has a free usage tier.
+To use Baselime, you'll need to sign up for an account. You can sign up for a free account [here](https://console.baselime.io).
 
-Signup on the [Baselime console](https://console.baselime.io).
-
-Follow the onboarding process:
 1. Create a workspace. Typically this will be the name of your organisation.
-2. Connect your AWS Account
+2. Start exploring the telemetry data in your workspace sandbox.
 
 ---
 
-## Step 2: Connect your AWS Account
+## Step 2: (Optional) Install the Baselime CLI
 
-In order to ingest data from your serverless systems, Baselime needs to connect to your AWS account. This is done by deploying a CloudFormation template onto your AWS account.
+The Baselime CLI is a command-line tool that you can use to interact with the platform. Installing the CLI can make it easier to work with Baselime, unlocks Observability as Code and provides additional functionality not available in the web console. To install the CLI, follow the instructions [here](../cli/install.md).
 
-The CloudFormation template will:
-- Create a role with read-only access to your account, plus permission to create a Lambda Function and add permissions to it
-- An S3 Bucket, to store CloudTrail data
-- An SNS Topic, used to signal new data in the aforementioned S3 Bucket
-- A CloudTrail Trail, used to register changes to your serverless architecture
+---
+
+## Step 3: Connect your AWS account
+
+To start collecting telemetry data from your serverless application, you'll need to connect your AWS account to Baselime. This is done by deploying a CloudFormation template onto your AWS account.
+
+To generate and download the CloudFormation template:
+
+- Go to the [Baselime Console](https://console.baselime.io) or run the following command in the Baselime CLI:
+```bash # :icon-terminal: terminal
+baselime environments connect
+```
+- Follow the prompts to generate and download the template.
+
+Next, you must deploy the template to your AWS account:
+
+- Click the link provided by the Baselime Console or CLI to open the CloudFormation service in your AWS account
+- Check the box to acknowledge that the template creates IAM roles
+- Click "Create stack" to deploy the stack, making sure to use the correct credentials and region for your AWS account
 
 We've open-sourced the CloudFormation template [here](../connectors/cloudformation-connector.md).
 
-You can generate and download this template through the [Baselime Console](https://console.baselime.io).
+Once the stack is deployed, telemetry data from your AWS account will be automatically ingested by Baselime and will be available through the various clients.
 
-Once you've generated and downloaded the template, you must deploy it to your AWS Account. Baselime automatically opens a new tab in your default browser with the link to deploy the downloaded CloudFormation template. Follow the step in CloudFormation without changing any of the provided values to deploy the stack on your AWS account.
+To verify the connection, invoke any deployed AWS Lambda function in your account and you should see data from it in the Baselime console within seconds. Additionally, you can stream all the events ingested by Baselime directly in your terminal using the `baselime tail` command.
 
-!!!warning AWS Credentials
-Please make sure you're using the correct credentials to deploy to the correct account and the correct region.
-!!!
-
-Telemetry data (in the form of logs and metrics) should now be automatically ingested from your AWS account to Baselime and should be available through our various clients. Structured logs sent to `stdout` or `stderr` from your Lambda functions will be sent to Baselime as events.
-
-Send a request to or invoke any deployed AWS Lambda function in your account and you should see data from it in the Baselime console within seconds. Moreover, you can stream all the events ingeste in Baselime directly in your terminal.
-
-!!!warning 
+!!!warning
 If you do not complete any of the above steps, Baselime will not be able to ingest data from your AWS account.
 !!!
 
-!!!warning 
-If you do not see any data in the Baselime UI or using the `stream` command within seconds of completing the above steps, something went wrong. Please [contact us](mailto:support@baselime.io).
+!!!warning
+If you do not see any data in the Baselime UI or using the baselime tail command within seconds of completing the above steps, something went wrong. Please [contact us](mailto:support@baselime.io).
 !!!
 
 ---
 
-## Step 3: Install the Baselime CLI
+## Step 4: Explore the data
 
-+++ MacOs
+Once your AWS Account is connected, you can start exploring the telemetry data it generates. You can use the web console or the CLI (if installed) to access and analyze the data.
 
-#### Using Homebrew
+Baselime ingests and indexes every field and nested field in your telemetry data. 
+
+### Accessing data in the web console
+
+
+To explore the data in the web console:
+
+- Go to the [Baselime Console](https://console.baselime.io) and sign in with your account
+- Select your environment from the list of environments
+- Use the various filters and tools in the console to slice and dice the data, such as:
+  - Filtering by resource type, key-value pair, operation type, or time range
+  - Searching for specific strings or regexes in the data
+  - Viewing the trace data for a specific request or operation
+  - Viewing the logs and metrics for a specific resource or operation
+  - Segmenting the results by specific field or nested field
+
+### Accessing data in the CLI
+
+To access the data in the CLI:
+
+If you installed the CLI, you can use the `baselime query` command to interactively explore the data. Here's how it works:
+1. If you haven't already done so, sign in to the CLI using the `baselime login` command
+2. Run the following command:
 
 ```bash # :icon-terminal: terminal
-# Add Baselime brew repository
-brew tap baselime/tap
-
-# Install the CLI
-brew install baselime
+baselime query
 ```
 
-#### Manual Install
+3. Select the service you want to query
+4. Select one of your saved queries or interactively build a query
+5. Enter the start and end time for the query (optional - defaults to the past hour)
+6. The command will output a table with the results of the query and a unique URL that you can share with your team
+
+```txt # :icon-code: output
+✔ Running the query
+╔════════════════╤════════════════════╗
+║ Aggregate      │ Value              ║
+╟────────────────┼────────────────────╢
+║ MAX(@duration) │ 8758.75            ║
+╟────────────────┼────────────────────╢
+║ MIN(@duration) │ 2.25               ║
+╟────────────────┼────────────────────╢
+║ P99(@duration) │ 322.98440000000005 ║
+╚════════════════╧════════════════════╝
+
+Follow this url: https://console.baselime.io/<workspace>/<env>/queries/lambda-duration/1653302639712
+```
+---
+
+## Step 5: Implement Observability as Code
+
+Baselime enables you to define and manage your observability configurations, such as queries and alert rules, using code that can be stored and versioned in your source control repository. This is known as Observability as Code.
+
+To implement observability as code:
+
+
+1. Use the `baselime init` command to create a `.baselime` folder in your repository and generate an `index.yaml` file
+2. Answer the prompts to specify metadata about your service, such as its name, description, and details about the cloud infrastructure of the service
+3. The `baselime init` command will create one or more configuration files in the `.baselime` folder using the Baselime [Observability Reference Language (ORL)](../observability-reference-language/overview.md). The ORL provides a set of commands and syntax for defining configurations such as queries, alert rules, and dashboards.
+4. Use the `baselime push` command to apply your configurations to your environment.
+
+For example:
 
 ```bash # :icon-terminal: terminal
-# Install the Baselime CLI on MacOS manually
-curl -s https://get.baselime.io | bash
+baselime push
 ```
 
-+++ Linux
+This will apply your observability configurations to your environment, replacing any existing configurations.
 
-```bash # :icon-terminal: terminal
-# Download and install the Baselime CLI on every Linux distribution
-curl -s https://get.baselime.io | bash
-```
+To verify that your configurations have been applied, use the `baselime plan` command to compare your local configuration files with the ones deployed in your environment.
 
-+++
+For more information about the Baselime ORL and how to use it, check out the [Reference Guide](../observability-reference-language/overview.md).
 
 ---
 
-## Step 4: Log in the Baselime CLI
+## Step 6: Set up integrations
 
-After creating an account, you should log in the Baselime CLI.
+Baselime offers a variety of integrations with popular tools and services to help you get the most out of your observability data.
 
-```bash # :icon-terminal: terminal
-baselime auth login
-```
+To set up an integration:
 
----
+1. Go to the Integrations page in the Baselime console
+2. Choose the integration you want to set up from the list
+3. Follow the prompts to configure the integration. This may include providing credentials or setting up webhooks.
+4. Save your changes to complete the setup
 
-## Step 5: Deploy your observability
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/291b7f4c21f54e1c8cbe8df4d64059f6" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
-</br>
-
-The power of Baselime is in its Observability as Code (OaC) capabilities. Baselime empowers you and your team to manage observability resources as code.
-
-In the root of your project folder, initialise a new Baselime config folder.
-
-```bash # :icon-terminal: terminal
-baselime init --application demo --template @baselime/basic-lambdas-logs
-```
-
-The Baselime CLI will initialise your working directory with a `.baselime` folder. It will automatically add sample observability resources (queries, alerts and alert channels) based on the template you selected in the previous command. This would help getting you started. 
-
-```yaml # :icon-code: .baselime/index.yml
-version: 0.0.3
-application: demo
-description: ""
-```
-
-```yaml # :icon-code: .baselime/demo.yml
-lambda-cold-start-durations:
-  type: query
-  properties:
-    name: Duration of lambda cold-starts
-    description: How long do cold starts take on our API?
-    parameters:
-      dataset: logs
-      calculations:
-        - MAX(@initDuration)
-        - MIN(@initDuration)
-        - AVG(@initDuration)
-        - P99(@initDuration)
-        - COUNT
-      filters:
-        - "@type = REPORT"
-      filterCombination: AND
-critical-cold-start-duration:
-  type: alert
-  properties:
-    name: Lambda cold-starts take more than 2 seconds
-    parameters:
-      query: !ref lambda-cold-start-durations
-      frequency: 30
-      duration: 30
-      threshold: "> 2000"
-    channels:
-      - !ref developers
-developers:
-  type: channel
-  properties:
-    type: email
-    targets:
-      - your_email@email.com
-```
-
-Don't hesitate to tweak the query and the alert. The complete set of parameters for the `.baselime` folder can be found in the [Observability as Code](../observability-as-code/overview.md) section.
-
-
-Validate your `.baselime` configuration folder
-
-```bash # :icon-terminal: terminal
-baselime validate
-✔ Valid configuration folder
-```
-
-Apply the changes to the `.baselime` folder to Baselime
-
-```bash # :icon-terminal: terminal
-baselime apply
-```
-
-To run a query in your command line:
-
-```bash # :icon-terminal: terminal
-baselime queries run --application demo --id lambda-cold-start-durations
-```
-
-This will output the results of the query in the command line, with a link that will redirect to the results in the web console.
+For more information about the available integrations and how to use them, check out the [Integrations Guide](./).
 
 ---
 
-## Next Steps
+## Step 7: Learn more
 
-Now you can setup our Observability as Code (OaC). Next up is to send more telemetry data to Baselime.
+Congratulations on completing the Baselime Quickstart guide! You should now be up and running with Baselime, collecting telemetry data from your serverless applications and implementing observability as code.
+
+To learn more about what you can do with Baselime, check out the following resources:
+
+- [Reference Guide](../observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
+- [Integrations Guide](./): Learn about the available integrations and how to use them to get the most out of your observability data
+- [Tutorials](./): Follow step-by-step guides to learn how to use Baselime in different scenarios
+- [Slack Community](./): Join the Baselime community on Slack to ask questions, share tips and tricks, and get help from other users
+
+We hope you enjoy using Baselime! If you have any feedback or suggestions, please don't hesitate to [contact us](mailto:support@baselime.io).
