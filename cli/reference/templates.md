@@ -1,15 +1,20 @@
 ---
-label: upgrade
+label: templates
 ---
 
-# baselime upgrade
+# baselime templates
 
-Use the `baselime upgrade` command to upgrade the Baselime CLI to the latest version. This method will work only if you installed the Baselime CLI with `curl -s https://get.baselime.io | bash`.
+Use the `baselime telemetry` command to manage your observability templates.
 
 ```bash :icon-terminal: terminal
-baselime upgrade
+baselime templates
 
-Upgrade the Baselime CLI to the latest version
+Manage templates
+
+Commands:
+  baselime templates publish  Publish template
+  baselime templates get      Retrieves the template
+  baselime templates list     Lists all templates
 
 Options:
       --profile  [string] [default: "default"]
@@ -21,7 +26,6 @@ Options:
 
 Examples:
 
-        # Upgrade:
-        baselime upgrade
+        baselime templates create
 
 ```

@@ -2,58 +2,30 @@
 label: telemetry
 ---
 
-# telemetry
+# baselime telemetry
 
-The `telemetry` command is used to manage Baselime's telemetry collection.
+Use the `baselime telemetry` command to manage the usage telemetry data collected by the Baselime CLI.
 
----
+```bash :icon-terminal: terminal
+baselime telemetry
 
-## enable
+Manage Baselime telemetry collection
 
-Enable Baselime's telemetry collection.
+Commands:
+  baselime telemetry disable  Disable Baselime telemetry collection
+  baselime telemetry enable   Enable Baselime telemetry collection
 
-```bash # :icon-terminal: terminal
-baselime telemetry enable
-```
+Options:
+      --profile  [string] [default: "default"]
+      --quiet    [boolean] [default: false]
+  -d, --debug    [boolean] [default: false]
+      --format   Format to output the data in  [string] [choices: "table", "json"] [default: "table"]
+  -h, --help     Show this help output, or the help for a specified command or subcommand  [boolean]
+  -v, --version  Show the current Baselime CLI version  [boolean]
 
-### Examples
+Examples:
 
-Command:
+        baselime telemetry enable
+        baselime telemetry disable
 
-```bash # :icon-terminal: terminal
-baselime telemetry enable
-```
-
-Output:
-
-```txt # :icon-code: output
-Status: Enabled
-Baselime telemetry is completely anonymous. Thank you for participating!
-```
-
----
-
-## disable
-
-Disable Baselime's telemetry collection.
-
-```bash # :icon-terminal: terminal
-baselime telemetry disable
-```
-
-### Examples
-
-Command:
-
-```bash # :icon-terminal: terminal
-baselime telemetry disable
-```
-
-Output:
-
-```txt # :icon-code: output
-Status: Disabled 
-
-You have opted out of Baselime's anonymous telemetry program.
-No data will be collected from your machine.
 ```

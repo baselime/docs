@@ -1,18 +1,18 @@
 ---
-label: upgrade
+label: login
 ---
 
-# baselime upgrade
+# baselime login
 
-Use the `baselime upgrade` command to upgrade the Baselime CLI to the latest version. This method will work only if you installed the Baselime CLI with `curl -s https://get.baselime.io | bash`.
+Use the `baselime login` command to log in your Baselime account and select an environment.
 
 ```bash :icon-terminal: terminal
-baselime upgrade
+baselime login
 
-Upgrade the Baselime CLI to the latest version
+Obtain and save credentials for an environment
 
 Options:
-      --profile  [string] [default: "default"]
+      --profile  Alias of the profile  [string] [default: "default"]
       --quiet    [boolean] [default: false]
   -d, --debug    [boolean] [default: false]
       --format   Format to output the data in  [string] [choices: "table", "json"] [default: "table"]
@@ -21,7 +21,10 @@ Options:
 
 Examples:
 
-        # Upgrade:
-        baselime upgrade
+        # Intercatively authenticate against Baselime:
+        baselime login
+
+        # Provide parameters on the command-line:
+        baselime login --profile prod
 
 ```

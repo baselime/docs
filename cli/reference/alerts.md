@@ -2,65 +2,29 @@
 label: alerts
 ---
 
-# alerts
+# baselime alerts
 
-The `alerts` command is used to manage alerts.
+Use the `baselime alerts` to manage the alerts in your Baselime environment.
 
----
+```bash :icon-terminal: terminal
+baselime alerts
 
-## list
+Manage alerts
 
-List all the alerts.
+Commands:
+  baselime alerts check  Run the query of a set of alerts to check their status
+  baselime alerts list   List all the alerts
 
-```bash # :icon-terminal: terminal
-baselime alerts list
-```
+Options:
+      --profile  [string] [default: "default"]
+      --quiet    [boolean] [default: false]
+  -d, --debug    [boolean] [default: false]
+      --format   Format to output the data in  [string] [choices: "table", "json"] [default: "table"]
+  -h, --help     Show this help output, or the help for a specified command or subcommand  [boolean]
+  -v, --version  Show the current Baselime CLI version  [boolean]
 
-### Options
+Examples:
 
-- `--application`: Name of the application
+        baselime alerts list
 
-
-### Examples
-
-#### Example 1: Listing all alerts
-
-Command:
-
-```bash # :icon-terminal: terminal
-baselime alerts list
-```
-
-Output:
-
-```txt # :icon-code: output
-✔ Fetching your alerts
-╔═════════════╤═════════════════════════╤═════════════════════════╤═══════════════════════════╗
-║ Application │ Id                      │ Name                    │ Created                   ║
-╟─────────────┼─────────────────────────┼─────────────────────────┼───────────────────────────╢
-║ api         │ critical-response-time  │ Long response times     │ 2022-05-13T19:53:09+00:00 ║
-╟─────────────┼─────────────────────────┼─────────────────────────┼───────────────────────────╢
-║ default     │ count-is-above-0_fXBnuy │ Count is above 0        │ 2022-05-12T15:06:27+00:00 ║
-╚═════════════╧═════════════════════════╧═════════════════════════╧═══════════════════════════╝
-✨ 2 alerts
-```
-
-#### Example 2: Listing all alerts for an application
-
-Command:
-
-```bash # :icon-terminal: terminal
-baselime alerts list --application api
-```
-
-Output:
-
-```txt # :icon-code: output
-✔ Fetching your alerts
-╔═════════════╤═════════════════════════╤═════════════════════════╤═══════════════════════════╗
-║ Application │ Id                      │ Name                    │ Created                   ║
-╟─────────────┼─────────────────────────┼─────────────────────────┼───────────────────────────╢
-║ api         │ critical-response-time  │ Long response times     │ 2022-05-13T19:53:09+00:00 ║
-╚═════════════╧═════════════════════════╧═════════════════════════╧═══════════════════════════╝
-✨ 1 alert
 ```

@@ -2,47 +2,28 @@
 label: namespaces
 ---
 
-# namespaces
+# baselime namespaces
 
-The `namespaces` command is used to manage namespaces.
+Use the `baselime namespaces` command to manage namespaces for organizing data within datasets.
 
----
+```bash :icon-terminal: terminal
+baselime namespaces
 
-## list
+Manage namespaces
 
-List all the namespaces.
+Commands:
+  baselime namespaces list  List all the ingested namespaces
 
-```bash # :icon-terminal: terminal
-baselime namespaces list
-```
+Options:
+      --profile  [string] [default: "default"]
+      --quiet    [boolean] [default: false]
+  -d, --debug    [boolean] [default: false]
+      --format   Format to output the data in  [string] [choices: "table", "json"] [default: "table"]
+  -h, --help     Show this help output, or the help for a specified command or subcommand  [boolean]
+  -v, --version  Show the current Baselime CLI version  [boolean]
 
-### Options
+Examples:
 
-- `--application`: Application name
-- `--from`: UTC start time - may also be relative eg: 1h, 20mins
-- `--to`: UTC end time - may also be relative eg: 1h, 20mins, now
+        baselime namespaces list
 
-
-### Examples
-
-#### Example 1: Listing all namespaces ingested for an application for the past 2 hours
-
-Command:
-
-```bash # :icon-terminal: terminal
-baselime namespaces list --application api --from 2hours --to now
-```
-
-Output:
-
-```txt # :icon-code: output
-✔ Fetching your namespaces
-╔═════════════════════════════╤═════════════════════════╗
-║ Namespace                   │ Last ingested           ║
-╟─────────────────────────────┼─────────────────────────╢
-║ namspace_1                  │ 2022-05-23 10:25:37.364 ║
-╟─────────────────────────────┼─────────────────────────╢
-║ namspace_2                  │ 2022-05-23 10:20:33.081 ║
-╚═════════════════════════════╧═════════════════════════╝
-✨ 2 namespaces
 ```

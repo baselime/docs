@@ -2,69 +2,28 @@
 label: environments
 ---
 
-# environments
+# baselime environments
 
-The `environments` command is used to manage environments.
+Use the `baselime environments` command to manage the connection of your AWS accounts to Baselime.
 
----
+```bash :icon-terminal: terminal
+baselime environments
 
-## list
+Manage environments
 
-List all the environments.
+Commands:
+  baselime environments connect  Connect a cloud environment to Baselime
 
-```bash # :icon-terminal: terminal
-baselime applications list
+Options:
+      --profile  [string] [default: "default"]
+      --quiet    [boolean] [default: false]
+  -d, --debug    [boolean] [default: false]
+      --format   Format to output the data in  [string] [choices: "table", "json"] [default: "table"]
+  -h, --help     Show this help output, or the help for a specified command or subcommand  [boolean]
+  -v, --version  Show the current Baselime CLI version  [boolean]
+
+Examples:
+
+        baselime environments connect
+
 ```
-
-### Examples
-
-#### Example 1: Listing all environments
-
-Command:
-
-```bash # :icon-terminal: terminal
-baselime environments list
-```
-
-Output:
-
-```txt # :icon-code: output
-✔ Fetching your environments
-╔═══════════╤════════════════╤═════════════╤═══════════════════════════╗
-║ Alias     │ Account        │ Region      │ Created                   ║
-╟───────────┼────────────────┼─────────────┼───────────────────────────╢
-║ prod      │ 111111111111   │ eu-west-2   │ 2022-05-13T20:27:53+00:00 ║
-╚═══════════╧════════════════╧═════════════╧═══════════════════════════╝
-✨ 1 environment
-```
-
----
-
-## setup
-
-Setup a new environment.
-
-```bash # :icon-terminal: terminal
-baselime environments setup --type aws --account <account_numner> --region <region> --alias <alias>
-```
-
-### Options
-
-- `--type`: The type of environment to setup. Currently supports `aws`
-- `--account`: Account number
-- `--region`: Region
-- `--alias`: An alias for the environment (eg. 'prod')
-
-### Examples
-
-#### Example 1: Setting up an environment
-
-Command:
-
-```bash # :icon-terminal: terminal
-baselime environments setup --type aws --account <account_numner> --region <region> --alias <alias>
-```
-
-Output:
-
-Intercative.

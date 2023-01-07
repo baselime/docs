@@ -2,49 +2,27 @@
 label: destroy
 ---
 
-# destroy
+# baselime destroy
 
----
+Use the `baselime destroy` to services previously created through Observability as Code.
+
+```bash :icon-terminal: terminal
+baselime destroy
 
 Destroy previously-created observability configurations
 
+Options:
+      --profile  [string] [default: "default"]
+      --quiet  [boolean] [default: false]
+  -d, --debug  [boolean] [default: false]
+      --format   Format to output the data in  [string] [choices: "table", "json"] [default: "table"]
+  -c, --config   The configuration folder to execute  [string] [default: ".baselime"]
+  -h, --help     Show this help output, or the help for a specified command or subcommand  [boolean]
+  -v, --version  Show the current Baselime CLI version  [boolean]
 
-```bash # :icon-terminal: terminal
-baselime destroy
-```
+Examples:
 
-### Options
+        baselime destroy
+        baselime destroy --config .baselime --profile prod
 
-- `--config`: Baselime configuration folder to destroy. Defaults to `.baselime`
-
-### Examples
-
-#### Example 1: Destroying the default config folder
-
-Command:
-
-```bash # :icon-terminal: terminal
-baselime destroy
-```
-
-Output:
-
-```txt # :icon-code: output
-✔ Valid configuration folder
-✔ Submitted your observability configurations. id: 01G3R48M4QVDYH7NF79AWT4K0D
-```
-
-#### Example 2: Destroying a configuration folder
-
-Command:
-
-```bash # :icon-terminal: terminal
-baselime destroy --config custom
-```
-
-Output:
-
-```txt # :icon-code: output
-✔ Valid configuration folder
-✔ Submitted your observability configurations. id: 05GYB48M4QVJHT7NF79AWT4KIH
 ```

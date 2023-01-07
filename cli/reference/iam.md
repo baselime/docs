@@ -1,15 +1,15 @@
 ---
-label: upgrade
+label: iam
 ---
 
-# baselime upgrade
+# baselime iam
 
-Use the `baselime upgrade` command to upgrade the Baselime CLI to the latest version. This method will work only if you installed the Baselime CLI with `curl -s https://get.baselime.io | bash`.
+Use the `baselime iam` command to display the currently logged-in user and environment.
 
 ```bash :icon-terminal: terminal
-baselime upgrade
+baselime iam
 
-Upgrade the Baselime CLI to the latest version
+View authentication status
 
 Options:
       --profile  [string] [default: "default"]
@@ -21,7 +21,10 @@ Options:
 
 Examples:
 
-        # Upgrade:
-        baselime upgrade
+        # Check authentication status for default profile:
+        baselime iam
+
+        # Check authentication status of a specified profiel:
+        baselime iam --profile prod
 
 ```

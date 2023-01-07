@@ -1,15 +1,19 @@
 ---
-label: upgrade
+label: services
 ---
 
-# baselime upgrade
+# baselime services
 
-Use the `baselime upgrade` command to upgrade the Baselime CLI to the latest version. This method will work only if you installed the Baselime CLI with `curl -s https://get.baselime.io | bash`.
+Use the `baselime services` command to manage Baselime services.
 
 ```bash :icon-terminal: terminal
-baselime upgrade
+baselime services
 
-Upgrade the Baselime CLI to the latest version
+Manage services
+
+Commands:
+  baselime services describe  Return the description of a service
+  baselime services list      List all the services
 
 Options:
       --profile  [string] [default: "default"]
@@ -21,7 +25,7 @@ Options:
 
 Examples:
 
-        # Upgrade:
-        baselime upgrade
+        baselime services list
+        baselime services describe --name <service_name>
 
 ```

@@ -3,7 +3,7 @@ label: Materialized Keys
 order: -3
 ---
 
-# Materialized Keys
+# Materialized Keys [Coming Soon]
 
 Materialized keys are the result of calculations on one or multiple existing keys in your events.
 

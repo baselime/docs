@@ -1,18 +1,18 @@
 ---
-label: upgrade
+label: logout
 ---
 
-# baselime upgrade
+# baselime logout
 
-Use the `baselime upgrade` command to upgrade the Baselime CLI to the latest version. This method will work only if you installed the Baselime CLI with `curl -s https://get.baselime.io | bash`.
+Use the `baselime logout` command to log out of Baselime.
 
 ```bash :icon-terminal: terminal
-baselime upgrade
+baselime logout
 
-Upgrade the Baselime CLI to the latest version
+Delete the locally-stored credentials for an environment
 
 Options:
-      --profile  [string] [default: "default"]
+      --profile  Alias of the profile  [string] [default: "default"]
       --quiet    [boolean] [default: false]
   -d, --debug    [boolean] [default: false]
       --format   Format to output the data in  [string] [choices: "table", "json"] [default: "table"]
@@ -21,7 +21,10 @@ Options:
 
 Examples:
 
-        # Upgrade:
-        baselime upgrade
+        # Intercatively select the environment to log out of:
+        baselime logout
+
+        # Provide parameters on the command-line:
+        baselime  logout --profile prod
 
 ```
