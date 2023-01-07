@@ -34,7 +34,7 @@ Baselime supports three types of datasets: logs, metrics, and traces. You can al
 - Metrics are numerical data that represent the performance and behavior of your serverless applications and services.  Examples of metric data specific to serverless architectures include average execution duration of Lambda functions, number of invocations of Lambda functions, and number of requests served by API Gateway.
 -  Traces are data that represent the flow of requests through your serverless applications and services. Traces include information about the individual requests and their dependencies, as well as any errors or issues that occurred during processing.
 
-Baselime automatically blocks certain keys, such as email addresses, passwords, and API keys, from being ingested into your datasets. You can also block additional keys as needed by using the `baselime datasets block` command. For example, you might use this command to block sensitive data such as credit card numbers from being ingested into your datasets.
+Baselime automatically blocks certain keys, such as email addresses, passwords, and API keys, from being ingested into your datasets. You can also block additional keys as needed by using the `baselime block-key` command. For example, you might use this command to block sensitive data such as credit card numbers from being ingested into your datasets.
 
 Baselime provides multiple interfaces for viewing and querying your datasets, including a web console, a CLI, and integrations with other tools such as GitHub, Slack, and Jenkins. You can use these interfaces to explore and analyze your datasets, and to troubleshoot issues in your serverless applications.
 
