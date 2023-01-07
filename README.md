@@ -40,7 +40,7 @@ Collecting and analyzing telemetry data is essential for understanding the healt
 ---
 ## Guides
 
-- [Quickstart](./): Get up and running with Baselime in a few simple steps
+- [Quickstart](./getting-started/quick-start.md): Get up and running with Baselime in a few simple steps
 - [Ingesting Data](./): Learn how to ingest telemetry data from your serverless applications
 - [Analyzing Data](./): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
 - [Integrations](./): Find out how to connect Baselime with your favorite tools
@@ -51,16 +51,16 @@ Collecting and analyzing telemetry data is essential for understanding the healt
 
 - [Reference Guide](../observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
 - [API Reference](./): Detailed documentation of the Baselime API
-- [CLI Reference](./): Complete reference for the Baselime command-line interface
+- [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
 
 ---
 ## Community
 
 Join the Baselime community to get help with using the platform, share your own experiences, and stay up-to-date with the latest developments.
 
-- [Slack](./): Join our Slack community to connect with other Baselime users and get real-time support from the Baselime team
-- [Blog](./): Read about the latest features, best practices, and more from the Baselime team
-- Social media: Follow us on [Twitter](./), [LinkedIn](./), and [YouTube](./) to stay up-to-date with the latest news and updates from Baselime
+- [Slack](./https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ): Join our Slack community to connect with other Baselime users and get real-time support from the Baselime team
+- [Blog](https://baselime.io/blog): Read about the latest features, best practices, and more from the Baselime team
+- Social media: Follow us on [Twitter](https://twitter.com/baselimeHQ), [LinkedIn](https://www.linkedin.com/company/baselime), and [YouTube](https://youtube.com/baselimedev) to stay up-to-date with the latest news and updates from Baselime
 
 We look forward to connecting with you!
 

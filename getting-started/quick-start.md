@@ -171,6 +171,6 @@ To learn more about what you can do with Baselime, check out the following resou
 - [Reference Guide](../observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
 - [Integrations Guide](./): Learn about the available integrations and how to use them to get the most out of your observability data
 - [Tutorials](./): Follow step-by-step guides to learn how to use Baselime in different scenarios
-- [Slack Community](./): Join the Baselime community on Slack to ask questions, share tips and tricks, and get help from other users
+- [Slack Community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ): Join the Baselime community on Slack to ask questions, share tips and tricks, and get help from other users
 
 We hope you enjoy using Baselime! If you have any feedback or suggestions, please don't hesitate to [contact us](mailto:support@baselime.io).

@@ -30,7 +30,7 @@ Once you have the Baselime CLI installed and your AWS Account connected, you're 
 
 Now that you've gotten your feet wet with the Baselime CLI, you can learn more about the other commands and features available. Here are a few places to start:
 
-- Check out the [CLI reference](./) for a full list of available commands and their options.
+- Check out the [CLI reference](../cli/install.md) for a full list of available commands and their options.
 - Learn about [Observability as Code](../getting-started/concepts.md#observability-as-code) and how you can use it to define and manage your observability configurations.
 - Explore the [Baselime Console](https://console.baselime.io) and learn how to use it to view and analyze your telemetry data.
 - Set up [integrations](./) with tools like GitHub, Slack, and PagerDuty to get notifications and take action on your observability data.
