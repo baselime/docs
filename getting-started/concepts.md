@@ -14,7 +14,7 @@ Before we continue, we need to learn some of the core Baselime concepts: Observa
 
 In Baselime, Observability as Code refers to the ability to define and manage your observability configurations using code, rather than using a graphical user interface. This allows you to version control your observability configurations, automate their deployment, and more easily share and collaborate with your team.
 
-To implement Observability as Code in Baselime, you will use the Baselime Observability Reference Language (ORL). ORL is a domain-specific language that is used to define observability configurations in a `.baselime` folder in your code repository. The `.baselime` folder contains one or more YAML files that define the various aspects of your observability configurations, such as alerts, dashboards, and integrations.
+To implement Observability as Code in Baselime, you will use the Baselime [Observability Reference Language (ORL)](../observability-reference-language/overview.md). ORL is a domain-specific language that is used to define observability configurations in a `.baselime` folder in your code repository. The `.baselime` folder contains one or more YAML files that define the various aspects of your observability configurations, such as alerts, dashboards, and integrations.
 
 The `.baselime` folder must contain an `index.yaml` file, which represents metadata about your service, including its name, description, and details about the cloud infrastructure of the service. The `index.yaml` file also lists the observability templates that your service uses, as well as any variables that are used in those templates.
 
@@ -56,5 +56,5 @@ In Baselime, a service is a logical grouping of cloud resources (such as Lambda 
 
 For example, you might have a service called order-management with multiple Lambda functions, databases, and event queues. In Baselime you can run queries within the service, and query only the data emitted by one of the cloud resources that is part of the service, without the clutter of the rest of your architecture. This enables you to isolate, manage and query the observability for each component of your architecture separately.
 
-Services in Baselime are defined by the CloudFormation stacks you create when setting up the service, either through the Baselime Console or using the baselime init command. To view a list of all the available services in your account, use the baselime services list command.
+Services in Baselime are defined by the CloudFormation stacks you create when setting up the service, either through the Baselime Console or using the `baselime init` command. To view a list of all the available services in your account, use the `baselime services list` command.
 
