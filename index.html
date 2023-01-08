@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726431914849">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726511767536">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,12 +31,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="assets/images/logo.svg" rel="icon" />
-    <link href="resources/css/retype.css?v=2.4.0.726431914849" rel="stylesheet" />
+    <link href="resources/css/retype.css?v=2.4.0.726511767536" rel="stylesheet" />
 
-    <script type="text/javascript" src="resources/js/config.js?v=2.4.0.726431914849" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="resources/js/config.js?v=2.4.0.726511767536" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="resources/js/lunr.js?v=2.4.0.726431914849" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="resources/js/prism.js?v=2.4.0.726431914849" defer></script>
+    <script id="lunr-js" type="text/javascript" src="resources/js/lunr.js?v=2.4.0.726511767536" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="resources/js/prism.js?v=2.4.0.726511767536" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -216,10 +216,10 @@
 <p>With observability as code, you can:</p>
 <ul>
 <li>Maintain a clear, up-to-date record of how your application is being monitored and debugged</li>
-<li>Collaborate with your team on monitoring and debugging configuration</li>
-<li>Automate the provisioning and configuration of monitoring and debugging tools</li>
+<li>Collaborate with your team on monitoring and observability configuration</li>
+<li>Automate the configuration of monitoring and observability tools</li>
 </ul>
-<p>Baselime is built on the OpenTelemetry observability framework, which provides a standard way to instrument applications for observability. With Baselime, you can easily implement observability as code in your serverless applications.</p>
+<p>Baselime is built on the OpenTelemetry observability framework, which provides a standard way to instrument applications for observability. With Baselime, you can easily implement Observability as Code in your serverless applications.</p>
 <hr />
 <doc-anchor-target id="what-is-telemetry-data">
     <h2>
@@ -232,6 +232,7 @@
 <li>Logs: Recorded messages that provide information about the application&#x27;s execution</li>
 <li>Metrics: Quantitative measurements of the application&#x27;s performance, such as CPU usage or request latency</li>
 <li>Traces: Detailed records of the steps taken by the application as it processes a request</li>
+<li>All other data your application emits during at runtime, such as CloudTrail logs, internal event for EDAs, etc.</li>
 </ul>
 <p>Collecting and analyzing telemetry data is essential for understanding the health and performance of an application. With Baselime, you can easily ingest and analyze telemetry data from your serverless applications.</p>
 <hr />
@@ -242,9 +243,9 @@
     </h2>
 </doc-anchor-target>
 <ul>
-<li><a href="getting-started/quick-start/">Quickstart</a>: Get up and running with Baselime in a few simple steps</li>
-<li><a href="">Ingesting Data</a>: Learn how to ingest telemetry data from your serverless applications</li>
-<li><a href="">Analyzing Data</a>: Discover how to use the various interfaces provided by Baselime to analyze and understand your data</li>
+<li><a href="getting-started/quick-start/">Quickstart</a>: Get up and running with Baselime in a few steps</li>
+<li><a href="sending-data/overview/">Sending Data</a>: Learn how to ingest telemetry data from your serverless applications</li>
+<li><a href="analysing-data/overview/">Analyzing Data</a>: Discover how to use the various interfaces provided by Baselime to analyze and understand your data</li>
 <li><a href="">Integrations</a>: Find out how to connect Baselime with your favorite tools</li>
 </ul>
 <hr />
@@ -256,8 +257,8 @@
 </doc-anchor-target>
 <ul>
 <li><a href="../observability-reference-language/overview.md">Reference Guide</a>: Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations</li>
-<li><a href="">API Reference</a>: Detailed documentation of the Baselime API</li>
 <li><a href="cli/install/">CLI Reference</a>: Complete reference for the Baselime command-line interface</li>
+<li><a href="api/auth/">API Reference</a>: Detailed documentation of the Baselime API</li>
 </ul>
 <hr />
 <doc-anchor-target id="community">
@@ -268,7 +269,7 @@
 </doc-anchor-target>
 <p>Join the Baselime community to get help with using the platform, share your own experiences, and stay up-to-date with the latest developments.</p>
 <ul>
-<li><a href="./https//join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxyxqv6fr_aib3zpm3lhdq">Slack</a>: Join our Slack community to connect with other Baselime users and get real-time support from the Baselime team</li>
+<li><a href="https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ">Slack</a>: Join our Slack community to connect with other Baselime users and get real-time support from the Baselime team</li>
 <li><a href="https://baselime.io/blog">Blog</a>: Read about the latest features, best practices, and more from the Baselime team</li>
 <li>Social media: Follow us on <a href="https://twitter.com/baselimeHQ">Twitter</a>, <a href="https://www.linkedin.com/company/baselime">LinkedIn</a>, and <a href="https://youtube.com/baselimedev">YouTube</a> to stay up-to-date with the latest news and updates from Baselime</li>
 </ul>

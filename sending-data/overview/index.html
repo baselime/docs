@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726431914849">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726511767536">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Sending Data to Baselime | Baselime - Observability for Serverless</title>
     <meta name="title" content="Sending Data to Baselime | Baselime - Observability for Serverless">
-    <meta name="description" content="Baselime ingests your telemetry data and allows you to observe your production environments." />
+    <meta name="description" content="Baselime supports a variety of data sources, including logs, metrics, traces, and events." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.baselime.io/sending-data/overview/" />
@@ -20,23 +20,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/sending-data/overview/">
     <meta property="og:title" content="Sending Data to Baselime | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Baselime ingests your telemetry data and allows you to observe your production environments.">
+    <meta property="og:description" content="Baselime supports a variety of data sources, including logs, metrics, traces, and events.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/sending-data/overview/">
     <meta property="twitter:title" content="Sending Data to Baselime | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Baselime ingests your telemetry data and allows you to observe your production environments.">
+    <meta property="twitter:description" content="Baselime supports a variety of data sources, including logs, metrics, traces, and events.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.726431914849" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.726511767536" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.726431914849" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.726511767536" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.726431914849" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.726431914849" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.726511767536" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.726511767536" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -200,57 +200,15 @@
     </h1>
 </doc-anchor-target>
 <hr />
-<p>Baselime ingests your telemetry data and allows you to observe your production environments.</p>
-<p>You can send your telemetry data to Baselime with either of:
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
-        </span>
-        <span class="inline-block font-medium ml-2">Automatic CloudWatch logs</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>../cloudwatch/</span>
-    </div>
-    <a href="../cloudwatch/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
-        </span>
-        <span class="inline-block font-medium ml-2">Events API</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>../events-api/</span>
-    </div>
-    <a href="../events-api/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
-        </span>
-        <span class="inline-block font-medium ml-2">Automatic CloudTrail events</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>../cloudtrail/</span>
-    </div>
-    <a href="../cloudtrail/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
-        </span>
-        <span class="inline-block font-medium ml-2">Auto-instrumentation with OpenTelemetry (Coming Soon)</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>../otel/</span>
-    </div>
-    <a href="../otel/" class="absolute block inset-0"></a>
-</div>
-</p>
+<p>Baselime supports a variety of data sources, including logs, metrics, traces, and events. With just a few steps, you can start sending your data to Baselime and gain valuable insights into the performance and reliability of your serverless applications.</p>
+<p>You can send your telemetry data to Baselime with either of:</p>
+<ul>
+<li><a href="../cloudwatch/">CloudWatch logs</a></li>
+<li><a href="../events-api/">Events API</a></li>
+<li><a href="../cloudtrail/">CloudTrail events</a></li>
+<li><a href="../otel/">OpenTelemetry (Coming Soon)</a></li>
+<li><a href="./xray.md">AWS X-Ray (Coming Soon)</a></li>
+</ul>
 <hr />
 <doc-anchor-target id="validation">
     <h2>
@@ -258,17 +216,17 @@
         <span>Validation</span>
     </h2>
 </doc-anchor-target>
-<p>Events sent to Baselime should not exceed <code v-pre>32kb</code> in raw, uncompressed size per event. Events exceeding this limit will not be ingested and will be dropped.</p>
+<p>Baselime has a size limit for events of <code v-pre>32kb</code>. This size limit helps ensure that the ingestion process is efficient and that the data stored in Baselime is manageable and easy to query. If an event exceeds this <code v-pre>32kb</code> size limit, it will not be ingested into Baselime.</p>
 <hr />
-<doc-anchor-target id="semi-structured-logs">
+<doc-anchor-target id="sending-semi-structured-logs-to-baselime">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#semi-structured-logs">#</doc-anchor-trigger>
-        <span>Semi-structured logs</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sending-semi-structured-logs-to-baselime">#</doc-anchor-trigger>
+        <span>Sending Semi-Structured Logs to Baselime</span>
     </h2>
 </doc-anchor-target>
-<p>It is recommended to send events to Baselime in structure JSON format. However, we understand that not every team has made their way through OpenTelemetry or structure logging yet. As such, we support semi-structured logs, such that you and your team can run complex queries on data that hasn&#x27;t been formatted as per current industry standards.</p>
-<p>Baselime automatically detects log events that contain JSON data, but is prepended or appended by a generic string.</p>
-<p>The generic string will be wrapped in a <code v-pre>message</code> attribute, and the JSON data will be wrapped in a <code v-pre>data</code> attribute.</p>
+<p>Semi-structured logs are logs that are not in the strict JSON format, but still contain structured data that can be extracted.These logs contain a mixture of structured and unstructured data, making them difficult to parse and analyze. Fortunately, Baselime has built-in mechanisms to parse and extract relevant data from semi-structured logs.</p>
+<p>Baselime will automatically detect log events that contain JSON data, but are prepended or appended by a generic string.</p>
+<p>The generic string will be wrapped in a <code v-pre>message</code> attribute, and the JSON data will be wrapped in a <code v-pre>data</code> attribute. This enables you to easily extract and analyze relevant data from semi-structured logs.</p>
 <doc-anchor-target id="examples">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#examples">#</doc-anchor-trigger>
@@ -444,7 +402,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Sending Data Overview", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Overview", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>

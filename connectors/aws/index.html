@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726431914849">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726511767536">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>Baselime AWS Connector | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Baselime AWS Connector | Baselime - Observability for Serverless">
-    <meta name="description" content="The Baselime AWS Connector helps your team automatically:" />
+    <title>AWS Connector on Baselime | Baselime - Observability for Serverless</title>
+    <meta name="title" content="AWS Connector on Baselime | Baselime - Observability for Serverless">
+    <meta name="description" content="The AWS Connector allows you to send data from your AWS resources to Baselime. This includes logs, traces, and metrics." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.baselime.io/connectors/aws/" />
@@ -19,24 +19,24 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/connectors/aws/">
-    <meta property="og:title" content="Baselime AWS Connector | Baselime - Observability for Serverless">
-    <meta property="og:description" content="The Baselime AWS Connector helps your team automatically:">
+    <meta property="og:title" content="AWS Connector on Baselime | Baselime - Observability for Serverless">
+    <meta property="og:description" content="The AWS Connector allows you to send data from your AWS resources to Baselime. This includes logs, traces, and metrics.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/connectors/aws/">
-    <meta property="twitter:title" content="Baselime AWS Connector | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="The Baselime AWS Connector helps your team automatically:">
+    <meta property="twitter:title" content="AWS Connector on Baselime | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="The AWS Connector allows you to send data from your AWS resources to Baselime. This includes logs, traces, and metrics.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.726431914849" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.726511767536" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.726431914849" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.726511767536" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.726431914849" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.726431914849" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.726511767536" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.726511767536" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -193,35 +193,21 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="baselime-aws-connector" class="break-words">
+<doc-anchor-target id="aws-connector-on-baselime" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-aws-connector">#</doc-anchor-trigger>
-        <span>Baselime AWS Connector</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#aws-connector-on-baselime">#</doc-anchor-trigger>
+        <span>AWS Connector on Baselime</span>
     </h1>
 </doc-anchor-target>
 <hr />
-<p>The Baselime AWS Connector helps your team automatically:</p>
-<ul>
-<li>ingest AWS Lambda logs from CloudWatch</li>
-<li>ingest AWS CloudTrail logs for your infrastructure</li>
-<li>ingest performace metrics from: [Coming soon]
-<ul>
-<li>AWS Lamda functions</li>
-<li>DynamoDB tables</li>
-<li>SQS queues</li>
-<li>EventBridge buses</li>
-<li>SNS topics</li>
-<li>other serverless services</li>
-</ul>
-</li>
-</ul>
-<doc-anchor-target id="setup">
+<p>The AWS Connector allows you to send data from your AWS resources to Baselime. This includes logs, traces, and metrics. By connecting your AWS account to Baselime, you can get a unified view of your serverless architecture, query your data, and set up alerts.</p>
+<doc-anchor-target id="setting-up-the-aws-connector">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#setup">#</doc-anchor-trigger>
-        <span>Setup</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setting-up-the-aws-connector">#</doc-anchor-trigger>
+        <span>Setting up the AWS Connector</span>
     </h2>
 </doc-anchor-target>
-<p>The connector is an automated flow based on a CloudFormation template that can be defined using a wizard.</p>
+<p>The connector is an automated flow based on a CloudFormation template.</p>
 <p>It can be done using the Baselime CLI or throught the web console.</p>
 <doc-anchor-target id="using-the-cli">
     <h3>
@@ -232,18 +218,19 @@
 <p>To connect a cloud account to Baselime using the CLI, run the following command in your terminal</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
-<pre class="language-bash"><code v-pre class="language-bash">baselime environments setup --provider aws --account &lt;account_numner&gt; --region &lt;region&gt; --alias &lt;alias&gt;</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime environments connect --provider aws --account &lt;account_numner&gt; --region &lt;region&gt; --alias &lt;alias&gt;</code></pre>
 </doc-codeblock></div>
-<p>Once you&#x27;ve followed the interactive steps, the CLI will generate a CloudFormation template for you to deploy on your AWS account. Deploy the temple on your AWS account. Once deployed, login in your newly connected environment from the CLI.</p>
+<p>Once you&#x27;ve followed the interactive steps, the CLI will generate a CloudFormation template for you to deploy on your AWS account. FOllow the link in your terminal to deploy the temple on your AWS account.</p>
+<p>Once deployed, login in your newly connected environment from the CLI.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
-<pre class="language-bash"><code v-pre class="language-bash">baselime auth login</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime login</code></pre>
 </doc-codeblock></div>
-<p>The interactive output should list your newly connected environment.</p>
+<p>The interactive prompt should list your newly connected environment.</p>
 <p>Within minutes you should get telemetry data flowing through with the command</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
-<pre class="language-bash"><code v-pre class="language-bash">baselime events stream --follow</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">baselime tail --follow</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="using-the-web-console">
     <h3>
@@ -255,6 +242,7 @@
 <p>Follow the steps on the homescreen to connect a new AWS Account. Baselime will generate a CloudFormation template for you to deploy on your AWS account.</p>
 <p>Once the template is deployed on AWS, return to the Baselime web console and refresh the page. You should see the newly connected AWS environment in the list of connected environment.</p>
 <p>Within minutes telemtry data from your AWS environment should start displaying in the events streams in the Baselime web console.</p>
+<hr />
 <doc-anchor-target id="troubleshooting">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#troubleshooting">#</doc-anchor-trigger>
@@ -262,6 +250,7 @@
     </h2>
 </doc-anchor-target>
 <p>If you encounter any issers or error when connecting your AWS environment, please don&#x27;t hesitate to contact us, or join our <a href="https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ">Slack community</a> where we are always available to support.</p>
+<hr />
 <doc-anchor-target id="cloudformation-template">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#cloudformation-template">#</doc-anchor-trigger>
@@ -324,23 +313,27 @@ Resources:
         Statement:
           - Effect: Allow
             Action:
-              - lambda:UpdateFunctionConfiguration
-              - lambda:UpdateFunctionCode
               - lambda:CreateFunction
               - lambda:AddPermission
-            Resource:
-              - arn:aws:lambda:*:*:function:*
-          - Effect: Allow
-            Action:
+              - lambda:UpdateFunctionConfiguration
               - lambda:UpdateFunctionCode
             Resource:
+              # Only lambda functions prefixed with &quot;baselime-&quot;
               - arn:aws:lambda:*:*:function:baselime-*
           - Effect: Allow
             Action:
-              - ce:GetCostAndUsageWithResources
-              - ce:GetCostAndUsage
+              - cloudformation:*
             Resource:
-              - &quot;*&quot;
+              # Only CF stacks prefixed with &quot;Baselime&quot;
+              - arn:aws:cloudformation:*:*:stack/Baselime*
+              - !Ref AWS::StackId
+          - Effect: Allow
+            Action:
+              - cloudtrail:*
+            Resource:
+              - Fn::GetAtt:
+                - BaselimeCloudTrail
+                - Arn
           - Effect: Allow
             Action:
               - s3:*
@@ -351,10 +344,20 @@ Resources:
                 arn:aws:s3:::${BaselimeS3Bucket}/*
           - Effect: Allow
             Action:
-              - sns:Subscribe
-              - sns:Publish
+              - sns:*
             Resource:
               - !Ref BaselimeSNSTopic
+          - Effect: Allow
+            Action:
+              - lambda:InvokeFunction
+            Resource:
+              - &lt;BASELIME_SERVICE_TOKEN&gt;
+          - Effect: Allow
+            Action:
+              - ce:GetCostAndUsageWithResources
+              - ce:GetCostAndUsage
+            Resource:
+              - &quot;*&quot;
           - Effect: Allow
             Action:
               - iam:PassRole
@@ -380,6 +383,26 @@ Resources:
               - cloudwatch:StopMetricStreams
             Resource:
               - &quot;*&quot;
+          - Effect: Allow
+            Action:
+              - firehose:DescribeDeliveryStream
+              - firehose:DeleteDeliveryStream
+              - firehose:UpdateDestination
+            Resource:
+              - Fn::GetAtt:
+                - BaselimeCloudWatchMetricsFirehose
+                - Arn
+          - Effect: Allow
+            Action:
+              - iam:DeleteRolePolicy
+              - iam:DeleteRole
+            Resource:
+              - Fn::GetAtt:
+                - BaselimeMetricsStreamFirehoseRole
+                - Arn
+              - Fn::GetAtt:
+                - BaselimeCloudWatchMetricsStreamRole
+                - Arn
       Roles:
        - !Ref BaselimeEnvironmentRole
   BaselimeS3Bucket:
@@ -459,18 +482,134 @@ Resources:
       - BaselimeCloudTrail
       - BaselimeEnvironmentRole
       - BaselimeEnvironmentPolicies
+      - BaselimeCloudWatchMetricsFirehose
     Properties:
       ServiceToken: &lt;BASELIME_SERVICE_TOKEN&gt;
       RoleArn: !GetAtt
               - BaselimeEnvironmentRole
               - Arn
       Region: !Ref AWS::Region
+      StackName: !Ref AWS::StackName
       BucketName: !Ref BaselimeS3Bucket
       TopicArn: !Ref BaselimeSNSTopic
-      CloudTrailArn: !Ref BaselimeCloudTrail
+      CloudTrailArn:
+        Fn::GetAtt:
+          - BaselimeCloudTrail
+          - Arn
       ExternalParameter: !Ref ExternalParameter
       Alias: !Ref Alias
+      CloudWatchMetricsFirehoseName: !Ref BaselimeCloudWatchMetricsFirehose
 
+  ####
+  # START of CloudWatch Metrics of Baselime Stack
+  ####
+
+  # Role for CloudWatch Metrics to be able to put records into Kinesis Firehose Stream
+  BaselimeCloudWatchMetricsStreamRole:
+    Type: AWS::IAM::Role
+    DependsOn:
+      - BaselimeCloudWatchMetricsFirehose
+    Properties:
+      Description: Role used by Kinesis Firehose to push data to Baselime
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              Service: streams.metrics.cloudwatch.amazonaws.com
+      Policies:
+        - PolicyName: BaselimeCloudWatchMetricsFirehosePutRecords
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - firehose:PutRecord
+                  - firehose:PutRecordBatch
+                Resource:
+                  - Fn::GetAtt:
+                      - BaselimeCloudWatchMetricsFirehose
+                      - Arn
+
+  BaselimeCloudWatchMetricsStream:
+    Type: AWS::CloudWatch::MetricStream
+    DependsOn:
+      - BaselimeCloudWatchMetricsFirehose
+      - BaselimeCloudWatchMetricsStreamRole
+    Properties:
+      FirehoseArn:
+        Fn::GetAtt:
+          - BaselimeCloudWatchMetricsFirehose
+          - Arn
+      OutputFormat: json
+      RoleArn:
+        Fn::GetAtt:
+          - BaselimeCloudWatchMetricsStreamRole
+          - Arn
+
+  BaselimeCloudWatchMetricsFirehose:
+    Type: AWS::KinesisFirehose::DeliveryStream
+    DependsOn:
+      - BaselimeMetricsStreamFirehoseRole
+    Properties:
+      HttpEndpointDestinationConfiguration:
+        EndpointConfiguration:
+          AccessKey: &quot;populated_by_lambda&quot;
+          Name: BaselimeCloudwatchMetricsEndpoint
+          Url: https://cloudwatch-metrics.baselime.io
+        RetryOptions:
+          DurationInSeconds: 300
+        S3Configuration:
+          BucketARN:
+            Fn::GetAtt:
+              - BaselimeS3Bucket
+              - Arn
+          Prefix: &quot;firehose-cloudwatch-metrics&quot;
+          RoleARN:
+            Fn::GetAtt:
+              - BaselimeMetricsStreamFirehoseRole
+              - Arn
+        BufferingHints:
+          IntervalInSeconds: 60
+          SizeInMBs: 5
+        RoleARN:
+          Fn::GetAtt:
+            - BaselimeMetricsStreamFirehoseRole
+            - Arn
+
+
+  BaselimeMetricsStreamFirehoseRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Description: Role used by Kinesis Firehose to push data to Baselime
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              Service: firehose.amazonaws.com
+      Policies:
+        - PolicyName: BaselimeMetricsStreamFirehoseServicePolicy
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:AbortMultipartUpload
+                  - s3:GetBucketLocation
+                  - s3:GetObject
+                  - s3:ListBucket
+                  - s3:ListBucketMultipartUploads
+                  - s3:PutObject
+                Resource:
+                  - !Sub |-
+                    arn:aws:s3:::${BaselimeS3Bucket}
+                  - !Sub |-
+                    arn:aws:s3:::${BaselimeS3Bucket}/*
+
+  ####
+  # END of CloudWatch Metrics parts of Baselime Stack
+  ####
 
 Outputs:
   RoleArn:

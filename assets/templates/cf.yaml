@@ -51,23 +51,27 @@ Resources:
         Statement:
           - Effect: Allow
             Action:
-              - lambda:UpdateFunctionConfiguration
-              - lambda:UpdateFunctionCode
               - lambda:CreateFunction
               - lambda:AddPermission
-            Resource:
-              - arn:aws:lambda:*:*:function:*
-          - Effect: Allow
-            Action:
+              - lambda:UpdateFunctionConfiguration
               - lambda:UpdateFunctionCode
             Resource:
+              # Only lambda functions prefixed with "baselime-"
               - arn:aws:lambda:*:*:function:baselime-*
           - Effect: Allow
             Action:
-              - ce:GetCostAndUsageWithResources
-              - ce:GetCostAndUsage
+              - cloudformation:*
             Resource:
-              - "*"
+              # Only CF stacks prefixed with "Baselime"
+              - arn:aws:cloudformation:*:*:stack/Baselime*
+              - !Ref AWS::StackId
+          - Effect: Allow
+            Action:
+              - cloudtrail:*
+            Resource:
+              - Fn::GetAtt:
+                - BaselimeCloudTrail
+                - Arn
           - Effect: Allow
             Action:
               - s3:*
@@ -78,10 +82,20 @@ Resources:
                 arn:aws:s3:::${BaselimeS3Bucket}/*
           - Effect: Allow
             Action:
-              - sns:Subscribe
-              - sns:Publish
+              - sns:*
             Resource:
               - !Ref BaselimeSNSTopic
+          - Effect: Allow
+            Action:
+              - lambda:InvokeFunction
+            Resource:
+              - <BASELIME_SERVICE_TOKEN>
+          - Effect: Allow
+            Action:
+              - ce:GetCostAndUsageWithResources
+              - ce:GetCostAndUsage
+            Resource:
+              - "*"
           - Effect: Allow
             Action:
               - iam:PassRole
@@ -107,6 +121,26 @@ Resources:
               - cloudwatch:StopMetricStreams 
             Resource:
               - "*"
+          - Effect: Allow
+            Action:
+              - firehose:DescribeDeliveryStream
+              - firehose:DeleteDeliveryStream
+              - firehose:UpdateDestination
+            Resource:
+              - Fn::GetAtt:
+                - BaselimeCloudWatchMetricsFirehose
+                - Arn
+          - Effect: Allow
+            Action:
+              - iam:DeleteRolePolicy
+              - iam:DeleteRole
+            Resource:
+              - Fn::GetAtt:
+                - BaselimeMetricsStreamFirehoseRole
+                - Arn
+              - Fn::GetAtt:
+                - BaselimeCloudWatchMetricsStreamRole
+                - Arn
       Roles:
        - !Ref BaselimeEnvironmentRole
   BaselimeS3Bucket:
@@ -186,18 +220,134 @@ Resources:
       - BaselimeCloudTrail
       - BaselimeEnvironmentRole
       - BaselimeEnvironmentPolicies
+      - BaselimeCloudWatchMetricsFirehose
     Properties:
       ServiceToken: <BASELIME_SERVICE_TOKEN>
       RoleArn: !GetAtt
               - BaselimeEnvironmentRole
               - Arn
       Region: !Ref AWS::Region
+      StackName: !Ref AWS::StackName
       BucketName: !Ref BaselimeS3Bucket
       TopicArn: !Ref BaselimeSNSTopic
-      CloudTrailArn: !Ref BaselimeCloudTrail
+      CloudTrailArn:
+        Fn::GetAtt:
+          - BaselimeCloudTrail
+          - Arn
       ExternalParameter: !Ref ExternalParameter
       Alias: !Ref Alias
+      CloudWatchMetricsFirehoseName: !Ref BaselimeCloudWatchMetricsFirehose
 
+  ####
+  # START of CloudWatch Metrics of Baselime Stack
+  ####
+
+  # Role for CloudWatch Metrics to be able to put records into Kinesis Firehose Stream
+  BaselimeCloudWatchMetricsStreamRole:
+    Type: AWS::IAM::Role
+    DependsOn:
+      - BaselimeCloudWatchMetricsFirehose
+    Properties:
+      Description: Role used by Kinesis Firehose to push data to Baselime
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              Service: streams.metrics.cloudwatch.amazonaws.com
+      Policies:
+        - PolicyName: BaselimeCloudWatchMetricsFirehosePutRecords
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - firehose:PutRecord
+                  - firehose:PutRecordBatch
+                Resource:
+                  - Fn::GetAtt:
+                      - BaselimeCloudWatchMetricsFirehose
+                      - Arn
+
+  BaselimeCloudWatchMetricsStream:
+    Type: AWS::CloudWatch::MetricStream
+    DependsOn:
+      - BaselimeCloudWatchMetricsFirehose
+      - BaselimeCloudWatchMetricsStreamRole
+    Properties:
+      FirehoseArn:
+        Fn::GetAtt:
+          - BaselimeCloudWatchMetricsFirehose
+          - Arn
+      OutputFormat: json
+      RoleArn:
+        Fn::GetAtt:
+          - BaselimeCloudWatchMetricsStreamRole
+          - Arn
+
+  BaselimeCloudWatchMetricsFirehose:
+    Type: AWS::KinesisFirehose::DeliveryStream
+    DependsOn:
+      - BaselimeMetricsStreamFirehoseRole
+    Properties:
+      HttpEndpointDestinationConfiguration:
+        EndpointConfiguration:
+          AccessKey: "populated_by_lambda"
+          Name: BaselimeCloudwatchMetricsEndpoint
+          Url: https://cloudwatch-metrics.baselime.io
+        RetryOptions:
+          DurationInSeconds: 300
+        S3Configuration:
+          BucketARN:
+            Fn::GetAtt:
+              - BaselimeS3Bucket
+              - Arn
+          Prefix: "firehose-cloudwatch-metrics"
+          RoleARN:
+            Fn::GetAtt:
+              - BaselimeMetricsStreamFirehoseRole
+              - Arn
+        BufferingHints:
+          IntervalInSeconds: 60
+          SizeInMBs: 5
+        RoleARN:
+          Fn::GetAtt:
+            - BaselimeMetricsStreamFirehoseRole
+            - Arn
+
+
+  BaselimeMetricsStreamFirehoseRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Description: Role used by Kinesis Firehose to push data to Baselime
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              Service: firehose.amazonaws.com
+      Policies:
+        - PolicyName: BaselimeMetricsStreamFirehoseServicePolicy
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:AbortMultipartUpload
+                  - s3:GetBucketLocation
+                  - s3:GetObject
+                  - s3:ListBucket
+                  - s3:ListBucketMultipartUploads
+                  - s3:PutObject
+                Resource:
+                  - !Sub |-
+                    arn:aws:s3:::${BaselimeS3Bucket}
+                  - !Sub |-
+                    arn:aws:s3:::${BaselimeS3Bucket}/*
+
+  ####
+  # END of CloudWatch Metrics parts of Baselime Stack
+  ####
 
 Outputs:
   RoleArn:
