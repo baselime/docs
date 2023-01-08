@@ -115,7 +115,7 @@ window: 30mins
 
 #### threshold
 
-The `threshold` parameter is a string that specifies the threshold at which the alert is triggered. It is be a simple value that inculdes the comparison and the value (e.g. `< 5`).
+The `threshold` parameter is a string that specifies the threshold at which the alert is triggered. It is a value that inculdes the comparison and the value (e.g. `< 5`).
 
 The threshold is compared to the result of the first calculation in the query of the alert. If the result meets the specified condition, the alert is triggered.
 

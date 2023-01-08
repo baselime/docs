@@ -7,7 +7,7 @@ order: 0
 
 ---
 
-Welcome to Baselime! This quickstart guide will help you get up and running with the platform in just a few simple steps.
+Welcome to Baselime! This quickstart guide will help you get up and running with the platform in just a few steps.
 
 
 All you need is:

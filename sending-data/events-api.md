@@ -7,7 +7,7 @@ order: -2
 
 ---
 
-Baselime can ingest your events through our Events API. All requests should be made via HTTPS to `events.baselime.io`.
+Baselime provides an HTTP events API which enables developers to send data to Baselime by making a `POST` request to the API endpoint. This enables developers to send data directly from their applications or services to Baselime, rather than using a logging or monitoring service as an intermediary.
 
 
 ```bash # :icon-terminal: terminal
@@ -33,11 +33,13 @@ Each request ingests a batch of events into Baselime. Events are part of the req
 ]
 ```
 
-Requests must be made to the `/<dataset>/<namespace>` route:
-- `<dataset>` is an existing dataset
-- `<namespace>` is created automatically for you when events are received, if it didn't exist beforehand
-
 The request body must be an array of JSON objects. Any element of the array that cannot be parsed as valid JSON will be rejected.
+
+
+Requests must be made to the `/<dataset>/<namespace>` route:
+
+- `<dataset>` is the name of the dataset that the events should be ingested into. You can either use an existing dataset or create a new one using the Baselime CLI.
+- `<namespace>` is the namespace within the dataset that the events should be ingested into. The namespace is created automatically for you when events are received, if it didn't exist beforehand.
 
 ---
 
@@ -45,10 +47,10 @@ The request body must be an array of JSON objects. Any element of the array that
 
 The HTTP API requires a valid Baselime API key to be sent in the `x-api-key` request header.
 
-You can get your API Key using the Baselime CLI.
+You can obtain your API key using the Baselime CLI.
 
 ```bash # :icon-terminal: terminal
-baselime auth status
+baselime iam
 ```
 
 ---
@@ -61,13 +63,6 @@ The HTTP API validates the provided events and returns a `400 Bad Request` statu
 - Baselime accepts up to `6MB` of uncompressed data per request 
 - Each event must be a properly formatted JSON
 - Each event must be smaller than `32kb` of uncompressed JSON
-
-### Data types
-
-Baselime supports basic data types for the value of each key or nested key of any event:
-- `string`
-- `boolean`
-- `number`
 
 ---
 

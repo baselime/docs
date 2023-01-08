@@ -1,5 +1,5 @@
 ---
-label: Sending Data Overview
+label: Overview
 order: 1
 ---
 
@@ -7,28 +7,30 @@ order: 1
 
 ---
 
-Baselime ingests your telemetry data and allows you to observe your production environments.
+Baselime supports a variety of data sources, including logs, metrics, traces, and events. With just a few steps, you can start sending your data to Baselime and gain valuable insights into the performance and reliability of your serverless applications.
 
 You can send your telemetry data to Baselime with either of:
-[!ref Automatic CloudWatch logs](./cloudwatch.md)
-[!ref Events API](./events-api.md)
-[!ref Automatic CloudTrail events](./cloudtrail)
-[!ref Auto-instrumentation with OpenTelemetry (Coming Soon)](./otel.md)
+
+- [CloudWatch logs](./cloudwatch.md)
+- [Events API](./events-api.md)
+- [CloudTrail events](./cloudtrail)
+- [OpenTelemetry (Coming Soon)](./otel.md)
+- [AWS X-Ray (Coming Soon)](./xray.md)
 
 ---
 
 ## Validation
 
-Events sent to Baselime should not exceed `32kb` in raw, uncompressed size per event. Events exceeding this limit will not be ingested and will be dropped.
+Baselime has a size limit for events of `32kb`. This size limit helps ensure that the ingestion process is efficient and that the data stored in Baselime is manageable and easy to query. If an event exceeds this `32kb` size limit, it will not be ingested into Baselime.
 
 --- 
-## Semi-structured logs
+## Sending Semi-Structured Logs to Baselime
 
-It is recommended to send events to Baselime in structure JSON format. However, we understand that not every team has made their way through OpenTelemetry or structure logging yet. As such, we support semi-structured logs, such that you and your team can run complex queries on data that hasn't been formatted as per current industry standards.
+Semi-structured logs are logs that are not in the strict JSON format, but still contain structured data that can be extracted.These logs contain a mixture of structured and unstructured data, making them difficult to parse and analyze. Fortunately, Baselime has built-in mechanisms to parse and extract relevant data from semi-structured logs.
 
-Baselime automatically detects log events that contain JSON data, but is prepended or appended by a generic string.
+Baselime will automatically detect log events that contain JSON data, but are prepended or appended by a generic string. 
 
-The generic string will be wrapped in a `message` attribute, and the JSON data will be wrapped in a `data` attribute.
+The generic string will be wrapped in a `message` attribute, and the JSON data will be wrapped in a `data` attribute. This enables you to easily extract and analyze relevant data from semi-structured logs.
 
 ### Examples
 

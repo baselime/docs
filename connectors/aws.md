@@ -3,24 +3,15 @@ label: AWS Connector
 order: -1
 ---
 
-# Baselime AWS Connector
+# AWS Connector on Baselime
 
 ---
 
-The Baselime AWS Connector helps your team automatically:
-- ingest AWS Lambda logs from CloudWatch
-- ingest AWS CloudTrail logs for your infrastructure
-- ingest performace metrics from: [Coming soon]
-  - AWS Lamda functions
-  - DynamoDB tables
-  - SQS queues
-  - EventBridge buses
-  - SNS topics
-  - other serverless services
+The AWS Connector allows you to send data from your AWS resources to Baselime. This includes logs, traces, and metrics. By connecting your AWS account to Baselime, you can get a unified view of your serverless architecture, query your data, and set up alerts.
 
-## Setup
+## Setting up the AWS Connector
 
-The connector is an automated flow based on a CloudFormation template that can be defined using a wizard.
+The connector is an automated flow based on a CloudFormation template.
 
 It can be done using the Baselime CLI or throught the web console.
 
@@ -29,21 +20,23 @@ It can be done using the Baselime CLI or throught the web console.
 To connect a cloud account to Baselime using the CLI, run the following command in your terminal
 
 ```bash # :icon-terminal: terminal
-baselime environments setup --provider aws --account <account_numner> --region <region> --alias <alias>
+baselime environments connect --provider aws --account <account_numner> --region <region> --alias <alias>
 ```
 
-Once you've followed the interactive steps, the CLI will generate a CloudFormation template for you to deploy on your AWS account. Deploy the temple on your AWS account. Once deployed, login in your newly connected environment from the CLI.
+Once you've followed the interactive steps, the CLI will generate a CloudFormation template for you to deploy on your AWS account. FOllow the link in your terminal to deploy the temple on your AWS account.
+
+Once deployed, login in your newly connected environment from the CLI.
 
 ```bash # :icon-terminal: terminal
-baselime auth login
+baselime login
 ```
 
-The interactive output should list your newly connected environment.
+The interactive prompt should list your newly connected environment.
 
 Within minutes you should get telemetry data flowing through with the command
 
 ```bash # :icon-terminal: terminal
-baselime events stream --follow
+baselime tail --follow
 ```
 
 ### Using the Web Console
@@ -56,10 +49,13 @@ Once the template is deployed on AWS, return to the Baselime web console and ref
 
 Within minutes telemtry data from your AWS environment should start displaying in the events streams in the Baselime web console.
 
+---
 
 ## Troubleshooting
 
 If you encounter any issers or error when connecting your AWS environment, please don't hesitate to contact us, or join our [Slack community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ) where we are always available to support.
+
+---
 
 ## CloudFormation Template
 

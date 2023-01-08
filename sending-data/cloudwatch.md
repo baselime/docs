@@ -7,19 +7,19 @@ order: -1
 
 ---
 
-Once you connect your AWS account to Baselime, Baselime automatically create [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html) to automatically ingest logs from your Lambda functions.
+Once you connect your AWS account to Baselime, Baselime automatically create [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html) to automatically ingest logs from your Lambda functions and API Gateways.
 
 ---
 
 ## Discovered Keys
 
-Baselime automatically discovers key - value pairs from your AWS Lambdo logs. This empowers you to run complex queries and setup alerts on data that otherwise would be difficult to work with from the AWS Lambda service. For instance, from the discovered keys from the Lambda logs, it's possible to set alerts on the maximum memory used by lambda functions during execution, compared to the amount of memory they are assigned at deployment time.
+Baselime automatically discovers key - value pairs from your AWS Lambda logs. This enables you to run complex queries and setup alerts on data that otherwise would be difficult to work with from the AWS Lambda service. For instance, from the discovered keys from the Lambda logs, it's possible to set alerts on the maximum memory used by lambda functions during execution, compared to the amount of memory they are assigned at deployment time.
 
 ---
 
 ### Lambda Discovered Keys
 
-The Lambda service automatically write logs at the beginning and end of every Lambda function invocation. There logs are parsed as events in Baselime, and keys are automatically discovered from those messages.
+The Lambda service automatically writes logs at the start and end of every function invocation. These logs are parsed as events in Baselime, and keys are automatically discovered from those messages.
 
 #### `START` Log Message
 

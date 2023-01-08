@@ -19,10 +19,10 @@ Observability as code is the practice of treating the monitoring and debugging o
 With observability as code, you can:
 
 - Maintain a clear, up-to-date record of how your application is being monitored and debugged
-- Collaborate with your team on monitoring and debugging configuration
-- Automate the provisioning and configuration of monitoring and debugging tools
+- Collaborate with your team on monitoring and observability configuration
+- Automate the configuration of monitoring and observability tools
 
-Baselime is built on the OpenTelemetry observability framework, which provides a standard way to instrument applications for observability. With Baselime, you can easily implement observability as code in your serverless applications.
+Baselime is built on the OpenTelemetry observability framework, which provides a standard way to instrument applications for observability. With Baselime, you can easily implement Observability as Code in your serverless applications.
 
 ---
 
@@ -33,6 +33,7 @@ Telemetry data is information about the performance and behavior of an applicati
 - Logs: Recorded messages that provide information about the application's execution
 - Metrics: Quantitative measurements of the application's performance, such as CPU usage or request latency
 - Traces: Detailed records of the steps taken by the application as it processes a request
+- All other data your application emits during at runtime, such as CloudTrail logs, internal event for EDAs, etc.
 
 Collecting and analyzing telemetry data is essential for understanding the health and performance of an application. With Baselime, you can easily ingest and analyze telemetry data from your serverless applications.
 
@@ -40,9 +41,9 @@ Collecting and analyzing telemetry data is essential for understanding the healt
 ---
 ## Guides
 
-- [Quickstart](./getting-started/quick-start.md): Get up and running with Baselime in a few simple steps
-- [Ingesting Data](./): Learn how to ingest telemetry data from your serverless applications
-- [Analyzing Data](./): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
+- [Quickstart](./getting-started/quick-start.md): Get up and running with Baselime in a few steps
+- [Sending Data](./sending-data/overview.md): Learn how to ingest telemetry data from your serverless applications
+- [Analyzing Data](./analysing-data/overview.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
 - [Integrations](./): Find out how to connect Baselime with your favorite tools
 
 
@@ -50,15 +51,15 @@ Collecting and analyzing telemetry data is essential for understanding the healt
 ## Reference
 
 - [Reference Guide](../observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
-- [API Reference](./): Detailed documentation of the Baselime API
 - [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
+- [API Reference](./api/auth.md): Detailed documentation of the Baselime API
 
 ---
 ## Community
 
 Join the Baselime community to get help with using the platform, share your own experiences, and stay up-to-date with the latest developments.
 
-- [Slack](./https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ): Join our Slack community to connect with other Baselime users and get real-time support from the Baselime team
+- [Slack](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ): Join our Slack community to connect with other Baselime users and get real-time support from the Baselime team
 - [Blog](https://baselime.io/blog): Read about the latest features, best practices, and more from the Baselime team
 - Social media: Follow us on [Twitter](https://twitter.com/baselimeHQ), [LinkedIn](https://www.linkedin.com/company/baselime), and [YouTube](https://youtube.com/baselimedev) to stay up-to-date with the latest news and updates from Baselime
 

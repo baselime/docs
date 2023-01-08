@@ -3,13 +3,21 @@ label: CloudTrail Events
 order: -3
 ---
 
-# CloudTrail Events
+# Sending CloudTrail Events to Baselime
+
+Baselime automatically ingests CloudTrail events when you connect your AWS account. Baselime will automatically create a new CloudTrail and S3 bucket for you, and configure them to send data to your Baselime account. No additional setup is required on your end.
+
+Once connected, CloudTrail events will be sent to Baselime and made available for querying.
 
 ---
 
-Once you connect your AWS account to Baselime, Baselime automatically ingests [CloudTrail Events](https://aws.amazon.com/cloudtrail/) from your AWS environment.
+## Why CloudTrail ?
 
-CloudTrail is a managed AWS service which records user activity and API usage across other AWS services. It is useful to debug incidents when the source of the issue is not necessarily application code, but how services communicate with each other. This is particularly relevant for serverless and event-driven applications where significant functionality is taken by cloud infrastructure instead of application code.
+[CloudTrail](https://aws.amazon.com/cloudtrail/) is a service provided by AWS that records API activity in your AWS account. This data can be used to track changes to your resources, troubleshoot issues, and improve security.
+
+By sending CloudTrail events to Baselime, you can use our query and visualization tools to more easily analyze and understand your API activity. You can also set up alerts to be notified of specific API activity or trends.
+
+With CloudTrail events in Baselime, you can gain a deeper understanding of your AWS API activity and use that knowledge to improve the security and reliability of your applications.
 
 ---
 
