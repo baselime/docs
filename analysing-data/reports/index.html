@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726539575133">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.726539905856">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,12 +31,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.726539575133" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.726539905856" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.726539575133" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.726539905856" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.726539575133" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.726539575133" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.726539905856" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.726539905856" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -218,13 +218,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Take snapshot before deployment
-        run: baselime report github --repo ${{ ERROR }} --commit ${{ ERROR }} --github-token ${{ ERROR }}
+        run: baselime report github --repo $github.GITHUB_REPOSITORY --commit $github.GITHUB_SHA --github-token $secrets.GITHUB_TOKEN
       - name: Run deployment
         run: npm run deploy
       - name: Wait 5 minutes
         run: sleep 300
       - name: Take snapshot after deployment
-        run: baselime report github --repo ${{ ERROR }} --commit ${{ ERROR }} --github-token ${{ ERROR }}</code></pre>
+        run: baselime report github --repo $github.GITHUB_REPOSITORY --commit $github.GITHUB_SHA --github-token $secrets.GITHUB_TOKEN</code></pre>
 </doc-codeblock></div>
 <p>This workflow will take a snapshot with <code v-pre>baselime report github</code> before and after running the deployment script (<code v-pre>npm run deploy</code>). The report will be posted on the commit that triggered the workflow as a comment. It contains the current state of your service, including alerts, dashboards, and SLOs (coming soon). By comparing the two snapshots, you can see how the deployment affected your service and take appropriate action if needed.</p>
 <hr />
