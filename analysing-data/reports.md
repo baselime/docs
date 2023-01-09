@@ -23,13 +23,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Take snapshot before deployment
-        run: baselime report github --repo ${{ github.GITHUB_REPOSITORY }} --commit ${{ github.GITHUB_SHA }} --github-token ${{ secrets.GITHUB_TOKEN }}
+        run: baselime report github --repo $github.GITHUB_REPOSITORY --commit $github.GITHUB_SHA --github-token $secrets.GITHUB_TOKEN
       - name: Run deployment
         run: npm run deploy
       - name: Wait 5 minutes
         run: sleep 300
       - name: Take snapshot after deployment
-        run: baselime report github --repo ${{ github.GITHUB_REPOSITORY }} --commit ${{ github.GITHUB_SHA }} --github-token ${{ secrets.GITHUB_TOKEN }}
+        run: baselime report github --repo $github.GITHUB_REPOSITORY --commit $github.GITHUB_SHA --github-token $secrets.GITHUB_TOKEN
 ```
 
 This workflow will take a snapshot with `baselime report github` before and after running the deployment script (`npm run deploy`). The report will be posted on the commit that triggered the workflow as a comment. It contains the current state of your service, including alerts, dashboards, and SLOs (coming soon). By comparing the two snapshots, you can see how the deployment affected your service and take appropriate action if needed.
