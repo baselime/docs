@@ -221,6 +221,7 @@ Resources:
       - BaselimeEnvironmentRole
       - BaselimeEnvironmentPolicies
       - BaselimeCloudWatchMetricsFirehose
+      - BaselimeCloudWatchMetricsStream
     Properties:
       ServiceToken: <BASELIME_SERVICE_TOKEN>
       RoleArn: !GetAtt
@@ -230,13 +231,11 @@ Resources:
       StackName: !Ref AWS::StackName
       BucketName: !Ref BaselimeS3Bucket
       TopicArn: !Ref BaselimeSNSTopic
-      CloudTrailArn:
-        Fn::GetAtt:
-          - BaselimeCloudTrail
-          - Arn
+      CloudTrailName: !Ref BaselimeCloudTrail
       ExternalParameter: !Ref ExternalParameter
       Alias: !Ref Alias
       CloudWatchMetricsFirehoseName: !Ref BaselimeCloudWatchMetricsFirehose
+      CloudWatchMetricsStreamName: !Ref BaselimeCloudWatchMetricsStream
 
   ####
   # START of CloudWatch Metrics of Baselime Stack
