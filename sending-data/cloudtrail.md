@@ -3,7 +3,7 @@ label: CloudTrail Events
 order: -3
 ---
 
-# Sending CloudTrail Events to Baselime
+# CloudTrail Events
 
 Baselime automatically ingests CloudTrail events when you connect your AWS account. Baselime will automatically create a new CloudTrail and S3 bucket for you, and configure them to send data to your Baselime account. No additional setup is required on your end.
 

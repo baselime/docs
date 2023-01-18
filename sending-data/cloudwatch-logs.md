@@ -5,7 +5,6 @@ order: -1
 
 # CloudWatch Logs
 
----
 
 Once you connect your AWS account to Baselime, Baselime automatically create [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html) to automatically ingest logs from your Lambda functions and API Gateways.
 

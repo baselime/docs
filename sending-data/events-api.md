@@ -5,7 +5,6 @@ order: -2
 
 # Events API
 
----
 
 Baselime provides an HTTP events API which enables developers to send data to Baselime by making a `POST` request to the API endpoint. This enables developers to send data directly from their applications or services to Baselime, rather than using a logging or monitoring service as an intermediary.
 

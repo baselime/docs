@@ -5,8 +5,6 @@ order: -3
 
 # OpenTelemetry Instrumentation [Coming Soon]
 
----
-
 Baselime supports [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions. [Coming Soon]
 
 ---
