@@ -10,12 +10,12 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 
 You can send your telemetry data to Baselime with either of:
 
-- [CloudWatch Logs](./cloudwatch-logs.md)
 - [Events API](./events-api.md)
-- [CloudTrail events](./cloudtrail)
+- [CloudWatch Logs](./cloudwatch-logs.md)
+- [AWS X-Ray](./xray.md)
+- [CloudTrail Events](./cloudtrail)
 - [CloudWatch Metrics](./cloudwatch-metrics.md)
 - [OpenTelemetry (Coming Soon)](./otel.md)
-- [AWS X-Ray (Coming Soon)](./xray.md)
 
 ---
 

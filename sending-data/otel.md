@@ -1,6 +1,6 @@
 ---
 label: OpenTelemetry Instrumentation
-order: -3
+order: -5
 ---
 
 # OpenTelemetry Instrumentation [Coming Soon]

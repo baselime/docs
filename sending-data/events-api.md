@@ -1,6 +1,6 @@
 ---
 label: Events API
-order: -2
+order: 0
 ---
 
 # Events API
