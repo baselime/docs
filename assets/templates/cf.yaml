@@ -1,4 +1,4 @@
-Description: This template creates a role and a bucket that can be used by Baselime
+Description: This template creates the resources necessary for Baselime to observe your AWS Account
 
 Parameters:
   ExternalParameter:
@@ -11,6 +11,10 @@ Parameters:
     Description: Alias for this environment
 
 Resources:
+  ###
+  # Role that Baselime can assume to perform actions on your AWS Account
+  # Those actions are limited to read-only operations and operations on resources prefixed with 'baselime'
+  ###
   BaselimeEnvironmentRole:
     Type: AWS::IAM::Role
     DeletionPolicy: Retain
@@ -50,22 +54,23 @@ Resources:
       PolicyDocument:
         Statement:
           - Effect: Allow
+            # Those operations are limited to Lambda functions prefixed with 'baselime'
             Action:
               - lambda:CreateFunction
               - lambda:AddPermission
               - lambda:UpdateFunctionConfiguration
               - lambda:UpdateFunctionCode
             Resource:
-              # Only lambda functions prefixed with "baselime-"
               - arn:aws:lambda:*:*:function:baselime-*
           - Effect: Allow
+            # Those operations are limited to CloudFormation stacks prefixed with 'baselime'
             Action:
               - cloudformation:*
             Resource:
-              # Only CF stacks prefixed with "Baselime"
               - arn:aws:cloudformation:*:*:stack/Baselime*
               - !Ref AWS::StackId
           - Effect: Allow
+            # Those operations are limited to the CloudTrail created as part of this CF stack
             Action:
               - cloudtrail:*
             Resource:
@@ -73,6 +78,7 @@ Resources:
                 - BaselimeCloudTrail
                 - Arn
           - Effect: Allow
+            # Those operations are limited to the S3 bucket created as part of this CF stack
             Action:
               - s3:*
             Resource:
@@ -81,11 +87,13 @@ Resources:
               - !Sub |-
                 arn:aws:s3:::${BaselimeS3Bucket}/*
           - Effect: Allow
+            # Those operations are limited to the SNS topic created as part of this CF stack
             Action:
               - sns:*
             Resource:
               - !Ref BaselimeSNSTopic
           - Effect: Allow
+            # This operation is limited to a Lambda function on Baselime's Account
             Action:
               - lambda:InvokeFunction
             Resource:
@@ -97,6 +105,7 @@ Resources:
             Resource:
               - "*"
           - Effect: Allow
+            # This operation is to enable Baselime to use this role
             Action:
               - iam:PassRole
             Resource:
@@ -122,6 +131,7 @@ Resources:
             Resource:
               - "*"
           - Effect: Allow
+            # These operations are limited to the Kinesis Firehose created as part of this CF Stack
             Action:
               - firehose:DescribeDeliveryStream
               - firehose:DeleteDeliveryStream
@@ -130,6 +140,7 @@ Resources:
               - Fn::GetAtt:
                 - BaselimeCloudWatchMetricsFirehose
                 - Arn
+          # These operations are limited to the other IAM Roles created as part of this CF Stack
           - Effect: Allow
             Action:
               - iam:DeleteRolePolicy
@@ -143,6 +154,9 @@ Resources:
                 - Arn
       Roles:
        - !Ref BaselimeEnvironmentRole
+  ###
+  # S3 Bucket that Baselime uses to store CloudTrail logs from your account
+  ###
   BaselimeS3Bucket:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
@@ -175,6 +189,9 @@ Resources:
             Condition: 
               StringEquals:
                 s3:x-amz-acl: "bucket-owner-full-control"
+  ###
+  # SNS Topic that Baselime uses to notify when there's new CloudTrail data available on your account
+  ###
   BaselimeSNSTopic:
     Type: AWS::SNS::Topic
   BaselimeSNSTopicPolicy: 
@@ -201,6 +218,10 @@ Resources:
               - Arn
             Resource: "*"
             Action: "SNS:Publish"
+  ###
+  # CloudTrail trail that Baselime uses to provide you with Observability on the actions across your AWS Account
+  # You can disable this resource at any point from the Baselime console
+  ###
   BaselimeCloudTrail:
     Type: AWS::CloudTrail::Trail
     DependsOn:
@@ -214,6 +235,9 @@ Resources:
         IsLogging: true
         EnableLogFileValidation: true
         IncludeGlobalServiceEvents: true
+  ###
+  # Custom CloudFormation resource to notify Baselime when this CloudFormation stack is created, updated or deleted
+  ###
   BaselimeReporter:
     Type: AWS::CloudFormation::CustomResource
     DependsOn:
@@ -237,11 +261,14 @@ Resources:
       CloudWatchMetricsFirehoseName: !Ref BaselimeCloudWatchMetricsFirehose
       CloudWatchMetricsStreamName: !Ref BaselimeCloudWatchMetricsStream
 
-  ####
-  # START of CloudWatch Metrics of Baselime Stack
-  ####
-
-  # Role for CloudWatch Metrics to be able to put records into Kinesis Firehose Stream
+  ###
+  # Resources necessary for Baselime to stream CloudWatch Metrics
+  # These resources comprise
+  # - 2 IAM Roles
+  # - A CloudWatch Metrics Stream
+  # - A Kinesis Firehose Role
+  # You can disable these resources at any point from the Baselime console
+  ###
   BaselimeCloudWatchMetricsStreamRole:
     Type: AWS::IAM::Role
     DependsOn:
@@ -267,7 +294,6 @@ Resources:
                   - Fn::GetAtt:
                       - BaselimeCloudWatchMetricsFirehose
                       - Arn
-
   BaselimeCloudWatchMetricsStream:
     Type: AWS::CloudWatch::MetricStream
     DependsOn:
@@ -283,7 +309,6 @@ Resources:
         Fn::GetAtt:
           - BaselimeCloudWatchMetricsStreamRole
           - Arn
-
   BaselimeCloudWatchMetricsFirehose:
     Type: AWS::KinesisFirehose::DeliveryStream
     DependsOn:
@@ -313,8 +338,6 @@ Resources:
           Fn::GetAtt:
             - BaselimeMetricsStreamFirehoseRole
             - Arn
-
-
   BaselimeMetricsStreamFirehoseRole:
     Type: AWS::IAM::Role
     Properties:
@@ -344,9 +367,6 @@ Resources:
                   - !Sub |-
                     arn:aws:s3:::${BaselimeS3Bucket}/*
 
-  ####
-  # END of CloudWatch Metrics parts of Baselime Stack
-  ####
 
 Outputs:
   RoleArn:
