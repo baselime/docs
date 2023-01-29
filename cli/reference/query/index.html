@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.727988613895">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.728318907142">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,12 +31,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../resources/css/retype.css?v=2.4.0.727988613895" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.728318907142" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.727988613895" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.728318907142" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.727988613895" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.727988613895" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.728318907142" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.728318907142" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -207,22 +207,16 @@ Run a query
 Use baselime query without any flags for the interactive mode
 
 Options:
-      --profile       [string] [default: &quot;default&quot;]
-      --quiet         [boolean] [default: false]
-  -d, --debug         [boolean] [default: false]
-      --format        Format to output the data in  [string] [choices: &quot;table&quot;, &quot;json&quot;] [default: &quot;table&quot;]
-      --service       Name of the service  [string]
-      --id            Query id, if running a saved query  [string]
-      --datasets      The datasets to query  [array] [default: []]
-      --filters       A set of filters to apply when running the query; multiple filters can be passed  [array] [default: []]
-      --calculations  A set of calculations to claculations to compute; multiple calculations can be added  [array] [default: []]
-      --needle        A string to search in the fields and values of every event  [string]
-      --regex         A regular expression to search in the fields and valies of every event. If there is both a needle and a regex, the regex is considered in priority  [string]
-      --match-case    Match case if a needle is specified  [boolean] [default: false]
-      --from          UTC start time - may also be relative eg: 1h, 20mins  [string]
-      --to            UTC end time - may also be relative eg: 1h, 20mins, now  [string]
-  -h, --help          Show this help output, or the help for a specified command or subcommand  [boolean]
-  -v, --version       Show the current Baselime CLI version  [boolean]
+      --profile  [string] [default: &quot;default&quot;]
+      --quiet  [boolean] [default: false]
+      --debug  [boolean] [default: false]
+      --format   Format to output the data in  [string] [choices: &quot;table&quot;, &quot;json&quot;] [default: &quot;table&quot;]
+      --service  Name of the service  [string]
+      --id       Query id, if running a saved query  [string]
+      --from     UTC start time - may also be relative eg: 1h, 20mins  [string]
+      --to       UTC end time - may also be relative eg: 1h, 20mins, now  [string]
+  -h, --help     Show this help output, or the help for a specified command or subcommand  [boolean]
+  -v, --version  Show the current Baselime CLI version  [boolean]
 
 Examples:
 
@@ -230,14 +224,7 @@ Examples:
           baselime query
 
           # Run a saved query passing the service name and the queryId:
-          baselime query --service &lt;service_name&gt; --id &lt;query_id&gt; --from 2days --to 1day
-
-          # Run a query inline with filters and searching for a field or value (needle)
-          baselime query --filters &quot;&lt;key&gt; &lt;operation&gt; &lt;value&gt;&quot; --needle &lt;needle&gt; --follow
-
-          # Run a query inline with a calculation on events matching a regular expression
-          baselime query --calculations &lt;operator&gt;(&lt;key&gt;) --regex &lt;regex&gt;
-</code></pre>
+          baselime query --service &lt;service_name&gt; --id &lt;query_id&gt; --from 2days --to 1day</code></pre>
 </doc-codeblock></div>
 
                                 
