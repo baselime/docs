@@ -20,6 +20,7 @@ Monitor your API Backends with the Starter template for queries, and alerts. The
 | Name | Description | Dataset | ID |
 |------|-------------|---------|----|
 | API Latency | Provides stats on API latency (AVG, P90, P95, P99) | apigateway-logs | [api-latency](https://github.com/Baselime/templates/tree/main/templates/api-backends/api-latency.yml) |
+| API Integration Latency | The speed of API gateway compared to the speed integration | apigateway-logs | [api-integration-latency](https://github.com/Baselime/templates/tree/main/templates/api-backends/api-integration-latency.yml)
 | API Errors | Counts the number of API errors and groups by status | apigateway-logs | [api-errors](https://github.com/Baselime/templates/tree/main/templates/api-backends/errors.yml) |
 | API Overview | Sums the values of API metrics | cloudwatch-metrics | [api-overview](https://github.com/Baselime/templates/tree/main/templates/api-backends/api-overview.yml) |
 | Request Count | Counts the number of requests | apigateway-logs | [request-count](https://github.com/Baselime/templates/tree/main/templates/api-backends/request-count.yml) |
