@@ -15,6 +15,8 @@ Monitor your API Backends with the Starter template for queries, and alerts. The
 
 ### Queries
 
+!(API Integration Latency)[./api-latency.png]
+
 | Name | Description | Dataset | ID |
 |------|-------------|---------|----|
 | API Latency | Provides stats on API latency (AVG, P90, P95, P99) | apigateway-logs | [api-latency](https://github.com/Baselime/templates/tree/main/templates/api-backends/api-latency.yml) |
