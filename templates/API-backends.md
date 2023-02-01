@@ -15,7 +15,7 @@ Monitor your API Backends with the Starter template for queries, and alerts. The
 
 ### Queries
 
-!(API Integration Latency)[./api-latency.png]
+![API Integration Latency](./api-latency.png)
 
 | Name | Description | Dataset | ID |
 |------|-------------|---------|----|
