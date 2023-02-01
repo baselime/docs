@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.728567153128">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.728568596804">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,11 +31,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.728567153128" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.728568596804" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.728567153128" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.728568596804" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.728567153128" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.728568596804" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -199,10 +199,10 @@
     </h1>
 </doc-anchor-target>
 <p>Monitor your API Backends with the Starter template for queries, and alerts. These queries use your Api Gateway Logs, and CloudWatch Metrics to help you make sure your API&#x27;s are scalable and have great uptime.</p>
-<doc-anchor-target id="datasets">
+<doc-anchor-target id="required-datasets">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#datasets">#</doc-anchor-trigger>
-        <span>Datasets</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#required-datasets">#</doc-anchor-trigger>
+        <span>Required Datasets</span>
     </h2>
 </doc-anchor-target>
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -246,25 +246,25 @@
 <td>API Latency</td>
 <td>Provides stats on API latency (AVG, P90, P95, P99)</td>
 <td>apigateway-logs</td>
-<td><a href="./api-latency.yml">api-latency</a></td>
+<td><a href="https://github.com/Baselime/templates/tree/main/templates/api-backends/api-latency.yml">api-latency</a></td>
 </tr>
 <tr>
 <td>API Errors</td>
 <td>Counts the number of API errors and groups by status</td>
 <td>apigateway-logs</td>
-<td><a href="./errors.yml">api-errors</a></td>
+<td><a href="https://github.com/Baselime/templates/tree/main/templates/api-backends/errors.yml">api-errors</a></td>
 </tr>
 <tr>
 <td>API Overview</td>
 <td>Sums the values of API metrics</td>
 <td>cloudwatch-metrics</td>
-<td><a href="./api-overview.yml">api-overview</a></td>
+<td><a href="https://github.com/Baselime/templates/tree/main/templates/api-backends/api-overview.yml">api-overview</a></td>
 </tr>
 <tr>
 <td>Request Count</td>
 <td>Counts the number of requests</td>
 <td>apigateway-logs</td>
-<td><a href="./request-count.yml">request-count</a></td>
+<td><a href="https://github.com/Baselime/templates/tree/main/templates/api-backends/request-count.yml">request-count</a></td>
 </tr>
 </tbody>
 </table>
@@ -290,19 +290,19 @@
 <td>API Latency Alarm</td>
 <td>Triggers an alarm if the AVG response latency is over a threshold</td>
 <td>api-latency</td>
-<td><a href="./api-latency.yml">api-latency-alarm</a></td>
+<td><a href="https://github.com/Baselime/templates/tree/main/templates/api-backends/api-latency.yml">api-latency-alarm</a></td>
 </tr>
 <tr>
 <td>API Errors Alarm</td>
 <td>Triggers an alarm if the count of API errors is over a threshold</td>
 <td>api-errors</td>
-<td><a href="./errors.yml">api-errors-alarm</a></td>
+<td><a href="https://github.com/Baselime/templates/tree/main/templates/api-backends/errors.yml">api-errors-alarm</a></td>
 </tr>
 <tr>
 <td>Request Count Alarm</td>
 <td>Triggers an alarm if the count of requests is over a threshold</td>
 <td>request-count</td>
-<td><a href="./request-count.yml">request-count-alarm</a></td>
+<td><a href="https://github.com/Baselime/templates/tree/main/templates/api-backends/request-count.yml">request-count-alarm</a></td>
 </tr>
 </tbody>
 </table>
@@ -389,7 +389,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Templates for API Backends", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "for API Backends", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
