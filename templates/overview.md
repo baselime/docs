@@ -45,4 +45,45 @@ templates:
 
 ## Becoming a template author
 
+Anyone can publish a template to the Baselime Template Repository. All our example templates can be found on [github](https://github.com/Baselime/templates/tree/main/templates). If you would like an example templates for an AWS service or find a bug please create an [issue](https://github.com/Baselime/templates/issues)
 
+
+> These templates are currently publicly accessible, to publish a private template please get in touch via the baselime-community slack channel
+
+The templates are made up of 
+
+* index.yml file
+* {template}.yml files
+* Optional Licence and README files
+
+The index.yml at the root of the templates folder must contain
+
+```yml
+# index.yml
+service: {{ template name }}
+provider: aws
+description: {{ template description}}
+version: '1'
+```
+
+```yml
+# my-first-template.yml
+request-count:
+  type: query
+  properties:
+    name: "Request Count"
+    description: Total number of requests made to the API Gateway
+    parameters:
+      datasets:
+        - apigateway-logs
+      calculations:
+        - COUNT
+```
+
+You can structure your queries and alerts into any number of files and directories as you would like. Each file can also contain multiple queries and alerts.
+
+To publish a template run
+
+```bash
+baselime templates publish -p ./template-dir
+```
