@@ -19,7 +19,7 @@ Monitor your Lambda functions with the Starter template full of queries, and ale
 
 | Name | Description | Dataset | ID |
 |------|-------------|---------|----|
-| Highest Billed Duration Invocations | Invocations with the highed billed duration | lambda-logs | [highest-billed-invocation](https://github.com/Baselime/templates/tree/main/templates/lambda-logs-basics.highest-billed-invocation.yml) |
+| Highest Billed Duration Invocations | Invocations with the highed billed duration | lambda-logs | [highest-billed-invocation](https://github.com/Baselime/templates/tree/main/templates/lambda-logs-basics/highest-billed-invocation.yml) |
 | Duration of lambda cold-starts | Statistics on the duration of lambda cold starts across the application | lambda-logs | [lambda-cold-start-duration](https://github.com/Baselime/templates/tree/main/templates/lambda-logs-basics/lambda-cold-start-duration.yml)
 | Events with LogLevel ERROR | Count of the number of events with LogLevel ERROR | lambda-logs | [lambda-errors](https://github.com/Baselime/templates/tree/main/templates/lambda-logs-basics/lambda-errors.yml)
 | Duration of lambda invocations | Max and P99 duration for lambda invocations | lambda-logs | [lambda-invocations-durations](https://github.com/Baselime/templates/tree/main/templates/lambda-logs-basics/lambda-invocations-durations.yml)
