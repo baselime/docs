@@ -31,7 +31,7 @@ baselime templates get -w baselime -n metrics
 
 When you run `baselime init` to create a service you will be prompted to select templates that you can add.
 
-![Baselime init service templates](baselime-init.png)
+![baselime init service templates](baselime-init.png)
 
 The queries and alerts for this template will be available instantly.
 
