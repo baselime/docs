@@ -1,0 +1,5 @@
+version: 0.0.50
+service: docs
+provider: aws
+templates:
+  - name: baselime/dynamodb
