@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.728758422457">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.728778393424">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,12 +31,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.728758422457" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.728778393424" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.728758422457" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.728778393424" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.728758422457" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.728758422457" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.728778393424" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.728778393424" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -261,7 +261,7 @@
 <ul>
 <li>Baselime accepts up to <code v-pre>6MB</code> of uncompressed data per request</li>
 <li>Each event must be a properly formatted JSON</li>
-<li>Each event must be smaller than <code v-pre>32kb</code> of uncompressed JSON</li>
+<li>Each event must be smaller than <code v-pre>128kb</code> of uncompressed JSON</li>
 </ul>
 <hr />
 <doc-anchor-target id="api-response-codes">
@@ -325,7 +325,7 @@
 <tr>
 <td>400</td>
 <td><code v-pre>{&quot;message&quot;: &quot;Bad Request&quot;}</code></td>
-<td>- Missing or invalid path parameters (<code v-pre>v1</code>, <code v-pre>&lt;dataset&gt;</code> or <code v-pre>&lt;namespace&gt;</code>) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the <code v-pre>32kb</code> size limit <br /> - At least one of the events could not be parsed as valid JSON</td>
+<td>- Missing or invalid path parameters (<code v-pre>v1</code>, <code v-pre>&lt;dataset&gt;</code> or <code v-pre>&lt;namespace&gt;</code>) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the <code v-pre>128kb</code> size limit <br /> - At least one of the events could not be parsed as valid JSON</td>
 </tr>
 <tr>
 <td>500</td>
