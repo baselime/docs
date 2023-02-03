@@ -21,7 +21,7 @@ You can send your telemetry data to Baselime with either of:
 
 ## Validation
 
-Baselime has a size limit for events of `32kb`. This size limit helps ensure that the ingestion process is efficient and that the data stored in Baselime is manageable and easy to query. If an event exceeds this `32kb` size limit, it will not be ingested into Baselime.
+Baselime has a size limit for events of `128kb`. This size limit helps ensure that the ingestion process is efficient and that the data stored in Baselime is manageable and fast to query. If an event exceeds this `128kb` size limit, it will not be ingested into Baselime.
 
 --- 
 ## Sending Semi-Structured Logs to Baselime

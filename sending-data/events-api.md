@@ -61,7 +61,7 @@ The HTTP API validates the provided events and returns a `400 Bad Request` statu
 ### High-level requirements
 - Baselime accepts up to `6MB` of uncompressed data per request 
 - Each event must be a properly formatted JSON
-- Each event must be smaller than `32kb` of uncompressed JSON
+- Each event must be smaller than `128kb` of uncompressed JSON
 
 ---
 
@@ -83,7 +83,7 @@ We welcome feeback on API responses and error messages. Reach out to us in our [
 |-------------|-----------------------------------|-------------------------------------------------------|
 | 405         | ```{"message": "Method Not Allowed"}``` | The HTTP method is now allowed |
 | 401         | ```{"message": "Unauthorised"}``` | Missing or invalid API Key |
-| 400        | ```{"message": "Bad Request"}``` | - Missing or invalid path parameters (`v1`, `<dataset>` or `<namespace>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `32kb` size limit <br /> - At least one of the events could not be parsed as valid JSON |
+| 400        | ```{"message": "Bad Request"}``` | - Missing or invalid path parameters (`v1`, `<dataset>` or `<namespace>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `128kb` size limit <br /> - At least one of the events could not be parsed as valid JSON |
 | 500         | ```{"message": "Internal Error"}``` | An unexpected error occured |
 
 
