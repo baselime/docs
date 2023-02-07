@@ -11,7 +11,7 @@ Monitor your Lambda functions with the Starter template full of queries, and ale
 
 | Dataset | Docs  |
 |---------|-------|
-| lambda-logs | https://docs.baselime.io/sending-data/lambda-logs/ |
+| lambda-logs | [Sending Lambda Logs to Baselime](../sending-data/cloudwatch-logs.md) |
 
 ### Queries
 

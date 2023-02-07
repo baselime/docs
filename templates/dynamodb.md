@@ -10,7 +10,7 @@ Monitor DynamoDB Performance with the baselime dynamodb template. These queries 
 
 | Dataset | Docs  |
 |---------|-------|
-| cloudwatch-metrics | https://docs.baselime.io/sending-data/cloudwatch-metrics/ |
+| cloudwatch-metrics | [Sending CloudWatch Metrics to Baselime](../sending-data/cloudwatch-metrics.md) |
 
 ### Queries
 
@@ -20,9 +20,9 @@ Monitor DynamoDB Performance with the baselime dynamodb template. These queries 
 |------|-------------|---------|----|
 | DynamoDB Consumed Write Capacity | How much write capacity you have consumed | cloudwatch-metrics | [dynamodb-consumed-write-capacity](https://github.com/Baselime/templates/tree/main/templates/dynamodb/capacity.yml) |
 | DynamoDB Consumed Read Capacity | How much read capacity you have consumed | cloudwatch-metrics | [dynamodb-consumed-read-capacity](https://github.com/Baselime/templates/tree/main/templates/dynamodb/capacity.yml) |
-| Scan Latency | Duration of scans | cloudwatch-metrics | [scan-latency](https://github.com/Baselime/templates/tree/main/templates/dynamodb/scan.yml) |
-| Scan Items Returned | Number of items returned by a scan | cloudwatch-metrics | [scan-items-returned](https://github.com/Baselime/templates/tree/main/templates/dynamodb/scan.yml) |
-| Scans | Number of scans | cloudwatch-metrics | [scan-count](https://github.com/Baselime/templates/tree/main/templates/dynamodb/scan.yml) |
+| Scan Latency | Duration of scans | cloudwatch-metrics | [scan-latency](https://github.com/Baselime/templates/tree/main/templates/dynamodb/scans.yml) |
+| Scan Items Returned | Number of items returned by a scan | cloudwatch-metrics | [scan-items-returned](https://github.com/Baselime/templates/tree/main/templates/dynamodb/scans.yml) |
+| Scans | Number of scans | cloudwatch-metrics | [scan-count](https://github.com/Baselime/templates/tree/main/templates/dynamodb/scans.yml) |
 | Slow Put Item Requests | The 10 slowest Put Item requests Grouped By Table | cloudwatch-metrics | [slow-put-item-requests](https://github.com/Baselime/templates/tree/main/templates/dynamodb/slow-operations.yml)
 | Slow Get Item Requests | The 10 slowest Put Item requests Grouped By Table | cloudwatch-metrics | [slow-get-item-requests](https://github.com/Baselime/templates/tree/main/templates/dynamodb/slow-operations.yml)
 | Slow Update Item Requests | The 10 slowest Update Item requests Grouped By Table | cloudwatch-metrics | [slow-update-item-requests](https://github.com/Baselime/templates/tree/main/templates/dynamodb/slow-operations.yml) |
