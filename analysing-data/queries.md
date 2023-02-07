@@ -13,7 +13,7 @@ You can run queries in the [Baselime console](https://console.baselime.io) by na
 
 To execute a query, simply click the Run Query button. The query results will be displayed in visually and in a table below the editor.
 
-[!embed](https://www.youtube.com/watch?v=pkIlCB4OTu8)
+[!embed](https://www.youtube.com/watch?v=QuLT55XqJsE)
 
 ---
 
