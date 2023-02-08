@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729177953184">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729180173281">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -21,21 +21,23 @@
     <meta property="og:url" content="https://docs.baselime.io/getting-started/concepts/">
     <meta property="og:title" content="Baselime Concepts | Baselime - Observability for Serverless">
     <meta property="og:description" content="Before we continue, we need to learn some of the core Baselime concepts: Observability as Code, datasets, namespaces, and services.">
+    <meta property="og:image" content="https://docs.baselime.io/getting-started/baselime.gif">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/getting-started/concepts/">
     <meta property="twitter:title" content="Baselime Concepts | Baselime - Observability for Serverless">
     <meta property="twitter:description" content="Before we continue, we need to learn some of the core Baselime concepts: Observability as Code, datasets, namespaces, and services.">
+    <meta property="twitter:image" content="https://docs.baselime.io/getting-started/baselime.gif">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.729177953184" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729180173281" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729177953184" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729180173281" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729177953184" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729180173281" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -200,6 +202,11 @@
 </doc-anchor-target>
 <hr />
 <p>Before we continue, we need to learn some of the core Baselime concepts: Observability as Code, datasets, namespaces, and services. They are crucial to understanding how the platform functions. In this page, you will learn about these concepts and how they can help you effectively use Baselime to monitor and troubleshoot your serverless applications.</p>
+<p><figure class="content-center">
+    <img src="../baselime.gif" alt="baselime calculations, events, and traces" />
+    <figcaption class="caption">baselime calculations, events, and traces</figcaption>
+</figure>
+</p>
 <hr />
 <doc-anchor-target id="observability-as-code">
     <h2>
@@ -211,6 +218,11 @@
 <p>To implement Observability as Code in Baselime, you will use the Baselime <a href="../../observability-reference-language/overview/">Observability Reference Language (ORL)</a>. ORL is a domain-specific language that is used to define observability configurations in a <code v-pre>.baselime</code> folder in your code repository. The <code v-pre>.baselime</code> folder contains one or more YAML files that define the various aspects of your observability configurations, such as alerts, dashboards, and integrations.</p>
 <p>The <code v-pre>.baselime</code> folder must contain an <code v-pre>index.yaml</code> file, which represents metadata about your service, including its name, description, and details about the cloud infrastructure of the service. The <code v-pre>index.yaml</code> file also lists the observability templates that your service uses, as well as any variables that are used in those templates.</p>
 <p>To create and manage your observability configurations using ORL, you can use the Baselime CLI and various commands such as <code v-pre>baselime init</code>, <code v-pre>baselime push</code>, <code v-pre>baselime pull</code> or <code v-pre>baselime plan</code>. These commands allow you to manage all aspects of your observability configurations from your termnial or your CI/CD pipelines.</p>
+<p><figure class="content-center">
+    <img src="../oac.gif" alt="Observability as code change" />
+    <figcaption class="caption">Observability as code change</figcaption>
+</figure>
+</p>
 <p>In addition to these commands, you can use the <code v-pre>baselime report</code> command to report on the health of your service. The <code v-pre>baselime report</code> command generates a report that includes information such as the status of your alerts, the performance of your service, and any issues or errors that have been detected. You can view the report in your terminal, or you can integrate it with tools such as GitHub, Slack, or PagerDuty to receive notifications and alerts about the health of your service. When you use the <code v-pre>baselime report</code> command, the generated report is based on the observability configurations that you have defined in your <code v-pre>.baselime</code> folder using ORL.</p>
 <hr />
 <doc-anchor-target id="datasets">
