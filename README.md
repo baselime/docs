@@ -12,6 +12,7 @@ icon: home
 
 ---
 
+![baselime calculations, events, and traces](./baselime.gif)
 ## What is Observability as Code?
 
 Observability as code is the practice of treating the monitoring and debugging of an application as part of the application's codebase. This means that the configuration of monitoring and debugging tools is stored in version control and treated like any other code.
