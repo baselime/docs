@@ -23,6 +23,8 @@ With observability as code, you can:
 - Collaborate with your team on monitoring and observability configuration
 - Automate the configuration of monitoring and observability tools
 
+![Observability as code change](./oac.gif)
+
 Baselime is built on the OpenTelemetry observability framework, which provides a standard way to instrument applications for observability. With Baselime, you can easily implement Observability as Code in your serverless applications.
 
 ---
