@@ -162,15 +162,28 @@ For more information about the available integrations and how to use them, check
 
 ---
 
-## Step 7: Learn more
+## Guides
 
-Congratulations on completing the Baselime Quickstart guide! You should now be up and running with Baselime, collecting telemetry data from your serverless applications and implementing observability as code.
+- [Quickstart](./getting-started/quick-start.md): Get up and running with Baselime in a few steps
+- [Sending Data](./sending-data/overview.md): Learn how to ingest telemetry data from your serverless applications
+- [Analyzing Data](./analysing-data/overview.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
+- [Integrations](./): Find out how to connect Baselime with your favorite tools
 
-To learn more about what you can do with Baselime, check out the following resources:
+
+---
+## Reference
 
 - [Reference Guide](../observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
-- [Integrations Guide](./): Learn about the available integrations and how to use them to get the most out of your observability data
-- [Tutorials](./): Follow step-by-step guides to learn how to use Baselime in different scenarios
-- [Slack Community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ): Join the Baselime community on Slack to ask questions, share tips and tricks, and get help from other users
+- [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
+- [API Reference](./api/auth.md): Detailed documentation of the Baselime API
 
-We hope you enjoy using Baselime! If you have any feedback or suggestions, please don't hesitate to [contact us](mailto:support@baselime.io).
+---
+## Community
+
+Join the Baselime community to get help with using the platform, share your own experiences, and stay up-to-date with the latest developments.
+
+- [Slack](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ): Join our Slack community to connect with other Baselime users and get real-time support from the Baselime team
+- [Blog](https://baselime.io/blog): Read about the latest features, best practices, and more from the Baselime team
+- Social media: Follow us on [Twitter](https://twitter.com/baselimeHQ), [LinkedIn](https://www.linkedin.com/company/baselime), and [YouTube](https://youtube.com/baselimedev) to stay up-to-date with the latest news and updates from Baselime
+
+We look forward to connecting with you!

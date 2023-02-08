@@ -8,6 +8,8 @@ order: -1
 
 Before we continue, we need to learn some of the core Baselime concepts: Observability as Code, datasets, namespaces, and services. They are crucial to understanding how the platform functions. In this page, you will learn about these concepts and how they can help you effectively use Baselime to monitor and troubleshoot your serverless applications.
 
+![baselime calculations, events, and traces](./baselime.gif)
+
 ---
 
 ## Observability as Code
@@ -19,6 +21,8 @@ To implement Observability as Code in Baselime, you will use the Baselime [Obser
 The `.baselime` folder must contain an `index.yaml` file, which represents metadata about your service, including its name, description, and details about the cloud infrastructure of the service. The `index.yaml` file also lists the observability templates that your service uses, as well as any variables that are used in those templates.
 
 To create and manage your observability configurations using ORL, you can use the Baselime CLI and various commands such as `baselime init`, `baselime push`, `baselime pull` or `baselime plan`. These commands allow you to manage all aspects of your observability configurations from your termnial or your CI/CD pipelines.
+
+![Observability as code change](./oac.gif)
 
 In addition to these commands, you can use the `baselime report` command to report on the health of your service. The `baselime report` command generates a report that includes information such as the status of your alerts, the performance of your service, and any issues or errors that have been detected. You can view the report in your terminal, or you can integrate it with tools such as GitHub, Slack, or PagerDuty to receive notifications and alerts about the health of your service. When you use the `baselime report` command, the generated report is based on the observability configurations that you have defined in your `.baselime` folder using ORL.
 
