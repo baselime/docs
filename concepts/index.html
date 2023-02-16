@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729295114169">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729888925086">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -33,11 +33,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon" />
-    <link href="../resources/css/retype.css?v=2.4.0.729295114169" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.729888925086" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.729295114169" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.729888925086" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.729295114169" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.729888925086" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -215,7 +215,7 @@
     </h2>
 </doc-anchor-target>
 <p>In Baselime, Observability as Code refers to the ability to define and manage your observability configurations using code, rather than using a graphical user interface. This allows you to version control your observability configurations, automate their deployment, and more easily share and collaborate with your team.</p>
-<p>To implement Observability as Code in Baselime, you will use the Baselime <a href="../observability-reference-language/overview.md">Observability Reference Language (ORL)</a>. ORL is a domain-specific language that is used to define observability configurations in a <code v-pre>.baselime</code> folder in your code repository. The <code v-pre>.baselime</code> folder contains one or more YAML files that define the various aspects of your observability configurations, such as alerts, dashboards, and integrations.</p>
+<p>To implement Observability as Code in Baselime, you will use the Baselime <a href="../observability-reference-language/overview/">Observability Reference Language (ORL)</a>. ORL is a domain-specific language that is used to define observability configurations in a <code v-pre>.baselime</code> folder in your code repository. The <code v-pre>.baselime</code> folder contains one or more YAML files that define the various aspects of your observability configurations, such as alerts, dashboards, and integrations.</p>
 <p>The <code v-pre>.baselime</code> folder must contain an <code v-pre>index.yaml</code> file, which represents metadata about your service, including its name, description, and details about the cloud infrastructure of the service. The <code v-pre>index.yaml</code> file also lists the observability templates that your service uses, as well as any variables that are used in those templates.</p>
 <p>To create and manage your observability configurations using ORL, you can use the Baselime CLI and various commands such as <code v-pre>baselime init</code>, <code v-pre>baselime push</code>, <code v-pre>baselime pull</code> or <code v-pre>baselime plan</code>. These commands allow you to manage all aspects of your observability configurations from your termnial or your CI/CD pipelines.</p>
 <p><figure class="content-center">
