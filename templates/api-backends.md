@@ -38,5 +38,5 @@ Monitor your API Backends with the Starter template for queries, and alerts. The
 
 This template works great with
 
-* [Lambda Logs Basics](../lambda-logs-basics/)
+* [Lambda Logs Basics](./lambda-logs-basics.md)
 

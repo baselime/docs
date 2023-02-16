@@ -30,7 +30,7 @@ To use Baselime, you'll need to sign up for an account. You can sign up for a fr
 
 ## Step 2: (Optional) Install the Baselime CLI
 
-The Baselime CLI is a command-line tool that you can use to interact with the platform. Installing the CLI can make it easier to work with Baselime, unlocks Observability as Code and provides additional functionality not available in the web console. To install the CLI, follow the instructions [here](../cli/install.md).
+The Baselime CLI is a command-line tool that you can use to interact with the platform. Installing the CLI can make it easier to work with Baselime, unlocks Observability as Code and provides additional functionality not available in the web console. To install the CLI, follow the instructions [here](./cli/install.md).
 
 ---
 
@@ -52,7 +52,7 @@ Next, you must deploy the template to your AWS account:
 - Check the box to acknowledge that the template creates IAM roles
 - Click "Create stack" to deploy the stack, making sure to use the correct credentials and region for your AWS account
 
-We've open-sourced the CloudFormation template [here](../connectors/cloudformation-connector.md).
+We've open-sourced the CloudFormation template [here](./connectors/aws.md).
 
 Once the stack is deployed, telemetry data from your AWS account will be automatically ingested by Baselime and will be available through the various clients.
 
@@ -130,7 +130,7 @@ To implement observability as code:
 
 1. Use the `baselime init` command to create a `.baselime` folder in your repository and generate an `index.yaml` file
 2. Answer the prompts to specify metadata about your service, such as its name, description, and details about the cloud infrastructure of the service
-3. The `baselime init` command will create one or more configuration files in the `.baselime` folder using the Baselime [Observability Reference Language (ORL)](../observability-reference-language/overview.md). The ORL provides a set of commands and syntax for defining configurations such as queries, alert rules, and dashboards.
+3. The `baselime init` command will create one or more configuration files in the `.baselime` folder using the Baselime [Observability Reference Language (ORL)](./observability-reference-language/overview.md). The ORL provides a set of commands and syntax for defining configurations such as queries, alert rules, and dashboards.
 4. Use the `baselime push` command to apply your configurations to your environment.
 
 For example:
@@ -143,7 +143,7 @@ This will apply your observability configurations to your environment, replacing
 
 To verify that your configurations have been applied, use the `baselime plan` command to compare your local configuration files with the ones deployed in your environment.
 
-For more information about the Baselime ORL and how to use it, check out the [Reference Guide](../observability-reference-language/overview.md).
+For more information about the Baselime ORL and how to use it, check out the [Reference Guide](./observability-reference-language/overview.md).
 
 ---
 
@@ -164,7 +164,6 @@ For more information about the available integrations and how to use them, check
 
 ## Guides
 
-- [Quickstart](./getting-started/quick-start.md): Get up and running with Baselime in a few steps
 - [Sending Data](./sending-data/overview.md): Learn how to ingest telemetry data from your serverless applications
 - [Analyzing Data](./analysing-data/overview.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
 - [Integrations](./): Find out how to connect Baselime with your favorite tools
@@ -173,7 +172,7 @@ For more information about the available integrations and how to use them, check
 ---
 ## Reference
 
-- [Reference Guide](../observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
+- [Reference Guide](./observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
 - [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
 - [API Reference](./api/auth.md): Detailed documentation of the Baselime API
 
