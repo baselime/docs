@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729888925086">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729954538169">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>OpenTelemetry Instrumentation | Baselime - Observability for Serverless</title>
     <meta name="title" content="OpenTelemetry Instrumentation | Baselime - Observability for Serverless">
-    <meta name="description" content="The @baselime/lambda-node-opentelemetry package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime." />
+    <meta name="description" content="If your codebase is already instrumented with OpenTelemetry, you can start sending us your tracing data today." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.baselime.io/sending-data/otel/" />
@@ -20,23 +20,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/sending-data/otel/">
     <meta property="og:title" content="OpenTelemetry Instrumentation | Baselime - Observability for Serverless">
-    <meta property="og:description" content="The @baselime/lambda-node-opentelemetry package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime.">
+    <meta property="og:description" content="If your codebase is already instrumented with OpenTelemetry, you can start sending us your tracing data today.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/sending-data/otel/">
     <meta property="twitter:title" content="OpenTelemetry Instrumentation | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="The @baselime/lambda-node-opentelemetry package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime.">
+    <meta property="twitter:description" content="If your codebase is already instrumented with OpenTelemetry, you can start sending us your tracing data today.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.729888925086" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729954538169" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729888925086" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729954538169" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729888925086" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.729888925086" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729954538169" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.729954538169" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -80,7 +80,7 @@
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://console.baselime.io/">Signup</a>
                             </li>
                             <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://twitter.com/BaselimeHQ">Twitter</a>
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ">Community</a>
                             </li>
         
                         </ul>
@@ -168,7 +168,7 @@
                                         <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://console.baselime.io/">Signup</a>
                                     </li>
                                     <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://twitter.com/BaselimeHQ">Twitter</a>
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ">Community</a>
                                     </li>
             
                                 </ul>
@@ -199,25 +199,33 @@
         <span>OpenTelemetry Instrumentation</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="baselime-supports-opentelemetry-to-instrument-your-lambda-functions">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-supports-opentelemetry-to-instrument-your-lambda-functions">#</doc-anchor-trigger>
-        <span>Baselime supports <a href="https://opentelemetry.io/">OpenTelemetry</a> to instrument your Lambda functions.</span>
-    </h2>
-</doc-anchor-target>
+<hr />
+<p>If your codebase is already instrumented with <a href="https://opentelemetry.io/">OpenTelemetry</a>, you can start sending us your tracing data today.</p>
+<p>Add the Baselime OTel endpoint to your exporter:</p>
+<ul>
+<li>endpoint <code v-pre>https://otel.baselime.io/v1/</code></li>
+<li>header: <code v-pre>x-api-key: &lt;YOUR_BASELIME_API_KEY&gt;</code></li>
+</ul>
+<p>You can get your Baselime API key from the Baselime CLI with</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 01-.22.53l-2.75 2.75a.75.75 0 01-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 111.06-1.06l2.75 2.75c.141.14.22.331.22.53zm2 2a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"/><path fill-rule="evenodd" d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0122.25 21H1.75A1.75 1.75 0 010 19.25V4.75zm1.75-.25a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 00.25-.25V4.75a.25.25 0 00-.25-.25H1.75z"/></g></g></svg> terminal</div>
+<pre class="language-bash"><code v-pre class="language-bash">baselime iam</code></pre>
+</doc-codeblock></div>
+<p>If you have not instrumented your codebase with OTel yet, you can use the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OTel tracer</a> as outlined below. We&#x27;re currently working on lightweight OTel tracers for other languages.</p>
+<hr />
 <doc-anchor-target id="lambda-opentelemetry-for-node-js">
-    <h1>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#lambda-opentelemetry-for-node-js">#</doc-anchor-trigger>
         <span><span class="docs-emoji">&#x1F3B8;</span> Lambda Opentelemetry for Node.JS</span>
-    </h1>
+    </h2>
 </doc-anchor-target>
 <p>The <code v-pre>@baselime/lambda-node-opentelemetry</code> package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime. This is the most powerful and flexible way to instrument your node service.</p>
 <p>The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our <a href="https://docs.baselime.io/sending-data/xray/">x-ray</a> integration instead.</p>
 <doc-anchor-target id="manual-installation">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#manual-installation">#</doc-anchor-trigger>
         <span>Manual Installation</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <p>Install the <code v-pre>@baselime/lambda-node-opentelemetry</code> package</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -261,10 +269,10 @@
 <p>If you use <code v-pre>export const</code> <code v-pre>export function</code> or <code v-pre>export default</code> for your handler you need to rename it to a cjs export like <code v-pre>module.exports = </code> or <code v-pre>exports.handler =</code>. Even if you use esbuild. We are tracking issues in <a href="https://github.com/evanw/esbuild/issues/1079">esbuild</a> and <a href="https://github.com/open-telemetry/opentelemetry-js/issues/1946">open-telemetry</a> and are looking to see how we can help out.</p>
 </blockquote>
 <doc-anchor-target id="architect">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#architect">#</doc-anchor-trigger>
         <span>Architect</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <p>Copy the lambda-wrapper.js file from our node modules to the shared folder of your architect project, this way it is automatically included in all of your lambdas bundles.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -280,10 +288,10 @@ arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-
 <p>Watch out for the &#x27;--&#x27; in the NODE_OPTIONS command. This is required to escape options parsing. This totally didn&#x27;t frustrate me for a whole day! :D</p>
 </blockquote>
 <doc-anchor-target id="serverless">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#serverless">#</doc-anchor-trigger>
         <span>Serverless</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <p>By default the serverless framework includes your whole node_module directory in the .zip file. If you are using the <code v-pre>serverless-esbuild</code> plugin to avoid this then you need to add the following configuration to your project.</p>
 <p><a href="https://www.serverless.com/framework/docs/providers/aws/guide/packaging">https://www.serverless.com/framework/docs/providers/aws/guide/packaging</a></p>
@@ -304,10 +312,10 @@ arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-
     NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry'</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="sst">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#sst">#</doc-anchor-trigger>
         <span>SST</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <blockquote>
 <p>Fun fact Baselime is built using SST :)</p>
@@ -333,17 +341,17 @@ arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-
 });</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="automatic-instrumentation-wip">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#automatic-instrumentation-wip">#</doc-anchor-trigger>
         <span>Automatic Instrumentation [WIP]</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <p>Lambda Extension coming soon</p>
 <doc-anchor-target id="send-data-to-another-opentelemetry-backend">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#send-data-to-another-opentelemetry-backend">#</doc-anchor-trigger>
         <span>Send data to another OpenTelemetry Backend</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <p>Add the environment variable <code v-pre>COLLECTOR_URL</code> to send the spans somewhere else.</p>
 
