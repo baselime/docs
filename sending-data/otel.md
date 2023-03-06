@@ -5,17 +5,33 @@ order: -5
 
 # OpenTelemetry Instrumentation
 
-Baselime supports [OpenTelemetry](https://opentelemetry.io/) to instrument your Lambda functions.
 ---
 
-# 🎸 Lambda Opentelemetry for Node.JS
+If your codebase is already instrumented with [OpenTelemetry](https://opentelemetry.io/), you can start sending us your tracing data today.
+
+Add the Baselime OTel endpoint to your exporter:
+- endpoint `https://otel.baselime.io/v1/`
+- header: `x-api-key: <YOUR_BASELIME_API_KEY>` 
+
+You can get your Baselime API key from the Baselime CLI with 
+
+```bash # :icon-terminal: terminal
+baselime iam
+```
+
+If you have not instrumented your codebase with OTel yet, you can use the [Baselime Node.js OTel tracer](https://github.com/Baselime/lambda-node-opentelemetry) as outlined below. We're currently working on lightweight OTel tracers for other languages.
+
+
+---
+
+## 🎸 Lambda Opentelemetry for Node.JS
 
 The `@baselime/lambda-node-opentelemetry` package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime. This is the most powerful and flexible way to instrument your node service.
 
 The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [x-ray](https://docs.baselime.io/sending-data/xray/) integration instead.
 
 
-## Manual Installation
+### Manual Installation
 
 Install the `@baselime/lambda-node-opentelemetry` package
 
@@ -42,7 +58,7 @@ You need to make sure the lambda-wrapper file is included in the .zip file that 
 > If you use `export const` `export function` or `export default` for your handler you need to rename it to a cjs export like `module.exports = ` or `exports.handler =`. Even if you use esbuild. We are tracking issues in [esbuild](https://github.com/evanw/esbuild/issues/1079) and [open-telemetry](https://github.com/open-telemetry/opentelemetry-js/issues/1946) and are looking to see how we can help out.
 
 
-### Architect
+#### Architect
 
 Copy the lambda-wrapper.js file from our node modules to the shared folder of your architect project, this way it is automatically included in all of your lambdas bundles.
 
@@ -61,7 +77,7 @@ arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-
 > Watch out for the '--' in the NODE_OPTIONS command. This is required to escape options parsing. This totally didn't frustrate me for a whole day! :D
 
 
-### Serverless
+#### Serverless
 
 By default the serverless framework includes your whole node_module directory in the .zip file. If you are using the `serverless-esbuild` plugin to avoid this then you need to add the following configuration to your project.
 
@@ -88,7 +104,7 @@ Add the following environment variables
     NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry'
 ```
 
-### SST
+#### SST
 
 > Fun fact Baselime is built using SST :)
 
@@ -117,10 +133,10 @@ app.setDefaultFunctionProps({
 });
 ```
 
-## Automatic Instrumentation [WIP]
+### Automatic Instrumentation [WIP]
 
 Lambda Extension coming soon
 
-## Send data to another OpenTelemetry Backend
+### Send data to another OpenTelemetry Backend
 
 Add the environment variable `COLLECTOR_URL` to send the spans somewhere else.

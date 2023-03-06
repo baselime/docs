@@ -23,8 +23,8 @@ links:
   link: https://baselime.io/pricing
 - text: Signup
   link: https://console.baselime.io/
-- text: Twitter
-  link: https://twitter.com/BaselimeHQ
+- text: Community
+  link: https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ
 
 footer:
   copyright: "© Copyright {{ year }}. [Baselime Limited](https://baselime.io/) All rights reserved."

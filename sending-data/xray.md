@@ -11,7 +11,7 @@ order: -2
 
 ## Setting up the AWS X-Ray Connection
 
-To start ingesting traces from AWS X-Ray to Baselime, you'll need to [connect your AWS account to Baselime](../getting-started/quick-start.md). Once connected, Baselime will periodically poll your AWS account for new traces and automatically ingest them into your Baselime dataset.
+To start ingesting traces from AWS X-Ray to Baselime, you'll need to [connect your AWS account to Baselime](../readme.md). Once connected, Baselime will periodically poll your AWS account for new traces and automatically ingest them into your Baselime dataset.
 
 ---
 
