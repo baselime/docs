@@ -10,7 +10,7 @@ Baselime provides an HTTP events API which enables developers to send data to Ba
 
 
 ```bash # :icon-terminal: terminal
-curl -X 'POST' 'https://events.baselime.io/v1/<dataset>/<namespace>' \
+curl -X 'POST' 'https://events.baselime.io/v1/<dataset>/<service>/<namespace>' \
   -H 'x-api-key: $BASELIME_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '[
@@ -35,9 +35,10 @@ Each request ingests a batch of events into Baselime. Events are part of the req
 The request body must be an array of JSON objects. Any element of the array that cannot be parsed as valid JSON will be rejected.
 
 
-Requests must be made to the `/<dataset>/<namespace>` route:
+Requests must be made to the `/<dataset>/<service>/<namespace>` route:
 
 - `<dataset>` is the name of the dataset that the events should be ingested into. You can either use an existing dataset or create a new one using the Baselime CLI.
+- `<service>` is the service that the events belong to. If the service doesn't exist beforehand, the events can be queried through the `default` service. Once you create the service (in the web console or using the Baselime CLI), the events will be available from the service too.
 - `<namespace>` is the namespace within the dataset that the events should be ingested into. The namespace is created automatically for you when events are received, if it didn't exist beforehand.
 
 ---
@@ -83,7 +84,7 @@ We welcome feeback on API responses and error messages. Reach out to us in our [
 |-------------|-----------------------------------|-------------------------------------------------------|
 | 405         | ```{"message": "Method Not Allowed"}``` | The HTTP method is now allowed |
 | 401         | ```{"message": "Unauthorised"}``` | Missing or invalid API Key |
-| 400        | ```{"message": "Bad Request"}``` | - Missing or invalid path parameters (`v1`, `<dataset>` or `<namespace>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `128kb` size limit <br /> - At least one of the events could not be parsed as valid JSON |
+| 400        | ```{"message": "Bad Request"}``` | - Missing or invalid path parameters (`v1`, `<dataset>`, `<service>` or `<namespace>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `128kb` size limit <br /> - At least one of the events could not be parsed as valid JSON |
 | 500         | ```{"message": "Internal Error"}``` | An unexpected error occured |
 
 
