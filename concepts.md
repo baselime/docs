@@ -33,7 +33,7 @@ In Baselime, an Environment represents your whole system. Environments can conta
 
 When using the CLI you can setup multiple local profiles for each environment by running `baselime login --profile 'new profile name goes here' and selecting the environment you want. Every baselime cli command supports the --profile flag to use the environment you want.
 
-![Diagram demonstrating the relationship between environments and services](doc-services.png)
+![Diagram showing the relationship between environments and services](doc-services.png)
 ## Services
 
 In Baselime, a service is a logical grouping of cloud resources automatically discovered from your Cloudformation Templates and typically corresponds to a repository in your version control system or a folder in your mono-repo.
