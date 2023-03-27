@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.731529318204">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.733219010810">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,12 +31,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../resources/css/retype.css?v=2.4.0.731529318204" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.733219010810" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.731529318204" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.733219010810" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.731529318204" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.731529318204" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.733219010810" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.733219010810" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -270,12 +270,16 @@
 <li><code v-pre>&gt;=</code>: Greater than or equal to</li>
 <li><code v-pre>&lt;</code>: Less than</li>
 <li><code v-pre>&lt;=</code>: Less than or equal to</li>
-<li><code v-pre>INCLUDES</code>: Includes (applies to arrays only)</li>
+<li><code v-pre>INCLUDES</code>: Includes</li>
+<li><code v-pre>DOES_NOT_INCLUDE</code>: Does not include</li>
 <li><code v-pre>EXISTS</code>: Exists (applies to fields that may or may not exist in the data)</li>
 <li><code v-pre>DOES_NOT_EXIST</code>: Does not exist (applies to fields that may or may not exist in the data)</li>
+<li><code v-pre>MATCH_REGEX</code>: Matches a regular expression</li>
 <li><code v-pre>IN</code>: In (applies to arrays only)</li>
 <li><code v-pre>NOT_IN</code>: Not in (applies to arrays only)</li>
 <li><code v-pre>STARTS_WITH</code>: Starts with (applies to strings only)</li>
+<li><code v-pre>LIKE</code>: Matches a string</li>
+<li><code v-pre>NOT_LIKE</code>: Does not match a string</li>
 </ul>
 <p>Filters can be used to narrow down the data being analyzed and focus on specific events or attributes.</p>
 <p>Example:</p>
@@ -297,13 +301,16 @@
 </doc-anchor-target>
 <p>The <code v-pre>calculations</code> parameter is an array of strings that specify the calculations to perform on the data. ORL supports the following calculations:</p>
 <ul>
-<li><code v-pre>COUNT</code>: Counts the number of events</li>
-<li><code v-pre>MAX</code>: returns the maximum value of a field across all events.</li>
-<li><code v-pre>MIN</code>: returns the minimum value of a field across all events.</li>
-<li><code v-pre>SUM</code>: returns the sum of all values of a field across all events.</li>
-<li><code v-pre>AVG</code>: returns the average of all values of a field across all events.</li>
-<li><code v-pre>MEDIAN</code>: returns the median of all values of a field across all events.</li>
-<li><code v-pre>P001</code>, <code v-pre>P01</code>, <code v-pre>P05</code>, <code v-pre>P10</code>, <code v-pre>P25</code>, <code v-pre>P75</code>, <code v-pre>P90</code>, <code v-pre>P95</code>, <code v-pre>P99</code>, <code v-pre>P999</code>: return the specified percentile of all values of a field across all events.</li>
+<li><code v-pre>COUNT</code>: Counts the number of events.</li>
+<li><code v-pre>COUNT_DISTINCT</code>: Counts the number of distinct occurences of a field (applies to strings only).</li>
+<li><code v-pre>MAX</code>: returns the maximum value of a field.</li>
+<li><code v-pre>MIN</code>: returns the minimum value of a field.</li>
+<li><code v-pre>SUM</code>: returns the sum of all values of a field.</li>
+<li><code v-pre>AVG</code>: returns the average of all values of a field.</li>
+<li><code v-pre>MEDIAN</code>: returns the median of all values of a field.</li>
+<li><code v-pre>STDDEV</code>: returns the sample standard deviation of a field.</li>
+<li><code v-pre>VARIANCE</code>: returns the sample variance of a field.</li>
+<li><code v-pre>P001</code>, <code v-pre>P01</code>, <code v-pre>P05</code>, <code v-pre>P10</code>, <code v-pre>P25</code>, <code v-pre>P75</code>, <code v-pre>P90</code>, <code v-pre>P95</code>, <code v-pre>P99</code>, <code v-pre>P999</code>: return the specified percentile of all values of a field.</li>
 </ul>
 <p>Calculations can be used to perform statistical analysis on the data and derive insights such as the average request duration, the maximum response size, or the 95th percentile of request latencies.</p>
 <p>Example:</p>
