@@ -86,7 +86,7 @@ taskDef.addContainer("container", {
       "logConfiguration": {
         "logDriver": "awsfirelens",
         "options": {
-          "Host": "ecs-logs-ingest.baselime.cc",
+          "Host": "ecs-logs-ingest.baselime.io",
           "Name": "http",
           "Port": "443",
           "TLS": "on",
