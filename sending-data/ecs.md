@@ -21,15 +21,15 @@ In the instructions below replace the `BASELIME_API_KEY` with your retrieved key
 
 ### Using Terraform
 
-```tf
+```
 resource "aws_ecs_task_definition" "example_task" {
-  family                   = "example-task"
-  container_definitions    = jsonencode([
+  family                = "example-task"
+  container_definitions = jsonencode([
     {
-      name            = "example-container"
-      image           = "example-image:latest"
+      name              = "example-container"
+      image             = "example-image:latest"
       log_configuration {
-        log_driver = "awsfirelens"
+        log_driver      = "awsfirelens"
         options = {
           "Name"        = "http"
           "Host"        = "ecs-logs-ingest.baselime.io"
