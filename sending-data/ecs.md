@@ -13,9 +13,8 @@ order: -2
 
 To start 
 ---
-Obtain your API key by invoking `baselime iam` command.
-It will retrieve the details of your currently logged in account, and within it there will also be an `apiKey`
-field which you will need for your logs to be pushed to Baselime.
+Obtain your API key by invoking `baselime iam` command - it will retrieve the details of currently logged-in Baselime user.
+Within the printed information you will find an `apiKey` which you will need for your logs to be pushed to Baselime.
 
 In the instructions below replace the `BASELIME_API_KEY` with your retrieved key.
 
