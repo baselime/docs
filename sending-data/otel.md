@@ -1,17 +1,17 @@
 ---
-label: OpenTelemetry Instrumentation
+label: OpenTelemetry
 order: -5
 ---
 
-# OpenTelemetry Instrumentation
+# OpenTelemetry
 
 ---
 
 If your codebase is already instrumented with [OpenTelemetry](https://opentelemetry.io/), you can start sending us your tracing data today.
 
 Add the Baselime OTel endpoint to your exporter:
-- endpoint `https://otel.baselime.io/v1/`
-- header: `x-api-key: <YOUR_BASELIME_API_KEY>` 
+- Endpoint `https://otel.baselime.io/v1/`
+- Header: `x-api-key: <YOUR_BASELIME_API_KEY>` 
 
 You can get your Baselime API key from the Baselime CLI with 
 
