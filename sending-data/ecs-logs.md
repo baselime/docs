@@ -17,7 +17,7 @@ The following diagram illustrates the process for sending container logs from EC
 
 ![Sending ECS Logs to Baselime](./ecs.png)
 
-Each of your ECS can take a sidecar container running the FireLens log driver will forward all the logs from the containers to Baselime.
+Each of your ECS tasks can take a sidecar container running the FireLens log driver that will forward all the logs from the containers to Baselime.
 
 ---
 ## Configuring your ECS Tasks
