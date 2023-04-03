@@ -1,6 +1,6 @@
 input: .
 output: dist
-url: baselime.io/docs
+url: docs.baselime.io
 
 edit:
   repo: https://github.com/Baselime/docs/edit
