@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://baselime.io/docs/sitemap.xml.gz
+Sitemap: https://docs.baselime.io/sitemap.xml.gz
