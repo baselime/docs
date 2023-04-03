@@ -1,6 +1,6 @@
 ---
 label: Lambda Telemetry Extension
-order: 3
+order: -3
 ---
 
 # Lambda Telemetry Extension
