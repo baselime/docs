@@ -4,7 +4,8 @@ label: tail
 
 # baselime tail
 
-Use the `baselime tail` command to stream events from your telemetry data in real-time.
+Use the `baselime tail` command to stream events from your telemetry data in
+real-time.
 
 ```bash :icon-terminal: terminal
 baselime tail
@@ -20,6 +21,7 @@ Options:
       --service     The service to tail. When specified, additional filters are combined with the filters of the service  [string]
       --filters     A set of filters to apply to the tail; multiple filters can be passed  [array] [default: []]
       --needle      A string to search in the telemetry data to tail  [string]
+      --field       The field to display from the events  [string]
       --regex       A regular expression to search in the telemetry data to tail. If there is both a needle and a regex, the regex takes priority  [string]
       --match-case  Match case if a needle is specified  [boolean] [default: false]
       --from        UTC start time - may also be relative eg: 1h, 20mins  [string] [default: "1hour"]
@@ -38,5 +40,4 @@ Examples:
 
         # Tail all datasets with filters and find all events matching a regular expression
         baselime tail --filters "<key> <operation> <value>" --regex "<regex>" --follow
-
 ```

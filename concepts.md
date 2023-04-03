@@ -8,7 +8,7 @@ order: -1
 
 Before we continue, we need to learn some of the core Baselime concepts: Observability as Code, datasets, namespaces, and services. They are crucial to understanding how the platform functions. In this page, you will learn about these concepts and how they can help you effectively use Baselime to monitor and troubleshoot your serverless applications.
 
-![baselime calculations, events, and traces](./baselime.gif)
+![Baselime calculations, events, and traces](./baselime.gif)
 
 ---
 

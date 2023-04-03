@@ -65,12 +65,16 @@ The `filters` parameter is an array of strings that specify conditions to filter
 - `>=`: Greater than or equal to
 - `<`: Less than
 - `<=`: Less than or equal to
-- `INCLUDES`: Includes (applies to arrays only)
+- `INCLUDES`: Includes
+- `DOES_NOT_INCLUDE`: Does not include
 - `EXISTS`: Exists (applies to fields that may or may not exist in the data)
 - `DOES_NOT_EXIST`: Does not exist (applies to fields that may or may not exist in the data)
+- `MATCH_REGEX`: Matches a regular expression
 - `IN`: In (applies to arrays only)
 - `NOT_IN`: Not in (applies to arrays only)
 - `STARTS_WITH`: Starts with (applies to strings only)
+- `LIKE`: Matches a string
+- `NOT_LIKE`: Does not match a string
 
 Filters can be used to narrow down the data being analyzed and focus on specific events or attributes.
 
@@ -91,13 +95,16 @@ filters:
 
 The `calculations` parameter is an array of strings that specify the calculations to perform on the data. ORL supports the following calculations:
 
-- `COUNT`: Counts the number of events
-- `MAX`: returns the maximum value of a field across all events.
-- `MIN`: returns the minimum value of a field across all events.
-- `SUM`: returns the sum of all values of a field across all events.
-- `AVG`: returns the average of all values of a field across all events.
-- `MEDIAN`: returns the median of all values of a field across all events.
-- `P001`, `P01`, `P05`, `P10`, `P25`, `P75`, `P90`, `P95`, `P99`, `P999`: return the specified percentile of all values of a field across all events.
+- `COUNT`: Counts the number of events.
+- `COUNT_DISTINCT`: Counts the number of distinct occurences of a field (applies to strings only).
+- `MAX`: returns the maximum value of a field.
+- `MIN`: returns the minimum value of a field.
+- `SUM`: returns the sum of all values of a field.
+- `AVG`: returns the average of all values of a field.
+- `MEDIAN`: returns the median of all values of a field.
+- `STDDEV`: returns the sample standard deviation of a field.
+- `VARIANCE`: returns the sample variance of a field.
+- `P001`, `P01`, `P05`, `P10`, `P25`, `P75`, `P90`, `P95`, `P99`, `P999`: return the specified percentile of all values of a field.
 
 Calculations can be used to perform statistical analysis on the data and derive insights such as the average request duration, the maximum response size, or the 95th percentile of request latencies.
 
