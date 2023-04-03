@@ -1,3 +1,8 @@
+---
+label: Lambda Telemetry Extension
+order: 3
+---
+
 # Lambda Telemetry Extension
 
 If you want to instrument a few lambdas without fully connecting your AWS account. This lambda telemetry extension to send your `lambda-logs` to Baselime using the AWS Telemetry API and your Baselime API Key. The layer is language agnostic and a compressed go binary to minimise coldstarts and function invocation latency.
