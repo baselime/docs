@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.733849038007">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734017516551">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>AWS Lambda | Baselime - Observability for Serverless</title>
-    <meta name="title" content="AWS Lambda | Baselime - Observability for Serverless">
+    <title>AWS Lambda Logs | Baselime - Observability for Serverless</title>
+    <meta name="title" content="AWS Lambda Logs | Baselime - Observability for Serverless">
     <meta name="description" content="Once you connect your AWS account to Baselime, Baselime automatically create CloudWatch Logs subscription filters" />
 
     <!-- Canonical -->
@@ -19,24 +19,26 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/sending-data/lambda-logs/">
-    <meta property="og:title" content="AWS Lambda | Baselime - Observability for Serverless">
+    <meta property="og:title" content="AWS Lambda Logs | Baselime - Observability for Serverless">
     <meta property="og:description" content="Once you connect your AWS account to Baselime, Baselime automatically create CloudWatch Logs subscription filters">
+    <meta property="og:image" content="https://docs.baselime.io/assets/images/illustrations/sending-data/lambda-logs.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/sending-data/lambda-logs/">
-    <meta property="twitter:title" content="AWS Lambda | Baselime - Observability for Serverless">
+    <meta property="twitter:title" content="AWS Lambda Logs | Baselime - Observability for Serverless">
     <meta property="twitter:description" content="Once you connect your AWS account to Baselime, Baselime automatically create CloudWatch Logs subscription filters">
+    <meta property="twitter:image" content="https://docs.baselime.io/assets/images/illustrations/sending-data/lambda-logs.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.733849038007" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.734017516551" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.733849038007" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734017516551" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.733849038007" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.733849038007" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734017516551" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.734017516551" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -193,13 +195,29 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="aws-lambda" class="break-words">
+<doc-anchor-target id="aws-lambda-logs" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#aws-lambda">#</doc-anchor-trigger>
-        <span>AWS Lambda</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#aws-lambda-logs">#</doc-anchor-trigger>
+        <span>AWS Lambda Logs</span>
     </h1>
 </doc-anchor-target>
 <p>Once you connect your AWS account to Baselime, Baselime automatically create <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html">CloudWatch Logs subscription filters</a> to automatically ingest logs from your AWS Lambda functions.</p>
+<hr />
+<doc-anchor-target id="how-it-works">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
+        <span>How it works</span>
+    </h2>
+</doc-anchor-target>
+<p>The following diagram illustrates the process for sending AWS Lambda logs to Baselime. Once Baselime is connected to an AWS Account, it automatically creates Logs subscription filters for all the Lambda functions in the account. Log subscription filters enable Baselime to asynchronously ingest logs from the Lambda functions through CloudWatch, without any impact on the performance of the Lambda functions.</p>
+<p><figure class="content-center">
+    <img src="../../assets/images/illustrations/sending-data/lambda-logs.png" alt="Sending Lambda Logs to Baselime" />
+    <figcaption class="caption">Sending Lambda Logs to Baselime</figcaption>
+</figure>
+</p>
+<p>Moreover, Baselime automatically creates new subscription filters for newly deployed Lambda functions, thanks to it CloudTrail integration. Baselime listens to new Lambda events in CloudTrail and appropriately creates subscription filters for newly created Lambda functions.</p>
+<p>This method however has one drawback: Lambda logs appear in Baselime with a delay (typically less than 3 seconds) as a results of the logs going through CloudWatch before being piped to Baselime.</p>
+<p>An alternative method to ingesting AWS Lambda logs is with the use of the <a href="../lambda-extension/">Baselime Lambda Extension</a>.</p>
 <hr />
 <doc-anchor-target id="discovered-keys">
     <h2>
@@ -363,6 +381,19 @@
   @message: &quot;Error doing something.&quot;
 } </code></pre>
 </doc-codeblock></div>
+<hr />
+<doc-anchor-target id="troubleshooting">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#troubleshooting">#</doc-anchor-trigger>
+        <span>Troubleshooting</span>
+    </h2>
+</doc-anchor-target>
+<p>If you&#x27;re having trouble sending data from your AWS Lambda logs to Baselime, here are a few things to check:</p>
+<ul>
+<li>Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as <a href="../cloudwatch-metrics/">CloudWatch Metrics</a> or <a href="../cloudtrail/">CloudTrail Events</a></li>
+<li>Check that your Lambda functions are not already using the maximum number of subscription filters allowed per log group. AWS limits each log group to 2 subscription filters at most. If you&#x27;re already at the limit, you can remove subscription filters with the <a href="https://github.com/baselime/cloudwatch-subscription-filters-remover">cloudwatch-subscription-filters-remover</a> to delete the ones you don&#x27;t need anymore.</li>
+<li>Make sure that your AWS Lambda functions are being invoked and you can view the logs in the CloudWatch section of the AWS Console</li>
+</ul>
 
                                 
                                 <!-- Required only on API pages -->
@@ -378,11 +409,11 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/events-api/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/overview/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Events API</span>
+                                                <span class="block mt-1">Overview</span>
                                             </span>
                                         </a>
                                     </div>
@@ -391,7 +422,7 @@
                                         <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/ecs-logs/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Amazon ECS</span>
+                                                <span class="block mt-1">Amazon ECS Fargate Container Logs</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -435,7 +466,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "AWS Lambda", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "AWS Lambda Logs", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>

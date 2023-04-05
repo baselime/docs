@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.733849038007">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734017516551">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>AWS X-Ray | Baselime - Observability for Serverless</title>
-    <meta name="title" content="AWS X-Ray | Baselime - Observability for Serverless">
+    <title>AWS X-Ray Traces | Baselime - Observability for Serverless</title>
+    <meta name="title" content="AWS X-Ray Traces | Baselime - Observability for Serverless">
     <meta name="description" content="AWS X-Ray enables developers to gather traces across their distributed services." />
 
     <!-- Canonical -->
@@ -19,23 +19,25 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.baselime.io/sending-data/xray/">
-    <meta property="og:title" content="AWS X-Ray | Baselime - Observability for Serverless">
+    <meta property="og:title" content="AWS X-Ray Traces | Baselime - Observability for Serverless">
     <meta property="og:description" content="AWS X-Ray enables developers to gather traces across their distributed services.">
+    <meta property="og:image" content="https://docs.baselime.io/assets/images/illustrations/sending-data/xray.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.baselime.io/sending-data/xray/">
-    <meta property="twitter:title" content="AWS X-Ray | Baselime - Observability for Serverless">
+    <meta property="twitter:title" content="AWS X-Ray Traces | Baselime - Observability for Serverless">
     <meta property="twitter:description" content="AWS X-Ray enables developers to gather traces across their distributed services.">
+    <meta property="twitter:image" content="https://docs.baselime.io/assets/images/illustrations/sending-data/xray.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.733849038007" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.734017516551" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.733849038007" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734017516551" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.733849038007" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734017516551" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="docs.baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -192,29 +194,27 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="aws-x-ray" class="break-words">
+<doc-anchor-target id="aws-x-ray-traces" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#aws-x-ray">#</doc-anchor-trigger>
-        <span>AWS X-Ray</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#aws-x-ray-traces">#</doc-anchor-trigger>
+        <span>AWS X-Ray Traces</span>
     </h1>
 </doc-anchor-target>
-<p><a href="https://aws.amazon.com/xray/">AWS X-Ray</a> enables developers to gather traces across their distributed services. In order to gain visibility into their applications, developers can use X-Ray to trace requests as they travel through their application, and collect data about the performance and errors of their application. Baselime enables you to easily ingest this data and make it available for analysis and troubleshooting.</p>
+<p><a href="https://aws.amazon.com/xray/">AWS X-Ray</a> enables developers to gather traces across their distributed services. In order to gain visibility into their applications, developers can use X-Ray to trace requests as they travel through their application, and collect data about the performance and errors of their application.</p>
+<p>Baselime enables you to easily ingest this tracing data and make it available for analysis and troubleshooting.</p>
 <hr />
-<doc-anchor-target id="setting-up-the-aws-x-ray-connection">
+<doc-anchor-target id="how-it-works">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#setting-up-the-aws-x-ray-connection">#</doc-anchor-trigger>
-        <span>Setting up the AWS X-Ray Connection</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
+        <span>How it works</span>
     </h2>
 </doc-anchor-target>
 <p>To start ingesting traces from AWS X-Ray to Baselime, you&#x27;ll need to <a href="../../">connect your AWS account to Baselime</a>. Once connected, Baselime will periodically poll your AWS account for new traces and automatically ingest them into your Baselime dataset.</p>
-<hr />
-<doc-anchor-target id="analyzing-x-ray-traces-in-baselime">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#analyzing-x-ray-traces-in-baselime">#</doc-anchor-trigger>
-        <span>Analyzing X-Ray Traces in Baselime</span>
-    </h2>
-</doc-anchor-target>
-<p>Once your X-Ray traces are in Baselime, you can analyze them using the full power of the <a href="../../observability-reference-language/overview/">Observability Reference Language (ORL)</a>. You can use this data to create queries, alerts, dashboards, and troubleshoot defects in your services.</p>
+<p><figure class="content-center">
+    <img src="../../assets/images/illustrations/sending-data/xray.png" alt="Sending X-Ray Traces to Baselime" />
+    <figcaption class="caption">Sending X-Ray Traces to Baselime</figcaption>
+</figure>
+</p>
 <hr />
 <doc-anchor-target id="troubleshooting">
     <h2>
@@ -243,11 +243,11 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/ecs-logs/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/otel/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Amazon ECS</span>
+                                                <span class="block mt-1">Open​Telemetry Traces</span>
                                             </span>
                                         </a>
                                     </div>
@@ -300,7 +300,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "AWS X-Ray", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "AWS X-Ray Traces", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
