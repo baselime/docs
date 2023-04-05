@@ -1,23 +1,21 @@
 ---
-label: AWS X-Ray
-order: -2
+label: AWS X-Ray Traces
+order: -4
 ---
 
-# AWS X-Ray
+# AWS X-Ray Traces
 
-[AWS X-Ray](https://aws.amazon.com/xray/) enables developers to gather traces across their distributed services. In order to gain visibility into their applications, developers can use X-Ray to trace requests as they travel through their application, and collect data about the performance and errors of their application. Baselime enables you to easily ingest this data and make it available for analysis and troubleshooting.
+[AWS X-Ray](https://aws.amazon.com/xray/) enables developers to gather traces across their distributed services. In order to gain visibility into their applications, developers can use X-Ray to trace requests as they travel through their application, and collect data about the performance and errors of their application.
+
+Baselime enables you to easily ingest this tracing data and make it available for analysis and troubleshooting.
 
 ---
 
-## Setting up the AWS X-Ray Connection
+## How it works
 
 To start ingesting traces from AWS X-Ray to Baselime, you'll need to [connect your AWS account to Baselime](../readme.md). Once connected, Baselime will periodically poll your AWS account for new traces and automatically ingest them into your Baselime dataset.
 
----
-
-## Analyzing X-Ray Traces in Baselime
-
-Once your X-Ray traces are in Baselime, you can analyze them using the full power of the [Observability Reference Language (ORL)](../observability-reference-language/overview.md). You can use this data to create queries, alerts, dashboards, and troubleshoot defects in your services.
+![Sending X-Ray Traces to Baselime](../assets/images/illustrations/sending-data/xray.png)
 
 ---
 

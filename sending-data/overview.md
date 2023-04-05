@@ -6,17 +6,19 @@ order: 1
 # Sending Data to Baselime
 
 
-Baselime supports a variety of data sources, including logs, metrics, traces, and events. With just a few steps, you can start sending your data to Baselime and gain valuable insights into the performance and reliability of your serverless applications.
+Baselime supports a variety of data sources, including logs, metrics, traces, and events. You can start sending your data to Baselime and gain valuable insights into the performance and reliability of your serverless applications with a few steps.
 
 You can send your telemetry data to Baselime with either of:
 
-- [Events API](./events-api.md)
-- [AWS Lambda Logs](./lambda-logs.md)
-- [Amazon ECS Logs](./ecs-logs.md)
-- [AWS X-Ray](./xray.md)
-- [CloudTrail Events](./cloudtrail)
-- [CloudWatch Metrics](./cloudwatch-metrics.md)
-- [OpenTelemetry (Coming Soon)](./otel.md)
+[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./lambda-logs.md)
+[!ref icon="../assets/images/logos/logo_ecs_logs.png"](./ecs-logs.md)
+[!ref icon="../assets/images/logos/logo_aws_apigateway.png"](./apigateway-logs.md)
+[!ref icon="../assets/images/logos/logo_open_telemetry.png"](./otel.md)
+[!ref icon="../assets/images/logos/logo_xray.png"](./xray.md)
+[!ref icon="../assets/images/logos/logo_cloudtrail.png"](./cloudtrail.md)
+[!ref icon="../assets/images/logos/logo_cloudwatch.png"](./cloudwatch-metrics.md)
+[!ref icon="../assets/images/logos/http_flat@3x.png"](./events-api.md)
+[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./lambda-extension.md)
 
 ---
 

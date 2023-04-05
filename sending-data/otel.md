@@ -1,9 +1,9 @@
 ---
-label: OpenTelemetry
-order: -5
+label: OpenTelemetry Traces
+order: -3
 ---
 
-# OpenTelemetry
+# OpenTelemetry Traces
 
 ---
 

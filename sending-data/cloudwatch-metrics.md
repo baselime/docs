@@ -1,6 +1,6 @@
 ---
 label: CloudWatch Metrics
-order: -4
+order: -6
 ---
 
 # CloudWatch Metrics
@@ -17,6 +17,15 @@ CloudWatch Metrics can help you identify issues such as high error rates and lat
 
 Moreover, CloudWatch Metrics cover all aspects of your serverless architecture automatically, from DynamoDB tables to S3 buckets and SQS Queues.
 
+---
+
+## How it works
+
+The following diagram illustrates the process for sending Amazon CloudWatch metrics to Baselime. Once Baselime is connected to an AWS Account, it automatically created the telemetry pipeline for ingesting CloudWatch metrics into Baselime. The pipeline comprises a CloudWatch Metrics Stream, a Kinesis Firehose and all IAM roles and permissions associated.
+
+This pipeline will automatically continiously send metrics from your AWS account to Baselime.
+
+![Sending CloudWatch Metrics to Baselime](../assets/images/illustrations/sending-data/metrics.png)
 
 ---
 
@@ -26,8 +35,18 @@ Baselime automatically ingests all metrics published to CloudWatch. This include
 
 There is no need to manually configure or set up anything to start ingesting custom CloudWatch metrics. Once your AWS account is connected, all metrics will be available for querying in Baselime.
 
+
 ---
 
 ## Querying CloudWatch Metrics
 
 Once your AWS account is connected to Baselime, you can use any of the our clients to visualize and query your CloudWatch Metrics. You'll have access to all the metrics available in your AWS account, and you can use the [Observability Reference Language (ORL)](../observability-reference-language/overview.md) to filter and aggregate the data in near real-time.
+
+---
+
+## Troubleshooting
+
+If you're having trouble sending metrics from CloudWatch to Baselime, here are a few things to check:
+
+- Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as [AWS Lambda Logs](./lambda-logs.md) or [CloudTrail Events](./cloudtrail.md)
+- Check that the Kinesis Firehose created in your AWS account as part of the Baselime connection has the appropriate API key to connect with the Baselime backend. If the API key is missing, please contact us.

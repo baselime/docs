@@ -1,12 +1,26 @@
 ---
-label: AWS Lambda
-order: -1
+label: AWS Lambda Logs
+order: 0
 ---
 
-# AWS Lambda
+# AWS Lambda Logs
 
 
 Once you connect your AWS account to Baselime, Baselime automatically create [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html) to automatically ingest logs from your AWS Lambda functions.
+
+---
+
+## How it works
+
+The following diagram illustrates the process for sending AWS Lambda logs to Baselime. Once Baselime is connected to an AWS Account, it automatically creates Logs subscription filters for all the Lambda functions in the account. Log subscription filters enable Baselime to asynchronously ingest logs from the Lambda functions through CloudWatch, without any impact on the performance of the Lambda functions. 
+
+![Sending Lambda Logs to Baselime](../assets/images/illustrations/sending-data/lambda-logs.png)
+
+Moreover, Baselime automatically creates new subscription filters for newly deployed Lambda functions, thanks to it CloudTrail integration. Baselime listens to new Lambda events in CloudTrail and appropriately creates subscription filters for newly created Lambda functions. 
+
+This method however has one drawback: Lambda logs appear in Baselime with a delay (typically less than 3 seconds) as a results of the logs going through CloudWatch before being piped to Baselime.
+
+An alternative method to ingesting AWS Lambda logs is with the use of the [Baselime Lambda Extension](./lambda-extension.md).
 
 ---
 
@@ -129,3 +143,13 @@ If the message in `@message` is a valid JSON object, Baselime will parse it, oth
   @message: "Error doing something."
 } 
 ```
+
+---
+
+## Troubleshooting
+
+If you're having trouble sending data from your AWS Lambda logs to Baselime, here are a few things to check:
+
+- Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as [CloudWatch Metrics](./cloudwatch-metrics.md) or [CloudTrail Events](./cloudtrail.md)
+- Check that your Lambda functions are not already using the maximum number of subscription filters allowed per log group. AWS limits each log group to 2 subscription filters at most. If you're already at the limit, you can remove subscription filters with the [cloudwatch-subscription-filters-remover](https://github.com/baselime/cloudwatch-subscription-filters-remover) to delete the ones you don't need anymore.
+- Make sure that your AWS Lambda functions are being invoked and you can view the logs in the CloudWatch section of the AWS Console

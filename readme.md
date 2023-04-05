@@ -7,6 +7,7 @@ order: 0
 
 ---
 
+
 Welcome to Baselime! This quickstart guide will help you get up and running with the platform in just a few steps.
 
 
@@ -15,7 +16,9 @@ All you need is:
 - Permissions to deploy a [CloudFormation](https://aws.amazon.com/cloudformation/) stack with IAM role.
 - A deployed application leveraging [AWS Lambda](https://aws.amazon.com/lambda/) and other [AWS serverless services](https://aws.amazon.com/serverless/)
 
-If you do not have a deployed application, you can use one of our [example applications](https://github.com/Baselime/examples).
+If you do not have a deployed application, you can use our [example pokedex](https://github.com/baselime/pokedex).
+
+![Baselime in your ecosystem](./assets/images/illustrations/index.png)
 
 ---
 
