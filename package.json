@@ -1,23 +1,22 @@
 {
   "name": "docs",
-  "version": "1.0.0",
-  "description": "--- label: Quickstart order: 0 ---",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "npx retype watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "retype build",
+    "deploy": "sst deploy --stage prod"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Baselime/docs.git"
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.15.11",
+    "aws-cdk-lib": "2.72.1",
+    "constructs": "10.1.156",
+    "retypeapp": "^2.4.0",
+    "sst": "^2.5.1",
+    "typescript": "^5.0.4"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Baselime/docs/issues"
-  },
-  "homepage": "https://github.com/Baselime/docs#readme",
-  "dependencies": {
-    "retypeapp": "^2.4.0"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }
