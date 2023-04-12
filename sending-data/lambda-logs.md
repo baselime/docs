@@ -30,6 +30,73 @@ Baselime automatically discovers key - value pairs from your AWS Lambda logs. Th
 
 ---
 
+## Instrumentation
+
+By default this instrumentation is agentless but if you want to see your request and response data in baselime you can install our SDK. 
+
+```bash
+npm i @baselime/lambda-logger
+```
+
+Its just a 2.5kb javascript file with 0 dependencies so adds minimal overhead to your lambda function.
+
+### Usage
+
+```javascript
+const { wrap } = require('@baselime/lambda-logger');
+
+exports.handler = wrap(async (event, context) => {
+   
+});
+``` 
+
+
+It also exports a middy middleware 
+
+
+```javascript
+import { logger, Baselime } from "@baselime/lambda-logger";
+import middy from "@middy/core";
+
+exports.handler = middy()
+	.use(Baselime())
+	.handler(function (e, context) {
+		
+	});
+```
+
+### Logging best practices
+
+Baselime works best when you log JSON, The [@baselime/lambda-logger](https://github.com/baselime/lambda-logger) helps you do this.
+
+```javascript
+console.log(JSON.stringify({ message: "This log is awesome", level: "info", data: { customer_id: "cus_1234", accountType: "premium" }}));
+```
+
+and with the baselime logger
+
+```javascript
+import { logger } from "@baselime/lambda-logger";
+
+logger.info("This log is awesome", { customer_id: "cus_1234", accountType: "premium" });
+```
+
+Its also important you format errors correctly to make sure you can find all the information you need to make your queries.
+
+```javascript
+const error = new Error("A message for the error");
+
+console.log(JSON.stringify({ message: "Unfortunately something went wrong", level: "error", data: { customer_id: "cus_1234", accountType: "premium", errorMessage: error.message, errorType: error.name, stackTrace: error.stack  }}));
+```
+
+with the baselime logger this is simpler
+
+```javascript
+import { logger } from "@baselime/lambda-logger";
+
+logger.info("Unfortunately something went wrong", { customer_id: "cus_1234", accountType: "premium" }, error);
+```
+
 ### Lambda Discovered Keys
 
 The Lambda service automatically writes logs at the start and end of every function invocation. These logs are parsed as events in Baselime, and keys are automatically discovered from those messages.
