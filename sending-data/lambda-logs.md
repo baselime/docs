@@ -32,7 +32,21 @@ Baselime automatically discovers key - value pairs from your AWS Lambda logs. Th
 
 ## Instrumentation
 
-By default this instrumentation is agentless but if you want to see your request and response data in baselime you can install our SDK. 
+By default this instrumentation is agentless but if you want to see your request and response data in baselime you can either add the following logs to your lambdas
+
+```javascript
+exports.handler = async (event, context) => {
+  console.log(JSON.stringify({ message: "baselime:trigger", level: "baselime", data: { event }));
+
+  const response = await yourLogic();
+
+  console.log(JSON.stringify({ message: "baselime:response", level: "baselime", data: { response }));
+  return response;
+});
+```
+
+
+or alternatively install our SDK. 
 
 ```bash
 npm i @baselime/lambda-logger
@@ -62,12 +76,12 @@ exports.handler = middy()
 	.use(Baselime())
 	.handler(function (e, context) {
 		
-	});
+	});baselime 
 ```
 
 ### Logging best practices
 
-Baselime works best when you log JSON, The [@baselime/lambda-logger](https://github.com/baselime/lambda-logger) helps you do this.
+Baselime works best when you log JSON, The [@baselime/lambda-logger](https://github.com/baselime/lambda-logger) helps you do this but you can also use [Lambda Power Tools](https://github.com/awslabs?q=lambda-powertools&type=all&language=&sort=stargazers) for your favourite language.
 
 ```javascript
 console.log(JSON.stringify({ message: "This log is awesome", level: "info", data: { customer_id: "cus_1234", accountType: "premium" }}));

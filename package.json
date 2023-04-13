@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "retype watch",
     "build": "retype build",
     "deploy": "sst deploy --stage prod"
   },
