@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734633813936">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734709595252">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -34,12 +34,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.734633813936" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.734709595252" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734633813936" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734709595252" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734633813936" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.734633813936" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734709595252" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.734709595252" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -234,7 +234,18 @@
         <span>Instrumentation</span>
     </h2>
 </doc-anchor-target>
-<p>By default this instrumentation is agentless but if you want to see your request and response data in baselime you can install our SDK.</p>
+<p>By default this instrumentation is agentless but if you want to see your request and response data in baselime you can either add the following logs to your lambdas</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">exports.handler = async (event, context) =&gt; {
+  console.log(JSON.stringify({ message: &quot;baselime:trigger&quot;, level: &quot;baselime&quot;, data: { event }));
+
+  const response = await yourLogic();
+
+  console.log(JSON.stringify({ message: &quot;baselime:response&quot;, level: &quot;baselime&quot;, data: { response }));
+  return response;
+});</code></pre>
+</doc-codeblock></div>
+<p>or alternatively install our SDK.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">npm i @baselime/lambda-logger</code></pre>
 </doc-codeblock></div>
@@ -261,7 +272,7 @@ exports.handler = middy()
 	.use(Baselime())
 	.handler(function (e, context) {
 		
-	});</code></pre>
+	});baselime </code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="logging-best-practices">
     <h3>
@@ -269,7 +280,7 @@ exports.handler = middy()
         <span>Logging best practices</span>
     </h3>
 </doc-anchor-target>
-<p>Baselime works best when you log JSON, The <a href="https://github.com/baselime/lambda-logger">@baselime/lambda-logger</a> helps you do this.</p>
+<p>Baselime works best when you log JSON, The <a href="https://github.com/baselime/lambda-logger">@baselime/lambda-logger</a> helps you do this but you can also use <a href="https://github.com/awslabs?q=lambda-powertools&amp;type=all&amp;language=&amp;sort=stargazers">Lambda Power Tools</a> for your favourite language.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-javascript"><code v-pre class="language-javascript">console.log(JSON.stringify({ message: &quot;This log is awesome&quot;, level: &quot;info&quot;, data: { customer_id: &quot;cus_1234&quot;, accountType: &quot;premium&quot; }}));</code></pre>
 </doc-codeblock></div>
