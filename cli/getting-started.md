@@ -26,6 +26,11 @@ Once you have the Baselime CLI installed and your AWS Account connected, you're 
 
 ---
 
+
+## Connecting to GIT
+
+We recommend that your OAC lives in git with your source code. To sync the pregenerated queries and dashboards from your local machine run `baselime pull` if it detects that the service has not been initialised locally yet the cli will prompt you to select the service from a list of all your services. Once you have selected it will download all the queries, alerts, and dashboards locally. 
+
 ## Next Steps
 
 Now that you've gotten your feet wet with the Baselime CLI, you can learn more about the other commands and features available. Here are a few places to start:

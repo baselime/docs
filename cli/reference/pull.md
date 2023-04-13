@@ -4,7 +4,7 @@ label: pull
 
 # baselime pull
 
-Use the `baselime pull` command to update local observability as code configurations with the latest state from the remote systems.
+Use the `baselime pull` command to update local observability as code configurations with the latest state from the remote systems. If the service has not been initialised locally yet then the cli will prompt you to select a service and download everything to your machine.
 
 ```bash :icon-terminal: terminal
 baselime pull
