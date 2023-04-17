@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735041126642">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735073567553">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,12 +32,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../resources/css/retype.css?v=2.4.0.735041126642" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.735073567553" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.735041126642" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.735073567553" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.735041126642" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.735041126642" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.735073567553" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.735073567553" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -201,6 +201,60 @@
     </h1>
 </doc-anchor-target>
 <p>ORL (Observability Reference Language) queries are used to retrieve and analyze data from various datasets in order to gain insights and improve observability of systems and services.</p>
+<hr />
+<doc-anchor-target id="sample-query-spec">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-query-spec">#</doc-anchor-trigger>
+        <span>Sample Query Spec</span>
+    </h2>
+</doc-anchor-target>
+<p>Here’s a sample ORL spec that uses all of the supported settings for defining queries in Baselime. Use it to get started creating your own queries.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">errors-latency-p95:
+  # This is a query type definition
+  type: query
+  properties:
+    # Provide a description for the query
+    description: &gt; 
+      Computes the average request duration, maximum response size, and
+      p95 requestLatency for each user ID in the otel traces dataset, filtered
+      to only include user IDs with a request duration greater than 500ms, up to
+      100 users.
+    parameters:
+      # Specify the datasets to be queried
+      datasets:
+        - otel
+      # Define the calculations to be performed on the data
+      calculations:
+        - AVG(event.duration)
+        - MAX(event.response.size)
+        - P95(event.duration)
+        - COUNT
+      # Define filters to be applied to the data
+      filters:
+        - event.duration &gt; 500
+      # Specify how the data should be grouped
+      groupBy:
+        type: string
+        # Group the data by user ID
+        value: event.attributes.userId
+        # Limit the results to 100 users
+        limit: 100
+        # Order the results by average request duration
+        orderBy: AVG(event.duration)
+        # Sort the results in descending order
+        order: DESC
+      # Define a needle to search for errors
+      needle:
+        # Specify the value to search for
+        value: error
+        # Indicate that this is not a regular expression
+        isRegex: false
+        # Match the case of the search term
+        matchCase: true</code></pre>
+</doc-codeblock></div>
+<hr />
 <doc-anchor-target id="properties">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#properties">#</doc-anchor-trigger>
@@ -208,19 +262,6 @@
     </h2>
 </doc-anchor-target>
 <p>ORL queries have a set of properties that define the query&#x27;s characteristics and behavior.</p>
-<doc-anchor-target id="name-optional">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#name-optional">#</doc-anchor-trigger>
-        <span>name (optional)</span>
-    </h3>
-</doc-anchor-target>
-<p>The <code v-pre>name</code> of the ORL query is a string used to identify the query. It can be a human-readable name that describes the purpose of the query.</p>
-<p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">name: Average request duration by user ID</code></pre>
-</doc-codeblock></div>
-<hr />
 <doc-anchor-target id="description-optional">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#description-optional">#</doc-anchor-trigger>
@@ -385,7 +426,6 @@
 <pre class="language-yaml"><code v-pre class="language-yaml">errors-latency-p95:
   type: query
   properties:
-    name: Errors with Latency P95
     description: &gt; 
       Computes the average request duration, maximum response size, and
       p95 requestLatency for each user ID in the otel traces dataset, filtered
@@ -398,6 +438,7 @@
         - AVG(event.duration)
         - MAX(event.response.size)
         - P95(event.duration)
+        - COUNT
       filters:
         - event.duration &gt; 500
       groupBy:
@@ -417,7 +458,6 @@
 <pre class="language-yaml"><code v-pre class="language-yaml">dynamodb-consumed-read-capacity-units-by-table:
   type: query
   properties:
-    name: DynamoDB Consumed Read Capacity Units by Table
     description: Computes the total consumed read capacity units for each table in the CloudWatch metrics dataset.
     parameters:
       datasets:

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735041126642">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735073567553">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,12 +32,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../resources/css/retype.css?v=2.4.0.735041126642" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.735073567553" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.735041126642" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.735073567553" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.735041126642" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.735041126642" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.735073567553" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.735073567553" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -219,6 +219,52 @@
         </div>
     </div>
 </div>
+<hr />
+<doc-anchor-target id="sample-service-spec">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-service-spec">#</doc-anchor-trigger>
+        <span>Sample Service Spec</span>
+    </h2>
+</doc-anchor-target>
+<p>Here’s a sample ORL spec that uses all of the supported settings for defining a service in Baselime. Use it to get started creating your own services.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml"># Define the version of this service
+version: 0.0.15
+# Define the name of the service
+service: MyMicroservices
+# Provide a description of the service
+description: My microservices architecture hosted on AWS
+# Define the service provider
+provider: aws
+# Define the infrastructure for the service
+infrastructure:
+  # Define the list of stacks for the service
+  stacks:
+    # The name of the first stack for this service
+    - microservice-1-stack
+    # The name of the second stack for this service
+    - microservice-2-stack
+    # The name of the stack for the database
+    - database-stack
+# Define the templates for the service
+templates:
+  # The name of the first template
+  - baselime/lambda-logs-basics
+  # The name of the second template
+  - baselime/dynamodb-db-metrics-basics
+  # The name of the third template
+  - baselime/s3-metrics-basics
+# Define variables for the service
+variables:
+  # Define a variable called &quot;threshold&quot;
+  threshold:
+    # Set the default value for the &quot;threshold&quot; variable
+    default: '&gt; 50'
+    # Set a specific value for the &quot;threshold&quot; variable in the &quot;prod&quot; environment
+    prod: '&gt; 60'</code></pre>
+</doc-codeblock></div>
+<hr />
 <doc-anchor-target id="properties">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#properties">#</doc-anchor-trigger>
@@ -252,10 +298,10 @@
 <pre class="language-yaml"><code v-pre class="language-yaml">service: demo</code></pre>
 </doc-codeblock></div>
 <hr />
-<doc-anchor-target id="description-required">
+<doc-anchor-target id="description-optional">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#description-required">#</doc-anchor-trigger>
-        <span>description (required)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#description-optional">#</doc-anchor-trigger>
+        <span>description (optional)</span>
     </h3>
 </doc-anchor-target>
 <p>The <code v-pre>description</code> property is a string that provides more information about the service. It can include details about the purpose of the service, the components it includes, and any other relevant information.</p>
@@ -285,29 +331,6 @@
 <pre class="language-yaml"><code v-pre class="language-yaml">provider: aws</code></pre>
 </doc-codeblock></div>
 <hr />
-<doc-anchor-target id="infrastructure-optional">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#infrastructure-optional">#</doc-anchor-trigger>
-        <span>infrastructure (optional)</span>
-    </h3>
-</doc-anchor-target>
-<p>The <code v-pre>infrastructure</code> property is an object that specifies the cloud infrastructure for the service. It has the following properties:</p>
-<doc-anchor-target id="stacks-optional">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#stacks-optional">#</doc-anchor-trigger>
-        <span>stacks (optional)</span>
-    </h4>
-</doc-anchor-target>
-<p>The <code v-pre>stacks</code> property is an array of strings that specifies the CloudFormation stacks that are part of the service. Baselime will automatically find all the cloud resources in the specified stacks and limit all observability rules (queries, alerts, etc.) to these stacks. If the stacks property is not specified, Baselime will include all cloud resources in the environment.</p>
-<p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/index.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">infrastructure:
-  stacks:
-    - cloudformation-stack-1
-    - cloudformation-stack-2</code></pre>
-</doc-codeblock></div>
-<hr />
 <doc-anchor-target id="templates-optional">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#templates-optional">#</doc-anchor-trigger>
@@ -326,10 +349,10 @@
   - workspace-2/template-7</code></pre>
 </doc-codeblock></div>
 <hr />
-<doc-anchor-target id="variables">
+<doc-anchor-target id="variables-optional">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#variables">#</doc-anchor-trigger>
-        <span>variables</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#variables-optional">#</doc-anchor-trigger>
+        <span>variables (optional)</span>
     </h3>
 </doc-anchor-target>
 <p>The <code v-pre>variables</code> property is an object that enables you to define variables that can be used in the ORL queries and alerts within the service. These variables can be used to parameterize the ORL queries and alerts and make them more flexible and reusable.</p>
@@ -393,10 +416,6 @@
 service: MyWebApp
 description: My web application hosted on AWS
 provider: aws
-infrastructure:
-  stacks:
-    - webapp-stack
-    - database-stack
 templates:
   - baselime/lambda-logs-basics
   - workspace-name/template-name
@@ -417,11 +436,6 @@ variables:
 service: MyMicroservices
 description: My microservices architecture hosted on AWS
 provider: aws
-infrastructure:
-  stacks:
-    - microservice-1-stack
-    - microservice-2-stack
-    - database-stack
 templates:
   - baselime/lambda-logs-basics
   - baselime/dynamodb-db-metrics-basics

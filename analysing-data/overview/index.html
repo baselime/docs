@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735041126642">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735073567553">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>Analyzing Data in Baselime | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Analyzing Data in Baselime | Baselime - Observability for Serverless">
-    <meta name="description" content="Baselime provides a variety of tools and clients for analyzing your data and gaining insights into your serverless system's performance and behavior." />
+    <title>Baselime Service Discovery | Baselime - Observability for Serverless</title>
+    <meta name="title" content="Baselime Service Discovery | Baselime - Observability for Serverless">
+    <meta name="description" content="Baselime's Service Discovery enables you to automatically discover services in your AWS account, and organize logs, metrics, traces, and other..." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/analysing-data/overview/" />
@@ -20,23 +20,25 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/analysing-data/overview/">
-    <meta property="og:title" content="Analyzing Data in Baselime | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Baselime provides a variety of tools and clients for analyzing your data and gaining insights into your serverless system's performance and behavior.">
+    <meta property="og:title" content="Baselime Service Discovery | Baselime - Observability for Serverless">
+    <meta property="og:description" content="Baselime's Service Discovery enables you to automatically discover services in your AWS account, and organize logs, metrics, traces, and other...">
+    <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/analyzing-data/service-list.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/analysing-data/overview/">
-    <meta property="twitter:title" content="Analyzing Data in Baselime | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Baselime provides a variety of tools and clients for analyzing your data and gaining insights into your serverless system's performance and behavior.">
+    <meta property="twitter:title" content="Baselime Service Discovery | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="Baselime's Service Discovery enables you to automatically discover services in your AWS account, and organize logs, metrics, traces, and other...">
+    <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/analyzing-data/service-list.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.735041126642" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.735073567553" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.735041126642" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.735073567553" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.735041126642" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.735073567553" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -193,20 +195,39 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="analyzing-data-in-baselime" class="break-words">
+<doc-anchor-target id="baselime-service-discovery" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#analyzing-data-in-baselime">#</doc-anchor-trigger>
-        <span>Analyzing Data in Baselime</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-service-discovery">#</doc-anchor-trigger>
+        <span>Baselime Service Discovery</span>
     </h1>
 </doc-anchor-target>
-<p>Baselime provides a variety of tools and clients for analyzing your data and gaining insights into your serverless system&#x27;s performance and behavior.</p>
-<ul>
-<li><a href="../queries/">Queries</a></li>
-<li><a href="../alerts/">ALerts</a></li>
-<li><a href="../tail/">Live tailing</a></li>
-<li><a href="../snapshots/">Snapshots</a></li>
-<li><a href="../reports/">Reports</a></li>
-</ul>
+<p>Baselime&#x27;s Service Discovery enables you to automatically discover services in your AWS account, and organize logs, metrics, traces, and other telemetry data into services. This helps you to organize your telemetry data around services, create boundaries between services and teams, and make queries much faster.</p>
+<p>This guide provides an overview of the Baselime Service Discovery, and how it can help you manage your serverless application more effectively.</p>
+<hr />
+<doc-anchor-target id="discovering-services">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#discovering-services">#</doc-anchor-trigger>
+        <span>Discovering Services</span>
+    </h2>
+</doc-anchor-target>
+<p>Baselime automatically discovers Lambda functions, API Gateway endpoints, SQS queues, and all other serverless resources in your AWS account. Each resource is associated. The association is done through CloudFormation. All resource belonging to the same CloudFormation stack or group of stacks (if using the sst framework for example) will be grouped in the same service.</p>
+<p>Baselime then groups the telemetry data generated by these resources into services.</p>
+<p>You can view the list of discovered services in the Baselime dashboard, as shown in the screenshot below:</p>
+<p><figure class="content-center">
+    <img src="../../assets/images/illustrations/analyzing-data/service-list.png" alt="Services list in the Baselime console" />
+    <figcaption class="caption">Services list in the Baselime console</figcaption>
+</figure>
+</p>
+<p>Each service in the list provides an overview of the telemetry data that is available for that service, including logs, metrics, and traces. You can click on a service to view more detailed information about the service, such as the resources associated with the service, and query the telemetry data generated by those resources.</p>
+<p>Services also enable you to organise your queries, alerts and dashboards within services.</p>
+<hr />
+<doc-anchor-target id="querying-telemetry-data">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#querying-telemetry-data">#</doc-anchor-trigger>
+        <span>Querying Telemetry Data</span>
+    </h2>
+</doc-anchor-target>
+<p>Baselime&#x27;s Service Discovery also makes querying much faster. Instead of searching through a large amount of data to find the information you need, you can simply query the data for a specific service. This accelerate your debugging and makes it easier to identify issues and troubleshoot problems in your application.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -279,7 +300,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Overview", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Baselime Service Discovery", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
