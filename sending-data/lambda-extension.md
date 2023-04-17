@@ -1,5 +1,5 @@
 ---
-label: Lambda Telemetry Extension
+label: AWS Lambda Telemetry Extension
 order: -3
 ---
 

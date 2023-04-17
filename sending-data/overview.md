@@ -1,5 +1,5 @@
 ---
-label: Overview
+label: Sending Data to Baselime
 order: 1
 ---
 
@@ -13,18 +13,18 @@ You can send your telemetry data to Baselime with either of:
 [!ref icon="../assets/images/logos/logo_aws_lambda.png"](./lambda-logs.md)
 [!ref icon="../assets/images/logos/logo_ecs_logs.png"](./ecs-logs.md)
 [!ref icon="../assets/images/logos/logo_aws_apigateway.png"](./apigateway-logs.md)
+[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./lambda-extension.md)
 [!ref icon="../assets/images/logos/logo_open_telemetry.png"](./otel.md)
 [!ref icon="../assets/images/logos/logo_xray.png"](./xray.md)
 [!ref icon="../assets/images/logos/logo_cloudtrail.png"](./cloudtrail.md)
 [!ref icon="../assets/images/logos/logo_cloudwatch.png"](./cloudwatch-metrics.md)
 [!ref icon="../assets/images/logos/http_flat@3x.png"](./events-api.md)
-[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./lambda-extension.md)
 
 ---
 
 ## Validation
 
-Baselime has a size limit for events of `128kb`. This size limit helps ensure that the ingestion process is efficient and that the data stored in Baselime is manageable and fast to query. If an event exceeds this `128kb` size limit, it will not be ingested into Baselime.
+Baselime has a size limit for events of `256kb`. This size limit helps ensure that the ingestion process is efficient and that the data stored in Baselime is manageable and fast to query. If an event exceeds this `256kb` size limit, it will not be ingested into Baselime.
 
 --- 
 ## Sending Semi-Structured Logs to Baselime

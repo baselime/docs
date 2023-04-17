@@ -11,6 +11,51 @@ ORL (Observability Reference Language) services are used to organize and manage 
 Note that the service must be defined in the madatory `index.yml` file in the `.baselime` folder.
 !!!
 
+---
+
+## Sample Service Spec
+
+Here’s a sample ORL spec that uses all of the supported settings for defining a service in Baselime. Use it to get started creating your own services.
+
+``` yaml # :icon-code: .baselime/resources.yml
+# Define the version of this service
+version: 0.0.15
+# Define the name of the service
+service: MyMicroservices
+# Provide a description of the service
+description: My microservices architecture hosted on AWS
+# Define the service provider
+provider: aws
+# Define the infrastructure for the service
+infrastructure:
+  # Define the list of stacks for the service
+  stacks:
+    # The name of the first stack for this service
+    - microservice-1-stack
+    # The name of the second stack for this service
+    - microservice-2-stack
+    # The name of the stack for the database
+    - database-stack
+# Define the templates for the service
+templates:
+  # The name of the first template
+  - baselime/lambda-logs-basics
+  # The name of the second template
+  - baselime/dynamodb-db-metrics-basics
+  # The name of the third template
+  - baselime/s3-metrics-basics
+# Define variables for the service
+variables:
+  # Define a variable called "threshold"
+  threshold:
+    # Set the default value for the "threshold" variable
+    default: '> 50'
+    # Set a specific value for the "threshold" variable in the "prod" environment
+    prod: '> 60'
+```
+
+---
+
 ## Properties
 
 Services have a set of properties that define the service's characteristics and behavior.
@@ -39,7 +84,7 @@ service: demo
 
 ---
 
-### description (required)
+### description (optional)
 
 The `description` property is a string that provides more information about the service. It can include details about the purpose of the service, the components it includes, and any other relevant information.
 
@@ -69,25 +114,6 @@ provider: aws
 
 ---
 
-### infrastructure (optional)
-
-The `infrastructure` property is an object that specifies the cloud infrastructure for the service. It has the following properties:
-
-#### stacks (optional)
-
-The `stacks` property is an array of strings that specifies the CloudFormation stacks that are part of the service. Baselime will automatically find all the cloud resources in the specified stacks and limit all observability rules (queries, alerts, etc.) to these stacks. If the stacks property is not specified, Baselime will include all cloud resources in the environment.
-
-Example: 
-
-```yaml # :icon-code: .baselime/index.yml
-infrastructure:
-  stacks:
-    - cloudformation-stack-1
-    - cloudformation-stack-2
-```
-
----
-
 ### templates (optional)
 
 The `templates` property is an array of strings that specifies the templates to automatically download and implement for the service. Templates are used to define observability rules that can be shared and reused across multiple services. Each string is in the format `workspace/template`, where `workspace` is the name of the workspace where the template was defined and `template` is the unique ID of the template.
@@ -106,7 +132,7 @@ templates:
 
 ---
 
-### variables
+### variables (optional)
 
 The `variables` property is an object that enables you to define variables that can be used in the ORL queries and alerts within the service. These variables can be used to parameterize the ORL queries and alerts and make them more flexible and reusable.
 
@@ -158,10 +184,6 @@ version: 0.0.15
 service: MyWebApp
 description: My web application hosted on AWS
 provider: aws
-infrastructure:
-  stacks:
-    - webapp-stack
-    - database-stack
 templates:
   - baselime/lambda-logs-basics
   - workspace-name/template-name
@@ -184,11 +206,6 @@ version: 0.0.15
 service: MyMicroservices
 description: My microservices architecture hosted on AWS
 provider: aws
-infrastructure:
-  stacks:
-    - microservice-1-stack
-    - microservice-2-stack
-    - database-stack
 templates:
   - baselime/lambda-logs-basics
   - baselime/dynamodb-db-metrics-basics

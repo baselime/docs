@@ -24,20 +24,20 @@ An alternative method to ingesting AWS Lambda logs is with the use of the [Basel
 
 ---
 
-## Discovered Keys
+## Logging best practices
 
-Baselime automatically discovers key - value pairs from your AWS Lambda logs. This enables you to run complex queries and setup alerts on data that otherwise would be difficult to work with from the AWS Lambda service. For instance, from the discovered keys from the Lambda logs, it's possible to set alerts on the maximum memory used by lambda functions during execution, compared to the amount of memory they are assigned at deployment time.
+In order to get the most out of Baselime, we recommend adding two log messages to all your AWS Lambda functions:
 
----
+- the event which triggered your Lambda function
+- the response your Lambda function returns
 
-## Instrumentation
+There can be added as follows:
 
-By default this instrumentation is agentless but if you want to see your request and response data in baselime you can either add the following logs to your lambdas
-
-```javascript
+```javascript # :icon-code: handler.js
 exports.handler = async (event, context) => {
   console.log(JSON.stringify({ message: "baselime:trigger", level: "baselime", data: { event }));
 
+  // Your logic
   const response = await yourLogic();
 
   console.log(JSON.stringify({ message: "baselime:response", level: "baselime", data: { response }));
@@ -45,71 +45,90 @@ exports.handler = async (event, context) => {
 });
 ```
 
-
-or alternatively install our SDK. 
+To facilitate this in Node.js runtimes, we maintain a custom logger well suited for AWS Lambda.
 
 ```bash
 npm i @baselime/lambda-logger
 ```
 
-Its just a 2.5kb javascript file with 0 dependencies so adds minimal overhead to your lambda function.
+It's a 2.5kb JavaScript file with 0 dependencies, and does not have any significant impact on performance or cold-starts.
 
-### Usage
-
-```javascript
+```javascript # :icon-code: handler.js
 const { wrap } = require('@baselime/lambda-logger');
 
 exports.handler = wrap(async (event, context) => {
-   
+   // Your logic
 });
 ``` 
 
 
-It also exports a middy middleware 
+It  also provides an interface to be used as a [middy](https://middy.js.org/) middleware.
 
 
-```javascript
+```javascript # :icon-code: handler.js
 import { logger, Baselime } from "@baselime/lambda-logger";
 import middy from "@middy/core";
 
 exports.handler = middy()
 	.use(Baselime())
 	.handler(function (e, context) {
-		
-	});baselime 
+		// Your logic
+	});
 ```
 
-### Logging best practices
+### Logging format
 
-Baselime works best when you log JSON, The [@baselime/lambda-logger](https://github.com/baselime/lambda-logger) helps you do this but you can also use [Lambda Power Tools](https://github.com/awslabs?q=lambda-powertools&type=all&language=&sort=stargazers) for your favourite language.
+We recommend using structured logging accross your application, preferably in JSON format. Feel free to use your favourite logging library; we recommend:
 
-```javascript
-console.log(JSON.stringify({ message: "This log is awesome", level: "info", data: { customer_id: "cus_1234", accountType: "premium" }}));
-```
+- [Baselime Lambda Logger for Node.js](https://github.com/baselime/lambda-logger)
+- [Lambda Power Tools](https://github.com/awslabs?q=lambda-powertools&type=all&language=&sort=stargazers)
 
-and with the baselime logger
 
-```javascript
+```javascript # :icon-code: handler.js
 import { logger } from "@baselime/lambda-logger";
+
+console.log(JSON.stringify({
+  message: "This log is awesome",
+  level: "info",
+  data: { customer_id: "cus_1234", accountType: "premium" }
+}));
 
 logger.info("This log is awesome", { customer_id: "cus_1234", accountType: "premium" });
 ```
 
-Its also important you format errors correctly to make sure you can find all the information you need to make your queries.
+It is particularly important to format errors and exception correctly to appropriately log stack traces.
 
-```javascript
+```javascript # :icon-code: handler.js
 const error = new Error("A message for the error");
 
-console.log(JSON.stringify({ message: "Unfortunately something went wrong", level: "error", data: { customer_id: "cus_1234", accountType: "premium", errorMessage: error.message, errorType: error.name, stackTrace: error.stack  }}));
+console.error(JSON.stringify({
+  message: "Unfortunately something went wrong",
+  level: "error",
+  data: {
+    customer_id: "cus_1234",
+    accountType: "premium",
+    error: {
+      message: error.message,
+      name: error.name,
+      stack: error.stack
+    }
+  }
+}));
 ```
 
-with the baselime logger this is simpler
+or with the [Baselime Lambda Logger for Node.js](https://github.com/baselime/lambda-logger):
 
-```javascript
+```javascript # :icon-code: handler.js
 import { logger } from "@baselime/lambda-logger";
 
 logger.info("Unfortunately something went wrong", { customer_id: "cus_1234", accountType: "premium" }, error);
 ```
+
+---
+
+## Discovered Keys
+
+Baselime automatically discovers key - value pairs from your AWS Lambda logs. This enables you to run complex queries and setup alerts on data that otherwise would be difficult to work with from the AWS Lambda service. For instance, from the discovered keys from the Lambda logs, it's possible to set alerts on the maximum memory used by lambda functions during execution, compared to the amount of memory they are assigned at deployment time.
 
 ### Lambda Discovered Keys
 
@@ -203,7 +222,7 @@ If your async Lambda invocation times out, Additional keys are automatically dis
 
 #### `console.log` Log Message
 
-We recommend writing directly to `stdout` and `stderr` from your Lambda functions. For Node.js environments, AWS Lambda uses a modified version of `console.log` (and other `console` logging functions) to write to `stdout` and `stderr`. These add fields to the log message which are parsed in discovered keys.
+For Node.js environments, AWS Lambda uses a modified version of `console.log` (and other `console` logging functions) to write to `stdout` and `stderr`. These add fields to the log message which are parsed as follows:
 
 - `@timestamp`: the timestamp at the moment the log message was written
 - `@requestId`: the request ID of the Lambda invocation

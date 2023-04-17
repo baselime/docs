@@ -12,22 +12,62 @@ ORL (Observability Reference Language) alerts are used to monitor data from vari
 Note that an alert can only be set for queries that include calculations. It is not possible to set an alert for a query that does not have any calculations.
 !!!
 
+---
+
+## Sample Alert Spec
+
+Here’s a sample ORL spec that uses all of the supported settings for defining alerts in Baselime. Use it to get started creating your own alerts.
+
+``` yaml # :icon-code: .baselime/resources.yml
+# Define a new alert called "lambda-timeout-alarm"
+lambda-timeout-alarm:
+  # This is an alert type
+  type: alert
+  properties:
+    # A description of what this alert is for
+    description: The prod-vortex-function Lambda function has exceeded 10 timeouts over the past 15 minutes.
+    # Whether this alert is enabled or not
+    enabled: true
+    parameters:
+      # The query to run to check for the condition that triggers the alert
+      query: !ref lambda-timeout-query
+      # How often to run the query
+      frequency: 5mins
+      # The time window for the query
+      window: 15mins
+      # The threshold that triggers the alert
+      threshold: "> 10"
+    channels:
+      # A Slack channel to send the alert to
+      - type: slack
+        targets:
+          - 'dynamodb-alerts'
+      # A webhook URL to send the alert to
+      - type: webhook
+        url: https://example.com/alerts
+      # An email address or list of addresses to send the alert to
+      - type: email
+        targets:
+          - 'alerts@example.com'
+          - 'ops@example.com'
+      # A PagerDuty service key to use for sending the alert to PagerDuty
+      - type: pagerduty
+        serviceKey: 'abc123'
+        # The action to take in PagerDuty when the alert is triggered
+        eventAction: 'trigger'
+        # The name of the client/application that the alert is associated with
+        client: 'Example App'
+        # A URL for the client/application
+        clientUrl: 'http://example.com'
+
+```
+
+---
+
 ## properties
 
 ORL alerts have a set of properties that define the alert's characteristics and behavior.
 
-
-### name (optional)
-
-The `name` of the ORL alert is a string used to identify the alert. It can be a human-readable name that describes the purpose of the alert.
-
-Example:
-
-```yaml # :icon-code: .baselime/resources.yml
-name: High request latency alert
-```
-
----
 
 ### description (optional)
 
@@ -57,7 +97,7 @@ The `parameters` of an ORL alert define the query to use, the frequency at which
 
 #### query
 
-The `query` parameter is a reference to an ORL query that defines the data to be monitored for the alert. It is specified as a string in the format `!ref query_name`, where `query_name` is the name of the ORL query.
+The `query` parameter is a reference to an ORL query that defines the data to be monitored for the alert. It is specified as a string in the format `!ref query_id`, where `query_id` is the id of the ORL query.
 
 Example:
 
@@ -247,7 +287,6 @@ This alert is triggered when the ConsumedWriteCapacityUnits metric for a DynamoD
 dynamodb-capacity-alarm:
   type: alert
   properties:
-    name: DynamoDB Capacity Alarm
     description: >
       The average consumed read capacity for the dynamodd tables has exceeded 5 units over the past hour.
     enabled: true
@@ -272,7 +311,6 @@ This alert checks the number of invocations that have timed out for Lambda funct
 lambda-timeout-alarm:
   type: alert
   properties:
-    name: Lambda Timeout Alarm
     description: The prod-vortex-function Lambda function has exceeded 10 timeouts over the past 15 minutes.
     enabled: true
     parameters:

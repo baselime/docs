@@ -7,22 +7,62 @@ order: -1
 
 ORL (Observability Reference Language) queries are used to retrieve and analyze data from various datasets in order to gain insights and improve observability of systems and services.
 
-## properties
+---
 
-ORL queries have a set of properties that define the query's characteristics and behavior.
+## Sample Query Spec
 
+Here’s a sample ORL spec that uses all of the supported settings for defining queries in Baselime. Use it to get started creating your own queries.
 
-### name (optional)
-
-The `name` of the ORL query is a string used to identify the query. It can be a human-readable name that describes the purpose of the query.
-
-Example:
-
-```yaml # :icon-code: .baselime/resources.yml
-name: Average request duration by user ID
+``` yaml # :icon-code: .baselime/resources.yml
+errors-latency-p95:
+  # This is a query type definition
+  type: query
+  properties:
+    # Provide a description for the query
+    description: > 
+      Computes the average request duration, maximum response size, and
+      p95 requestLatency for each user ID in the otel traces dataset, filtered
+      to only include user IDs with a request duration greater than 500ms, up to
+      100 users.
+    parameters:
+      # Specify the datasets to be queried
+      datasets:
+        - otel
+      # Define the calculations to be performed on the data
+      calculations:
+        - AVG(event.duration)
+        - MAX(event.response.size)
+        - P95(event.duration)
+        - COUNT
+      # Define filters to be applied to the data
+      filters:
+        - event.duration > 500
+      # Specify how the data should be grouped
+      groupBy:
+        type: string
+        # Group the data by user ID
+        value: event.attributes.userId
+        # Limit the results to 100 users
+        limit: 100
+        # Order the results by average request duration
+        orderBy: AVG(event.duration)
+        # Sort the results in descending order
+        order: DESC
+      # Define a needle to search for errors
+      needle:
+        # Specify the value to search for
+        value: error
+        # Indicate that this is not a regular expression
+        isRegex: false
+        # Match the case of the search term
+        matchCase: true
 ```
 
 ---
+
+## properties
+
+ORL queries have a set of properties that define the query's characteristics and behavior.
 
 ### description (optional)
 
@@ -178,7 +218,6 @@ It filters the data to only include user IDs with a request duration greater tha
 errors-latency-p95:
   type: query
   properties:
-    name: Errors with Latency P95
     description: > 
       Computes the average request duration, maximum response size, and
       p95 requestLatency for each user ID in the otel traces dataset, filtered
@@ -191,6 +230,7 @@ errors-latency-p95:
         - AVG(event.duration)
         - MAX(event.response.size)
         - P95(event.duration)
+        - COUNT
       filters:
         - event.duration > 500
       groupBy:
@@ -211,7 +251,6 @@ This ORL query calculates the total consumed read capacity units for each Dynamo
 dynamodb-consumed-read-capacity-units-by-table:
   type: query
   properties:
-    name: DynamoDB Consumed Read Capacity Units by Table
     description: Computes the total consumed read capacity units for each table in the CloudWatch metrics dataset.
     parameters:
       datasets:
