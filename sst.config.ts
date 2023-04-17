@@ -37,7 +37,7 @@ export default {
 			new ssm.StringParameter(this, "docsUrlParameter", {
 				parameterName: `/${stack.stage}/baselime/docs/s3/url`,
 				stringValue: bucket.cdk.bucket.bucketWebsiteDomainName,
-				description: "The url of the command queue in the vega service",
+				description: "The url of the docs",
 				tier: ssm.ParameterTier.STANDARD,
 				allowedPattern: ".*",
 			});
