@@ -10,7 +10,7 @@ Monitor your API Backends with the Starter template for queries, and alerts. The
 
 | Dataset | Docs  |
 |---------|-------|
-| apigateway-logs | [Sending API Gateway Logs to Baselime](../sending-data/cloudwatch-logs.md) |
+| apigateway-logs | [Sending API Gateway Logs to Baselime](../sending-data/apigateway-logs.md) |
 | cloudwatch-metrics | [Sending CloudWatch Metrics to Baselime](../sending-data/cloudwatch-metrics.md) |
 
 ### Queries

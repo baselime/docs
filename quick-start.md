@@ -177,7 +177,6 @@ For more information about the available integrations and how to use them, check
 
 - [Reference Guide](./observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
 - [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
-- [API Reference](./api/auth.md): Detailed documentation of the Baselime API
 
 ---
 ## Community

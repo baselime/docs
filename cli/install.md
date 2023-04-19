@@ -1,5 +1,5 @@
 ---
-label: Install
+label: Installing the Baselime CLI
 order: -1
 ---
 

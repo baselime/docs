@@ -1,5 +1,5 @@
 ---
-label: Overview
+label: Observability Reference Language (ORL)
 order: 0
 ---
 

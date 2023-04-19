@@ -1,5 +1,5 @@
 ---
-label: Overview
+label: Observability Templates
 order: 1
 ---
 
