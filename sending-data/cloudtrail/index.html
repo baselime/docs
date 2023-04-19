@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735207136970">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735209755588">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>CloudTrail | Baselime - Observability for Serverless</title>
-    <meta name="title" content="CloudTrail | Baselime - Observability for Serverless">
+    <title>Amazon CloudTrail | Baselime - Observability for Serverless</title>
+    <meta name="title" content="Amazon CloudTrail | Baselime - Observability for Serverless">
     <meta name="description" content="Baselime automatically ingests CloudTrail events when you connect your AWS account." />
 
     <!-- Canonical -->
@@ -20,25 +20,25 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/cloudtrail/">
-    <meta property="og:title" content="CloudTrail | Baselime - Observability for Serverless">
+    <meta property="og:title" content="Amazon CloudTrail | Baselime - Observability for Serverless">
     <meta property="og:description" content="Baselime automatically ingests CloudTrail events when you connect your AWS account.">
     <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/cloudtrail.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/cloudtrail/">
-    <meta property="twitter:title" content="CloudTrail | Baselime - Observability for Serverless">
+    <meta property="twitter:title" content="Amazon CloudTrail | Baselime - Observability for Serverless">
     <meta property="twitter:description" content="Baselime automatically ingests CloudTrail events when you connect your AWS account.">
     <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/cloudtrail.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.735207136970" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.735209755588" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.735207136970" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.735209755588" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.735207136970" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.735209755588" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -195,24 +195,42 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="cloudtrail" class="break-words">
+<doc-anchor-target id="amazon-cloudtrail" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#cloudtrail">#</doc-anchor-trigger>
-        <span>CloudTrail</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#amazon-cloudtrail">#</doc-anchor-trigger>
+        <span>Amazon CloudTrail</span>
     </h1>
 </doc-anchor-target>
 <p>Baselime automatically ingests CloudTrail events when you connect your AWS account. Baselime will automatically create a new CloudTrail and S3 bucket for you, and configure them to send data to your Baselime account. No additional setup is required on your end.</p>
 <p>Once connected, CloudTrail events will be sent to Baselime and made available for querying.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Essential</h5>
+<p>To effectively monitor your applications deployed on AWS on Baselime, it is essential to send CloutTrail events. These events are used to automatically register new AWS Lambda functions and Amazon API Gateways logs ingestion.</p>
+        </div>
+    </div>
+</div>
 <hr />
-<doc-anchor-target id="why-cloudtrail-">
+<doc-anchor-target id="why-amazon-cloudtrail-">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#why-cloudtrail-">#</doc-anchor-trigger>
-        <span>Why CloudTrail ?</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#why-amazon-cloudtrail-">#</doc-anchor-trigger>
+        <span>Why Amazon CloudTrail ?</span>
     </h2>
 </doc-anchor-target>
-<p><a href="https://aws.amazon.com/cloudtrail/">CloudTrail</a> is a service provided by AWS that records API activity in your AWS account. This data can be used to track changes to your resources, troubleshoot issues, and improve security.</p>
-<p>By sending CloudTrail events to Baselime, you can use our query and visualization tools to more easily analyze and understand your API activity. You can also set up alerts to be notified of specific API activity or trends.</p>
-<p>With CloudTrail events in Baselime, you can gain a deeper understanding of your AWS API activity and use that knowledge to improve the security and reliability of your applications.</p>
+<p><a href="https://aws.amazon.com/cloudtrail/">Amazon CloudTrail</a> is a service provided by AWS that records API activity in your AWS account. This data can be used to track changes to your resources, troubleshoot issues, and improve security.</p>
+<p>By sending Amazon CloudTrail events to Baselime, you can use our query and visualization tools to more easily analyze and understand your API activity. You can also set up alerts to be notified of specific API activity or trends.</p>
+<p>With Amazon CloudTrail events in Baselime, you can gain a deeper understanding of your AWS API activity and use that knowledge to improve the security and reliability of your applications.</p>
 <hr />
 <doc-anchor-target id="how-it-works">
     <h2>
@@ -220,7 +238,7 @@
         <span>How it works</span>
     </h2>
 </doc-anchor-target>
-<p>CloudTrail writes trail data periodically in a pre-configured S3 bucket in your AWS account. Once the data is written, it signals to an SNS topic that the trail is written.</p>
+<p>Amazon CloudTrail writes trail data periodically in a pre-configured S3 bucket in your AWS account. Once the data is written, it signals to an SNS topic that the trail is written.</p>
 <p>Baselime configures this SNS to invoke a Lambda function that reads the data from the S3 bucket and ingests it in the Baselime backend.</p>
 <p><figure class="content-center">
     <img src="../../assets/images/illustrations/sending-data/cloudtrail.png" alt="Sending CloudTrail data to Baselime" />
@@ -228,13 +246,13 @@
 </figure>
 </p>
 <hr />
-<doc-anchor-target id="cloudtrail-management-events">
+<doc-anchor-target id="amazon-cloudtrail-management-events">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#cloudtrail-management-events">#</doc-anchor-trigger>
-        <span>CloudTrail management events</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#amazon-cloudtrail-management-events">#</doc-anchor-trigger>
+        <span>Amazon CloudTrail management events</span>
     </h2>
 </doc-anchor-target>
-<p>CloudTrail events fall into multiple categories, and Baselime automatically ingests CloudTrail management events. Please refer to the complete <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html">CloudTrail docs</a> for further details on the CloudTrail concepts.</p>
+<p>Amazon CloudTrail events fall into multiple categories, and Baselime automatically ingests CloudTrail management events. Please refer to the complete <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html">CloudTrail docs</a> for further details on the CloudTrail concepts.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -263,7 +281,7 @@
                                         <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/cloudwatch-metrics/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Cloud​Watch Metrics</span>
+                                                <span class="block mt-1">Amazon Cloud​Watch Metrics</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -307,7 +325,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "CloudTrail", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Amazon CloudTrail", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>

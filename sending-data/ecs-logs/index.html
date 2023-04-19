@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735207136970">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735209755588">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>Amazon ECS Fargate Container Logs | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Amazon ECS Fargate Container Logs | Baselime - Observability for Serverless">
-    <meta name="description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS Fargate using AWS FireLens." />
+    <title>Amazon ECS Container Logs | Baselime - Observability for Serverless</title>
+    <meta name="title" content="Amazon ECS Container Logs | Baselime - Observability for Serverless">
+    <meta name="description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS ECS using AWS FireLens." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/ecs-logs/" />
@@ -20,26 +20,26 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/ecs-logs/">
-    <meta property="og:title" content="Amazon ECS Fargate Container Logs | Baselime - Observability for Serverless">
-    <meta property="og:description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS Fargate using AWS FireLens.">
+    <meta property="og:title" content="Amazon ECS Container Logs | Baselime - Observability for Serverless">
+    <meta property="og:description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS ECS using AWS FireLens.">
     <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/ecs.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/ecs-logs/">
-    <meta property="twitter:title" content="Amazon ECS Fargate Container Logs | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS Fargate using AWS FireLens.">
+    <meta property="twitter:title" content="Amazon ECS Container Logs | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS ECS using AWS FireLens.">
     <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/ecs.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.735207136970" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.735209755588" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.735207136970" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.735209755588" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.735207136970" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.735207136970" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.735209755588" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.735209755588" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -196,13 +196,31 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="amazon-ecs-fargate-container-logs" class="break-words">
+<doc-anchor-target id="amazon-ecs-container-logs" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#amazon-ecs-fargate-container-logs">#</doc-anchor-trigger>
-        <span>Amazon ECS Fargate Container Logs</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#amazon-ecs-container-logs">#</doc-anchor-trigger>
+        <span>Amazon ECS Container Logs</span>
     </h1>
 </doc-anchor-target>
-<p>This page describes how to collect application container logs from <a href="https://aws.amazon.com/ecs/">Amazon ECS</a> clusters launched with AWS Fargate using AWS FireLens. This method can also be used to collect ECS clusters with EC2 containers.</p>
+<p>This page describes how to collect application container logs from <a href="https://aws.amazon.com/ecs/">Amazon ECS</a> clusters launched with AWS ECS using AWS FireLens. This method can also be used to collect ECS clusters with EC2 containers.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Optional</h5>
+<p>Sending AWS ECS container logs to Baselime is optional, but highly recommended to gain full visibility into your containerized applications.</p>
+        </div>
+    </div>
+</div>
 <hr />
 <doc-anchor-target id="how-it-works">
     <h2>
@@ -210,7 +228,7 @@
         <span>How it works</span>
     </h2>
 </doc-anchor-target>
-<p>The following diagram illustrates the process for sending container logs from ECS containers running on AWS Fargate or EC2 to Baselime using the FireLens log driver.</p>
+<p>The following diagram illustrates the process for sending container logs from ECS containers to Baselime using the FireLens log driver.</p>
 <p><a href="https://aws.amazon.com/about-aws/whats-new/2019/11/aws-launches-firelens-log-router-for-amazon-ecs-and-aws-fargate/">FireLens</a> is an Amazon ECS native log router that enables you to send logs from your containerized applications to different destinations, including Baselime. By adding the FireLens sidecar to your task definitions, you can easily configure and route your container logs to different destinations without modifying your application code.</p>
 <p><figure class="content-center">
     <img src="../../assets/images/illustrations/sending-data/ecs.png" alt="Sending ECS Logs to Baselime" />
@@ -424,7 +442,7 @@ taskDef.addContainer(&quot;container&quot;, {
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Amazon ECS Fargate Container Logs", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Amazon ECS Container Logs", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
