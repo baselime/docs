@@ -2,6 +2,8 @@
 
 ---
 
+# 1. Introduction
+
 Serverless architectures have gained momentum with engineers building distributed systems. However, due to their stateless, ephemeral nature, they are difficult to observe with standard observability approaches. Investigating bugs typically turns into crime scenes, piecing together data from multiple sources to get a blurry image of the root cause of the issue.
 
 ![Typical serverless application](./assets/images/illustrations/o11y-for-serverless/meme.png)
@@ -10,7 +12,7 @@ Baselime is an observability solution for serverless architectures. It enables d
 
 ---
 
-# 2. What is serverless
+# 2. What is serverless?
 
 ## 2.1. Microservices
 
