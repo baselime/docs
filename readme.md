@@ -1,191 +1,160 @@
----
-label: Quickstart
-order: 0
----
-
-# Quickstart Guide
+# Observability for Serverless
 
 ---
 
+Serverless architectures have gained momentum with engineers building distributed systems. However, due to their stateless, ephemeral nature, they are difficult to observe with standard observability approaches. Investigating bugs typically turns into crime scenes, piecing together data from multiple sources to get a blurry image of the root cause of the issue.
 
-Welcome to Baselime! This quickstart guide will help you get up and running with the platform in just a few steps.
+![Typical serverless application](./assets/images/illustrations/o11y-for-serverless/meme.png)
 
-
-All you need is:
-- An [AWS Account](https://aws.amazon.com/)
-- Permissions to deploy a [CloudFormation](https://aws.amazon.com/cloudformation/) stack with IAM role.
-- A deployed application leveraging [AWS Lambda](https://aws.amazon.com/lambda/) and other [AWS serverless services](https://aws.amazon.com/serverless/)
-
-If you do not have a deployed application, you can use our [example pokedex](https://github.com/baselime/pokedex).
-
-![Baselime in your ecosystem](./assets/images/illustrations/index.png)
+Baselime is an observability solution for serverless architectures. It enables developers to unlock key insights from their serverless architectures through the use of telemetry data. 
 
 ---
 
-## Step 1: Sign up for Baselime
+# 2. What is serverless
 
-To use Baselime, you'll need to sign up for an account. You can sign up for a free account [here](https://console.baselime.io).
+## 2.1. Microservices
 
-1. Create a workspace. Typically this will be the name of your organisation.
-2. Start exploring the telemetry data in your workspace sandbox.
+Microservices are a software development approach where an application is built as a collection of small, independent services that communicate with each other over a network. Each service performs a specific business function and can be deployed, scaled, and updated independently of the other services. Microservices are designed to be loosely coupled and use standard interfaces to communicate with other services.
 
----
+The benefits of microservices include improved scalability, fault tolerance and resilience, as well as easier deployment and maintenance.
 
-## Step 2: (Optional) Install the Baselime CLI
+![Microservices Architecture](./assets/images/illustrations/o11y-for-serverless/microservices.png)
 
-The Baselime CLI is a command-line tool that you can use to interact with the platform. Installing the CLI can make it easier to work with Baselime, unlocks Observability as Code and provides additional functionality not available in the web console. To install the CLI, follow the instructions [here](./cli/install.md).
 
----
+## 2.2. Serverless
 
-## Step 3: Connect your AWS account
+Serverless computing is a cloud computing model where the cloud provider manages and allocates computing resources dynamically based on the demand of the application. In this model, the user does not need to manage or provision any servers, as the provider manages everything related to infrastructure.
 
-To start collecting telemetry data from your serverless application, you'll need to connect your AWS account to Baselime. This is done by deploying a CloudFormation template onto your AWS account.
+The serverless model is event-driven and is commonly used for short-lived functions or applications that need to scale up or down quickly, such as in response to sudden traffic spikes. The application logic is broken down into small functions that can be executed independently, and each function is triggered by an event, such as an API request, a change in a database, or a message from a message queue.
 
-To generate and download the CloudFormation template:
+The pricing model for serverless computing is based on the number of requests and the duration of execution, rather than on the underlying infrastructure. This makes it a cost-effective option for applications with unpredictable or variable workloads.
 
-- Go to the [Baselime Console](https://console.baselime.io) or run the following command in the Baselime CLI:
-```bash # :icon-terminal: terminal
-baselime environments connect
-```
-- Follow the prompts to generate and download the template.
+![Serverless architecture](./assets/images/illustrations/o11y-for-serverless/serverless.png)
 
-Next, you must deploy the template to your AWS account:
+### 2.2.1 Functions-as-a-Service (FaaS)
 
-- Click the link provided by the Baselime Console or CLI to open the CloudFormation service in your AWS account
-- Check the box to acknowledge that the template creates IAM roles
-- Click "Create stack" to deploy the stack, making sure to use the correct credentials and region for your AWS account
+Functions as a Service (FaaS) is a cloud computing model where a cloud provider manages and runs small code functions in response to specific events or requests. FaaS enables developers to write and deploy individual functions performing a well-defined task as a response to an event. Once the event is triggered, the cloud provider spins up a new instance of the function, runs the code the developer wrote, and returns the result.
 
-We've open-sourced the CloudFormation template [here](./connectors/aws.md).
+In this model, the cloud provider allocates compute resources only when required. When there’s an increase in traffic, more resources are allocated, and when traffic goes down, resources are deallocated. As such, developers don’t need to provision compute and storage resources in advance, or anticipate spikes in traffic with over-provisioning, as is typically the case in traditional architectures.
 
-Once the stack is deployed, telemetry data from your AWS account will be automatically ingested by Baselime and will be available through the various clients.
+![Lifecycle of serverless function invocations](./assets/images/illustrations/o11y-for-serverless/invocation.png)
 
-To verify the connection, invoke any deployed AWS Lambda function in your account and you should see data from it in the Baselime console within seconds. Additionally, you can stream all the events ingested by Baselime directly in your terminal using the `baselime tail` command.
+The ephemeral, auto-scaling and pricing model of FaaS enables developers to accelerate development cycles, as they are freed from the challenges of provisioning, troubleshooting and maintaining servers.
 
-!!!warning
-If you do not complete any of the above steps, Baselime will not be able to ingest data from your AWS account.
-!!!
+### 2.2.2 Troubleshooting
 
-!!!warning
-If you do not see any data in the Baselime UI or using the baselime tail command within seconds of completing the above steps, something went wrong. Please [contact us](mailto:support@baselime.io).
-!!!
+In the serverless computing model, accessing and modifying the infrastructure, typically within the cloud provider's environment, can be limited. This can make it challenging for developers to collect data about the behaviour of their applications. Unlike traditional servers, serverless services are managed and scaled by the cloud provider so developers need to adopt different strategies for collecting data about performance, errors and other metrics.
+
+These strategies may include using logging and monitoring tools provided by the cloud provider, adding custom instrumentation to the application code, and implementing distributed tracing techniques to track requests across multiple services. By using these strategies, developers can gain insights into the behaviour of their serverless applications and optimize their performance and scalability.
 
 ---
 
-## Step 4: Explore the data
+# 3. What is Observability?
 
-Once your AWS Account is connected, you can start exploring the telemetry data it generates. You can use the web console or the CLI (if installed) to access and analyze the data.
+Observability is the ability to understand and measure the internal state of a system based on its external outputs, achieved through instrumentation.
 
-Baselime ingests and indexes every field and nested field in your telemetry data. 
+Imagine you are a developer responsible for maintaining a large e-commerce application that experiences frequent outages and performance issues. You have a hard time pinpointing the root cause of these issues because you lack visibility into the internal state of the application. You are unable to tell what happens to a customer's order when it goes through multiple services, and you struggle to identify which component is causing the slowdown. This is where observability comes in.
 
-### Accessing data in the web console
+Observability is like turning on the lights in a dark room. Without it, developers are working in the dark, struggling to diagnose issues and maintain the health of the system. Observability provides the necessary tools and techniques for developers to gain visibility into the system's internal workings, allowing them to diagnose issues and optimize performance.
 
+**Telemetry data** is at the heart of observability. Developers need to instrument their systems with various tools that collect and analyze telemetry data. This data may include logs, metrics, traces, and events among other things.
 
-To explore the data in the web console:
+![Telemetry data in modern observability](./assets/images/illustrations/o11y-for-serverless/o11y.png)
 
-- Go to the [Baselime Console](https://console.baselime.io) and sign in with your account
-- Select your environment from the list of environments
-- Use the various filters and tools in the console to slice and dice the data, such as:
-  - Filtering by resource type, key-value pair, operation type, or time range
-  - Searching for specific strings or regexes in the data
-  - Viewing the trace data for a specific request or operation
-  - Viewing the logs and metrics for a specific resource or operation
-  - Segmenting the results by specific field or nested field
+Metrics can include things like the number of requests served, the latency of each request, and the memory usage of each service. Logging enables developers to capture important events and metrics, such as error messages and service availability, while tracing enables them to follow the path of a request through multiple services. By using these observability techniques, developers can quickly diagnose issues and improve the overall health and performance of the system.
 
-### Accessing data in the CLI
+## 3.1 Logs
 
-To access the data in the CLI:
+Application logs are time-stamped messages capturing a pre-defined event about an application's behaviour. In a cloud-based environment, where applications are distributed across multiple servers and services, application logs are essential for developers to gain visibility into the system and quickly diagnose issues.
 
-If you installed the CLI, you can use the `baselime query` command to interactively explore the data. Here's how it works:
-1. If you haven't already done so, sign in to the CLI using the `baselime login` command
-2. Run the following command:
+However, logs are pretty bad at providing insights into the entire lifecycle of a request or event throughout the entire distributed system.
 
-```bash # :icon-terminal: terminal
-baselime query
-```
+![Application logs from AWS CloudWatch](./assets/images/illustrations/o11y-for-serverless/logs.png)
 
-3. Select the service you want to query
-4. Select one of your saved queries or interactively build a query
-5. Enter the start and end time for the query (optional - defaults to the past hour)
-6. The command will output a table with the results of the query and a unique URL that you can share with your team
+## 3.2 Metrics
 
-```txt # :icon-code: output
-✔ Running the query
-╔════════════════╤════════════════════╗
-║ Aggregate      │ Value              ║
-╟────────────────┼────────────────────╢
-║ MAX(@duration) │ 8758.75            ║
-╟────────────────┼────────────────────╢
-║ MIN(@duration) │ 2.25               ║
-╟────────────────┼────────────────────╢
-║ P99(@duration) │ 322.98440000000005 ║
-╚════════════════╧════════════════════╝
+Application metrics capture quantitative measurements of an application's behavior and performance aggregated over a defined period of time. These metrics provide developers with valuable insights into how the application is performing, how resources are being utilized, and how users are interacting with the system.
 
-Follow this url: https://console.baselime.io/<workspace>/<env>/queries/lambda-duration/1653302639712
-```
----
+Examples of application metrics include response time, error rate, throughput and resource utilization, which can be tracked and analyzed to identify areas for optimization and improvement.
 
-## Step 5: Implement Observability as Code
+Metrics can give a signal to indicate a defect, but they lack the granularity necessary to pinpoint the root cause of the issue.
 
-Baselime enables you to define and manage your observability configurations, such as queries and alert rules, using code that can be stored and versioned in your source control repository. This is known as Observability as Code.
+![Account-level AWS Lambda metrics in AWS CloudWatch](./assets/images/illustrations/o11y-for-serverless/metrics.png)
 
-To implement observability as code:
+## 3.3 Traces
 
+Distributed tracing is a technique used to track the path of a request or event as it travels through a complex distributed system, consisting of multiple interconnected services and components. This involves capturing and correlating data from each service involved in processing the request, including information about service dependencies, communication protocols and processing times.
 
-1. Use the `baselime init` command to create a `.baselime` folder in your repository and generate an `index.yaml` file
-2. Answer the prompts to specify metadata about your service, such as its name, description, and details about the cloud infrastructure of the service
-3. The `baselime init` command will create one or more configuration files in the `.baselime` folder using the Baselime [Observability Reference Language (ORL)](./observability-reference-language/overview.md). The ORL provides a set of commands and syntax for defining configurations such as queries, alert rules, and dashboards.
-4. Use the `baselime push` command to apply your configurations to your environment.
+Let’s look at a typical distributed application:
 
-For example:
+![A typical distributed application](./assets/images/illustrations/o11y-for-serverless/trace.png)
 
-```bash # :icon-terminal: terminal
-baselime push
-```
+The diagram above tells us what components are part of the application, but it doesn’t tell us how the request propagates through the system, which services are performance bottlenecks and which can be optimised. Distributed tracing shines in those scenarios:
 
-This will apply your observability configurations to your environment, replacing any existing configurations.
+![A typical distributed trace](./assets/images/illustrations/o11y-for-serverless/waterfall.png)
 
-To verify that your configurations have been applied, use the `baselime plan` command to compare your local configuration files with the ones deployed in your environment.
+The trace above consists of multiple components, each referred to as a span. A span represents a unit of work and its associated processing time. The root span is the first span in the trace and typically represents a request's lifecycle from start to finish. The subsequent spans are child spans, each representing a specific unit of work within the request's journey.
 
-For more information about the Baselime ORL and how to use it, check out the [Reference Guide](./observability-reference-language/overview.md).
+From the trace, we can identify that the calls to `service F` and `service G` can be made in parallel, which will make the call to `services D and E` shorter, ultimately resulting in a faster response to the client.
+
+One of the key ingredients of distributed tracing is their ability to propagate metadata about the request from parent spans to child spans. This context propagation provides developers with a detailed view of how requests flow through the system and enables faster troubleshooting and debugging of complex distributed applications, as well as easier performance optimization.
+
+![Distributed trace context propagation](./assets/images/illustrations/o11y-for-serverless/context.png)
 
 ---
 
-## Step 6: Set up integrations
+# 4. Observability for Serverless
 
-Baselime offers a variety of integrations with popular tools and services to help you get the most out of your observability data.
+## 4.1. Challenges
 
-To set up an integration:
+Observability for serverless can pose several challenges for developers. One of the major issues is the stateless and ephemeral nature of serverless functions, which makes it harder to pinpoint and troubleshoot issues related to specific requests or users. Serverless platforms abstract much of the underlying infrastructure, reducing the visibility into the runtime environment, and making it harder to troubleshoot issues when they inevitably occur.
 
-1. Go to the Integrations page in the Baselime console
-2. Choose the integration you want to set up from the list
-3. Follow the prompts to configure the integration. This may include providing credentials or setting up webhooks.
-4. Save your changes to complete the setup
+Additionally, the event-driven nature of serverless applications can exacerbate the observability challenge. In contrast to traditional HTTP-based architectures, serverless functions very often communicate with each other through event brokers like message queues, event buses or event streams, introducing new complexities, such as asynchronous processing, message ordering, and event aggregation. The non-linear path of event-driven architectures can make it more difficult to trace requests, especially when multiple services consume and produce events asynchronously.
 
-For more information about the available integrations and how to use them, check out the [Integrations Guide](./).
+![Typical event-driven architecture](./assets/images/illustrations/o11y-for-serverless/event-driven.png)
 
----
+Event-driven serverless systems bring unique challenges that developers must address:
 
-## Guides
+- Context propagation: context propagation is critical to creating a complete trace of the request's lifecycle. Events must carry the context of upstream services and propagate it to downstream services and functions. This context propagation needs to account for the specificity of each event bus, queue or stream to create an unbroken trace across the lifecycle of the request.
+- Identity and Access Management: Identity and access management (IAM) is essential to ensure each service in the architecture has the necessary permissions to interact with other components. Improperly configured IAM can lead to process failures that are difficult to track.
+- Metrics: Metrics provide valuable context about requests and services that should not be ignored. Developers must observe each service used to communicate between serverless functions through metrics and logs when available.
 
-- [Sending Data](./sending-data/overview.md): Learn how to ingest telemetry data from your serverless applications
-- [Analyzing Data](./analysing-data/overview.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
-- [Integrations](./): Find out how to connect Baselime with your favorite tools
-
+To overcome these challenges, developers can leverage tools like AWS CloudTrail, which enables them to track IAM activities and diagnose operational issues.
 
 ---
-## Reference
 
-- [Reference Guide](./observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
-- [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
-- [API Reference](./api/auth.md): Detailed documentation of the Baselime API
+# 5. Introducing Baselime
 
----
-## Community
+Baselime is an observability solution for serverless architectures. With Baselime, developers gain crucial insights into their serverless systems, leveraging logs, metrics, traces and IAM data. Baselime simplifies the process of instrumentation by automating the setup of a telemetry pipeline that consolidates all telemetry data into one platform, providing a unified view of the entire architecture. This enables developers to easily monitor and troubleshoot their serverless applications without having to navigate through multiple monitoring tools.
 
-Join the Baselime community to get help with using the platform, share your own experiences, and stay up-to-date with the latest developments.
+Moreover, Baselime does not perform any pre-aggregation of data before ingestion; as such developers can run arbitrary queries on their telemetry data, and get answers about the state of their application, regardless of how unusual or unique this state is.
 
-- [Slack](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ): Join our Slack community to connect with other Baselime users and get real-time support from the Baselime team
-- [Blog](https://baselime.io/blog): Read about the latest features, best practices, and more from the Baselime team
-- Social media: Follow us on [Twitter](https://twitter.com/baselimeHQ), [LinkedIn](https://www.linkedin.com/company/baselime), and [YouTube](https://youtube.com/@baselimedev) to stay up-to-date with the latest news and updates from Baselime
+Baselime is designed for companies and projects working predominantly with a serverless architecture, that are looking for a solution that has the ease of use of modern monitoring tools, whilst giving developers the full powers of modern observability solutions.
 
-We look forward to connecting with you!
+![Baselime in your ecosystem](./assets/images/illustrations/o11y-for-serverless/ecosystem.png)
+
+Baselime in your ecosystem
+
+## 5.1. Baselime Setup
+
+Setting up Baselime involves deploying a CloudFormation template on your AWS account. That’s it, that’s all.
+
+![Untitled](./assets/images/illustrations/o11y-for-serverless/easy.png)
+
+Once you have deployed the Baselime CloudFormation template, Baselime will automatically configure and deploy the necessary infrastructure components to create a unified telemetry data pipeline. This pipeline collects all the telemetry data generated by your serverless applications and services, providing a centralized location for you to view and analyze this data.
+
+To get the most out of Baselime, we recommend instrumenting your serverless applications and services with either our SDKs, the OpenTelemetry SDKs or our Lambda Extensions. This will enable you to capture more detailed telemetry data and gain deeper insights into the behaviour of your applications and services.
+
+## 5.2 Baselime Architecture
+
+Baselime is built using a serverless architecture and deeply integrates with developers’ AWS accounts.
+
+There are 5 main phases in Baselime architecture:
+
+1. **Instrumentation**: This phase involves adding telemetry points or instrumentation to the application code or infrastructure to capture telemetry data.
+2. **Collection**: In this phase, the telemetry data generated by the instrumentation is collected and sent to a centralized location, the Baselime back-end.
+3. **Processing**: The collected telemetry data is then processed to extract valuable insights and identify patterns or anomalies. This can involve filtering, parsing and aggregating data to create more meaningful metrics.
+4. **Provisioning**: This phase involves defining the observability resources required for the application and configuring them in a declarative manner with Observability as Code. By automating the provisioning of observability resources, developers can reduce the manual effort required to set up observability and ensure that their application has the required level of observability from the start.
+5. **Visualization**: The final phase involves presenting the telemetry data in a meaningful and accessible way, such as through queries, dashboards, alerts or reports. This enables developers to quickly identify issues and take appropriate action.
+
+![Baselime architecture](./assets/images/illustrations/o11y-for-serverless/baselime.png)
