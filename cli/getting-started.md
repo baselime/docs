@@ -11,7 +11,7 @@ Welcome to the Baselime CLI! This guide will help you get up and running with th
 Before you can use the Baselime CLI, you'll need to:
 
 1. Install the Baselime CLI. See the [installation instructions](./install.md) for more details.
-2. Connect your AWS Account to Baselime. See the [quick start guide](../readme.md) for instructions on how to do this.
+2. Connect your AWS Account to Baselime. See the [quick start guide](../quick-start.md) for instructions on how to do this.
 
 ---
 
@@ -25,11 +25,6 @@ Once you have the Baselime CLI installed and your AWS Account connected, you're 
 - `baselime tail`: Stream all of the events ingested into Baselime in real-time.
 
 ---
-
-
-## Connecting to GIT
-
-We recommend that your OAC lives in git with your source code. To sync the pregenerated queries and dashboards from your local machine run `baselime pull` if it detects that the service has not been initialised locally yet the cli will prompt you to select the service from a list of all your services. Once you have selected it will download all the queries, alerts, and dashboards locally. 
 
 ## Next Steps
 

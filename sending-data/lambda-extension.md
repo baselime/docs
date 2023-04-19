@@ -12,6 +12,10 @@ data is sent to Baselime for storage, analysis, and visualization. In this
 section, we'll walk you through the process of instrumenting your Lambda
 functions with the Baselime Lambda Extension.
 
+!!! Optional
+The Baselime Lambda telemetry extension is an optional tool that provides additional telemetry data for your AWS Lambda functions. It is only necessary if you choose not to ingest Lambda logs directly from CloudWatch.
+!!!
+
 Before getting started you'll need to make sure that you have your Baselime API
 key ready. You can get it by running the following command using the Baselime
 CLI.

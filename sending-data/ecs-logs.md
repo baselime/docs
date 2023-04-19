@@ -1,17 +1,21 @@
 ---
-label: Amazon ECS Fargate Container Logs
+label: Amazon ECS Container Logs
 order: -1
 ---
 
-# Amazon ECS Fargate Container Logs
+# Amazon ECS Container Logs
 
-This page describes how to collect application container logs from [Amazon ECS](https://aws.amazon.com/ecs/) clusters launched with AWS Fargate using AWS FireLens. This method can also be used to collect ECS clusters with EC2 containers.
+This page describes how to collect application container logs from [Amazon ECS](https://aws.amazon.com/ecs/) clusters launched with AWS ECS using AWS FireLens. This method can also be used to collect ECS clusters with EC2 containers.
+
+!!! Optional
+Sending AWS ECS container logs to Baselime is optional, but highly recommended to gain full visibility into your containerized applications.
+!!!
 
 ---
 
 ## How it works
 
-The following diagram illustrates the process for sending container logs from ECS containers running on AWS Fargate or EC2 to Baselime using the FireLens log driver.
+The following diagram illustrates the process for sending container logs from ECS containers to Baselime using the FireLens log driver.
 
 [FireLens](https://aws.amazon.com/about-aws/whats-new/2019/11/aws-launches-firelens-log-router-for-amazon-ecs-and-aws-fargate/) is an Amazon ECS native log router that enables you to send logs from your containerized applications to different destinations, including Baselime. By adding the FireLens sidecar to your task definitions, you can easily configure and route your container logs to different destinations without modifying your application code.
 

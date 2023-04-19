@@ -1,9 +1,9 @@
 ---
-label: Overview
+label: Connectors
 order: 0
 ---
 
-# Overview
+# Connectors
 
 ---
 

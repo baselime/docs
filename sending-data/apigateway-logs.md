@@ -9,6 +9,11 @@ Once you connect your AWS account to Baselime, Baselime automatically create
 [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html)
 to automatically ingest logs from your Amazon API Gateways.
 
+
+!!! Automatic
+Baselime automatically ingests Amazon API Gateway logs, there is no need for any additional steps after connecting your AWS account.
+!!!
+
 ---
 
 ## Setup

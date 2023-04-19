@@ -14,3 +14,9 @@ ORL configurations are defined in [YAML](https://yaml.org/) files.
 Generally, ORL files live in the `.baselime` folder in the root directory of a given project. We refer to this folder as `.baselime` elsewhere in the documentation, although users can rename it at will.
 
 Multiple integrations and connectors with your favourite Infrastructure as Code platforms are currently being developed.
+
+## Best Practice
+
+To streamline your Observability workflows, we recommend keeping your `.baselime` folder in Git alongside your source code. This enables you to easily sync and version control your queries, alerts and dashboards, and collaborate with other team members.
+
+To pull the pregenerated queries and dashboards to your local machine, simply run `baselime pull` using the [Baselime CLI](../cli/install.md). If the service has not been initialized locally, the CLI will prompt you to select the relevant service from a list of all your services. Once selected, Baselime will download all the queries, alerts, and dashboards for that service, enabling you to work with them locally.
