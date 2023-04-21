@@ -1,6 +1,6 @@
 ---
 label: Queries
-order: 1
+order: 0
 ---
 
 # Queries

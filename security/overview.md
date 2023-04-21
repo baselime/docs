@@ -1,9 +1,11 @@
 ---
-label: Overview
+label: Data Security
 order: 1
 ---
 
-# Data Security in Baselime
+# Data Security
+
+---
 
 Baselime is committed to ensuring the security and privacy of our users' data. We have implemented a number of measures to ensure that data is encrypted in transit and at rest, and that it is not accessible from the public internet. Here are some of the key data security features of Baselime:
 

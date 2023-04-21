@@ -1,6 +1,6 @@
 ---
 label: Baselime Service Discovery
-order: 1
+order: 3
 ---
 
 # Baselime Service Discovery

@@ -168,7 +168,7 @@ For more information about the available integrations and how to use them, check
 ## Guides
 
 - [Sending Data](./sending-data/overview.md): Learn how to ingest telemetry data from your serverless applications
-- [Analyzing Data](./analysing-data/overview.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
+- [Analyzing Data](./analysing-data/service-discovery.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
 - [Integrations](./): Find out how to connect Baselime with your favorite tools
 
 
