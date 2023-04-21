@@ -51,8 +51,6 @@ Once data has been anonymized, it is sent to OpenAI for processing. OpenAI is a 
 
 ![Simplified Baselime AI architecture diagram](../assets/images/illustrations/analyzing-data/baselime-ai-architecture.png)
 
-Simplified Baselime AI architecture diagram
-
 The diagram above shows a simplified overview of the data flow and privacy measures taken in Baselime AI. When you request an explanation for a chart, log, event, metric, or trace, the data is first processed and analyzed by Baselime AI. This analysis is done locally within our system to ensure that sensitive data is not transmitted. Only after data is anonymized through obfuscation is it sent to OpenAI for processing. OpenAI processes the data and returns an explanation to our system, which is then delivered to you.
 
 We take data privacy seriously and are committed to ensuring that your data is protected at all times. If you have any questions or concerns about our privacy policy or data security, please don't hesitate to [contact us](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ).
