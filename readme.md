@@ -69,7 +69,7 @@ Metrics can include things like the number of requests served, the latency of ea
 
 Application logs are time-stamped messages capturing a pre-defined event about an application's behaviour. In a cloud-based environment, where applications are distributed across multiple servers and services, application logs are essential for developers to gain visibility into the system and quickly diagnose issues.
 
-However, text based logs are pretty bad at providing insights into the entire lifecycle of a request or event throughout the entire distributed system. This is why we encourage that you log structured JSON events that provide detailed information about what the application code has been doing. From this you can more easily build an understanding about the state of the system. The [`@baselime/lambda-logger`](https://github.com/baselime/lambda-logger) helps you apply these best practices in a tiny package however it is a very simple concept and its easy to apply in your own logs.
+However, text based logs are pretty bad at providing insights into the entire lifecycle of a request or event throughout the entire distributed system. This is why we encourage that you log structured JSON events that provide detailed information about what the application code has been doing. From this you can more easily build an understanding about the state of the system. The [`@baselime/lambda-logger`](https://github.com/baselime/lambda-logger) helps you apply these best practices in a tiny package however it is a very simple concept and its easy to apply without this library. 
 
 ![Application logs from AWS CloudWatch](./assets/images/illustrations/o11y-for-serverless/logs.png)
 
