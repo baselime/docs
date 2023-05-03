@@ -137,9 +137,10 @@ const api = new Api(stack, "api", {
   },
 });
 
-const query = new baselime.Query("api-get-resource-logs", {
+const query = new baselime.Query("create-subscription-errors", {
   parameters: {
     datasets: ["lambda-logs"],
+    calculations: [{ operation: "COUNT" }]
     filters: [{
       key: "@baselime.namespace",
       value: api.getFunction("POST /subscription")?.functionName as string,
@@ -156,9 +157,96 @@ query.addAlert({
    enabled: true,
     parameters: {
         frequency: "30mins",
-        threshold: "> 10",
+        threshold: "> 0",
+        window: "30 mins",
+    },
+    channels: [{ targets: ["billing-alerts"], type: "slack" }],
+});
+```
+
+This adds a query and alert to your applications service in Baselime that notify you in slack when ever any log messages contain an error or Unhandled Exceptions caught by the lambda runtime. The alerts will check every 30 minutes for any errors.
+
+The billing team come back and explain that they want to see the errors broken down by customer so they can easily see which customers where effected by the broken code.
+
+```javascript
+const query = new baselime.Query("create-subscription-errors", {
+  parameters: {
+    datasets: ["lambda-logs"],
+    calculations: [{ operation: "COUNT" }]
+    filters: [{
+      key: "@baselime.namespace",
+      value: api.getFunction("POST /subscription")?.functionName as string,
+      operation: "=",
+    }, {
+      key: "LogLevel",
+      operation: 'IN'
+      value: ["ERROR", "error"]
+    }],
+    groupBy: {
+      value: "@message.data.customerId",
+      orderBy: "COUNT"
+    }
+  },
+});
+```
+
+This now shows us exactly the customers that where effected by the outage.
+
+### Business Metrics
+
+O11y is not just for code errors. It's also about painting a richer picture of your application. Imagine the scenario where your company doesn't start any new subscriptions in a day. This is an example of where having sensible alerts and dashboards for your system metrics can spot issues in your whole application. i.e. maybe the new marketing campaign emails failed or your signup page has a glitch and the submit button has been set to `display:hidden;`. It's hard to write tests for every possibility but having alerts on key business metrics can give you useful feedback where tests cannot.
+
+To do this we are going to set up a query that tracks the amount of revenue we are taking per hour.
+
+
+```javascript
+const revenueQuery = new baselime.Query("subscription", {
+  parameters: {
+    datasets: ["lambda-logs"],
+    calculations: [{ operation: "SUM", key: "@message.data.ammount_c", alias: "Ammount in cents" }]
+    filters: [{
+      key: "@baselime.namespace",
+      value: api.getFunction("POST /subscription")?.functionName as string,
+      operation: "=",
+    }, {
+      key: "@message.message",
+      operation: '='
+      value: "Subscription created"
+    }],
+  },
+});
+```
+
+We can then use this query in dashboards and alerts to show the performance of our business. 
+
+```javascript
+new baselime.Dashboard('subscription-revenue-dashboard', {
+  parameters: {
+    widgets: [
+      {
+        query: revenueQuery,
+        view: 'calculations',
+      },
+    ],
+  },
+});
+```
+
+An alert that warns us if the subscriptions fall bellow the expected level could warn us of a wide range of problems so we are going to set that up like this
+
+```javascript
+
+revenueQuery.addAlert({
+   enabled: true,
+    parameters: {
+        frequency: "1 hour",
+        threshold: "> 10000", // remember this is in cents ;)
         window: "1 hour",
     },
     channels: [{ targets: ["billing-alerts"], type: "slack" }],
 });
 ```
+
+### Conclusion
+
+Baselime CDK is a useful tool to test in prod. It can help catch issues as they happen so you can take effective corrective action, setting it up in your CDK stack is super effective because its now front of mind when designing the infrastructure for your service.
