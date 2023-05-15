@@ -48,7 +48,7 @@ errors-latency-p95:
         orderBy: AVG(event.duration)
         # Sort the results in descending order
         order: DESC
-      # Define a needle to search for errors
+      # Define a needle to search for in the haystack of all the telemetry data
       needle:
         # Specify the value to search for
         value: error
@@ -89,7 +89,7 @@ Example:
 ```yaml # :icon-code: .baselime/resources.yml
 datasets:
   - lambda-logs
-  - metrics
+  - cloudwatch-metrics
   - otel
 ```
 
