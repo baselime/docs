@@ -13,7 +13,7 @@ The AWS Connector allows you to send data from your AWS resources to Baselime. T
 
 The connector is an automated flow based on a CloudFormation template.
 
-It can be done using the Baselime CLI or throught the web console.
+It can be done using the Baselime CLI or through the web console.
 
 ### Using the CLI
 
@@ -47,13 +47,13 @@ Follow the steps on the homescreen to connect a new AWS Account. Baselime will g
 
 Once the template is deployed on AWS, return to the Baselime web console and refresh the page. You should see the newly connected AWS environment in the list of connected environment.
 
-Within minutes telemtry data from your AWS environment should start displaying in the events streams in the Baselime web console.
+Within minutes telemetry data from your AWS environment should start displaying in the events streams in the Baselime web console.
 
 ---
 
 ## Troubleshooting
 
-If you encounter any issers or error when connecting your AWS environment, please don't hesitate to contact us, or join our [Slack community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ) where we are always available to support.
+If you encounter any issues or error when connecting your AWS environment, please don't hesitate to contact us, or join our [Slack community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ) where we are always available to support.
 
 ---
 
@@ -62,3 +62,17 @@ If you encounter any issers or error when connecting your AWS environment, pleas
 The CloudFormation template is open-source and available here.
 
 :::code source="../assets/templates/cf.yaml" title="Baselime AWS Integration Template":::
+
+## Your data
+
+Once connected, Baselime will automatically ingest data from your AWS environment. This includes:
+* Lambda Logs
+* API Gateway Logs
+* Cloudtrail Logs
+* Cloudwatch Metrics
+* ECS Logs (through fluentd)
+* Open Telemetry Metrics
+* X-Ray Traces
+
+The data we receive is streamed through a Kinesis stream to a S3 bucket in your AWS account. There you can access the raw data and use it for your own purposes.
+The default retention time of the data in your bucket is set to 180 days by the Cloudwatch template.
