@@ -124,47 +124,6 @@ Follow this url: https://console.baselime.io/<workspace>/<env>/queries/lambda-du
 ```
 ---
 
-## Step 5: Implement Observability as Code
-
-Baselime enables you to define and manage your observability configurations, such as queries and alert rules, using code that can be stored and versioned in your source control repository. This is known as Observability as Code.
-
-To implement observability as code:
-
-
-1. Use the `baselime init` command to create a `.baselime` folder in your repository and generate an `index.yaml` file
-2. Answer the prompts to specify metadata about your service, such as its name, description, and details about the cloud infrastructure of the service
-3. The `baselime init` command will create one or more configuration files in the `.baselime` folder using the Baselime [Observability Reference Language (ORL)](./observability-reference-language/overview.md). The ORL provides a set of commands and syntax for defining configurations such as queries, alert rules, and dashboards.
-4. Use the `baselime push` command to apply your configurations to your environment.
-
-For example:
-
-```bash # :icon-terminal: terminal
-baselime push
-```
-
-This will apply your observability configurations to your environment, replacing any existing configurations.
-
-To verify that your configurations have been applied, use the `baselime plan` command to compare your local configuration files with the ones deployed in your environment.
-
-For more information about the Baselime ORL and how to use it, check out the [Reference Guide](./observability-reference-language/overview.md).
-
----
-
-## Step 6: Set up integrations
-
-Baselime offers a variety of integrations with popular tools and services to help you get the most out of your observability data.
-
-To set up an integration:
-
-1. Go to the Integrations page in the Baselime console
-2. Choose the integration you want to set up from the list
-3. Follow the prompts to configure the integration. This may include providing credentials or setting up webhooks.
-4. Save your changes to complete the setup
-
-For more information about the available integrations and how to use them, check out the [Integrations Guide](./).
-
----
-
 ## Guides
 
 - [Sending Data](./sending-data/overview.md): Learn how to ingest telemetry data from your serverless applications
@@ -175,7 +134,8 @@ For more information about the available integrations and how to use them, check
 ---
 ## Reference
 
-- [Reference Guide](./observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
+- [Baselime CDK Reference Guide](./oac/cdk/quick-start.md): Learn about how to use Baselime with the AWS CDK to define your Observability as Code
+- [ORL Reference Guide](./oac/observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
 - [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
 
 ---

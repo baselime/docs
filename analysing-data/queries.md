@@ -9,7 +9,7 @@ Queries are the primary way of interacting with your data in Baselime.
 
 ## Queries in the Console
 
-You can run queries in the [Baselime console](https://console.baselime.io) by navigating to your service and clicking on the New Query button. This will bring up the Visual Query Editor. You can edit the query visually, but also switch to the embedded code editor to write your query using the [Observability Reference Language (ORL)](../observability-reference-language/overview.md).
+You can run queries in the [Baselime console](https://console.baselime.io) by navigating to your service and clicking on the New Query button. This will bring up the Visual Query Editor. You can edit the query visually, but also switch to the embedded code editor to write your query using the [Observability Reference Language (ORL)](../oac/observability-reference-language/overview.md).
 
 To execute a query, simply click the Run Query button. The query results will be displayed in visually and in a table below the editor.
 

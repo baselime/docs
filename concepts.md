@@ -16,10 +16,7 @@ Before we continue, we need to learn some of the core Baselime concepts: Observa
 
 Observability as Code is a way to manage your observability configurations using code instead of a graphical user interface. This makes it easier to version control and deploy your configurations, and collaborate with your team.
 
-To use Observability as Code in Baselime, you'll use the Baselime [Observability Reference Language (ORL)](./observability-reference-language/overview.md) to define your configurations in a `.baselime` folder in your code repository. The `.baselime` folder contains YAML files that define different aspects of your observability configurations, such as alerts, dashboards, and integrations.
-
-To get started with ORL, you can use the Baselime CLI and commands like `baselime init`, `baselime push`, `baselime pull` or `baselime plan`. These commands help you manage your observability configurations from your terminal or CI/CD pipelines.
-
+You can use Observability as Code on Baselime either with your favourite Infrastructure as Code framework, or using the Baselime  [Observability Reference Language (ORL)](./oac/observability-reference-language/overview.md).
 
 ![Observability as code change](./oac.gif)
 
