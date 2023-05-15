@@ -5,8 +5,14 @@ order: 1
 
 # Sending Data to Baselime
 
+---
 
-Baselime supports a variety of data sources, including logs, metrics, traces, and events. You can start sending your data to Baselime and gain valuable insights into the performance and reliability of your serverless applications with a few steps.
+
+Baselime supports a variety of data sources, including logs, metrics, traces, and wide events. You can start sending your data to Baselime and gain valuable insights into the performance and reliability of your serverless applications with a few steps.
+
+Once ingested, the data is securely stored hot storage for querying and in cold storage within your own AWS environment, in an **Amazon S3 bucket in your AWS account**. This ensures that you have complete long-term control over your data and its storage location.
+
+![Sending Telemetry data to Baselime](../assets/images/illustrations/sending-data/s3.png)
 
 You can send your telemetry data to Baselime with either of:
 

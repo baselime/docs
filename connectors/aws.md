@@ -63,6 +63,8 @@ The CloudFormation template is open-source and available here.
 
 :::code source="../assets/templates/cf.yaml" title="Baselime AWS Integration Template":::
 
+---
+
 ## Your data
 
 Once connected, Baselime will automatically ingest data from your AWS environment. This includes:
@@ -74,5 +76,6 @@ Once connected, Baselime will automatically ingest data from your AWS environmen
 * Open Telemetry Metrics
 * X-Ray Traces
 
-The data we receive is streamed through a Kinesis stream to a S3 bucket in your AWS account. There you can access the raw data and use it for your own purposes.
-The default retention time of the data in your bucket is set to 180 days by the Cloudwatch template.
+Once ingested, the telemetry data is streamed through a Kinesis Firehose to an Amazon S3 bucket in your AWS account for cold storage. There you can access the raw data and use it for your own purposes.
+
+The default retention period of the telemetry data in your bucket is set to 180 days by default.
