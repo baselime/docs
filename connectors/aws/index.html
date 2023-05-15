@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737149987863">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737454262841">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,12 +32,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.737149987863" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.737454262841" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.737149987863" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.737454262841" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.737149987863" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.737149987863" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.737454262841" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.737454262841" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -209,7 +209,7 @@
     </h2>
 </doc-anchor-target>
 <p>The connector is an automated flow based on a CloudFormation template.</p>
-<p>It can be done using the Baselime CLI or throught the web console.</p>
+<p>It can be done using the Baselime CLI or through the web console.</p>
 <doc-anchor-target id="using-the-cli">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#using-the-cli">#</doc-anchor-trigger>
@@ -242,7 +242,7 @@
 <p>Navigate to the <a href="https://console.baselime.io">Baselime web console</a> and login.</p>
 <p>Follow the steps on the homescreen to connect a new AWS Account. Baselime will generate a CloudFormation template for you to deploy on your AWS account.</p>
 <p>Once the template is deployed on AWS, return to the Baselime web console and refresh the page. You should see the newly connected AWS environment in the list of connected environment.</p>
-<p>Within minutes telemtry data from your AWS environment should start displaying in the events streams in the Baselime web console.</p>
+<p>Within minutes telemetry data from your AWS environment should start displaying in the events streams in the Baselime web console.</p>
 <hr />
 <doc-anchor-target id="troubleshooting">
     <h2>
@@ -250,7 +250,7 @@
         <span>Troubleshooting</span>
     </h2>
 </doc-anchor-target>
-<p>If you encounter any issers or error when connecting your AWS environment, please don&#x27;t hesitate to contact us, or join our <a href="https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ">Slack community</a> where we are always available to support.</p>
+<p>If you encounter any issues or error when connecting your AWS environment, please don&#x27;t hesitate to contact us, or join our <a href="https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ">Slack community</a> where we are always available to support.</p>
 <hr />
 <doc-anchor-target id="cloudformation-template">
     <h2>
@@ -644,6 +644,24 @@ Outputs:
     Value: !Ref BaselimeSNSTopic
     Description: The ARN of the SNS topic Baselime can use</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="your-data">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#your-data">#</doc-anchor-trigger>
+        <span>Your data</span>
+    </h2>
+</doc-anchor-target>
+<p>Once connected, Baselime will automatically ingest data from your AWS environment. This includes:</p>
+<ul>
+<li>Lambda Logs</li>
+<li>API Gateway Logs</li>
+<li>Cloudtrail Logs</li>
+<li>Cloudwatch Metrics</li>
+<li>ECS Logs (through fluentd)</li>
+<li>Open Telemetry Metrics</li>
+<li>X-Ray Traces</li>
+</ul>
+<p>The data we receive is streamed through a Kinesis stream to a S3 bucket in your AWS account. There you can access the raw data and use it for your own purposes.
+The default retention time of the data in your bucket is set to 180 days by the Cloudwatch template.</p>
 
                                 
                                 <!-- Required only on API pages -->
