@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737479514273">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737481630951">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Sending Data to Baselime | Baselime - Observability for Serverless</title>
     <meta name="title" content="Sending Data to Baselime | Baselime - Observability for Serverless">
-    <meta name="description" content="Baselime supports a variety of data sources, including logs, metrics, traces, and events." />
+    <meta name="description" content="Baselime supports a variety of data sources, including logs, metrics, traces, and wide events." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/overview/" />
@@ -21,23 +21,25 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/overview/">
     <meta property="og:title" content="Sending Data to Baselime | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Baselime supports a variety of data sources, including logs, metrics, traces, and events.">
+    <meta property="og:description" content="Baselime supports a variety of data sources, including logs, metrics, traces, and wide events.">
+    <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/s3.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/overview/">
     <meta property="twitter:title" content="Sending Data to Baselime | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Baselime supports a variety of data sources, including logs, metrics, traces, and events.">
+    <meta property="twitter:description" content="Baselime supports a variety of data sources, including logs, metrics, traces, and wide events.">
+    <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/s3.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=2.4.0.737479514273" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.737481630951" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.737479514273" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.737481630951" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.737479514273" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.737479514273" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.737481630951" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.737481630951" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -200,7 +202,14 @@
         <span>Sending Data to Baselime</span>
     </h1>
 </doc-anchor-target>
-<p>Baselime supports a variety of data sources, including logs, metrics, traces, and events. You can start sending your data to Baselime and gain valuable insights into the performance and reliability of your serverless applications with a few steps.</p>
+<hr />
+<p>Baselime supports a variety of data sources, including logs, metrics, traces, and wide events. You can start sending your data to Baselime and gain valuable insights into the performance and reliability of your serverless applications with a few steps.</p>
+<p>Once ingested, the data is securely stored hot storage for querying and in cold storage within your own AWS environment, in an <strong>Amazon S3 bucket in your AWS account</strong>. This ensures that you have complete long-term control over your data and its storage location.</p>
+<p><figure class="content-center">
+    <img src="../../assets/images/illustrations/sending-data/s3.png" alt="Sending Telemetry data to Baselime" />
+    <figcaption class="caption">Sending Telemetry data to Baselime</figcaption>
+</figure>
+</p>
 <p>You can send your telemetry data to Baselime with either of:</p>
 <p>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
