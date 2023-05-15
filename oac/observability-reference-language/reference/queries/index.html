@@ -4,40 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737454262841">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737478192145">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>ORL Dashboards | Baselime - Observability for Serverless</title>
-    <meta name="title" content="ORL Dashboards | Baselime - Observability for Serverless">
-    <meta name="description" content="ORL (Observability Reference Language) dashboards are used to visualise data." />
+    <title>ORL Queries | Baselime - Observability for Serverless</title>
+    <meta name="title" content="ORL Queries | Baselime - Observability for Serverless">
+    <meta name="description" content="ORL (Observability Reference Language) queries are used to retrieve and analyze data from various datasets in order to gain insights and improve..." />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://baselime.io/docs/observability-reference-language/reference/dashboards/" />
+    <link rel="canonical" href="https://baselime.io/docs/oac/observability-reference-language/reference/queries/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://baselime.io/docs/observability-reference-language/reference/dashboards/">
-    <meta property="og:title" content="ORL Dashboards | Baselime - Observability for Serverless">
-    <meta property="og:description" content="ORL (Observability Reference Language) dashboards are used to visualise data.">
+    <meta property="og:url" content="https://baselime.io/docs/oac/observability-reference-language/reference/queries/">
+    <meta property="og:title" content="ORL Queries | Baselime - Observability for Serverless">
+    <meta property="og:description" content="ORL (Observability Reference Language) queries are used to retrieve and analyze data from various datasets in order to gain insights and improve...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://baselime.io/docs/observability-reference-language/reference/dashboards/">
-    <meta property="twitter:title" content="ORL Dashboards | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="ORL (Observability Reference Language) dashboards are used to visualise data.">
+    <meta property="twitter:url" content="https://baselime.io/docs/oac/observability-reference-language/reference/queries/">
+    <meta property="twitter:title" content="ORL Queries | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="ORL (Observability Reference Language) queries are used to retrieve and analyze data from various datasets in order to gain insights and improve...">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../resources/css/retype.css?v=2.4.0.737454262841" rel="stylesheet" />
+    <link href="../../../../assets/images/logo.svg" rel="icon" />
+    <link href="../../../../resources/css/retype.css?v=2.4.0.737478192145" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.737454262841" data-turbo-eval="false" defer></script>
-    <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.737454262841" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.737454262841" defer></script>
+    <script type="text/javascript" src="../../../../resources/js/config.js?v=2.4.0.737478192145" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../../resources/js/lunr.js?v=2.4.0.737478192145" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../../resources/js/prism.js?v=2.4.0.737478192145" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -55,10 +55,10 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../../../" class="flex items-center leading-snug text-2xl">
                             <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
-                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../assets/images/logo.svg">
-                                <img class="max-h-10 hidden dark:inline-block" src="../../../assets/images/logo.svg">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../../assets/images/logo.svg">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../../../assets/images/logo.svg">
                             </span>
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Baselime</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">BETA</span>
@@ -194,43 +194,65 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="orl-dashboards" class="break-words">
+<doc-anchor-target id="orl-queries" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#orl-dashboards">#</doc-anchor-trigger>
-        <span>ORL Dashboards</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#orl-queries">#</doc-anchor-trigger>
+        <span>ORL Queries</span>
     </h1>
 </doc-anchor-target>
-<p>ORL (Observability Reference Language) dashboards are used to visualise data.</p>
+<p>ORL (Observability Reference Language) queries are used to retrieve and analyze data from various datasets in order to gain insights and improve observability of systems and services.</p>
 <hr />
-<doc-anchor-target id="sample-dashboard-spec">
+<doc-anchor-target id="sample-query-spec">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-dashboard-spec">#</doc-anchor-trigger>
-        <span>Sample Dashboard Spec</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-query-spec">#</doc-anchor-trigger>
+        <span>Sample Query Spec</span>
     </h2>
 </doc-anchor-target>
-<p>Here’s a sample ORL spec that uses all of the supported settings for defining dashboards in Baselime. Use it to get started creating your own dashboards.</p>
+<p>Here’s a sample ORL spec that uses all of the supported settings for defining queries in Baselime. Use it to get started creating your own queries.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">lambda-stats:
-  # type of the resource: dashboard 
-  type: dashboard
-  # properties of the dashboard
+<pre class="language-yaml"><code v-pre class="language-yaml">errors-latency-p95:
+  # This is a query type definition
+  type: query
   properties:
-    # description of the dashboard (optional)
-    description: &gt;
-      This dashboards gives an overview of the health of the service.
-    # parameters of the dashboard
+    # Provide a description for the query
+    description: &gt; 
+      Computes the average request duration, maximum response size, and
+      p95 requestLatency for each user ID in the otel traces dataset, filtered
+      to only include user IDs with a request duration greater than 500ms, up to
+      100 users.
     parameters:
-      # list of widgets to include in the dashboard
-      widgets:
-          # view of the widget, one of 'calculations', 'events', or 'traces'
-        - view: calculations
-          # query to run for this widget, must be the reference to an existing query
-          query: !ref my-metric-query
-        - view: events
-          query: !ref errors-in-logs
-        - view: traces
-          query: !ref slow-requests</code></pre>
+      # Specify the datasets to be queried
+      datasets:
+        - otel
+      # Define the calculations to be performed on the data
+      calculations:
+        - AVG(event.duration)
+        - MAX(event.response.size)
+        - P95(event.duration)
+        - COUNT
+      # Define filters to be applied to the data
+      filters:
+        - event.duration &gt; 500
+      # Specify how the data should be grouped
+      groupBy:
+        type: string
+        # Group the data by user ID
+        value: event.attributes.userId
+        # Limit the results to 100 users
+        limit: 100
+        # Order the results by average request duration
+        orderBy: AVG(event.duration)
+        # Sort the results in descending order
+        order: DESC
+      # Define a needle to search for in the haystack of all the telemetry data
+      needle:
+        # Specify the value to search for
+        value: error
+        # Indicate that this is not a regular expression
+        isRegex: false
+        # Match the case of the search term
+        matchCase: true</code></pre>
 </doc-codeblock></div>
 <hr />
 <doc-anchor-target id="properties">
@@ -239,17 +261,18 @@
         <span>properties</span>
     </h2>
 </doc-anchor-target>
+<p>ORL queries have a set of properties that define the query&#x27;s characteristics and behavior.</p>
 <doc-anchor-target id="description-optional">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#description-optional">#</doc-anchor-trigger>
         <span>description (optional)</span>
     </h3>
 </doc-anchor-target>
-<p>The <code v-pre>description</code> of the ORL dashboard is a string that provides more information about the dashboard.</p>
+<p>The <code v-pre>description</code> of the ORL query is a string that provides more information about the query. It can include details about the data being queried, the calculations being performed, and any other relevant information.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">description: This dashboards gives an overview of the health of the service.</code></pre>
+<pre class="language-yaml"><code v-pre class="language-yaml">description: This query calculates the average request duration for each user ID in the logs dataset.</code></pre>
 </doc-codeblock></div>
 <hr />
 <doc-anchor-target id="parameters">
@@ -258,70 +281,197 @@
         <span>parameters</span>
     </h3>
 </doc-anchor-target>
-<p>The <code v-pre>parameters</code> of an ORL dashboard define the widgets to display in the dashboard.</p>
-<doc-anchor-target id="widgets">
+<p>The <code v-pre>parameters</code> of an ORL query define the datasets to query, the calculations to perform on the data, and any filters or groupings to apply.</p>
+<doc-anchor-target id="datasets">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#widgets">#</doc-anchor-trigger>
-        <span>widgets</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#datasets">#</doc-anchor-trigger>
+        <span>datasets</span>
     </h4>
 </doc-anchor-target>
-<p>A widget is a graphical element that displays data in a compact and user-friendly way. It can be customized and configured to show specific the results of a specific query in a given view.</p>
-<doc-anchor-target id="query">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#query">#</doc-anchor-trigger>
-        <span>query</span>
-    </h5>
-</doc-anchor-target>
-<p>The <code v-pre>query</code> parameter is a reference to an ORL query that defines the data to be displayed in the widget. It is specified as a string in the format <code v-pre>!ref query_id</code>, where <code v-pre>query_id</code> is the id of the ORL query.</p>
+<p>The <code v-pre>datasets</code> parameter is an array of strings that specify the names of the datasets to query. ORL supports querying multiple datasets simultaneously, allowing you to analyze data from different sources in a single query.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">widgets:
-  - view: calculations
-    query: !ref my-metric-query</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="view">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#view">#</doc-anchor-trigger>
-        <span>view</span>
-    </h5>
-</doc-anchor-target>
-<p>In ORL, there are three types of widget views:</p>
-<ul>
-<li><code v-pre>calculations</code>: This view presents your data as easy-to-read line charts, enabling you to quickly calculate key performance metrics like averages, sums, and counts.</li>
-<li><code v-pre>events</code>: This view allows you to explore individual events by filtering and searching, making it a valuable tool for investigating specific occurrences and trends.</li>
-<li><code v-pre>traces</code>: This view provides a scatter plot of distributed traces, giving you insights into bottlenecks and latency issues. It&#x27;s perfect for investigating specific requests or flows and optimizing performance.</li>
-</ul>
-<p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">widgets:
-  - view: calculations
-    query: !ref my-metric-query</code></pre>
+<pre class="language-yaml"><code v-pre class="language-yaml">datasets:
+  - lambda-logs
+  - cloudwatch-metrics
+  - otel</code></pre>
 </doc-codeblock></div>
 <hr />
-<doc-anchor-target id="example-orl-dashboard">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#example-orl-dashboard">#</doc-anchor-trigger>
-        <span>Example ORL Dashboard</span>
-    </h3>
+<doc-anchor-target id="filters-optional">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#filters-optional">#</doc-anchor-trigger>
+        <span>filters (optional)</span>
+    </h4>
 </doc-anchor-target>
-<p>Here is an example ORL dashboard that combine all of the above properties.</p>
+<p>The <code v-pre>filters</code> parameter is an array of strings that specify conditions to filter the data by. Each string follows this format: <code v-pre>'key operation value'</code>, where <code v-pre>key</code> is the field to filter on, <code v-pre>operation</code> is the comparison operator to use, and <code v-pre>value</code> is the value to compare against. ORL supports the following operations:</p>
+<ul>
+<li><code v-pre>=</code>: Equals</li>
+<li><code v-pre>!=</code>: Does not equal</li>
+<li><code v-pre>&gt;</code>: Greater than</li>
+<li><code v-pre>&gt;=</code>: Greater than or equal to</li>
+<li><code v-pre>&lt;</code>: Less than</li>
+<li><code v-pre>&lt;=</code>: Less than or equal to</li>
+<li><code v-pre>INCLUDES</code>: Includes</li>
+<li><code v-pre>DOES_NOT_INCLUDE</code>: Does not include</li>
+<li><code v-pre>EXISTS</code>: Exists (applies to fields that may or may not exist in the data)</li>
+<li><code v-pre>DOES_NOT_EXIST</code>: Does not exist (applies to fields that may or may not exist in the data)</li>
+<li><code v-pre>MATCH_REGEX</code>: Matches a regular expression</li>
+<li><code v-pre>IN</code>: In (applies to arrays only)</li>
+<li><code v-pre>NOT_IN</code>: Not in (applies to arrays only)</li>
+<li><code v-pre>STARTS_WITH</code>: Starts with (applies to strings only)</li>
+<li><code v-pre>LIKE</code>: Matches a string</li>
+<li><code v-pre>NOT_LIKE</code>: Does not match a string</li>
+</ul>
+<p>Filters can be used to narrow down the data being analyzed and focus on specific events or attributes.</p>
+<p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">lambda-stats:
-  type: dashboard
+<pre class="language-yaml"><code v-pre class="language-yaml">filters:
+  - '@message.data.responseStatus = 404'
+  - '@message.userId IN [123, 456, 789]'
+  - 'requestDuration &gt; 500'
+  - 'requestMethod EXISTS'
+  - 'requestPath STARTS_WITH /api'</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="calculations-optional">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#calculations-optional">#</doc-anchor-trigger>
+        <span>calculations (optional)</span>
+    </h4>
+</doc-anchor-target>
+<p>The <code v-pre>calculations</code> parameter is an array of strings that specify the calculations to perform on the data. ORL supports the following calculations:</p>
+<ul>
+<li><code v-pre>COUNT</code>: Counts the number of events.</li>
+<li><code v-pre>COUNT_DISTINCT</code>: Counts the number of distinct occurences of a field (applies to strings only).</li>
+<li><code v-pre>MAX</code>: returns the maximum value of a field.</li>
+<li><code v-pre>MIN</code>: returns the minimum value of a field.</li>
+<li><code v-pre>SUM</code>: returns the sum of all values of a field.</li>
+<li><code v-pre>AVG</code>: returns the average of all values of a field.</li>
+<li><code v-pre>MEDIAN</code>: returns the median of all values of a field.</li>
+<li><code v-pre>STDDEV</code>: returns the sample standard deviation of a field.</li>
+<li><code v-pre>VARIANCE</code>: returns the sample variance of a field.</li>
+<li><code v-pre>P001</code>, <code v-pre>P01</code>, <code v-pre>P05</code>, <code v-pre>P10</code>, <code v-pre>P25</code>, <code v-pre>P75</code>, <code v-pre>P90</code>, <code v-pre>P95</code>, <code v-pre>P99</code>, <code v-pre>P999</code>: return the specified percentile of all values of a field.</li>
+</ul>
+<p>Calculations can be used to perform statistical analysis on the data and derive insights such as the average request duration, the maximum response size, or the 95th percentile of request latencies.</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">calculations:
+  - 'AVG(requestDuration)'
+  - 'MAX(responseSize)'
+  - 'P95(requestLatency)'</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="groupby-optional">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#groupby-optional">#</doc-anchor-trigger>
+        <span>groupBy (optional)</span>
+    </h4>
+</doc-anchor-target>
+<p>The <code v-pre>groupBy</code> parameter is an object that specifies how to segment the data by a field. It has the following fields:</p>
+<ul>
+<li><code v-pre>value</code>: The field to group the data by</li>
+<li><code v-pre>limit</code>: The maximum number of results to return (default: 10)</li>
+<li><code v-pre>type</code>: The type of the data field to group by (string, boolean, or number)</li>
+<li><code v-pre>orderBy</code>: The calculation to order the results by (default: the first calculation in the query)</li>
+<li><code v-pre>order</code>: The order in which to return the results (ASC or DESC, default: DESC)</li>
+</ul>
+<p>Grouping the data by a field allows you to segment the results into distinct groups and analyze them separately.</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">groupBy:
+  value: userId
+  limit: 100
+  type: string
+  orderBy: 'AVG(requestDuration)'
+  order: ASC</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="needle-optional">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#needle-optional">#</doc-anchor-trigger>
+        <span>needle (optional)</span>
+    </h4>
+</doc-anchor-target>
+<p>The <code v-pre>needle</code> parameter is an object that specifies a search to perform on the data. It has the following fields:</p>
+<ul>
+<li><code v-pre>value</code>: The string to search for</li>
+<li><code v-pre>matchCase</code>: A boolean indicating whether the search should be case-sensitive (default: false)</li>
+<li><code v-pre>isRegex</code>: A boolean indicating whether the search value is a regular expression (default: false)</li>
+</ul>
+<p>The needle can be used to find specific set of events or patterns in the data.</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">needle:
+  value: 'error'
+  matchCase: true
+  isRegex: false</code></pre>
+</doc-codeblock></div>
+<hr />
+<doc-anchor-target id="example-orl-queries">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-orl-queries">#</doc-anchor-trigger>
+        <span>Example ORL Queries</span>
+    </h3>
+</doc-anchor-target>
+<p>Here are example ORL queries that combine all of the above properties.</p>
+<p>This ORL query retrieves data from the otel traces dataset and performs several calculations on the data. It computes the average request duration, maximum response size, and 95th percentile of request latencies for each user ID in the dataset.</p>
+<p>It filters the data to only include user IDs with a request duration greater than 500ms, and limits the results to the top 100 user IDs based on the average request duration. The results are ordered by the average request duration in descending order. The query also searches for the word &quot;error&quot; in the data and filters the results based on whether or not the word is present.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">errors-latency-p95:
+  type: query
   properties:
-    description: &gt;
-      This dashboards gives an overview of the health of the service.
+    description: &gt; 
+      Computes the average request duration, maximum response size, and
+      p95 requestLatency for each user ID in the otel traces dataset, filtered
+      to only include user IDs with a request duration greater than 500ms, up to
+      100 users.
     parameters:
-      widgets:
-        - view: calculations
-          query: !ref my-metric-query
-        - view: events
-          query: !ref errors-in-logs
-        - view: traces
-          query: !ref slow-requests</code></pre>
+      datasets:
+        - otel
+      calculations:
+        - AVG(event.duration)
+        - MAX(event.response.size)
+        - P95(event.duration)
+        - COUNT
+      filters:
+        - event.duration &gt; 500
+      groupBy:
+        type: string
+        value: event.attributes.userId
+        limit: 100
+        orderBy: AVG(event.duration)
+        order: DESC
+      needle:
+        value: error
+        isRegex: false
+        matchCase: true</code></pre>
+</doc-codeblock></div>
+<p>This ORL query calculates the total consumed read capacity units for each DynamoDB table in a service. It filters the data to only include events with a metric_name of ConsumedReadCapacityUnits and a unit of Count, and groups the results by TableName. The query returns the top 10 tables with the highest consumed read capacity units.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> .baselime/resources.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">dynamodb-consumed-read-capacity-units-by-table:
+  type: query
+  properties:
+    description: Computes the total consumed read capacity units for each table in the CloudWatch metrics dataset.
+    parameters:
+      datasets:
+        - cloudwatch-metrics
+      filters:
+        - 'namespace = AWS/DynamoDB'
+        - 'metric_name = ConsumedReadCapacityUnits'
+      calculations:
+        - SUM(value.sum)
+      groupBy:
+        type: string
+        value: dimensions.TableName
+        limit: 10
+        orderBy: SUM(value.sum)</code></pre>
 </doc-codeblock></div>
 
                                 
@@ -330,7 +480,7 @@
                             </div>
                             <footer class="clear-both">
                                 <div class="flex flex-wrap items-center justify-between mt-14">
-                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/observability-reference-language/reference/dashboards.md" target="_blank" rel="noopener">
+                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/oac/observability-reference-language/reference/queries.md" target="_blank" rel="noopener">
                                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         <span>Edit on GitHub</span>
                                     </a>
@@ -338,20 +488,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../observability-reference-language/reference/alerts/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../../oac/observability-reference-language/reference/services/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Alerts</span>
+                                                <span class="block mt-1">Services</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../templates/overview/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../oac/observability-reference-language/reference/alerts/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Observability Templates</span>
+                                                <span class="block mt-1">Alerts</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -395,7 +545,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Dashboards", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Queries", level: 4, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
