@@ -72,7 +72,7 @@ calculations being performed, and any other relevant information.
 Example:
 
 ```typescript # :icon-code: index.ts
-description: This query calculates the average request duration for each user ID in the logs dataset.
+description: "This query calculates the average request duration for each user ID in the logs dataset."
 ```
 
 ---
