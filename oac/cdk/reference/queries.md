@@ -82,11 +82,11 @@ description: This query calculates the average request duration for each user ID
 The `parameters` of a query define the datasets to query, the calculations
 to perform on the data, and any filters or groupings to apply.
 
-#### datasets
+#### datasets (optional)
 
 The `datasets` parameter is an array of strings that specify the names of the
 datasets to query. Baselime supports querying multiple datasets simultaneously,
-allowing you to analyze data from different sources in a single query.
+allowing you to analyze data from different sources in a single query. If no datasets are provided, Baselime CDK defaults to `lambda-logs`.
 
 Example:
 
