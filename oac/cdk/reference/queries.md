@@ -17,7 +17,6 @@ for defining queries in Baselime. Use it to get started creating your own
 queries.
 
 ```typescript # :icon-code: index.ts
-import { Query } from "@baselime/cdk";
 const query = new Query("errors-latency-p95", {
   // Provide a description for the query
   description: `Computes the average request duration, maximum response size, and

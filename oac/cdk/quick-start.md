@@ -71,4 +71,4 @@ new Alert("service-errors", {
 });
 ```
 
-This alert will notify you on Slack everytime there is an event with `LogLevel` equal `"ERROR"` in your telemetry data.
+This alert will notify you on Slack when there is an event with `LogLevel` equal `"ERROR"` in your telemetry data.
