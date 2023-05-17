@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737661197593">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737662427796">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,12 +32,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../../resources/css/retype.css?v=2.4.0.737661197593" rel="stylesheet" />
+    <link href="../../../../resources/css/retype.css?v=2.4.0.737662427796" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../../resources/js/config.js?v=2.4.0.737661197593" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../../resources/js/config.js?v=2.4.0.737662427796" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../../resources/js/lunr.js?v=2.4.0.737661197593" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../../resources/js/prism.js?v=2.4.0.737661197593" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../../resources/js/lunr.js?v=2.4.0.737662427796" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../../resources/js/prism.js?v=2.4.0.737662427796" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -201,27 +201,25 @@
     </h1>
 </doc-anchor-target>
 <p>Dashboards give you a birds eye view of a collection of your query results. This can help you look at multiple related graphs on a single page to spot interesting trends.</p>
-<doc-anchor-target id="sample-alert-spec">
+<p>Dashboards are a collection of queries and charts that you want to keep for future reference. Boards help you visualise multiple queries at once, to spot interesting trends and share your findings with your team.</p>
+<hr />
+<doc-anchor-target id="sample-dashboard-spec">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-alert-spec">#</doc-anchor-trigger>
-        <span>Sample Alert Spec</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-dashboard-spec">#</doc-anchor-trigger>
+        <span>Sample Dashboard Spec</span>
     </h2>
 </doc-anchor-target>
 <p>Here’s a sample dashboard in Baselime CDK that uses all of the supported settings for defining dashboard in Baselime. Use it to get started creating your own dashboard.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
-<pre class="language-typescript"><code v-pre class="language-typescript">new Dashboard(&quot;clickhouse-cluster-performance&quot;, {
-  // Provide a description for the alert - optional
-  description: `High level clickhouse stats`,
-  // disable the alert - optional
+<pre class="language-typescript"><code v-pre class="language-typescript">new Dashboard(&quot;cluster-performance&quot;, {
+  // Provide a description for the board - optional
+  description: `Stats representing the cluster performance`,
   parameters: {
     widgets: [
-        { query: sumEventsIngested, name: &quot;Events Ingested&quot; },
-        { query: querysRan, name: &quot;Queries Executed&quot; },
-        { query: queryLatency, name: &quot;Query Latency&quot; },
-        { query: clickhouseCpuPerNode, name: &quot;Clickhouse CPU Per Node&quot; },
-        { query: clickhouseDiskPerNode, name: &quot;Clickhouse Disk Usage Per Node&quot; },
-        { query: clickhouseMemoryPerNode, name: &quot;Clickhouse Memory Usage Per Node&quot; },
+        { query: clickhouseCpuPerNode, name: &quot;CPU Per Node&quot; },
+        { query: clickhouseDiskPerNode, name: &quot;Disk Usage Per Node&quot; },
+        { query: clickhouseMemoryPerNode, name: &quot;Memory Usage Per Node&quot; },
     ]
   }
 });</code></pre>
@@ -234,10 +232,10 @@
     </h2>
 </doc-anchor-target>
 <doc-anchor-target id="description-optional">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#description-optional">#</doc-anchor-trigger>
         <span>description (optional)</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <p>The description of the dashboard is a string that provides more information about the dashboard. It can include high-level details or any other relevant information.</p>
 <p>Example:</p>
@@ -245,25 +243,26 @@
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">description: &quot;A detailed explanation for the dashboard&quot;</code></pre>
 </doc-codeblock></div>
+<hr />
 <doc-anchor-target id="parameters">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#parameters">#</doc-anchor-trigger>
         <span>parameters</span>
     </h3>
 </doc-anchor-target>
-<p>The parameters of a dashboard define the widgets to display on the dashboard.</p>
-<doc-anchor-target id="parameterswidgets">
+<p>The <code v-pre>parameters</code> of a dashboard define the widgets to display on the dashboard.</p>
+<doc-anchor-target id="widgets">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#parameterswidgets">#</doc-anchor-trigger>
-        <span>parameters.widgets</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#widgets">#</doc-anchor-trigger>
+        <span>widgets</span>
     </h4>
 </doc-anchor-target>
-<p>The widgets parameter is an array of widget objects that specify the queries to run and the names of the widgets to display on the dashboard. <code v-pre>name</code> and <code v-pre>description</code> are both optional parameters for a widget.</p>
+<p>The <code v-pre>widgets</code> parameter is an array of widget objects that specify the queries to run and the names of the widgets to display on the dashboard. <code v-pre>name</code> and <code v-pre>description</code> are both optional parameters for a widget.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">widgets: [
-  { query: queryConstruct, name: &quot;A short title&quot;, description: &quot;and a detailed description&quot; },
+  { query: queryConstruct, name: &quot;A short title&quot;, description: &quot;And a detailed description&quot; },
 ]</code></pre>
 </doc-codeblock></div>
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737661197593">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737662427796">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -32,12 +32,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../../resources/css/retype.css?v=2.4.0.737661197593" rel="stylesheet" />
+    <link href="../../../../resources/css/retype.css?v=2.4.0.737662427796" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../../resources/js/config.js?v=2.4.0.737661197593" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../../resources/js/config.js?v=2.4.0.737662427796" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../../resources/js/lunr.js?v=2.4.0.737661197593" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../../resources/js/prism.js?v=2.4.0.737661197593" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../../resources/js/lunr.js?v=2.4.0.737662427796" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../../resources/js/prism.js?v=2.4.0.737662427796" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -200,7 +200,8 @@
         <span>Baselime CDK Alerts</span>
     </h1>
 </doc-anchor-target>
-<p>Alerts are used to run a query on a schedule and notify you if a threshold is crossed. This can help notify you about problems or things of interest happening in your application.</p>
+<p>Alerts are used to run a query on a schedule and notify you if a threshold is crossed. Baselime alerts are based on Baselime queries, which gives you you the flexibility to specify alerts on defects or events of interest, and reduce false positives and alert fatigue.</p>
+<hr />
 <doc-anchor-target id="sample-alert-spec">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#sample-alert-spec">#</doc-anchor-trigger>
@@ -239,10 +240,10 @@ new Alert(&quot;sign-up-errors&quot;, {
     </h2>
 </doc-anchor-target>
 <doc-anchor-target id="description-optional">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#description-optional">#</doc-anchor-trigger>
         <span>description (optional)</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <p>The description of the alert is a string that provides more information about the alert. It can include details about the conditions being monitored and any other relevant information.</p>
 <p>Example:</p>
@@ -250,40 +251,42 @@ new Alert(&quot;sign-up-errors&quot;, {
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">description: &quot;Notify me whenever an error happens while a user is signing up.&quot;</code></pre>
 </doc-codeblock></div>
+<hr />
 <doc-anchor-target id="enabled-optional">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#enabled-optional">#</doc-anchor-trigger>
         <span>enabled (optional)</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
-<p>The enabled property is a boolean that indicates whether the alert is enabled or disabled. If set to true, the alert will be active and trigger notifications when conditions are met. If set to false, the alert will be inactive and no notifications will be sent.</p>
+<p>The <code v-pre>enabled</code> property is a boolean that indicates whether the alert is enabled or disabled. If set to true, the alert will be active and trigger notifications when thresholds are met. If set to false, the alert will be inactive and no notifications will be sent.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">enabled: true</code></pre>
 </doc-codeblock></div>
+<hr />
 <doc-anchor-target id="parameters">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#parameters">#</doc-anchor-trigger>
         <span>parameters</span>
     </h3>
 </doc-anchor-target>
-<p>The parameters of an alert define the query to run, the threshold to evaluate, and the frequency and window for monitoring.
+<p>The <code v-pre>parameters</code> of an alert define the query to run, the threshold to evaluate, and the frequency and window for monitoring.
 query</p>
-<doc-anchor-target id="parametersquery">
+<doc-anchor-target id="query">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#parametersquery">#</doc-anchor-trigger>
-        <span>parameters.query</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#query">#</doc-anchor-trigger>
+        <span>query</span>
     </h4>
 </doc-anchor-target>
-<p>The query parameter specifies the query to run for monitoring. It can reference an existing query object or include an inline query definition.</p>
+<p>The <code v-pre>query</code> parameter specifies the query to run for monitoring. It can reference an existing query object or include an inline query definition.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">query: {
   filters: [
     eq(&quot;LogType&quot;, &quot;ERROR&quot;),
-    eq(&quot;Action&quot;, &quot;SIGN_UP&quot;)
+    eq(&quot;user.action&quot;, &quot;SIGN_UP&quot;)
   ]
 }</code></pre>
 </doc-codeblock></div>
@@ -301,63 +304,76 @@ query</p>
   ]
 })</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="parametersthreshold">
+<doc-anchor-target id="threshold">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#parametersthreshold">#</doc-anchor-trigger>
-        <span>parameters.threshold</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#threshold">#</doc-anchor-trigger>
+        <span>threshold</span>
     </h4>
 </doc-anchor-target>
-<p>The threshold parameter specifies the condition to evaluate from the query results. It can use helper functions to create comparisons or calculations, such as gt, lt, eq, count, etc.</p>
+<p>The <code v-pre>threshold</code> parameter specifies the condition to evaluate from the query results. It can use helper functions to create comparisons or calculations, such as <code v-pre>gt</code>, <code v-pre>lt</code>, <code v-pre>eq</code>, <code v-pre>count</code>, etc.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">threshold: gt(10)</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="parametersfrequency">
+<doc-anchor-target id="frequency">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#parametersfrequency">#</doc-anchor-trigger>
-        <span>parameters.frequency</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#frequency">#</doc-anchor-trigger>
+        <span>frequency</span>
     </h4>
 </doc-anchor-target>
-<p>The frequency parameter specifies the frequency at which the alert should run the query and evaluate the threshold. It uses a string representation of the frequency, such as &#x27;5 mins&#x27;, &#x27;1 hour&#x27;, &#x27;1 day&#x27;, etc.</p>
+<p>The <code v-pre>frequency</code> parameter specifies the frequency at which the alert should run the query and evaluate the threshold. It uses a string representation of the frequency, such as &#x27;5 mins&#x27;, &#x27;1 hour&#x27;, &#x27;1 day&#x27;, etc.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">frequency: '5 mins'</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="parameterswindow">
+<doc-anchor-target id="window">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#parameterswindow">#</doc-anchor-trigger>
-        <span>parameters.window</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#window">#</doc-anchor-trigger>
+        <span>window</span>
     </h4>
 </doc-anchor-target>
-<p>The window parameter specifies the time window to look back for data when evaluating the threshold. It uses a string representation of the time window, such as &#x27;10 mins&#x27;, &#x27;1 hour&#x27;, &#x27;1 day&#x27;, etc.</p>
+<p>The <code v-pre>window</code> parameter specifies the time window to look back for data when evaluating the threshold. It uses a string representation of the time window, such as &#x27;10 mins&#x27;, &#x27;1 hour&#x27;, &#x27;1 day&#x27;, etc.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">window: '10 mins'</code></pre>
 </doc-codeblock></div>
+<hr />
 <doc-anchor-target id="channels">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#channels">#</doc-anchor-trigger>
         <span>channels</span>
+    </h3>
+</doc-anchor-target>
+<p>The <code v-pre>channels</code> property specifies the destinations to send the alert notifications. It is an array of channel objects, where each object defines the channel type and targets.</p>
+<doc-anchor-target id="type">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#type">#</doc-anchor-trigger>
+        <span>type</span>
     </h4>
 </doc-anchor-target>
-<p>The channels parameter specifies the channels or destinations to send the alert notifications. It is an array of channel objects, where each object defines the channel type and targets.</p>
-<p>type</p>
-<p>The type property specifies the type of channel for the alert. Baselime CDK supports various channel types, such as &#x27;slack&#x27;, &#x27;webhook&#x27;, etc.</p>
-<p>targets</p>
-<p>The targets property specifies the target destinations for the alert notifications. The targets can be specific user IDs, channels, or URLs depending on the channel type.</p>
+<p>The <code v-pre>type</code> property specifies the type of channel for the alert. Baselime CDK supports various channel types, such as &#x27;slack&#x27;, &#x27;webhook&#x27;, etc.</p>
+<doc-anchor-target id="targets">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#targets">#</doc-anchor-trigger>
+        <span>targets</span>
+    </h4>
+</doc-anchor-target>
+<p>The <code v-pre>targets</code> property specifies the target destinations for the alert notifications. The targets can be specific user IDs, channels, or URLs depending on the channel type.</p>
 <p>Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">
 channels: [{ targets: ['baselime-alerts'], type: 'slack' }]</code></pre>
 </doc-codeblock></div>
-<p>You can define a defaultChannel on Baselime Init to avoid having to duplicate the channel logic on every alert.</p>
+<p>Moreover, you can define a <code v-pre>defaultChannel</code> when initialising your Baselime CDK, this channel will be used for all alerts in the service, simplifying your CDK code.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path fill-rule="evenodd" d="M8.78 4.97a.75.75 0 010 1.06L2.81 12l5.97 5.97a.75.75 0 11-1.06 1.06l-6.5-6.5a.75.75 0 010-1.06l6.5-6.5a.75.75 0 011.06 0zm6.44 0a.75.75 0 000 1.06L21.19 12l-5.97 5.97a.75.75 0 101.06 1.06l6.5-6.5a.75.75 0 000-1.06l-6.5-6.5a.75.75 0 00-1.06 0z"/></g></g></svg> index.ts</div>
-<pre class="language-typescript"><code v-pre class="language-typescript">Baselime.init(this, { defaultChannel: { targets: ['baselime-alerts'], type: 'slack'}})</code></pre>
+<pre class="language-typescript"><code v-pre class="language-typescript">Baselime.init(this, {
+  defaultChannel: { targets: ['baselime-alerts'], type: 'slack'}
+});</code></pre>
 </doc-codeblock></div>
 
                                 
