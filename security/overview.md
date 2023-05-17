@@ -35,7 +35,7 @@ Baselime follows modern best practices for data security, including regularly up
 
 ## Data Scrubbing and Obfuscation
 
-Baselime provides tools for scrubbing and obfuscating sensitive data, such as passwords, secrets, and API keys. Users can block or obfuscate specific keys by dataset using the `.baselimeignore` file, or by using the `baselime scrubbing` command. In addition, Baselime automatically scrubs a predefined list of sensitive fields, including "password" and "secret".
+Baselime provides tools for scrubbing and obfuscating sensitive data, such as passwords, secrets, and API keys. Users can block or obfuscate specific keys by dataset using the `.baselimeignore` file. In addition, Baselime automatically scrubs a predefined list of sensitive fields, including "password" and "secret".
 
 To learn more about how to use these features to protect your data, see the Baselime [Telemetry Data Privacy](./privacy.md) documentation.
 

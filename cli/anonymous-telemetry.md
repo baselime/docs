@@ -29,7 +29,7 @@ It also allows us to verify if the improvements we make to the Baselime CLI are 
 
 We measure the following anonymously:
 
-- Command invoked (ie. `baselime apply`, `baselime queries run`, or `baselime events stream`)
+- Command invoked (ie. `baselime deploy`, `baselime query`, or `baselime tail`)
 - Version of Baselime in use
 - General machine information (e.g. number of CPUs, macOS/Windows/Linux, whether or not the command was run within CI)
 
