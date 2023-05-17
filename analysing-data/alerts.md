@@ -37,7 +37,7 @@ To create this alert, add it to a any `.yml` file in your `.baselime` folder. If
 Once you have the `.baselime` folder configured, run the following command to create your alert:
 
 ```bash # :icon-terminal: terminal
-baselime push
+baselime deploy
 ```
 
 ---
@@ -45,23 +45,6 @@ baselime push
 ## Receiving alerts
 
 When an alert is triggered, you can choose to receive notifications through a variety of channels, such as email, Slack, or PagerDuty (coming soon).
-
----
-
-## Managing alerts
-
-You can view and manage your alerts through the CLI or the web console. Here are some example CLI commands for managing alerts:
-
-```bash # :icon-terminal: terminal
-# List all alerts
-baselime alerts list
-
-# View the details of an alert
-baselime alerts describe --service <service_id> --id <alert_id>
-
-# Delete an alert
-baselime alerts delete --service <service_id> --id <alert_id>
-```
 
 ---
 
