@@ -113,8 +113,6 @@ The `filters` parameter is an array of strings that specify conditions to filter
 - `IN`: In (applies to arrays only)
 - `NOT_IN`: Not in (applies to arrays only)
 - `STARTS_WITH`: Starts with (applies to strings only)
-- `LIKE`: Matches a string
-- `NOT_LIKE`: Does not match a string
 
 Filters can be used to narrow down the data being analyzed and focus on specific events or attributes.
 
