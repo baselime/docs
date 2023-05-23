@@ -31,8 +31,8 @@ new Alert("sign-up-errors", {
     // look back over the last 30 minutes of data
     window: '30 mins',
   },
-  // route the alert slack or webhook
-  channels: [{ targets: ['baselime-alerts'], type: 'slack' }]
+  // route the alert slack, email or webhook
+  channels: [{ targets: ['you@company.com'], type: 'email' }]
 });
 ```
 
@@ -135,11 +135,11 @@ The `channels` property specifies the destinations to send the alert notificatio
 
 #### type
 
-The `type` property specifies the type of channel for the alert. Baselime CDK supports various channel types, such as 'slack', 'webhook', etc.
+The `type` property specifies the type of channel for the alert. Baselime CDK supports various channel types, such as 'email', 'slack', 'webhook', etc.
 
 #### targets
 
-The `targets` property specifies the target destinations for the alert notifications. The targets can be specific user IDs, channels, or URLs depending on the channel type.
+The `targets` property specifies the target destinations for the alert notifications. The targets can be specific emails, channels, or URLs depending on the channel type.
 
 Example:
 
