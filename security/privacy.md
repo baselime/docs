@@ -72,6 +72,7 @@ The following keys are automatically scrubbed:
 - `auth`
 - `credentials`
 - `creds`
+- `sourceip`
 
 Any nested field in your telemetry data that contains any of these automatically scrubbed keys will be blocked from ingestion by default.
 
