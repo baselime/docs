@@ -5,7 +5,7 @@ order: -1
 
 # Alerts
 
-Baselime's alerting feature allows you to set up notifications for when certain conditions are met in your telemetry data. This can be helpful for detecting and responding to issues in your system in real-time.
+Baselime's alerting feature enables you to set up notifications for when certain conditions are met in your telemetry data. This can be helpful for detecting and responding to issues in your system in real-time.
 
 ## Setting up alerts
 
