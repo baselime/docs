@@ -69,30 +69,9 @@ functions:
 ```
 
 Where the `BASELIME_KEY` is your Baselime API Key and the
-`BASELIME_LAMBDA_LAYER_ARN` is the ARN of the Baselime Layer in your region. The
-table below outlines the list of Baselime Layer ARNs for every supported region.
+`BASELIME_LAMBDA_LAYER_ARN` is the ARN of the Baselime Layer in your region.
 
-| Region         | Architecture | ARN                                                                                    |
-| -------------- | ------------ | -------------------------------------------------------------------------------------- |
-| us-east-1      | x86-64       | arn:aws:lambda:us-east-1:097948374213:layer:baselime-telemetry-extension-x86_64:3      |
-| us-east-1      | arm64        | arn:aws:lambda:us-east-1:097948374213:layer:baselime-telemetry-extension-arm64:3       |
-| us-east-2      | x86-64       | arn:aws:lambda:us-east-2:097948374213:layer:baselime-telemetry-extension-x86_64:3      |
-| us-east-2      | arm64        | arn:aws:lambda:us-east-2:097948374213:layer:baselime-telemetry-extension-arm64:3       |
-| us-west-2      | x86-64       | arn:aws:lambda:us-west-2:097948374213:layer:baselime-telemetry-extension-x86_64:3      |
-| us-west-2      | arm64        | arn:aws:lambda:us-west-2:097948374213:layer:baselime-telemetry-extension-arm64:3       |
-| us-central-1   | x86-64       | arn:aws:lambda:us-central-1:097948374213:layer:baselime-telemetry-extension-x86_64:3   |
-| us-central-1   | arm64        | arn:aws:lambda:us-central-1:097948374213:layer:baselime-telemetry-extension-arm64:3    |
-| eu-west-1      | x86-64       | arn:aws:lambda:eu-west-1:097948374213:layer:baselime-telemetry-extension-x86_64:3      |
-| eu-west-1      | arm64        | arn:aws:lambda:eu-west-1:097948374213:layer:baselime-telemetry-extension-arm64:3       |
-| eu-west-2      | x86-64       | arn:aws:lambda:eu-west-2:097948374213:layer:baselime-telemetry-extension-x86_64:3      |
-| eu-west-2      | arm64        | arn:aws:lambda:eu-west-2:097948374213:layer:baselime-telemetry-extension-arm64:3       |
-| ap-south-1     | x86-64       | arn:aws:lambda:ap-south-1:097948374213:layer:baselime-telemetry-extension-x86_64:3     |
-| ap-south-1     | arm64        | arn:aws:lambda:ap-south-1:097948374213:layer:baselime-telemetry-extension-arm64:3      |
-| ap-southeast-1 | x86-64       | arn:aws:lambda:ap-southeast-1:097948374213:layer:baselime-telemetry-extension-x86_64:3 |
-| ap-southeast-1 | arm64        | arn:aws:lambda:ap-southeast-1:097948374213:layer:baselime-telemetry-extension-arm64:3  |
-| ap-southeast-2 | x86-64       | arn:aws:lambda:ap-southeast-2:097948374213:layer:baselime-telemetry-extension-x86_64:3 |
-| ap-southeast-2 | arm64        | arn:aws:lambda:ap-southeast-2:097948374213:layer:baselime-telemetry-extension-arm64:3  |
-| ap-northeast-1 | x86-64       | arn:aws:lambda:ap-northeast-1:097948374213:layer:baselime-telemetry-extension-x86_64:3 |
-| ap-northeast-1 | arm64        | arn:aws:lambda:ap-northeast-1:097948374213:layer:baselime-telemetry-extension-arm64:3  |
-| ca-central-1   | x86-64       | arn:aws:lambda:ca-central-1:097948374213:layer:baselime-telemetry-extension-x86_64:3   |
-| ca-central-1   | arm64        | arn:aws:lambda:ca-central-1:097948374213:layer:baselime-telemetry-extension-arm64:3    |
+```javascript
+`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
+```
+
