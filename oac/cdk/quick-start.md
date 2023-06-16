@@ -57,16 +57,16 @@ Baselime.init(this, {
 Set up an alert everytime there's an error in your application logs:
 
 ```typescript # :icon-code: index.ts
-import { Alert, eq } from "@baselime/cdk";
+import { Alert, filter } from "@baselime/cdk";
 
 new Alert("service-errors", {
   parameters: {
     query: {
       filters: [
-        filter.inArray(eq("LogLevel", "ERROR")),
+        filter.inArray("LogLevel", ["ERROR", "WARN"]),
       ],
     },
-    channel: { type: "slack", targets: ["baselime-alerts"] }
+    channels: [{ type: "slack", targets: ["baselime-alerts"] }]
   },
 });
 ```

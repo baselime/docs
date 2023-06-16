@@ -20,7 +20,6 @@ Before you can use the Baselime CLI, you'll need to:
 Once you have the Baselime CLI installed and your AWS Account connected, you're ready to start using Baselime! Here are a few commands to get you started:
 
 - `baselime iam`: displays information about the current user logged in to the CLI.
-- `baselime services list`: List all of the services in the authenticated environment.
 - `baselime query`: Run a query against your telemetry data to find specific events or metrics.
 - `baselime tail`: Stream all of the events ingested into Baselime in real-time.
 

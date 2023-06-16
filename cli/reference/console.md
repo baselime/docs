@@ -1,28 +1,27 @@
 ---
-label: destroy
+label: console
 ---
 
-# baselime destroy
+# baselime console
 
-Use the `baselime destroy` to services previously created through Observability as Code.
+Use the `baselime console` command to open the Baselime console.
 
 ```bash :icon-terminal: terminal
-baselime destroy
+baselime console
 
-Destroy previously-created observability configurations
+Open the baselime web console
 
 Options:
       --profile  [string] [default: "default"]
       --quiet  [boolean] [default: false]
-  -d, --debug  [boolean] [default: false]
+      --debug  [boolean] [default: false]
       --format   Format to output the data in  [string] [choices: "table", "json"] [default: "table"]
-  -c, --config   The configuration folder to execute  [string] [default: ".baselime"]
   -h, --help     Show this help output, or the help for a specified command or subcommand  [boolean]
   -v, --version  Show the current Baselime CLI version  [boolean]
 
 Examples:
 
-        baselime destroy
-        baselime destroy --config .baselime --profile prod
+        # Open the Baselime webconsole with the CLI
+        baselime console
 
 ```

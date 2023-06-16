@@ -50,7 +50,7 @@ For example, to obfuscate the `data.user.email` key in the `lambda-logs` dataset
 lambda-logs:obfuscate:data.user.email
 ```
 
-Note that the `.baselimeignore` file should be placed in the root folder of your service and will be applied when you run `baselime push`.
+Note that the `.baselimeignore` file should be placed in the root folder of your service and will be applied when you run `baselime deploy`.
 
 Keep in mind that the `.baselimeignore` file is only applied to data that is ingested after the `.baselimeignore` file is pushed. Data that was ingested before the `.baselimeignore` file was pushed will not be affected.
 
@@ -72,6 +72,7 @@ The following keys are automatically scrubbed:
 - `auth`
 - `credentials`
 - `creds`
+- `sourceip`
 
 Any nested field in your telemetry data that contains any of these automatically scrubbed keys will be blocked from ingestion by default.
 

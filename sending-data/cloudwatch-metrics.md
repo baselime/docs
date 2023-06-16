@@ -35,6 +35,10 @@ This pipeline will automatically continiously send metrics from your AWS account
 
 ![Sending Amazon CloudWatch Metrics to Baselime](../assets/images/illustrations/sending-data/metrics.png)
 
+!!! AWS Cost
+Amazon CloudWatch Metrics Stream might incur a minimal cost on your AWS accont. AWS charges $0.003 per 1,000 metric updates. Refer to the [AWS docs](https://aws.amazon.com/cloudwatch/pricing/) for more details.
+!!!
+
 ---
 
 ## Custom Amazon CloudWatch Metrics

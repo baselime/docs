@@ -5,7 +5,9 @@ order: -2
 
 # Baselime CDK Alerts
 
-Alerts are used to run a query on a schedule and notify you if a threshold is crossed. This can help notify you about problems or things of interest happening in your application.
+Alerts are used to run a query on a schedule and notify you if a threshold is crossed. Baselime alerts are based on Baselime queries, which gives you you the flexibility to specify alerts on defects or events of interest, and reduce false positives and alert fatigue.
+
+---
 
 ## Sample Alert Spec
 
@@ -29,8 +31,8 @@ new Alert("sign-up-errors", {
     // look back over the last 30 minutes of data
     window: '30 mins',
   },
-  // route the alert slack or webhook
-  channels: [{ targets: ['baselime-alerts'], type: 'slack' }]
+  // route the alert slack, email or webhook
+  channels: [{ targets: ['you@company.com'], type: 'email' }]
 });
 ```
 
@@ -38,7 +40,7 @@ new Alert("sign-up-errors", {
 
 ## properties
 
-#### description (optional)
+### description (optional)
 
 The description of the alert is a string that provides more information about the alert. It can include details about the conditions being monitored and any other relevant information.
 
@@ -48,9 +50,11 @@ Example:
 description: "Notify me whenever an error happens while a user is signing up."
 ```
 
-#### enabled (optional)
+---
 
-The enabled property is a boolean that indicates whether the alert is enabled or disabled. If set to true, the alert will be active and trigger notifications when conditions are met. If set to false, the alert will be inactive and no notifications will be sent.
+### enabled (optional)
+
+The `enabled` property is a boolean that indicates whether the alert is enabled or disabled. If set to true, the alert will be active and trigger notifications when thresholds are met. If set to false, the alert will be inactive and no notifications will be sent.
 
 Example:
 
@@ -58,13 +62,15 @@ Example:
 enabled: true
 ```
 
+---
+
 ### parameters
 
-The parameters of an alert define the query to run, the threshold to evaluate, and the frequency and window for monitoring.
+The `parameters` of an alert define the query to run, the threshold to evaluate, and the frequency and window for monitoring.
 query
 
-#### parameters.query
-The query parameter specifies the query to run for monitoring. It can reference an existing query object or include an inline query definition.
+#### query
+The `query` parameter specifies the query to run for monitoring. It can reference an existing query object or include an inline query definition.
 
 Example:
 
@@ -72,7 +78,7 @@ Example:
 query: {
   filters: [
     eq("LogType", "ERROR"),
-    eq("Action", "SIGN_UP")
+    eq("user.action", "SIGN_UP")
   ]
 }
 ```
@@ -91,10 +97,9 @@ query: new Query("sign-up-errors", {
 })
 ```
 
+#### threshold
 
-#### parameters.threshold
-
-The threshold parameter specifies the condition to evaluate from the query results. It can use helper functions to create comparisons or calculations, such as gt, lt, eq, count, etc.
+The `threshold` parameter specifies the condition to evaluate from the query results. It can use helper functions to create comparisons or calculations, such as `gt`, `lt`, `eq`, `count`, etc.
 
 Example:
 
@@ -102,9 +107,9 @@ Example:
 threshold: gt(10)
 ```
 
-#### parameters.frequency
+#### frequency
 
-The frequency parameter specifies the frequency at which the alert should run the query and evaluate the threshold. It uses a string representation of the frequency, such as '5 mins', '1 hour', '1 day', etc.
+The `frequency` parameter specifies the frequency at which the alert should run the query and evaluate the threshold. It uses a string representation of the frequency, such as '5 mins', '1 hour', '1 day', etc.
 
 Example:
 
@@ -112,9 +117,9 @@ Example:
 frequency: '5 mins'
 ```
 
-#### parameters.window
+#### window
 
-The window parameter specifies the time window to look back for data when evaluating the threshold. It uses a string representation of the time window, such as '10 mins', '1 hour', '1 day', etc.
+The `window` parameter specifies the time window to look back for data when evaluating the threshold. It uses a string representation of the time window, such as '10 mins', '1 hour', '1 day', etc.
 
 Example:
 
@@ -122,17 +127,19 @@ Example:
 window: '10 mins'
 ```
 
-#### channels
+---
 
-The channels parameter specifies the channels or destinations to send the alert notifications. It is an array of channel objects, where each object defines the channel type and targets.
+### channels
 
-type
+The `channels` property specifies the destinations to send the alert notifications. It is an array of channel objects, where each object defines the channel type and targets.
 
-The type property specifies the type of channel for the alert. Baselime CDK supports various channel types, such as 'slack', 'webhook', etc.
+#### type
 
-targets
+The `type` property specifies the type of channel for the alert. Baselime CDK supports various channel types, such as 'email', 'slack', 'webhook', etc.
 
-The targets property specifies the target destinations for the alert notifications. The targets can be specific user IDs, channels, or URLs depending on the channel type.
+#### targets
+
+The `targets` property specifies the target destinations for the alert notifications. The targets can be specific emails, channels, or URLs depending on the channel type.
 
 Example:
 
@@ -141,8 +148,10 @@ Example:
 channels: [{ targets: ['baselime-alerts'], type: 'slack' }]
 ```
 
-You can define a defaultChannel on Baselime Init to avoid having to duplicate the channel logic on every alert. 
+Moreover, you can define a `defaultChannel` when initialising your Baselime CDK, this channel will be used for all alerts in the service, simplifying your CDK code. 
 
 ```typescript # :icon-code: index.ts
-Baselime.init(this, { defaultChannel: { targets: ['baselime-alerts'], type: 'slack'}})
+Baselime.init(this, {
+  defaultChannel: { targets: ['baselime-alerts'], type: 'slack'}
+});
 ```
