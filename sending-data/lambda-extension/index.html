@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.2.739289780370">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.740237140010">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.0.2">
+    <meta name="generator" content="Retype 3.0.3">
 
     <!-- Primary Meta Tags -->
     <title>Lambda Telemetry Extension | Baselime - Observability for Serverless</title>
@@ -34,12 +34,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=3.0.2.739289780370" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=3.0.3.740237140010" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.2.739289780370" data-turbo-eval="false" defer></script>
-    <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.2" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.2.739289780370" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=3.0.2.739289780370" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.740237140010" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.740237140010" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=3.0.3.740237140010" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -281,131 +281,10 @@ functions:
     handler: handler.hello</code></pre>
 </doc-codeblock></div>
 <p>Where the <code v-pre>BASELIME_KEY</code> is your Baselime API Key and the
-<code v-pre>BASELIME_LAMBDA_LAYER_ARN</code> is the ARN of the Baselime Layer in your region. The
-table below outlines the list of Baselime Layer ARNs for every supported region.</p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Region</th>
-<th>Architecture</th>
-<th>ARN</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>us-east-1</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:us-east-1:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>us-east-1</td>
-<td>arm64</td>
-<td>arn:aws:lambda:us-east-1:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>us-east-2</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:us-east-2:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>us-east-2</td>
-<td>arm64</td>
-<td>arn:aws:lambda:us-east-2:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>us-west-2</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:us-west-2:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>us-west-2</td>
-<td>arm64</td>
-<td>arn:aws:lambda:us-west-2:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>us-central-1</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:us-central-1:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>us-central-1</td>
-<td>arm64</td>
-<td>arn:aws:lambda:us-central-1:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>eu-west-1</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:eu-west-1:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>eu-west-1</td>
-<td>arm64</td>
-<td>arn:aws:lambda:eu-west-1:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>eu-west-2</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:eu-west-2:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>eu-west-2</td>
-<td>arm64</td>
-<td>arn:aws:lambda:eu-west-2:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>ap-south-1</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:ap-south-1:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>ap-south-1</td>
-<td>arm64</td>
-<td>arn:aws:lambda:ap-south-1:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>ap-southeast-1</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:ap-southeast-1:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>ap-southeast-1</td>
-<td>arm64</td>
-<td>arn:aws:lambda:ap-southeast-1:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>ap-southeast-2</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:ap-southeast-2:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>ap-southeast-2</td>
-<td>arm64</td>
-<td>arn:aws:lambda:ap-southeast-2:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>ap-northeast-1</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:ap-northeast-1:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>ap-northeast-1</td>
-<td>arm64</td>
-<td>arn:aws:lambda:ap-northeast-1:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-<tr>
-<td>ca-central-1</td>
-<td>x86-64</td>
-<td>arn:aws:lambda:ca-central-1:097948374213:layer:baselime-telemetry-extension-x86_64:3</td>
-</tr>
-<tr>
-<td>ca-central-1</td>
-<td>arm64</td>
-<td>arn:aws:lambda:ca-central-1:097948374213:layer:baselime-telemetry-extension-arm64:3</td>
-</tr>
-</tbody>
-</table>
-</div>
+<code v-pre>BASELIME_LAMBDA_LAYER_ARN</code> is the ARN of the Baselime Layer in your region.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
