@@ -3,9 +3,9 @@ label: Rehydration from S3
 order: -1
 ---
 
-# Rehydrating logs from Amazon S3
+# Rehydrating telemetry data from Amazon S3
 
-This page describes how you can rehydrate your logs from Amazon S3 into Baselime.
+This page describes how you can rehydrate your telemetry data from Amazon S3 into Baselime.
 
 ## How it works
 When your data is streamed to Baselime, through different sources described in the [Sending Data to Baselime](./overview.md) section,
