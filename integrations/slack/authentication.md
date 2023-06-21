@@ -3,7 +3,7 @@ label: Authentication
 order: -1
 ---
 
-[Install the Baselime integraton for Slack](https://slack.baselime.io/slack/install).
+[Install the Baselime integration for Slack](https://slack.baselime.io/slack/install).
 
 Once you install the app in your Slack workspace, you can start interacting with Baselime app as a Personal app or access from channels. By default, the Baselime app is enabled in all the public channels. For private channels, you need to explicitly invite /invite @baselime
 

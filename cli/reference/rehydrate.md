@@ -7,7 +7,7 @@ label: connect
 Use the `baselime rehydrate` to rehydrate expired data from your S3.
 
 ```bash :icon-terminal: terminal
-cli.js rehydrate
+baselime rehydrate
 
 Rehydrate expired data from your s3
 
@@ -24,6 +24,6 @@ Options:
 
 Examples:
 
-        cli.js rehydrate --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1
-        cli.js rehydrate --config .baselime --profile prod --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1
+        baselime rehydrate --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1
+        baselime rehydrate --config .baselime --profile prod --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1
 ```

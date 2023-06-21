@@ -26,7 +26,7 @@ Overall, Observability as Code makes it easier to manage and collaborate on obse
 
 ## Environments
 
-In Baselime, an Environment represents your whole system. Environments can contain the data for many AWS accounts and regions enabling you to unify your O11y. We recommend you create an environment for each instance of your system. I.E. seperate environments for prod, testing ect. This keeps your test and prod data seperate in baselime making it easy to find what you are looking for.
+In Baselime, an Environment represents your whole system. Environments can contain the data for many AWS accounts and regions enabling you to unify your O11y. We recommend you create an environment for each instance of your system. I.E. separate environments for prod, testing ect. This keeps your test and prod data separate in baselime making it easy to find what you are looking for.
 
 When using the CLI you can setup multiple local profiles for each environment by running `baselime login --profile 'new profile name goes here' and selecting the environment you want. Every baselime cli command supports the --profile flag to use the environment you want.
 

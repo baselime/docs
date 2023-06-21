@@ -31,12 +31,12 @@ Moreover, Amazon CloudWatch Metrics cover all aspects of your serverless archite
 
 The following diagram illustrates the process for sending Amazon CloudWatch metrics to Baselime. Once Baselime is connected to an AWS Account, it automatically created the telemetry pipeline for ingesting Amazon CloudWatch metrics into Baselime. The pipeline comprises a CloudWatch Metrics Stream, a Kinesis Firehose and all IAM roles and permissions associated.
 
-This pipeline will automatically continiously send metrics from your AWS account to Baselime.
+This pipeline will automatically continuously send metrics from your AWS account to Baselime.
 
 ![Sending Amazon CloudWatch Metrics to Baselime](../assets/images/illustrations/sending-data/metrics.png)
 
 !!! AWS Cost
-Amazon CloudWatch Metrics Stream might incur a minimal cost on your AWS accont. AWS charges $0.003 per 1,000 metric updates. Refer to the [AWS docs](https://aws.amazon.com/cloudwatch/pricing/) for more details.
+Amazon CloudWatch Metrics Stream might incur a minimal cost on your AWS account. AWS charges $0.003 per 1,000 metric updates. Refer to the [AWS docs](https://aws.amazon.com/cloudwatch/pricing/) for more details.
 !!!
 
 ---

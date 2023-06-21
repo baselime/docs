@@ -25,7 +25,7 @@ You can send your telemetry data to Baselime with either of:
 [!ref icon="../assets/images/logos/logo_cloudtrail.png"](./cloudtrail.md)
 [!ref icon="../assets/images/logos/logo_cloudwatch.png"](./cloudwatch-metrics.md)
 [!ref icon="../assets/images/logos/http_flat@3x.png"](./events-api.md)
-
+[!ref icon="../assets/images/logos/s3@3x.png"](./s3-rehydration.md)
 ---
 
 ## Validation

@@ -28,13 +28,13 @@ baselime iam
 
 ## How it works
 
-The Baselime Lambda Extension is language agonistic and is compressed as a
+The Baselime Lambda Extension is language agnostic and is compressed as a
 single binary, such that it minimises its impact cold-starts and performance.
 
 The diagram below illustrates how the Baselime Lambda Extension works within
 your architecture.
 
-![Usingt the Baselime Lambda Extension](../assets/images/illustrations/sending-data/lambda-extension.png)
+![Using the Baselime Lambda Extension](../assets/images/illustrations/sending-data/lambda-extension.png)
 
 All the telemetry data from your Lambda function is collected asynchronously
 from your invocation, and sent to the Baselime backend in a separate process

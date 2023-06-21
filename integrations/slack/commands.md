@@ -3,7 +3,7 @@ label: Commands
 order: -3
 ---
 
-You can use the `/baselime` command to intercat with Baselime straight from Slack.
+You can use the `/baselime` command to interact with Baselime straight from Slack.
 
 ---
 
