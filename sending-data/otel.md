@@ -147,7 +147,7 @@ package:
 Add the following environment variables
 ```yaml
     BASELIME_KEY: ${env:BASELIME_KEY}
-    NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry'
+    NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry/lambda-wrapper'
 ```
 
 ### SST
@@ -165,16 +165,14 @@ Then add the default props to include the wrapper in your bundle and add your en
 
 ```javascript
 app.setDefaultFunctionProps({
-  runtime: "nodejs16.x",
-  srcPath: "services",
+  runtime: "nodejs18.x",
   environment: {
-    NODE_OPTIONS: '--require lambda-wrapper.js',
+    NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry/lambda-wrapper',
     BASELIME_SERVICE: stack.stackName,
     BASELIME_KEY: process.env.BASELIME_KEY
   },
-  bundle: {
-    format: "esm",
-    copyFiles: [{ from: "./lambda-wrapper.js", to: "./lambda-wrapper.js" }],
+  nodejs: {
+    install: ["@baselime/lambda-node-opentelemetry"],
   },
 });
 ```
