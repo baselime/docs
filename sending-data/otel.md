@@ -21,17 +21,66 @@ baselime iam
 
 If you have not instrumented your codebase with OTel yet, you can use the [Baselime Node.js OTel tracer](https://github.com/Baselime/lambda-node-opentelemetry) as outlined below. We're currently working on lightweight OTel tracers for other languages.
 
-
 ---
 
-## 🎸 Lambda Opentelemetry for Node.JS
+# Lambda Opentelemetry for Node.JS
 
 The `@baselime/lambda-node-opentelemetry` package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime. This is the most powerful and flexible way to instrument your node service.
 
-The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [x-ray](https://baselime.io/docs/sending-data/xray/) integration instead.
+
+## Getting started
+
+Wrap your handlers with the `baselime.wrap(handler)` method.
+
+Example
+
+```javascript
+import baselime from '@baselime/lambda-node-opentelemetry'
+
+async function main(event, context) {
+   // your lambda handler
+}
+
+export const handler = baselime.wrap(main);
+
+```
+
+For production systems you should remove the latency overhead of sending open telemetry data by adding the baselime-extension layer.
+
+```javascript
+`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
+```
+
+![OTEL Extension](../assets/images/illustrations/sending-data/otel-extension.png)
+
+## Adding Custom Events
+
+Our simple but powerful OTEL compatible logging extension lets you add context rich events to your traces. These events can be useful to show more detailed context on errors, add steps that you want recorded for a business process or simply add extra debug information.
+
+```javascript
+const { logger } = require("@baselime/lambda-node-opentelemetry");
+
+logger.info("This is an informational message", {
+  operation: "copy-paste-replace",
+  count: 9000,
+});
+```
+
+The extension provides an object that includes four logging functions - info, warn, debug, and error - enabling you to log messages with varying levels of severity. By setting the LOG_LEVEL environment variable, you can control the visibility of the logs.
+
+```javascript
+const { logger } = require("@baselime/lambda-node-opentelemetry");
+
+logger.info("This is an informational message", { payload: { foo: "bar" } });
+logger.warn("This is a warning message", { payload: { foo: "bar" } });
+logger.debug("This is a debug message", { payload: { foo: "bar" } });
+logger.error("This is an error message", { payload: { foo: "bar" } });
+```
+
+It shares the same interface as `@baselime/lambda-logger` so if you are moving from cloudwatch to open telemetry this makes the transision seamless.
 
 
-### Manual Installation
+## Manual Installation
 
 Install the `@baselime/lambda-node-opentelemetry` package
 
@@ -43,8 +92,7 @@ Add the following environment variables to your service
 
 | Key                | Example                         | Description                                                                         |
 | ------------------ | ------------------------------- | ----------------------------------------------------------------------------------- |
-| BASELIME_OTEL_KEY  | nora-is-the-cutest-baselime-dog | Get this key from the [cli](https://github.com/Baselime/cli) running `baselime iam` |
-| BASELIME_NAMESPACE | prod-users                      | The name of the service the traces belong to                                        |
+| BASELIME_KEY  | nora-is-the-cutest-baselime-dog | Get this key from the [cli](https://github.com/Baselime/cli) running `baselime iam` |
 | NODE_OPTIONS       | --require @baselime/lambda-node-opentelemetry      | Preloads the tracing sdk at startup                                                 |
 
 Get the baselime key using our [cli](https://github.com/Baselime/cli) 
@@ -58,7 +106,7 @@ You need to make sure the lambda-wrapper file is included in the .zip file that 
 > If you use `export const` `export function` or `export default` for your handler you need to rename it to a cjs export like `module.exports = ` or `exports.handler =`. Even if you use esbuild. We are tracking issues in [esbuild](https://github.com/evanw/esbuild/issues/1079) and [open-telemetry](https://github.com/open-telemetry/opentelemetry-js/issues/1946) and are looking to see how we can help out.
 
 
-#### Architect
+### Architect
 
 Copy the lambda-wrapper.js file from our node modules to the shared folder of your architect project, this way it is automatically included in all of your lambdas bundles.
 
@@ -69,15 +117,14 @@ cp node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js src/shared
 Add the environment variables to your architect project
 
 ```bash
-arc env -e production --add BASELIME_OTEL_KEY tux-is-the-smartest-baselime-dog
-arc env -e production --add BASELIME_NAMESPACE project-1
+arc env -e production --add BASELIME_KEY tux-is-the-smartest-baselime-dog
 arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-wrapper'
 ```
 
-> Watch out for the '--' in the NODE_OPTIONS command. This is required to escape options parsing. This totally didn't frustrate me for a whole day! :D
+> Watch out for the '--' in the NODE_OPTIONS command. This is required to escape options parsing.
 
 
-#### Serverless
+### Serverless
 
 By default the serverless framework includes your whole node_module directory in the .zip file. If you are using the `serverless-esbuild` plugin to avoid this then you need to add the following configuration to your project.
 
@@ -99,12 +146,11 @@ package:
 
 Add the following environment variables
 ```yaml
-    BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
-    BASELIME_NAMESPACE: '${self:provider.stage}-${self:provider.service}'
+    BASELIME_KEY: ${env:BASELIME_KEY}
     NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry'
 ```
 
-#### SST
+### SST
 
 > Fun fact Baselime is built using SST :)
 
@@ -123,8 +169,8 @@ app.setDefaultFunctionProps({
   srcPath: "services",
   environment: {
     NODE_OPTIONS: '--require lambda-wrapper.js',
-    BASELIME_NAMESPACE: stack.stackName,
-    BASELIME_OTEL_KEY: process.env.BASELIME_OTEL_KEY
+    BASELIME_SERVICE: stack.stackName,
+    BASELIME_KEY: process.env.BASELIME_KEY
   },
   bundle: {
     format: "esm",
@@ -133,10 +179,81 @@ app.setDefaultFunctionProps({
 });
 ```
 
-### Automatic Instrumentation [WIP]
+## Automatic Instrumentation
 
-Lambda Extension coming soon
+### Manual Setup
 
-### Send data to another OpenTelemetry Backend
+1. Add the baselime-node layer - `arn:aws:lambda:${region:097948374213:layer:baselime-node:4`
+2. Add the baselime-extension layer - `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
+3. Set the handler to `/opt/nodejs/node_modules/@baselime/lambda-node-opentelemetry/handler.handler`
+4. Set the BASELIME_ORIGINAL_HANDLER environment variable to the original path of your lambda
+5. Set the BASELIME_KEY environment variable with the value of your environments baselime api key
+
+### SST
+
+```typescript
+import { LayerVersion } from "aws-cdk-lib/aws-lambda";
+
+const baselime = LayerVersion.fromLayerVersionArn(
+  stack,
+  "BaselimeLayer",
+  `arn:aws:lambda:${stack.region}:097948374213:layer:baselime-node:4`
+);
+
+if (!scope.local) {
+  stack.addDefaultFunctionLayers([baselime]);
+  stack.addDefaultFunctionEnv({
+    AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
+    BASELIME_KEY: process.env.BASELIME_KEY
+  });
+}
+```
+
+### Serverless
+
+```yml
+provider:
+  ...
+  layers:
+    - arn:aws:lambda:${opt:region}:097948374213:layer:baselime-node:4
+  environment:
+    AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
+    BASELIME_KEY: ${env:BASELIME_KEY}
+```
+
+### Architect
+
+```
+// app.arc
+@aws
+layers
+  arn:aws:lambda:{{ region }}:097948374213:layer:BASElIME-node:4
+```
+
+Add the environment variables to your architect project
+
+```bash
+arc env -e production --add BASELIME_KEY tux-is-the-smartest-baselime-dog
+arc env -e production --add AWS_LAMBDA_EXEC_WRAPPER /opt/baselime
+```
+
+## Send data to another OpenTelemetry Backend
 
 Add the environment variable `COLLECTOR_URL` to send the spans somewhere else.
+
+## License
+
+&copy; Baselime Limited, 2023
+
+Distributed under MIT License (`The MIT License`).
+
+See [LICENSE](LICENSE) for more information.
+
+<!-- Badges -->
+
+[docs]: https://baselime.io/docs/
+[docs_badge]: https://img.shields.io/badge/docs-reference-blue.svg?style=flat-square
+[release]: https://github.com/baselime/lambda-node-opentelemetry/releases/latest
+[release_badge]: https://img.shields.io/github/release/baselime/lambda-node-opentelemetry.svg?style=flat-square&ghcache=unused
+[license]: https://opensource.org/licenses/MIT
+[license_badge]: https://img.shields.io/github/license/baselime/lambda-node-opentelemetry.svg?color=blue&style=flat-square&ghcache=unused
