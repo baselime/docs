@@ -24,7 +24,7 @@ Examples:
         # Check authentication status for default profile:
         baselime iam
 
-        # Check authentication status of a specified profiel:
+        # Check authentication status of a specified profile:
         baselime iam --profile prod
 
 ```

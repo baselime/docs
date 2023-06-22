@@ -86,7 +86,7 @@ exports.handler = middy()
 
 ### Logging format
 
-We recommend using structured logging accross your application, preferably in JSON format. Feel free to use your favourite logging library; we recommend:
+We recommend using structured logging across your application, preferably in JSON format. Feel free to use your favourite logging library; we recommend:
 
 - [Baselime Lambda Logger for Node.js](https://github.com/baselime/lambda-logger)
 - [Lambda Power Tools](https://github.com/awslabs?q=lambda-powertools&type=all&language=&sort=stargazers)

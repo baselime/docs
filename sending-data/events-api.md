@@ -70,9 +70,9 @@ The HTTP API validates the provided events and returns a `400 Bad Request` statu
 
 Baselime returns a `202` response for all valid requests to the HTTP Events API, and a range on of non-`200` responses for errors.
 
-We welcome feeback on API responses and error messages. Reach out to us in our [Slack community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ) with any request or suggestion you may have.
+We welcome feedback on API responses and error messages. Reach out to us in our [Slack community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ) with any request or suggestion you may have.
 
-### Successfull responses
+### Successful responses
 
 | Status Code | Body                                  | Meaning { class="compact" }                           |
 |-------------|---------------------------------------|-------------------------------------------------------|
@@ -80,12 +80,11 @@ We welcome feeback on API responses and error messages. Reach out to us in our [
 
 ### Failure responses
 
-| Status Code | Body                              | Meaning { class="compact" }                           |
-|-------------|-----------------------------------|-------------------------------------------------------|
-| 405         | ```{"message": "Method Not Allowed"}``` | The HTTP method is now allowed |
-| 401         | ```{"message": "Unauthorised"}``` | Missing or invalid API Key |
+| Status Code | Body                              | Meaning { class="compact" }                                                                                                                                                                                                                                                                                  |
+|-------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 405         | ```{"message": "Method Not Allowed"}``` | The HTTP method is now allowed                                                                                                                                                                                                                                                                               |
+| 401         | ```{"message": "Unauthorised"}``` | Missing or invalid API Key                                                                                                                                                                                                                                                                                   |
 | 400        | ```{"message": "Bad Request"}``` | - Missing or invalid path parameters (`v1`, `<dataset>`, `<service>` or `<namespace>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `128kb` size limit <br /> - At least one of the events could not be parsed as valid JSON |
-| 500         | ```{"message": "Internal Error"}``` | An unexpected error occured |
-
+| 500         | ```{"message": "Internal Error"}``` | An unexpected error occurred                                                                                                                                                                                                                                                                                 |
 
 

@@ -21,7 +21,7 @@ Options:
 
 Examples:
 
-        # Open the Baselime webconsole with the CLI
+        # Open the Baselime web console with the CLI
         baselime console
 
 ```
