@@ -1,5 +1,5 @@
 ---
-label: connect
+label: rehydrate
 ---
 
 # baselime rehydrate
