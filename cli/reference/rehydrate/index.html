@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.740760918898">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.740824363826">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
 
     <!-- Primary Meta Tags -->
-    <title>baselime connect | Baselime - Observability for Serverless</title>
-    <meta name="title" content="baselime connect | Baselime - Observability for Serverless">
+    <title>baselime rehydrate | Baselime - Observability for Serverless</title>
+    <meta name="title" content="baselime rehydrate | Baselime - Observability for Serverless">
     <meta name="description" content="Use the baselime rehydrate to rehydrate expired data from your S3." />
 
     <!-- Canonical -->
@@ -20,24 +20,24 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/cli/reference/rehydrate/">
-    <meta property="og:title" content="baselime connect | Baselime - Observability for Serverless">
+    <meta property="og:title" content="baselime rehydrate | Baselime - Observability for Serverless">
     <meta property="og:description" content="Use the baselime rehydrate to rehydrate expired data from your S3.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/cli/reference/rehydrate/">
-    <meta property="twitter:title" content="baselime connect | Baselime - Observability for Serverless">
+    <meta property="twitter:title" content="baselime rehydrate | Baselime - Observability for Serverless">
     <meta property="twitter:description" content="Use the baselime rehydrate to rehydrate expired data from your S3.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../resources/css/retype.css?v=3.0.3.740760918898" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=3.0.3.740824363826" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=3.0.3.740760918898" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=3.0.3.740824363826" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=3.0.3.740760918898" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=3.0.3.740760918898" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=3.0.3.740824363826" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=3.0.3.740824363826" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -194,10 +194,10 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="baselime-connect" class="break-words">
+<doc-anchor-target id="baselime-rehydrate" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-connect">#</doc-anchor-trigger>
-        <span>baselime connect</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-rehydrate">#</doc-anchor-trigger>
+        <span>baselime rehydrate</span>
     </h1>
 </doc-anchor-target>
 <p>Use the <code v-pre>baselime rehydrate</code> to rehydrate expired data from your S3.</p>
@@ -211,7 +211,6 @@ Options:
       --quiet  [boolean] [default: false]
       --debug  [boolean] [default: false]
       --format          Format to output the data in  [string] [choices: &quot;table&quot;, &quot;json&quot;] [default: &quot;table&quot;]
-  -c, --config          The configuration folder to execute  [string] [default: &quot;.baselime&quot;]
       --startDate       Date onwards which to recover the data ISO format  [string]
       --hoursToRecover  Consecutive hours of data from startDate to recover  [number]
   -h, --help            Show this help output, or the help for a specified command or subcommand  [boolean]
@@ -220,7 +219,7 @@ Options:
 Examples:
 
         baselime rehydrate --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1
-        baselime rehydrate --config .baselime --profile prod --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1</code></pre>
+        baselime rehydrate --profile prod --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1</code></pre>
 </doc-codeblock></div>
 
                                 
