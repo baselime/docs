@@ -2,7 +2,7 @@
 label: connect
 ---
 
-# baselime connect
+# baselime rehydrate
 
 Use the `baselime rehydrate` to rehydrate expired data from your S3.
 
@@ -16,7 +16,6 @@ Options:
       --quiet  [boolean] [default: false]
       --debug  [boolean] [default: false]
       --format          Format to output the data in  [string] [choices: "table", "json"] [default: "table"]
-  -c, --config          The configuration folder to execute  [string] [default: ".baselime"]
       --startDate       Date onwards which to recover the data ISO format  [string]
       --hoursToRecover  Consecutive hours of data from startDate to recover  [number]
   -h, --help            Show this help output, or the help for a specified command or subcommand  [boolean]
@@ -25,5 +24,5 @@ Options:
 Examples:
 
         baselime rehydrate --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1
-        baselime rehydrate --config .baselime --profile prod --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1
+        baselime rehydrate --profile prod --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1
 ```
