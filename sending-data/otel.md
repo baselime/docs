@@ -27,31 +27,57 @@ If you have not instrumented your codebase with OTel yet, you can use the [Basel
 
 The `@baselime/lambda-node-opentelemetry` package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime. This is the most powerful and flexible way to instrument your node service.
 
+## Automatic Instrumentation
 
-## Getting started
+Add the Baselime open telemetry tracer with no code changes. Tag your lambda function with `baselime:tracing=true`
 
-Wrap your handlers with the `baselime.wrap(handler)` method.
+### SST/CDK
 
-Example
+To tag all functions add this to your sst.config.ts
 
-```javascript
-import baselime from '@baselime/lambda-node-opentelemetry'
-
-async function main(event, context) {
-   // your lambda handler
-}
-
-export const handler = baselime.wrap(main);
-
+```typescript
+ Tags.of(app).add("baselime:tracing", `true`);
 ```
 
-For production systems you should remove the latency overhead of sending open telemetry data by adding the baselime-extension layer.
 
-```javascript
-`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
+### Serverless Framework
+
+
+```yaml
+provider:
+  name: aws
+  tags:
+    "baselime:tracing": "true"
 ```
+<!-- 
+### Architect -->
 
-![OTEL Extension](../assets/images/illustrations/sending-data/otel-extension.png)
+### SAM
+
+```yaml
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: "Gets data from the xxxxx API."
+Globals:
+  Function:
+    Tags:
+       "baselime:tracing": "true"
+```
+### Manual Setup
+
+Behind the scenes this makes a few changes to your lambda function via Baselimes AWS Integration.
+
+Here is a peak under the hood:
+
+1. Add the baselime-node layer - `arn:aws:lambda:${region:097948374213:layer:baselime-node:6`
+2. Add the baselime-extension layer - `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
+3. Set the handler to `/opt/nodejs/node_modules/@baselime/lambda-node-opentelemetry/handler.handler`
+4. Set the BASELIME_ACTUAL_HANDLER environment variable. The value of this variable must be to the path of the handler of your AWS Lambda function, for example filename.handler
+5. Set the BASELIME_KEY environment variable with the value of your environments Baselime api key
+
+These changes are kept in sync via AWS Lambda Config Updated events from CloudTrail.
+
+
 
 ## Adding Custom Events
 
@@ -79,6 +105,70 @@ logger.error("This is an error message", { payload: { foo: "bar" } });
 
 It shares the same interface as `@baselime/lambda-logger` so if you are moving from cloudwatch to open telemetry this makes the transision seamless.
 
+### Adding custom spans
+
+You can completely customise the traces you send. Install the `@opentelemetry/api` package and customise!
+
+Add new spans for your important business logic
+
+```javascript
+import { trace } from "@opentelemetry/api";
+const tracer = trace.getTracer('your-custom-traces');
+
+const result = await tracer.startActiveSpan(`business-logic`, async (span) => {
+  span.setAttributes(args)
+  // simulate some random work.
+  const result = await yourBusinessLogic(args)
+  span.setAttributes(result)
+  return result
+});
+```
+
+or get the active span and enrich it with more data
+
+```javascript
+import { trace } from "@opentelemetry/api";
+
+export async function handler(event) {
+  const activeSpan = trace.getActiveSpan();
+
+  const { userId } = JSON.parse(event.body);
+  span.setAttribute('user', userId)
+
+  // do something meaningful
+}
+```
+
+All these spans and attributes can be queried in Baselime
+
+For more information read the ....... manual
+
+[OTEL Docs](https://opentelemetry.io/docs/instrumentation/js/manual/#acquiring-a-tracer)
+
+## Manual Integration
+
+Wrap your handlers with the `baselime.wrap(handler)` method.
+
+Example
+
+```javascript
+import baselime from '@baselime/lambda-node-opentelemetry'
+
+async function main(event, context) {
+   // your lambda handler
+}
+
+export const handler = baselime.wrap(main);
+
+```
+
+For production systems you should remove the latency overhead of sending open telemetry data by adding the baselime-extension layer.
+
+```javascript
+`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
+```
+
+![OTEL Extension](../assets/images/illustrations/sending-data/otel-extension.png)
 
 ## Manual Installation
 
@@ -90,10 +180,10 @@ npm install @baselime/lambda-node-opentelemetry
 
 Add the following environment variables to your service
 
-| Key                | Example                         | Description                                                                         |
-| ------------------ | ------------------------------- | ----------------------------------------------------------------------------------- |
-| BASELIME_KEY  | nora-is-the-cutest-baselime-dog | Get this key from the [cli](https://github.com/Baselime/cli) running `baselime iam` |
-| NODE_OPTIONS       | --require @baselime/lambda-node-opentelemetry      | Preloads the tracing sdk at startup                                                 |
+| Key          | Example                                       | Description                                                                         |
+| ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------- |
+| BASELIME_KEY | nora-is-the-cutest-baselime-dog               | Get this key from the [cli](https://github.com/Baselime/cli) running `baselime iam` |
+| NODE_OPTIONS | --require @baselime/lambda-node-opentelemetry | Preloads the tracing sdk at startup                                                 |
 
 Get the baselime key using our [cli](https://github.com/Baselime/cli) 
 
@@ -177,81 +267,6 @@ app.setDefaultFunctionProps({
 });
 ```
 
-## Automatic Instrumentation
-
-### Manual Setup
-
-1. Add the baselime-node layer - `arn:aws:lambda:${region:097948374213:layer:baselime-node:4`
-2. Add the baselime-extension layer - `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
-3. Set the handler to `/opt/nodejs/node_modules/@baselime/lambda-node-opentelemetry/handler.handler`
-4. Set the BASELIME_ACTUAL_HANDLER environment variable to the original path of your lambda
-5. Set the BASELIME_KEY environment variable with the value of your environments baselime api key
-
-<!-- ### SST
-
-```typescript
-import { LayerVersion } from "aws-cdk-lib/aws-lambda";
-
-const baselime = LayerVersion.fromLayerVersionArn(
-  stack,
-  "BaselimeLayer",
-  `arn:aws:lambda:${stack.region}:097948374213:layer:baselime-node:4`
-);
-
-if (!scope.local) {
-  stack.addDefaultFunctionLayers([baselime]);
-  stack.addDefaultFunctionEnv({
-    AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
-    BASELIME_KEY: process.env.BASELIME_KEY
-  });
-}
-```
-
-### Serverless
-
-```yml
-provider:
-  ...
-  layers:
-    - arn:aws:lambda:${opt:region}:097948374213:layer:baselime-node:4
-  environment:
-    AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
-    BASELIME_KEY: ${env:BASELIME_KEY}
-```
-
-### Architect
-
-```
-// app.arc
-@aws
-layers
-  arn:aws:lambda:{{ region }}:097948374213:layer:BASElIME-node:4
-```
-
-Add the environment variables to your architect project
-
-```bash
-arc env -e production --add BASELIME_KEY tux-is-the-smartest-baselime-dog
-arc env -e production --add AWS_LAMBDA_EXEC_WRAPPER /opt/baselime
-``` -->
-
 ## Send data to another OpenTelemetry Backend
 
 Add the environment variable `COLLECTOR_URL` to send the spans somewhere else.
-
-## License
-
-&copy; Baselime Limited, 2023
-
-Distributed under MIT License (`The MIT License`).
-
-See [LICENSE](LICENSE) for more information.
-
-<!-- Badges -->
-
-[docs]: https://baselime.io/docs/
-[docs_badge]: https://img.shields.io/badge/docs-reference-blue.svg?style=flat-square
-[release]: https://github.com/baselime/lambda-node-opentelemetry/releases/latest
-[release_badge]: https://img.shields.io/github/release/baselime/lambda-node-opentelemetry.svg?style=flat-square&ghcache=unused
-[license]: https://opensource.org/licenses/MIT
-[license_badge]: https://img.shields.io/github/license/baselime/lambda-node-opentelemetry.svg?color=blue&style=flat-square&ghcache=unused
