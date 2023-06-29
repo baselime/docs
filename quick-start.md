@@ -71,7 +71,7 @@ If you do not see any data in the Baselime UI or using the baselime tail command
 
 ---
 
-## Step 4: Explore the data
+## Step 4: Explore your data
 
 Once your AWS Account is connected, you can start exploring the telemetry data it generates. You can use the web console or the CLI (if installed) to access and analyze the data.
 
@@ -126,7 +126,7 @@ Follow this url: https://console.baselime.io/<workspace>/<env>/queries/lambda-du
 
 ## Guides
 
-- [Sending Data](./sending-data/overview.md): Learn how to ingest telemetry data from your serverless applications
+- [Sending Data](./sending-data/): Learn how to ingest telemetry data from your serverless applications
 - [Analyzing Data](./analysing-data/service-discovery.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
 - [Integrations](./): Find out how to connect Baselime with your favorite tools
 

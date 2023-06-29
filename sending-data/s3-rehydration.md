@@ -1,6 +1,6 @@
 ---
-label: Rehydration from S3
-order: -1
+label: Rehydration from Amazon S3
+order: -8
 ---
 
 # Rehydrating telemetry data from Amazon S3
@@ -8,7 +8,7 @@ order: -1
 This page describes how you can rehydrate your telemetry data from Amazon S3 into Baselime.
 
 ## How it works
-When your data is streamed to Baselime, through different sources described in the [Sending Data to Baselime](./overview.md) section,
+When your data is streamed to Baselime, through different sources described in the [Sending Data to Baselime](./) section,
 it is also streamed to a Kinesis Firehose created in your AWS at the time of integration. The Firehose then saves
 the data in an S3 bucket in your AWS account.
 

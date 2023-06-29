@@ -1,6 +1,6 @@
 ---
 label: Amazon API Gateway Logs
-order: -2
+order: -3
 ---
 
 # Amazon API Gateway Logs

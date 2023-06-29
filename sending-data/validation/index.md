@@ -1,34 +1,4 @@
----
-label: Sending Data to Baselime
-order: 1
----
-
-# Sending Data to Baselime
-
----
-
-
-Baselime supports a variety of data sources, including logs, metrics, traces, and wide events. You can start sending your data to Baselime and gain valuable insights into the performance and reliability of your serverless applications with a few steps.
-
-Once ingested, the data is securely stored hot storage for querying and in cold storage within your own AWS environment, in an **Amazon S3 bucket in your AWS account**. This ensures that you have complete long-term control over your data and its storage location.
-
-![Sending Telemetry data to Baselime](../assets/images/illustrations/sending-data/s3.png)
-
-You can send your telemetry data to Baselime with either of:
-
-[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./lambda-logs.md)
-[!ref icon="../assets/images/logos/logo_ecs_logs.png"](./ecs-logs.md)
-[!ref icon="../assets/images/logos/logo_aws_apigateway.png"](./apigateway-logs.md)
-[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./lambda-extension.md)
-[!ref icon="../assets/images/logos/logo_open_telemetry.png"](./otel.md)
-[!ref icon="../assets/images/logos/logo_xray.png"](./xray.md)
-[!ref icon="../assets/images/logos/logo_cloudtrail.png"](./cloudtrail.md)
-[!ref icon="../assets/images/logos/logo_cloudwatch.png"](./cloudwatch-metrics.md)
-[!ref icon="../assets/images/logos/http_flat@3x.png"](./events-api.md)
-[!ref icon="../assets/images/logos/s3@3x.png"](./s3-rehydration.md)
----
-
-## Validation
+# Data Validation in Baselime
 
 Baselime has a size limit for events of `256kb`. This size limit helps ensure that the ingestion process is efficient and that the data stored in Baselime is manageable and fast to query. If an event exceeds this `256kb` size limit, it will not be ingested into Baselime.
 
