@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.741371536208">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.742075205097">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>baselime rehydrate | Baselime - Observability for Serverless</title>
     <meta name="title" content="baselime rehydrate | Baselime - Observability for Serverless">
-    <meta name="description" content="Use the baselime rehydrate to rehydrate expired data from your S3." />
+    <meta name="description" content="Use the baselime rehydrate to rehydrate Baselime hot storage with data from your Amazon S3 Bucket." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/cli/reference/rehydrate/" />
@@ -21,23 +21,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/cli/reference/rehydrate/">
     <meta property="og:title" content="baselime rehydrate | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Use the baselime rehydrate to rehydrate expired data from your S3.">
+    <meta property="og:description" content="Use the baselime rehydrate to rehydrate Baselime hot storage with data from your Amazon S3 Bucket.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/cli/reference/rehydrate/">
     <meta property="twitter:title" content="baselime rehydrate | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Use the baselime rehydrate to rehydrate expired data from your S3.">
+    <meta property="twitter:description" content="Use the baselime rehydrate to rehydrate Baselime hot storage with data from your Amazon S3 Bucket.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon" />
-    <link href="../../../resources/css/retype.css?v=3.0.3.741371536208" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=3.0.3.742075205097" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=3.0.3.741371536208" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=3.0.3.742075205097" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=3.0.3.741371536208" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=3.0.3.741371536208" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=3.0.3.742075205097" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=3.0.3.742075205097" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
 
@@ -200,26 +200,27 @@
         <span>baselime rehydrate</span>
     </h1>
 </doc-anchor-target>
-<p>Use the <code v-pre>baselime rehydrate</code> to rehydrate expired data from your S3.</p>
+<p>Use the <code v-pre>baselime rehydrate</code> to rehydrate Baselime hot storage with data from your Amazon S3 Bucket.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">baselime rehydrate
 
-Rehydrate expired data from your s3
+Rehydrate Baselime hot storage with data from your Amazon S3 Bucket
 
 Options:
       --profile  [string] [default: &quot;default&quot;]
       --quiet  [boolean] [default: false]
       --debug  [boolean] [default: false]
-      --format          Format to output the data in  [string] [choices: &quot;table&quot;, &quot;json&quot;] [default: &quot;table&quot;]
-      --startDate       Date onwards which to recover the data ISO format  [string]
-      --hoursToRecover  Consecutive hours of data from startDate to recover  [number]
-  -h, --help            Show this help output, or the help for a specified command or subcommand  [boolean]
-  -v, --version         Show the current Baselime CLI version  [boolean]
+      --format            Format to output the data in  [string] [choices: &quot;table&quot;, &quot;json&quot;] [default: &quot;table&quot;]
+      --start-date        Date to start recovering data from, in ISO format  [string]
+      --hours-to-recover  Number of consecutive hours of data to recover starting from start-date. Minimum: 1, maximum: 12  [number]
+  -h, --help              Show this help output, or the help for a specified command or subcommand  [boolean]
+  -v, --version           Show the current Baselime CLI version  [boolean]
 
 Examples:
 
-        baselime rehydrate --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1
-        baselime rehydrate --profile prod --startDate 2023-06-08T13:24:47.906Z --hoursToRecover 1</code></pre>
+        baselime rehydrate --start-date 2023-06-08T13:24:47.906Z --hours-to-recover 1
+        baselime rehydrate --profile prod --start-date 2023-06-08T13:24:47.906Z --hours-to-recover 9
+</code></pre>
 </doc-codeblock></div>
 
                                 
