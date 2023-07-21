@@ -5,33 +5,32 @@ order: -6
 
 # Amazon CloudWatch Metrics
 
-Once you connect your AWS account to Baselime, the necessary resources including a [CloudWatch Metrics Stream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html) and a [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose/) will be automatically created and configured for you. This means that you don't need to do any additional setup or configuration.
+Baselime automatically collects Amazon CloudWatch Metrics from your AWS account. Once you connect your AWS account to Baselime, the necessary resources including a [CloudWatch Metrics Stream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html) and a [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose/) will be automatically created and configured. No additional setup or configuration is required.
 
 !!! Essential
-Sending Amazon CloudWatch metrics to Baselime is essential to effectively monitor your AWS resources and applications. By ingesting CloudWatch metrics, Baselime can provide real-time analysis and visualization of your application's performance, health, and availability. This allows you to quickly identify and troubleshoot issues before they impact your users.
+Sending Amazon CloudWatch metrics to Baselime is essential to effectively monitor your AWS resources and applications. By ingesting Amazon CloudWatch metrics, Baselime can provide real-time analysis and visualization of your application's performance, health, and availability. This enables you to quickly identify and troubleshoot issues before they impact your users.
 !!!
 
 !!! Automatic
-Baselime automatically ingests Amazon CloudWatch Metrics, there is no need for any additional steps after connecting your AWS account.
+Baselime automatically ingests Amazon CloudWatch Metrics, no additional steps are required after connecting your AWS account.
 !!!
 
 ---
 
 ## Why Amazon CloudWatch Metrics ?
 
-[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) is a monitoring service provided by Amazon Web Services (AWS) that enables you to collect and track metrics and log data for your AWS resources and applications. Metrics are important as they provide insight into the performance and behavior of your serverless applications and the underlying infrastructure.
+[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) is a monitoring service provided by AWS that enables you to collect and track metrics for your AWS resources and applications. Metrics are important as they provide insight into the performance and behavior of your serverless applications and the underlying infrastructure.
 
 Amazon CloudWatch Metrics can help you identify issues such as high error rates and latencies, which can help improve the overall reliability and scalability of your applications.
 
-Moreover, Amazon CloudWatch Metrics cover all aspects of your serverless architecture automatically, from DynamoDB tables to S3 buckets and SQS Queues.
-
+Amazon CloudWatch Metrics cover all aspects of your serverless architecture automatically, from DynamoDB tables to S3 buckets and SQS Queues.
 ---
 
 ## How it works
 
-The following diagram illustrates the process for sending Amazon CloudWatch metrics to Baselime. Once Baselime is connected to an AWS Account, it automatically created the telemetry pipeline for ingesting Amazon CloudWatch metrics into Baselime. The pipeline comprises a CloudWatch Metrics Stream, a Kinesis Firehose and all IAM roles and permissions associated.
+Once Baselime is connected to an AWS Account, it automatically created the telemetry pipeline for ingesting Amazon CloudWatch metrics into Baselime. The pipeline comprises a CloudWatch Metrics Stream, a Kinesis Firehose and all IAM roles and permissions associated.
 
-This pipeline will automatically continuously send metrics from your AWS account to Baselime.
+This pipeline automatically and continuously sends metrics from your AWS account to Baselime.
 
 ![Sending Amazon CloudWatch Metrics to Baselime](../assets/images/illustrations/sending-data/metrics.png)
 

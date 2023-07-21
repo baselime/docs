@@ -33,7 +33,7 @@ To use Baselime, you'll need to sign up for an account. You can sign up for a fr
 
 ## Step 2: (Optional) Install the Baselime CLI
 
-The Baselime CLI is a command-line tool that you can use to interact with the platform. Installing the CLI can make it easier to work with Baselime, unlocks Observability as Code and provides additional functionality not available in the web console. To install the CLI, follow the instructions [here](./cli/install.md).
+The Baselime CLI is a command-line tool that you can use to interact with the platform. Installing the CLI unlocks Observability as Code and provides additional functionality not available in the web console. To install the CLI, follow the instructions [here](./cli/install.md).
 
 ---
 

@@ -5,7 +5,7 @@ order: 2
 
 # Baselime AI
 
-Baselime AI provides explanations for any chart, log, event, metric or trace on Baselime. It helps you easily identify patterns and anomalies in your serverless systems, providing deeper insights into your system performance and behavior.
+Baselime AI provides explanations for any chart, log, event, metric or trace on Baselime. It enables you to identify patterns and anomalies in your serverless systems, providing deeper insights into your system performance and behavior.
 
 ---
 
@@ -27,7 +27,7 @@ Once you have an account, follow these steps to use Baselime AI:
 
 Baselime AI is built using OpenAI's Large Language Models. When you ask Baselime AI a question, it analyzes the data in the selected chart or event, and uses machine learning algorithms to identify any anomalies or patterns.
 
-Once Baselime AI has identified potential issues, it generates a response that explains the root cause of the problem, as well as any recommended actions to fix it. The response is presented in natural language, making it easy for developers of all skill levels to understand.
+Once Baselime AI has identified potential issues, it generates a response that explains the root cause of the problem, as well as any recommended actions to fix it. The response is presented in natural language, enabling developers of all skill levels to understand.
 
 ---
 
@@ -35,9 +35,9 @@ Once Baselime AI has identified potential issues, it generates a response that e
 
 Baselime AI offers a range of benefits, including:
 
-- Streamlined debugging: Baselime AI enables you to quickly and easily identify and fix issues, reducing the time and effort required for debugging.
+- Streamlined debugging: Baselime AI enables you to quickly identify and fix issues, reducing the time and effort required for debugging.
 - Improved system observability: With Baselime AI, you can gain deeper insights into your system performance and behavior, enabling you to optimize your systems and improve overall system observability.
-- Accessible to all skill levels: Baselime AI's natural language explanations make it easy for developers at all skill levels to understand and interpret results.
+- Accessible to all skill levels: Baselime AI's natural language explanations enable developers at all skill levels to understand and interpret results.
 
 ---
 

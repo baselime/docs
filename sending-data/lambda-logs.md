@@ -8,6 +8,8 @@ order: 0
 
 Once you connect your AWS account to Baselime, Baselime automatically create [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html) to automatically ingest logs from your AWS Lambda functions.
 
+Baselime automatically captures logs for newly created AWS Lambda functions, and enables you to query and visualise logs across log groups and log streams.
+
 !!! Essential
 To effectively monitor your applications deployed on AWS on Baselime, it is essential to send AWS Lambda logs.
 !!!
@@ -20,13 +22,11 @@ Baselime automatically ingests AWS Lambda logs, there is no need for any additio
 
 ## How it works
 
-The following diagram illustrates the process for sending AWS Lambda logs to Baselime. Once Baselime is connected to an AWS Account, it automatically creates Logs subscription filters for all the Lambda functions in the account. Log subscription filters enable Baselime to asynchronously ingest logs from the Lambda functions through CloudWatch, without any impact on the performance of the Lambda functions. 
+Once Baselime is connected to an AWS Account, it automatically creates Logs subscription filters for all the AWS Lambda functions in the account. Log subscription filters enable Baselime to asynchronously ingest logs from the AWS Lambda functions through Amazon CloudWatch, without any impact on the performance of the AWS Lambda functions. 
 
 ![Sending Lambda Logs to Baselime](../assets/images/illustrations/sending-data/lambda-logs.png)
 
-Moreover, Baselime automatically creates new subscription filters for newly deployed Lambda functions, thanks to it CloudTrail integration. Baselime listens to new Lambda events in CloudTrail and appropriately creates subscription filters for newly created Lambda functions. 
-
-This method however has one drawback: Lambda logs appear in Baselime with a delay (typically less than 3 seconds) as a results of the logs going through CloudWatch before being piped to Baselime.
+Moreover, Baselime automatically creates new subscription filters for newly deployed AWS Lambda functions. Baselime listens to new AWS Lambda events in Amazon CloudTrail and creates subscription filters for newly created AWS Lambda functions.
 
 An alternative method to ingesting AWS Lambda logs is with the use of the [Baselime Lambda Extension](./lambda-extension.md).
 

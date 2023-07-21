@@ -9,7 +9,7 @@ Semi-structured logs are logs that are not in the strict JSON format, but still 
 
 Baselime will automatically detect log events that contain JSON data, but are prepended or appended by a generic string. 
 
-The generic string will be wrapped in a `message` attribute, and the JSON data will be wrapped in a `data` attribute. This enables you to easily extract and analyze relevant data from semi-structured logs.
+The generic string will be wrapped in a `message` attribute, and the JSON data will be wrapped in a `data` attribute. This enables you to extract and analyze relevant data from semi-structured logs.
 
 ### Examples
 

@@ -18,10 +18,10 @@ Baselime automatically ingests Amazon API Gateway logs, there is no need for any
 
 ## Setup
 
-Baselime can ingest logs only for API Gateways where access logs are
+Baselime can ingest logs only for Amazon API Gateways where access logs are
 appropriately configured.
 
-We recommend this configuration for API Gateway logs:
+We recommend this configuration for Amazon API Gateway logs:
 
 ```json #
 {
@@ -43,7 +43,7 @@ We recommend this configuration for API Gateway logs:
 }
 ```
 
-It is possible to enable API Gateway access logs from your favourite Infrastructure as Code tool, using the CLI or in the AWS console. Below is an example of how to enable API Gateway logs using the serverless framework.
+It is possible to enable Amazon API Gateway access logs from your favourite Infrastructure as Code tool, using the CLI or in the AWS console. Below is an example of how to enable Amazon API Gateway logs using the serverless framework.
 
 ```yaml #
 # serverless.yml
@@ -61,11 +61,11 @@ provider:
 
 ## How it works
 
-The following diagram illustrates the process for sending Amazon API Gateway logs to Baselime. Once Baselime is connected to an AWS Account, it automatically creates Logs subscription filters for all the API Gateways in the account.
+Once Baselime is connected to your AWS Account, it automatically creates Logs subscription filters for all the Amazon API Gateways in the account.
 
 ![Sending API Gateway Logs to Baselime](../assets/images/illustrations/sending-data/apigateway.png)
 
-Moreover, Baselime automatically creates new subscription filters for newly deployed API Gateways, thanks to it CloudTrail integration. Baselime listens to new API Gateway events in CloudTrail and appropriately creates subscription filters for newly created API Gateways functions. 
+Moreover, Baselime automatically creates new subscription filters for newly deployed Amazon API Gateways. Baselime listens to new API Gateway events in Amazon CloudTrail and creates subscription filters for newly created Amazon API Gateways. 
 
 
 

@@ -166,7 +166,7 @@ query.addAlert({
 
 This adds a query and alert to your applications service in Baselime that notify you in slack when ever any log messages contain an error or Unhandled Exceptions caught by the lambda runtime. The alerts will check every 30 minutes for any errors.
 
-The billing team come back and explain that they want to see the errors broken down by customer so they can easily see which customers where effected by the broken code.
+The billing team come back and explain that they want to see the errors broken down by customer so they can see which customers where effected by the broken code.
 
 ```javascript
 const query = new baselime.Query("create-subscription-errors", {

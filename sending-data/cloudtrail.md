@@ -5,12 +5,12 @@ order: -5
 
 # Amazon CloudTrail
 
-Baselime automatically ingests CloudTrail events when you connect your AWS account. Baselime will automatically create a new CloudTrail and S3 bucket for you, and configure them to send data to your Baselime account. No additional setup is required on your end.
+Baselime automatically ingests Amazon CloudTrail events when you connect your AWS account. Baselime will automatically create a new Amazon CloudTrail trail and an Amazon S3 bucket, and configure both to send data to your Baselime account. No additional setup is required.
 
-Once connected, CloudTrail events will be sent to Baselime and made available for querying.
+Once connected, Amazon CloudTrail events will be sent to Baselime and become available for querying.
 
 !!! Essential
-To effectively monitor your applications deployed on AWS on Baselime, it is essential to send CloutTrail events. These events are used to automatically register new AWS Lambda functions and Amazon API Gateways logs ingestion.
+To effectively monitor your applications deployed on AWS on Baselime, it is essential to connect Amazon CloutTrail events. These events are used to automatically register new AWS Lambda functions and Amazon API Gateways logs ingestion.
 !!!
 
 ---
@@ -19,7 +19,7 @@ To effectively monitor your applications deployed on AWS on Baselime, it is esse
 
 [Amazon CloudTrail](https://aws.amazon.com/cloudtrail/) is a service provided by AWS that records API activity in your AWS account. This data can be used to track changes to your resources, troubleshoot issues, and improve security.
 
-By sending Amazon CloudTrail events to Baselime, you can use our query and visualization tools to more easily analyze and understand your API activity. You can also set up alerts to be notified of specific API activity or trends.
+By sending Amazon CloudTrail events to Baselime, you can use our query and visualization tools to analyze and understand your API activity. You can also set up alerts to be notified of specific API activity or trends.
 
 With Amazon CloudTrail events in Baselime, you can gain a deeper understanding of your AWS API activity and use that knowledge to improve the security and reliability of your applications.
 
@@ -27,9 +27,9 @@ With Amazon CloudTrail events in Baselime, you can gain a deeper understanding o
 
 ## How it works
 
-Amazon CloudTrail writes trail data periodically in a pre-configured S3 bucket in your AWS account. Once the data is written, it signals to an SNS topic that the trail is written.
+Amazon CloudTrail periodically writes trail data in a pre-configured Amazon S3 bucket in your AWS account. Once the data is written, an Amazon SNS topic is triggered.
 
-Baselime configures this SNS to invoke a Lambda function that reads the data from the S3 bucket and ingests it in the Baselime backend.
+Baselime configures this Amazon SNS to invoke an AWS Lambda function. This function reads the data from the bucket and sends it to the Baselime backend.
 
 ![Sending CloudTrail data to Baselime](../assets/images/illustrations/sending-data/cloudtrail.png)
 

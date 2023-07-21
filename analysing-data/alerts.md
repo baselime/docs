@@ -55,8 +55,7 @@ When an alert is triggered, you can choose to receive notifications through a va
 3. Set up alerts for the right things: Make sure to set up alerts for the most important issues that need immediate attention.
 4. Use multiple alerting methods: Use a combination of Slack, email, and webhooks to ensure that you are notified of important issues in a timely manner.
 5. Use alert suppression: Silence repeated alerts to avoid alert fatigue and ensure that you are only notified of important issues.
-6. Use alert grouping: Use alert grouping to group related alerts together, making it easier to triage and resolve issues.
-7. Consider using webhook alerts to build self-healing systems
-8. Test your alerts to ensure they are working as expected.
-9. Use alert analytics: Use alert analytics to analyze the effectiveness of your alerting strategy and make improvements where necessary.
-10. Regularly review and update alert thresholds and configurations to ensure they are still relevant and effective.
+6. Consider using webhook alerts to build self-healing systems
+7. Test your alerts to ensure they are working as expected.
+8. Use alert analytics: Use alert analytics to analyze the effectiveness of your alerting strategy and make improvements where necessary.
+9. Regularly review and update alert thresholds and configurations to ensure they are still relevant and effective.
