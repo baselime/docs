@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.742670784066">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.743261668493">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -34,12 +34,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=3.0.3.742670784066" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=3.0.3.743261668493" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.742670784066" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.743261668493" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.742670784066" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=3.0.3.742670784066" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.743261668493" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=3.0.3.743261668493" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -210,6 +210,7 @@
     </h1>
 </doc-anchor-target>
 <p>Once you connect your AWS account to Baselime, Baselime automatically create <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html">CloudWatch Logs subscription filters</a> to automatically ingest logs from your AWS Lambda functions.</p>
+<p>Baselime automatically captures logs for newly created AWS Lambda functions, and enables you to query and visualise logs across log groups and log streams.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -253,14 +254,13 @@
         <span>How it works</span>
     </h2>
 </doc-anchor-target>
-<p>The following diagram illustrates the process for sending AWS Lambda logs to Baselime. Once Baselime is connected to an AWS Account, it automatically creates Logs subscription filters for all the Lambda functions in the account. Log subscription filters enable Baselime to asynchronously ingest logs from the Lambda functions through CloudWatch, without any impact on the performance of the Lambda functions.</p>
+<p>Once Baselime is connected to an AWS Account, it automatically creates Logs subscription filters for all the AWS Lambda functions in the account. Log subscription filters enable Baselime to asynchronously ingest logs from the AWS Lambda functions through Amazon CloudWatch, without any impact on the performance of the AWS Lambda functions.</p>
 <p><figure class="content-center">
     <img src="../../assets/images/illustrations/sending-data/lambda-logs.png" alt="Sending Lambda Logs to Baselime" />
     <figcaption class="caption">Sending Lambda Logs to Baselime</figcaption>
 </figure>
 </p>
-<p>Moreover, Baselime automatically creates new subscription filters for newly deployed Lambda functions, thanks to it CloudTrail integration. Baselime listens to new Lambda events in CloudTrail and appropriately creates subscription filters for newly created Lambda functions.</p>
-<p>This method however has one drawback: Lambda logs appear in Baselime with a delay (typically less than 3 seconds) as a results of the logs going through CloudWatch before being piped to Baselime.</p>
+<p>Moreover, Baselime automatically creates new subscription filters for newly deployed AWS Lambda functions. Baselime listens to new AWS Lambda events in Amazon CloudTrail and creates subscription filters for newly created AWS Lambda functions.</p>
 <p>An alternative method to ingesting AWS Lambda logs is with the use of the <a href="../lambda-extension/">Baselime Lambda Extension</a>.</p>
 <hr />
 <doc-anchor-target id="logging-best-practices">

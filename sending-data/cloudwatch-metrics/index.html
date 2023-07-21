@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.742670784066">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.743261668493">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Amazon CloudWatch Metrics | Baselime - Observability for Serverless</title>
     <meta name="title" content="Amazon CloudWatch Metrics | Baselime - Observability for Serverless">
-    <meta name="description" content="Once you connect your AWS account to Baselime, the necessary resources including a CloudWatch Metrics Stream" />
+    <meta name="description" content="Baselime automatically collects Amazon CloudWatch Metrics from your AWS account." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/cloudwatch-metrics/" />
@@ -21,24 +21,24 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/cloudwatch-metrics/">
     <meta property="og:title" content="Amazon CloudWatch Metrics | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Once you connect your AWS account to Baselime, the necessary resources including a CloudWatch Metrics Stream">
+    <meta property="og:description" content="Baselime automatically collects Amazon CloudWatch Metrics from your AWS account.">
     <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/metrics.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/cloudwatch-metrics/">
     <meta property="twitter:title" content="Amazon CloudWatch Metrics | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Once you connect your AWS account to Baselime, the necessary resources including a CloudWatch Metrics Stream">
+    <meta property="twitter:description" content="Baselime automatically collects Amazon CloudWatch Metrics from your AWS account.">
     <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/metrics.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=3.0.3.742670784066" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=3.0.3.743261668493" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.742670784066" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.743261668493" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.742670784066" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.743261668493" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -208,7 +208,7 @@
         <span>Amazon CloudWatch Metrics</span>
     </h1>
 </doc-anchor-target>
-<p>Once you connect your AWS account to Baselime, the necessary resources including a <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">CloudWatch Metrics Stream</a> and a <a href="https://aws.amazon.com/kinesis/data-firehose/">Kinesis Firehose</a> will be automatically created and configured for you. This means that you don&#x27;t need to do any additional setup or configuration.</p>
+<p>Baselime automatically collects Amazon CloudWatch Metrics from your AWS account. Once you connect your AWS account to Baselime, the necessary resources including a <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">CloudWatch Metrics Stream</a> and a <a href="https://aws.amazon.com/kinesis/data-firehose/">Kinesis Firehose</a> will be automatically created and configured. No additional setup or configuration is required.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -223,7 +223,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Essential</h5>
-<p>Sending Amazon CloudWatch metrics to Baselime is essential to effectively monitor your AWS resources and applications. By ingesting CloudWatch metrics, Baselime can provide real-time analysis and visualization of your application&#x27;s performance, health, and availability. This allows you to quickly identify and troubleshoot issues before they impact your users.</p>
+<p>Sending Amazon CloudWatch metrics to Baselime is essential to effectively monitor your AWS resources and applications. By ingesting Amazon CloudWatch metrics, Baselime can provide real-time analysis and visualization of your application&#x27;s performance, health, and availability. This enables you to quickly identify and troubleshoot issues before they impact your users.</p>
         </div>
     </div>
 </div>
@@ -241,7 +241,7 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Automatic</h5>
-<p>Baselime automatically ingests Amazon CloudWatch Metrics, there is no need for any additional steps after connecting your AWS account.</p>
+<p>Baselime automatically ingests Amazon CloudWatch Metrics, no additional steps are required after connecting your AWS account.</p>
         </div>
     </div>
 </div>
@@ -252,18 +252,22 @@
         <span>Why Amazon CloudWatch Metrics ?</span>
     </h2>
 </doc-anchor-target>
-<p><a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch</a> is a monitoring service provided by Amazon Web Services (AWS) that enables you to collect and track metrics and log data for your AWS resources and applications. Metrics are important as they provide insight into the performance and behavior of your serverless applications and the underlying infrastructure.</p>
+<p><a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch</a> is a monitoring service provided by AWS that enables you to collect and track metrics for your AWS resources and applications. Metrics are important as they provide insight into the performance and behavior of your serverless applications and the underlying infrastructure.</p>
 <p>Amazon CloudWatch Metrics can help you identify issues such as high error rates and latencies, which can help improve the overall reliability and scalability of your applications.</p>
-<p>Moreover, Amazon CloudWatch Metrics cover all aspects of your serverless architecture automatically, from DynamoDB tables to S3 buckets and SQS Queues.</p>
-<hr />
+<doc-anchor-target id="amazon-cloudwatch-metrics-cover-all-aspects-of-your-serverless-architecture-automatically-from-dynamodb-tables-to-s3-buckets-and-sqs-queues">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#amazon-cloudwatch-metrics-cover-all-aspects-of-your-serverless-architecture-automatically-from-dynamodb-tables-to-s3-buckets-and-sqs-queues">#</doc-anchor-trigger>
+        <span>Amazon CloudWatch Metrics cover all aspects of your serverless architecture automatically, from DynamoDB tables to S3 buckets and SQS Queues.</span>
+    </h2>
+</doc-anchor-target>
 <doc-anchor-target id="how-it-works">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
         <span>How it works</span>
     </h2>
 </doc-anchor-target>
-<p>The following diagram illustrates the process for sending Amazon CloudWatch metrics to Baselime. Once Baselime is connected to an AWS Account, it automatically created the telemetry pipeline for ingesting Amazon CloudWatch metrics into Baselime. The pipeline comprises a CloudWatch Metrics Stream, a Kinesis Firehose and all IAM roles and permissions associated.</p>
-<p>This pipeline will automatically continuously send metrics from your AWS account to Baselime.</p>
+<p>Once Baselime is connected to an AWS Account, it automatically created the telemetry pipeline for ingesting Amazon CloudWatch metrics into Baselime. The pipeline comprises a CloudWatch Metrics Stream, a Kinesis Firehose and all IAM roles and permissions associated.</p>
+<p>This pipeline automatically and continuously sends metrics from your AWS account to Baselime.</p>
 <p><figure class="content-center">
     <img src="../../assets/images/illustrations/sending-data/metrics.png" alt="Sending Amazon CloudWatch Metrics to Baselime" />
     <figcaption class="caption">Sending Amazon CloudWatch Metrics to Baselime</figcaption>

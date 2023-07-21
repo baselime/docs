@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.742670784066">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.743261668493">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -34,12 +34,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon" />
-    <link href="../../resources/css/retype.css?v=3.0.3.742670784066" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=3.0.3.743261668493" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.742670784066" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.743261668493" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.742670784066" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=3.0.3.742670784066" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.743261668493" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=3.0.3.743261668493" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -237,9 +237,9 @@ to automatically ingest logs from your Amazon API Gateways.</p>
         <span>Setup</span>
     </h2>
 </doc-anchor-target>
-<p>Baselime can ingest logs only for API Gateways where access logs are
+<p>Baselime can ingest logs only for Amazon API Gateways where access logs are
 appropriately configured.</p>
-<p>We recommend this configuration for API Gateway logs:</p>
+<p>We recommend this configuration for Amazon API Gateway logs:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-json"><code v-pre class="language-json">{
   &quot;requestTime&quot;:&quot;$context.requestTime&quot;,
@@ -259,7 +259,7 @@ appropriately configured.</p>
   &quot;principalId&quot;:&quot;$context.authorizer.principalId&quot;
 }</code></pre>
 </doc-codeblock></div>
-<p>It is possible to enable API Gateway access logs from your favourite Infrastructure as Code tool, using the CLI or in the AWS console. Below is an example of how to enable API Gateway logs using the serverless framework.</p>
+<p>It is possible to enable Amazon API Gateway access logs from your favourite Infrastructure as Code tool, using the CLI or in the AWS console. Below is an example of how to enable Amazon API Gateway logs using the serverless framework.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-yaml"><code v-pre class="language-yaml"># serverless.yml
 service: my-service
@@ -279,13 +279,13 @@ provider:
         <span>How it works</span>
     </h2>
 </doc-anchor-target>
-<p>The following diagram illustrates the process for sending Amazon API Gateway logs to Baselime. Once Baselime is connected to an AWS Account, it automatically creates Logs subscription filters for all the API Gateways in the account.</p>
+<p>Once Baselime is connected to your AWS Account, it automatically creates Logs subscription filters for all the Amazon API Gateways in the account.</p>
 <p><figure class="content-center">
     <img src="../../assets/images/illustrations/sending-data/apigateway.png" alt="Sending API Gateway Logs to Baselime" />
     <figcaption class="caption">Sending API Gateway Logs to Baselime</figcaption>
 </figure>
 </p>
-<p>Moreover, Baselime automatically creates new subscription filters for newly deployed API Gateways, thanks to it CloudTrail integration. Baselime listens to new API Gateway events in CloudTrail and appropriately creates subscription filters for newly created API Gateways functions.</p>
+<p>Moreover, Baselime automatically creates new subscription filters for newly deployed Amazon API Gateways. Baselime listens to new API Gateway events in Amazon CloudTrail and creates subscription filters for newly created Amazon API Gateways.</p>
 
                                 
                                 <!-- Required only on API pages -->
