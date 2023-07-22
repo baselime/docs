@@ -69,6 +69,10 @@ If you do not complete any of the above steps, Baselime will not be able to inge
 If you do not see any data in the Baselime UI or using the baselime tail command within seconds of completing the above steps, something went wrong. Please [contact us](mailto:support@baselime.io).
 !!!
 
+!!!
+If you want to disconnect your AWS Account from Baselime, delete the CloudFormation stack it creates in your account. Baselime will delete the resources it created in your account, including the CloudWatch logs subscription filters. A few resources will remain, such as the Baselime IAM role and the S3 bucket where all the telemetry data lives.
+!!!
+
 ---
 
 ## Step 4: Explore your data
