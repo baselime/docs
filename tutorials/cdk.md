@@ -54,7 +54,7 @@ or download it from [console.baselime.io](https://console.baselime.io/)
 Then add the parameter to SSM
 
 ```bash
-aws ssm put-parameter --name "/baselime/api-key" --value "<baselime_api_key>" --type "String"
+aws ssm put-parameter --name "/baselime/api-key" --value "<baselime_api_key>" --type "SecureString"
 ```
 
 > If you deploy your application to multiple aws accounts and multiple Baselime environments make sure you add a baselime api key per environment and prefix with the correct stage variable
@@ -232,7 +232,7 @@ new baselime.Dashboard('subscription-revenue-dashboard', {
 ```
 
 An alert that warns us if the subscriptions fall bellow the expected level could warn us of a wide range of problems so we are going to set that up like this
-
+f
 ```javascript
 
 revenueQuery.addAlert({
