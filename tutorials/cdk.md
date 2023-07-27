@@ -14,11 +14,11 @@ const api = new Api(stack, "api", {
   },
 });
 
-new baselime.Query("api-get-resource-logs", {
+new baselime.Query("api-get-resource-logs", {untill
   parameters: {
     datasets: ["lambda-logs"],
     filters: [{
-      key: "@baselime.namespace",
+      key: "$baselime.namespace",
       value: api.getFunction("GET /")?.functionName as string,
       operation: "=",
     }],
@@ -66,11 +66,11 @@ Finally you can initialise `@baselime/cdk` in your CDK stack.
 ```javascript
 import { StackContext, Api } from "sst/constructs";
 import * as ssm from "aws-cdk-lib/aws-ssm";
-import * as baselime from "@baselime/cdk";
+import { Baselime } from "@baselime/cdk";
 
 export function API({ stack }: StackContext) {
 
-  baselime.Config.init(stack, {
+  baselime.init(stack, {
     // Remember to add a stage to your parameter if required
     apiKey: ssm.StringParameter.valueForStringParameter(stack, `/baselime/api-key`);,
   });
@@ -137,12 +137,12 @@ const api = new Api(stack, "api", {
   },
 });
 
-const query = new baselime.Query("create-subscription-errors", {
+const query = new Query("create-subscription-errors", {
   parameters: {
     datasets: ["lambda-logs"],
     calculations: [{ operation: "COUNT" }]
     filters: [{
-      key: "@baselime.namespace",
+      key: "$baselime.namespace",
       value: api.getFunction("POST /subscription")?.functionName as string,
       operation: "=",
     }, {
@@ -225,7 +225,6 @@ new baselime.Dashboard('subscription-revenue-dashboard', {
     widgets: [
       {
         query: revenueQuery,
-        view: 'calculations',
       },
     ],
   },
