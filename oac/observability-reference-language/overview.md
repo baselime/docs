@@ -17,6 +17,6 @@ Multiple integrations and connectors with your favourite Infrastructure as Code 
 
 ## Best Practice
 
-To streamline your Observability workflows, we recommend keeping your `.baselime` folder in Git alongside your source code. This enables you to easily sync and version control your queries, alerts and dashboards, and collaborate with other team members.
+To streamline your Observability workflows, we recommend keeping your `.baselime` folder in Git alongside your source code. This enables you to sync and version control your queries, alerts and dashboards, and collaborate with other team members.
 
-To pull the pregenerated queries and dashboards to your local machine, simply run `baselime pull` using the Baselime CLI. If the service has not been initialized locally, the CLI will prompt you to select the relevant service from a list of all your services. Once selected, Baselime will download all the queries, alerts, and dashboards for that service, enabling you to work with them locally.
+To pull the pregenerated queries and dashboards to your local machine, run `baselime pull` using the Baselime CLI. If the service has not been initialized locally, the CLI will prompt you to select the relevant service from a list of all your services. Once selected, Baselime will download all the queries, alerts, and dashboards for that service, enabling you to work with them locally.

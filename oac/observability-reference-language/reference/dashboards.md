@@ -77,7 +77,7 @@ widgets:
 
 In ORL, there are three types of widget views:
 
-- `calculations`: This view presents your data as easy-to-read line charts, enabling you to quickly calculate key performance metrics like averages, sums, and counts.
+- `calculations`: This view presents your data as line charts, enabling you to quickly calculate key performance metrics like averages, sums, and counts.
 - `events`: This view allows you to explore individual events by filtering and searching, making it a valuable tool for investigating specific occurrences and trends.
 - `traces`: This view provides a scatter plot of distributed traces, giving you insights into bottlenecks and latency issues. It's perfect for investigating specific requests or flows and optimizing performance.
 

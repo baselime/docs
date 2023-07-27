@@ -30,4 +30,4 @@ Services also enable you to organise your queries, alerts and dashboards within 
 
 ## Querying Telemetry Data
 
-Baselime's Service Discovery also makes querying much faster. Instead of searching through a large amount of data to find the information you need, you can simply query the data for a specific service. This accelerate your debugging and makes it easier to identify issues and troubleshoot problems in your application.
+Baselime's Service Discovery also makes querying much faster. Instead of searching through a large amount of data to find the information you need, you can query the data for a specific service. This accelerate your debugging and helps you identify issues and troubleshoot problems in your application.

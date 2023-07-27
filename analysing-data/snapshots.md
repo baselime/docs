@@ -9,7 +9,7 @@ Snapshots enable you to capture the current state of all your alerts in a servic
 
 ## Using Snapshots
 
-To create a snapshot, simply run the `baselime test` command in your terminal. This will create a snapshot of the current state of all alerts in the current service, display the results in the terminal, and output them to a file in JSON format. You can specify the output file path using the `--out-file` flag.
+To create a snapshot, run the `baselime test` command in your terminal. This will create a snapshot of the current state of all alerts in the current service, display the results in the terminal, and output them to a file in JSON format. You can specify the output file path using the `--out-file` flag.
 
 ```bash # :icon-terminal: terminal
 baselime test --service my-service --out-file snapshot.json

@@ -33,7 +33,7 @@ To use Baselime, you'll need to sign up for an account. You can sign up for a fr
 
 ## Step 2: (Optional) Install the Baselime CLI
 
-The Baselime CLI is a command-line tool that you can use to interact with the platform. Installing the CLI can make it easier to work with Baselime, unlocks Observability as Code and provides additional functionality not available in the web console. To install the CLI, follow the instructions [here](./cli/install.md).
+The Baselime CLI is a command-line tool that you can use to interact with the platform. Installing the CLI unlocks Observability as Code and provides additional functionality not available in the web console. To install the CLI, follow the instructions [here](./cli/install.md).
 
 ---
 
@@ -69,9 +69,13 @@ If you do not complete any of the above steps, Baselime will not be able to inge
 If you do not see any data in the Baselime UI or using the baselime tail command within seconds of completing the above steps, something went wrong. Please [contact us](mailto:support@baselime.io).
 !!!
 
+!!!
+If you want to disconnect your AWS Account from Baselime, delete the CloudFormation stack it creates in your account. Baselime will delete the resources it created in your account, including the CloudWatch logs subscription filters. A few resources will remain, such as the Baselime IAM role and the S3 bucket where all the telemetry data lives.
+!!!
+
 ---
 
-## Step 4: Explore the data
+## Step 4: Explore your data
 
 Once your AWS Account is connected, you can start exploring the telemetry data it generates. You can use the web console or the CLI (if installed) to access and analyze the data.
 
@@ -126,7 +130,7 @@ Follow this url: https://console.baselime.io/<workspace>/<env>/queries/lambda-du
 
 ## Guides
 
-- [Sending Data](./sending-data/overview.md): Learn how to ingest telemetry data from your serverless applications
+- [Sending Data](./sending-data/): Learn how to ingest telemetry data from your serverless applications
 - [Analyzing Data](./analysing-data/service-discovery.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
 - [Integrations](./): Find out how to connect Baselime with your favorite tools
 

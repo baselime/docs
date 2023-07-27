@@ -1,0 +1,405 @@
+{
+  "version": "3.0.3",
+  "created": "2023-07-22T10:14:45Z",
+  "files": [
+    {
+      "path": ".nojekyll"
+    },
+    {
+      "path": "404.html"
+    },
+    {
+      "path": "advanced/materialized-keys/index.html"
+    },
+    {
+      "path": "analysing-data/alerts/index.html"
+    },
+    {
+      "path": "analysing-data/baselime-ai/index.html"
+    },
+    {
+      "path": "analysing-data/queries/index.html"
+    },
+    {
+      "path": "analysing-data/reports/index.html"
+    },
+    {
+      "path": "analysing-data/service-discovery/index.html"
+    },
+    {
+      "path": "analysing-data/snapshots/index.html"
+    },
+    {
+      "path": "analysing-data/tail/index.html"
+    },
+    {
+      "path": "assets/images/cli.svg"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/baselime-ai-architecture.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/baselime-ai.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/service-list.png"
+    },
+    {
+      "path": "assets/images/illustrations/api-key.png"
+    },
+    {
+      "path": "assets/images/illustrations/index.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/baselime.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/context.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/easy.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/ecosystem.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/event-driven.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/invocation.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/meme.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/metrics.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/microservices.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/o11y.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/serverless.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/trace.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/waterfall.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/apigateway.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/cloudtrail.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/ecs.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/lambda-extension.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/lambda-logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/metrics.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/opentelemetry/extension.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/otel-extension.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/s3-rehydration.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/s3.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/xray.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/alert.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/integration.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/queries.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/successful.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/welcome.png"
+    },
+    {
+      "path": "assets/images/logo-wide.svg"
+    },
+    {
+      "path": "assets/images/logo.svg"
+    },
+    {
+      "path": "assets/images/logos/aws.svg"
+    },
+    {
+      "path": "assets/images/logos/cdk.png"
+    },
+    {
+      "path": "assets/images/logos/http_flat3x.png"
+    },
+    {
+      "path": "assets/images/logos/logo_aws_apigateway.png"
+    },
+    {
+      "path": "assets/images/logos/logo_aws_lambda.png"
+    },
+    {
+      "path": "assets/images/logos/logo_cloudtrail.png"
+    },
+    {
+      "path": "assets/images/logos/logo_cloudwatch.png"
+    },
+    {
+      "path": "assets/images/logos/logo_ecs_logs.png"
+    },
+    {
+      "path": "assets/images/logos/logo_open_telemetry.png"
+    },
+    {
+      "path": "assets/images/logos/logo_xray.png"
+    },
+    {
+      "path": "assets/images/logos/node.svg"
+    },
+    {
+      "path": "assets/images/logos/s3_flat3x.png"
+    },
+    {
+      "path": "assets/templates/cf.yaml"
+    },
+    {
+      "path": "cli/anonymous-telemetry/index.html"
+    },
+    {
+      "path": "cli/getting-started/index.html"
+    },
+    {
+      "path": "cli/install/index.html"
+    },
+    {
+      "path": "cli/reference/connect/index.html"
+    },
+    {
+      "path": "cli/reference/console/index.html"
+    },
+    {
+      "path": "cli/reference/deploy/index.html"
+    },
+    {
+      "path": "cli/reference/iam/index.html"
+    },
+    {
+      "path": "cli/reference/init/index.html"
+    },
+    {
+      "path": "cli/reference/login/index.html"
+    },
+    {
+      "path": "cli/reference/logout/index.html"
+    },
+    {
+      "path": "cli/reference/mark/index.html"
+    },
+    {
+      "path": "cli/reference/pull/index.html"
+    },
+    {
+      "path": "cli/reference/query/index.html"
+    },
+    {
+      "path": "cli/reference/rehydrate/index.html"
+    },
+    {
+      "path": "cli/reference/report/index.html"
+    },
+    {
+      "path": "cli/reference/tail/index.html"
+    },
+    {
+      "path": "cli/reference/telemetry/index.html"
+    },
+    {
+      "path": "cli/reference/templates/index.html"
+    },
+    {
+      "path": "cli/reference/test/index.html"
+    },
+    {
+      "path": "cli/reference/upgrade/index.html"
+    },
+    {
+      "path": "cli/reference/validate/index.html"
+    },
+    {
+      "path": "CNAME"
+    },
+    {
+      "path": "connectors/aws/index.html"
+    },
+    {
+      "path": "connectors/overview/index.html"
+    },
+    {
+      "path": "index.html"
+    },
+    {
+      "path": "integrations/slack/alerts/index.html"
+    },
+    {
+      "path": "integrations/slack/authentication/index.html"
+    },
+    {
+      "path": "integrations/slack/commands/index.html"
+    },
+    {
+      "path": "integrations/slack/overview/index.html"
+    },
+    {
+      "path": "integrations/webhooks/overview/index.html"
+    },
+    {
+      "path": "oac/cdk/quick-start/index.html"
+    },
+    {
+      "path": "oac/cdk/reference/alerts/index.html"
+    },
+    {
+      "path": "oac/cdk/reference/dashboards/index.html"
+    },
+    {
+      "path": "oac/cdk/reference/queries/index.html"
+    },
+    {
+      "path": "oac/observability-reference-language/overview/index.html"
+    },
+    {
+      "path": "oac/observability-reference-language/reference/alerts/index.html"
+    },
+    {
+      "path": "oac/observability-reference-language/reference/dashboards/index.html"
+    },
+    {
+      "path": "oac/observability-reference-language/reference/queries/index.html"
+    },
+    {
+      "path": "oac/observability-reference-language/reference/services/index.html"
+    },
+    {
+      "path": "quick-start/index.html"
+    },
+    {
+      "path": "resources/css/retype.css"
+    },
+    {
+      "path": "resources/fonts/Inter-italic-latin-var.woff2"
+    },
+    {
+      "path": "resources/fonts/Inter-roman-latin-var.woff2"
+    },
+    {
+      "path": "resources/js/config.js"
+    },
+    {
+      "path": "resources/js/lunr.js"
+    },
+    {
+      "path": "resources/js/prism.js"
+    },
+    {
+      "path": "resources/js/retype.js"
+    },
+    {
+      "path": "resources/js/search.json"
+    },
+    {
+      "path": "resources/lunr.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/mermaid.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/prism.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/retype.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/retype.LICENSE.txt"
+    },
+    {
+      "path": "robots.txt"
+    },
+    {
+      "path": "security/overview/index.html"
+    },
+    {
+      "path": "security/privacy/index.html"
+    },
+    {
+      "path": "sending-data/apigateway-logs/index.html"
+    },
+    {
+      "path": "sending-data/cloudtrail/index.html"
+    },
+    {
+      "path": "sending-data/cloudwatch-metrics/index.html"
+    },
+    {
+      "path": "sending-data/ecs-logs/index.html"
+    },
+    {
+      "path": "sending-data/events-api/index.html"
+    },
+    {
+      "path": "sending-data/index.html"
+    },
+    {
+      "path": "sending-data/lambda-extension/index.html"
+    },
+    {
+      "path": "sending-data/lambda-logs/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/nodejs/events/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/nodejs/index.html"
+    },
+    {
+      "path": "sending-data/s3-rehydration/index.html"
+    },
+    {
+      "path": "sending-data/validation/index.html"
+    },
+    {
+      "path": "sending-data/xray/index.html"
+    },
+    {
+      "path": "sitemap.xml.gz"
+    },
+    {
+      "path": "tutorials/cdk/index.html"
+    }
+  ]
+}

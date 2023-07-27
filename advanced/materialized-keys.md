@@ -7,8 +7,6 @@ order: -3
 
 Materialized keys in Baselime allow you to calculate and create new keys from existing keys in your events. These new keys are based on calculations performed on one or multiple existing keys, which must be of type `number`.
 
-By creating materialized keys, you can gain additional insights into your data and make it easier to track and analyze specific metrics.
-
 To create a materialized key, you can use the `baselime keys materialize` command and specify the key name and calculation you want to perform. For example
 
 ```bash # :icon-terminal: terminal
