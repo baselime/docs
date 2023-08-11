@@ -39,7 +39,7 @@ In order to get the most out of Baselime, we recommend adding two log messages t
 - the event which triggered your Lambda function
 - the response your Lambda function returns
 
-There can be added as follows:
+These can be added as follows:
 
 ```javascript # :icon-code: handler.js
 exports.handler = async (event, context) => {
