@@ -72,7 +72,7 @@ export function API({ stack }: StackContext) {
 
   baselime.init(stack, {
     // Remember to add a stage to your parameter if required
-    apiKey: ssm.StringParameter.valueForStringParameter(stack, `/baselime/api-key`);,
+    apiKey: ssm.StringParameter.valueForStringParameter(stack, `/baselime/api-key`),
   });
 
   const api = new Api(stack, "api", {

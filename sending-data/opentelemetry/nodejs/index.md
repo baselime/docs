@@ -2,6 +2,19 @@
 
 The [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) (Star us ⭐) instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends the OpenTelemetry compatible trace data to Baselime. This is the most powerful and flexible way to instrument your Node.js AWS Lambda functions.
 
+
+!!! Note
+Be aware, OTEL is causing issues with request retries for the AWS SDK JS v2. We are working with [AWS](https://github.com/aws/aws-sdk-js/issues/4472#issuecomment-1660786070) and OTEL to resolve this issue. 
+
+Apply this workaround to prevent the issue 
+
+
+```javascript
+const SignersV4 = require('aws-sdk/lib/signers/v4')
+
+SignersV4.prototype.unsignableHeaders.push('traceparent');
+```
+!!!
 ---
 
 ## Automatic Instrumentation
@@ -54,6 +67,7 @@ Globals:
 !!! Note
 OpenTelemetry Automatic Instrumentation works only once you have connected your AWS Account to Baselime. Adding the tag to AWS Lambda functions in an AWS Account not connected to Baselime will not have any effect.
 !!!
+
 
 ### How it works
 
