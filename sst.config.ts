@@ -26,6 +26,7 @@ export default {
 					bucket: {
 						websiteIndexDocument: "index.html",
 						publicReadAccess: true,
+						enforceSSL: false
 					},
 				},
 			});
