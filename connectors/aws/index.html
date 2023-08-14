@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.745334171126">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.745334743150">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.1.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.1.0.745334171126" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.1.0.745334743150" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.1.0.745334171126" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.1.0.745334743150" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.1.0.745334171126" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.1.0.745334171126" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.1.0.745334743150" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.1.0.745334743150" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -310,9 +310,25 @@ Resources:
               Service:
                 - lambda.amazonaws.com
             Sid: &quot;&quot;
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              Service:
+                - events.amazonaws.com
+            Sid: &quot;&quot;
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              Service:
+                - appsync.amazonaws.com
+            Sid: &quot;&quot;
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/ReadOnlyAccess
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs
+        - arn:aws:iam::aws:policy/AWSAppSyncAdministrator
       Path: &quot;/&quot;
   BaselimeEnvironmentPolicies:
     Type: AWS::IAM::Policy
@@ -326,10 +342,26 @@ Resources:
             Action:
               - lambda:CreateFunction
               - lambda:AddPermission
+              - lambda:DeleteFunction
               - lambda:UpdateFunctionConfiguration
               - lambda:UpdateFunctionCode
             Resource:
               - arn:aws:lambda:*:*:function:baselime-*
+          - Effect: Allow
+            Action:
+              - lambda:UpdateFunctionConfiguration
+            Resource:
+              - arn:aws:lambda:*:*:function:*
+          - Effect: Allow
+            Action:
+              - ecs:UpdateService
+            Resource:
+              - arn:aws:ecs:*:*:service/*/*
+          - Effect: Allow
+            Action:
+              - ecs:RegisterTaskDefinition
+            Resource:
+              - &quot;*&quot;
           - Effect: Allow
             # Those operations are limited to CloudFormation stacks prefixed with 'baselime'
             Action:
@@ -382,6 +414,11 @@ Resources:
                 - Arn
           - Effect: Allow
             Action:
+              - events:PutEvents
+            Resource:
+              - &lt;BASELIME_COMMON_EVENTBUS_ARN&gt;
+          - Effect: Allow
+            Action:
               - logs:PutSubscriptionFilter
               - logs:DeleteSubscriptionFilter
               - logs:DescribeSubscriptionFilters
@@ -396,6 +433,10 @@ Resources:
               - cloudwatch:DeleteMetricStream
               - cloudwatch:StartMetricStreams
               - cloudwatch:StopMetricStreams
+              - events:PutRule
+              - events:PutTargets
+              - events:DeleteRule
+              - events:RemoveTargets
             Resource:
               - &quot;*&quot;
           - Effect: Allow
@@ -408,6 +449,16 @@ Resources:
               - Fn::GetAtt:
                 - BaselimeCloudWatchMetricsFirehose
                 - Arn
+              - Fn::GetAtt:
+                - BaselimeRawDataFirehose
+                - Arn
+          - Effect: Allow
+            Action:
+              - firehose:PutRecord
+            Resource:
+              - Fn::GetAtt:
+                  - BaselimeRawDataFirehose
+                  - Arn
           # These operations are limited to the other IAM Roles created as part of this CF Stack
           - Effect: Allow
             Action:
@@ -416,6 +467,9 @@ Resources:
             Resource:
               - Fn::GetAtt:
                 - BaselimeMetricsStreamFirehoseRole
+                - Arn
+              - Fn::GetAtt:
+                - BaselimeRawDataFirehoseRole
                 - Arn
               - Fn::GetAtt:
                 - BaselimeCloudWatchMetricsStreamRole
@@ -428,6 +482,13 @@ Resources:
   BaselimeS3Bucket:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
+    Properties:
+      LifecycleConfiguration:
+        Rules:
+          - Id: RawData
+            Status: Enabled
+            Prefix: RawData/
+            ExpirationInDays: 182
   BaselimeS3BucketPolicy:
     Type: &quot;AWS::S3::BucketPolicy&quot;
     Properties:
@@ -503,6 +564,8 @@ Resources:
         IsLogging: true
         EnableLogFileValidation: true
         IncludeGlobalServiceEvents: true
+        EventSelectors:
+          - ReadWriteType: WriteOnly
   ###
   # Custom CloudFormation resource to notify Baselime when this CloudFormation stack is created, updated or deleted
   ###
@@ -528,6 +591,7 @@ Resources:
       Alias: !Ref Alias
       CloudWatchMetricsFirehoseName: !Ref BaselimeCloudWatchMetricsFirehose
       CloudWatchMetricsStreamName: !Ref BaselimeCloudWatchMetricsStream
+      RawDataFirehoseName: !Ref BaselimeRawDataFirehose
 
   ###
   # Resources necessary for Baselime to stream CloudWatch Metrics
@@ -577,16 +641,71 @@ Resources:
         Fn::GetAtt:
           - BaselimeCloudWatchMetricsStreamRole
           - Arn
+  BaselimeRawDataFirehoseRole:
+    Type: AWS::IAM::Role
+    DependsOn:
+      - BaselimeS3Bucket
+    Properties:
+      Description: Role used by Kinesis Firehose to push raw data to s3
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              Service: firehose.amazonaws.com
+      Policies:
+        - PolicyName: BaselimeRawDataFirehoseRoleServicePolicy
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:AbortMultipartUpload
+                  - s3:GetBucketLocation
+                  - s3:GetObject
+                  - s3:ListBucket
+                  - s3:ListBucketMultipartUploads
+                  - s3:PutObject
+                Resource:
+                  - !Sub |-
+                    arn:aws:s3:::${BaselimeS3Bucket}
+                  - !Sub |-
+                    arn:aws:s3:::${BaselimeS3Bucket}/*
+
+  BaselimeRawDataFirehose:
+    Type: AWS::KinesisFirehose::DeliveryStream
+    DependsOn:
+      - BaselimeRawDataFirehoseRole
+      - BaselimeS3Bucket
+    Properties:
+      DeliveryStreamType: &quot;DirectPut&quot;
+      ExtendedS3DestinationConfiguration:
+        Prefix: &quot;baselime-raw/data/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/&quot;
+        ErrorOutputPrefix: &quot;baselime-raw/errors/type=!{firehose:error-output-type}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/&quot;
+        BucketArn:
+          Fn::GetAtt:
+            - BaselimeS3Bucket
+            - Arn
+        RoleARN:
+          Fn::GetAtt:
+            - BaselimeRawDataFirehoseRole
+            - Arn
   BaselimeCloudWatchMetricsFirehose:
     Type: AWS::KinesisFirehose::DeliveryStream
     DependsOn:
       - BaselimeMetricsStreamFirehoseRole
+      - BaselimeS3Bucket
     Properties:
       HttpEndpointDestinationConfiguration:
         EndpointConfiguration:
-          AccessKey: &quot;populated_by_lambda&quot;
+          AccessKey: !Join
+            - '-'
+            - - '&lt;BASELIME_CUSTOMER_ACCOUNT&gt;'
+              - !Ref AWS::Region
+              - '&lt;BASELIME_WORKSPACE_ID&gt;'
+              - '&lt;BASELIME_ENVIRONMENT_ALIAS&gt;'
           Name: BaselimeCloudwatchMetricsEndpoint
-          Url: https://cloudwatch-metrics.baselime.io
+          Url: &lt;BASELIME_CLOUDWATCH_METRICS_STREAM_ENDPOINT&gt;
         RetryOptions:
           DurationInSeconds: 300
         S3Configuration:
