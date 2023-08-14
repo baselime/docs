@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.745324426127">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.745334171126">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.1.0">
@@ -34,11 +34,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="assets/images/logo.svg" rel="icon">
-    <link href="resources/css/retype.css?v=3.1.0.745324426127" rel="stylesheet">
+    <link href="resources/css/retype.css?v=3.1.0.745334171126" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.1.0.745324426127" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="resources/js/config.js?v=3.1.0.745334171126" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="resources/js/retype.js?v=3.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.1.0.745324426127" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.1.0.745334171126" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -348,17 +348,11 @@
 </figure>
 </p>
 <hr>
-<doc-anchor-target id="4-observability-for-serverless">
+<doc-anchor-target id="4-challenges-of-observability-for-serverless">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#4-observability-for-serverless">#</doc-anchor-trigger>
-        <span>4. Observability for Serverless</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-challenges-of-observability-for-serverless">#</doc-anchor-trigger>
+        <span>4. Challenges of Observability for Serverless</span>
     </h1>
-</doc-anchor-target>
-<doc-anchor-target id="41-challenges">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#41-challenges">#</doc-anchor-trigger>
-        <span>4.1. Challenges</span>
-    </h2>
 </doc-anchor-target>
 <p>Observability for serverless can pose several challenges for developers. One of the major issues is the stateless and ephemeral nature of serverless functions, which makes it harder to pinpoint and troubleshoot issues related to specific requests or users. Serverless platforms abstract much of the underlying infrastructure, reducing the visibility into the runtime environment, and making it harder to troubleshoot issues when they inevitably occur.</p>
 <p>Additionally, the event-driven nature of serverless applications can exacerbate the observability challenge. In contrast to traditional HTTP-based architectures, serverless functions very often communicate with each other through event brokers like message queues, event buses or event streams, introducing new complexities, such as asynchronous processing, message ordering, and event aggregation. The non-linear path of event-driven architectures can make it more difficult to trace requests, especially when multiple services consume and produce events asynchronously.</p>
@@ -374,56 +368,6 @@
 <li>Metrics: Metrics provide valuable context about requests and services that should not be ignored. Developers must observe each service used to communicate between serverless functions through metrics and logs when available.</li>
 </ul>
 <p>To overcome these challenges, developers can leverage tools like AWS CloudTrail, which enables them to track IAM activities and diagnose operational issues.</p>
-<hr>
-<doc-anchor-target id="5-introducing-baselime">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#5-introducing-baselime">#</doc-anchor-trigger>
-        <span>5. Introducing Baselime</span>
-    </h1>
-</doc-anchor-target>
-<p>Baselime is an observability solution for serverless architectures. With Baselime, developers gain crucial insights into their serverless systems, leveraging logs, metrics, traces and IAM data. Baselime simplifies the process of instrumentation by automating the setup of a telemetry pipeline that consolidates all telemetry data into one platform, providing a unified view of the entire architecture. This enables developers to easily monitor and troubleshoot their serverless applications without having to navigate through multiple monitoring tools.</p>
-<p>Moreover, Baselime does not perform any pre-aggregation of data before ingestion; as such developers can run arbitrary queries on their telemetry data, and get answers about the state of their application, regardless of how unusual or unique this state is.</p>
-<p>Baselime is designed for companies and projects working predominantly with a serverless architecture, that are looking for a solution that has the ease of use of modern monitoring tools, whilst giving developers the full powers of modern observability solutions.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/ecosystem.png" alt="Baselime in your ecosystem">
-    <figcaption class="caption">Baselime in your ecosystem</figcaption>
-</figure>
-</p>
-<p>Baselime in your ecosystem</p>
-<doc-anchor-target id="51-baselime-setup">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#51-baselime-setup">#</doc-anchor-trigger>
-        <span>5.1. Baselime Setup</span>
-    </h2>
-</doc-anchor-target>
-<p>Setting up Baselime involves deploying a CloudFormation template on your AWS account. That’s it, that’s all.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/easy.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<p>Once you have deployed the Baselime CloudFormation template, Baselime will automatically configure and deploy the necessary infrastructure components to create a unified telemetry data pipeline. This pipeline collects all the telemetry data generated by your serverless applications and services, providing a centralized location for you to view and analyze this data.</p>
-<p>To get the most out of Baselime, we recommend instrumenting your serverless applications and services with either our SDKs, the OpenTelemetry SDKs or our Lambda Extensions. This will enable you to capture more detailed telemetry data and gain deeper insights into the behaviour of your applications and services.</p>
-<doc-anchor-target id="52-baselime-architecture">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#52-baselime-architecture">#</doc-anchor-trigger>
-        <span>5.2 Baselime Architecture</span>
-    </h2>
-</doc-anchor-target>
-<p>Baselime is built using a serverless architecture and deeply integrates with developers’ AWS accounts.</p>
-<p>There are 5 main phases in Baselime architecture:</p>
-<ol>
-<li><strong>Instrumentation</strong>: This phase involves adding telemetry points or instrumentation to the application code or infrastructure to capture telemetry data.</li>
-<li><strong>Collection</strong>: In this phase, the telemetry data generated by the instrumentation is collected and sent to a centralized location, the Baselime back-end.</li>
-<li><strong>Processing</strong>: The collected telemetry data is then processed to extract valuable insights and identify patterns or anomalies. This can involve filtering, parsing and aggregating data to create more meaningful metrics.</li>
-<li><strong>Provisioning</strong>: This phase involves defining the observability resources required for the application and configuring them in a declarative manner with Observability as Code. By automating the provisioning of observability resources, developers can reduce the manual effort required to set up observability and ensure that their application has the required level of observability from the start.</li>
-<li><strong>Visualization</strong>: The final phase involves presenting the telemetry data in a meaningful and accessible way, such as through queries, dashboards, alerts or reports. This enables developers to quickly identify issues and take appropriate action.</li>
-</ol>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/baselime.png" alt="Baselime architecture">
-    <figcaption class="caption">Baselime architecture</figcaption>
-</figure>
-</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -442,10 +386,10 @@
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="quick-start/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="what-is-baselime/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Quickstart</span>
+                                                <span class="block mt-1">What is Baselime?</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
