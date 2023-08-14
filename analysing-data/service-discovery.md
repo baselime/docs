@@ -31,3 +31,7 @@ Services also enable you to organise your queries, alerts and dashboards within 
 ## Querying Telemetry Data
 
 Baselime's Service Discovery also makes querying much faster. Instead of searching through a large amount of data to find the information you need, you can query the data for a specific service. This accelerate your debugging and helps you identify issues and troubleshoot problems in your application.
+
+## Overriding the service discovery
+
+If you want to change the service a Cloud Formation stack creates then add a tag with the key `baselime:service`. This will take precedence over any other tags or the service name.
