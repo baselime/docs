@@ -24,6 +24,7 @@ Baselime automatically ingests Amazon CloudWatch Metrics, no additional steps ar
 Amazon CloudWatch Metrics can help you identify issues such as high error rates and latencies, which can help improve the overall reliability and scalability of your applications.
 
 Amazon CloudWatch Metrics cover all aspects of your serverless architecture automatically, from DynamoDB tables to S3 buckets and SQS Queues.
+
 ---
 
 ## How it works
