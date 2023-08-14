@@ -39,15 +39,12 @@ The Baselime CLI is a command-line tool that you can use to interact with the pl
 
 ## Step 3: Connect your AWS account
 
-To start collecting telemetry data from your serverless application, you'll need to connect your AWS account to Baselime. This is done by deploying a CloudFormation template onto your AWS account.
+To start collecting telemetry data from your serverless application, connect your AWS account to Baselime. This is done by deploying a CloudFormation template onto your AWS account.
 
-To generate and download the CloudFormation template:
+You can generate the CloudFormation template from the Baselime console.
 
-- Go to the [Baselime Console](https://console.baselime.io) or run the following command in the Baselime CLI:
-```bash # :icon-terminal: terminal
-baselime environments connect
-```
-- Follow the prompts to generate and download the template.
+![](./assets/images/illustrations/quickstart/connect.png)
+
 
 Next, you must deploy the template to your AWS account:
 

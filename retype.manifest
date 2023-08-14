@@ -48,6 +48,9 @@
       "path": "assets/images/illustrations/api-key.png"
     },
     {
+      "path": "assets/images/illustrations/diagrams.png"
+    },
+    {
       "path": "assets/images/illustrations/index.png"
     },
     {
@@ -91,6 +94,9 @@
     },
     {
       "path": "assets/images/illustrations/o11y-for-serverless/waterfall.png"
+    },
+    {
+      "path": "assets/images/illustrations/quickstart/connect.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/apigateway.png"
@@ -258,6 +264,9 @@
       "path": "connectors/overview/index.html"
     },
     {
+      "path": "faq/index.html"
+    },
+    {
       "path": "index.html"
     },
     {
@@ -400,6 +409,9 @@
     },
     {
       "path": "tutorials/cdk/index.html"
+    },
+    {
+      "path": "what-is-baselime/index.html"
     }
   ]
 }
