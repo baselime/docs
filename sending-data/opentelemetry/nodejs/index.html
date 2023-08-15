@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.745335537900">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.745418057035">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.1.0">
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../resources/css/retype.css?v=3.1.0.745335537900" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.1.0.745418057035" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.1.0.745335537900" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.1.0.745418057035" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.1.0.745335537900" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.1.0.745335537900" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.1.0.745418057035" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.1.0.745418057035" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -208,30 +208,6 @@
     </h1>
 </doc-anchor-target>
 <p>The <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> (Star us <span class="docs-emoji">&#x2B50;</span>) instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends the OpenTelemetry compatible trace data to Baselime. This is the most powerful and flexible way to instrument your Node.js AWS Lambda functions.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Note</h5>
-<p>Be aware, OTEL is causing issues with request retries for the AWS SDK JS v2. We are working with <a href="https://github.com/aws/aws-sdk-js/issues/4472#issuecomment-1660786070">AWS</a> and OTEL to resolve this issue.</p>
-<p>Apply this workaround to prevent the issue</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">const SignersV4 = require('aws-sdk/lib/signers/v4')
-
-SignersV4.prototype.unsignableHeaders.push('traceparent');</code></pre>
-</doc-codeblock></div>
-        </div>
-    </div>
-</div>
 <hr>
 <doc-anchor-target id="automatic-instrumentation">
     <h2>
@@ -440,14 +416,84 @@ arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-
 <pre class="language-javascript"><code v-pre class="language-javascript">`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`</code></pre>
 </doc-codeblock></div>
 <hr>
-<doc-anchor-target id="send-data-to-another-opentelemetry-backend">
+<doc-anchor-target id="adding-custom-opentelemetry-events">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#send-data-to-another-opentelemetry-backend">#</doc-anchor-trigger>
-        <span>Send data to another OpenTelemetry backend</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-custom-opentelemetry-events">#</doc-anchor-trigger>
+        <span>Adding custom OpenTelemetry events</span>
+    </h2>
+</doc-anchor-target>
+<p>The <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> provides and extension that enables you add context rich events to your traces using an API that feels like a logger. These events can be useful to show more detailed context on errors, add steps that you want recorded for a business process or adding extra debugging information.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const { logger } = require(&quot;@baselime/lambda-node-opentelemetry&quot;);
+
+logger.info(&quot;This is an informational message&quot;, {
+  operation: &quot;copy-paste-replace&quot;,
+  count: 9000,
+});</code></pre>
+</doc-codeblock></div>
+<p>The extension provides an object that includes four logging functions - info, warn, debug, and error - enabling you to log messages with varying levels of severity. By setting the LOG_LEVEL environment variable, you can control the visibility of the events.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const { logger } = require(&quot;@baselime/lambda-node-opentelemetry&quot;);
+
+logger.info(&quot;This is an informational message&quot;, { payload: { foo: &quot;bar&quot; } });
+logger.warn(&quot;This is a warning message&quot;, { payload: { foo: &quot;bar&quot; } });
+logger.debug(&quot;This is a debug message&quot;, { payload: { foo: &quot;bar&quot; } });
+logger.error(&quot;This is an error message&quot;, { payload: { foo: &quot;bar&quot; } });</code></pre>
+</doc-codeblock></div>
+<p>It shares the same interface as <code v-pre>@baselime/lambda-logger</code> so if you are moving from cloudwatch to open telemetry this makes the transision seamless.</p>
+<hr>
+<doc-anchor-target id="adding-custom-opentelemetry-spans">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-custom-opentelemetry-spans">#</doc-anchor-trigger>
+        <span>Adding custom OpenTelemetry spans</span>
+    </h2>
+</doc-anchor-target>
+<p>To add custom spans to your OpenTelemetry traces, it is necessary to install the <code v-pre>@opentelemetry/api</code> package. It is left out of the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> to limit the impact on cold-starts, such that your can add it only to the AWS Lambda functions that require it.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">import { trace } from &quot;@opentelemetry/api&quot;;
+const tracer = trace.getTracer('your-custom-traces');
+
+export async function handler(event) {
+  const activeSpan = trace.getActiveSpan();
+  
+  const { userId } = JSON.parse(event.body);
+  span.setAttribute('user', userId)
+  
+  // do something meaningful
+  
+  const result = await tracer.startActiveSpan(`business-logic`, async (span) =&gt; {
+    span.setAttributes(args)
+    // your business logic
+    const result = await yourBusinessLogic(args)
+    span.setAttributes(result)
+    return result
+  });
+}
+</code></pre>
+</doc-codeblock></div>
+<hr>
+<doc-anchor-target id="sending-data-to-another-opentelemetry-backend">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sending-data-to-another-opentelemetry-backend">#</doc-anchor-trigger>
+        <span>Sending data to another OpenTelemetry backend</span>
     </h2>
 </doc-anchor-target>
 <p>OpenTelemetry is an open standard, and you can use the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> to send telemetry data to another backend of your choice.</p>
 <p>Add the environment variable <code v-pre>COLLECTOR_URL</code> to send the data somewhere else than the Baselime backend.</p>
+<hr>
+<doc-anchor-target id="limitations">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#limitations">#</doc-anchor-trigger>
+        <span>Limitations</span>
+    </h2>
+</doc-anchor-target>
+<p>The AWS JS SDK v2 can result in errors when interacting with OpenTelemetry during automatic request retries. This is the result of trace headers changing between retries and failing the signing verification processes. We&#x27;ve submitted a <a href="https://github.com/aws/aws-sdk-js/issues/4472#issuecomment-1660786070">Pull Request to the AWS JS SDK</a> and will be updating accordingly.</p>
+<p>To prevent this issue from arising, add the code snippet below to your code.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const SignersV4 = require('aws-sdk/lib/signers/v4')
+
+SignersV4.prototype.unsignableHeaders.push('traceparent');</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -473,10 +519,10 @@ arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../sending-data/opentelemetry/nodejs/events/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../sending-data/apigateway-logs/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Custom Events</span>
+                                                <span class="block mt-1">Amazon API Gateway Logs</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
