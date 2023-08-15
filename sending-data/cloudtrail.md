@@ -9,10 +9,6 @@ Baselime automatically ingests Amazon CloudTrail events when you connect your AW
 
 Once connected, Amazon CloudTrail events will be sent to Baselime and become available for querying.
 
-!!! Essential
-To effectively monitor your applications deployed on AWS on Baselime, it is essential to connect Amazon CloutTrail events. These events are used to automatically register new AWS Lambda functions and Amazon API Gateways logs ingestion.
-!!!
-
 ---
 
 ## Why Amazon CloudTrail ?

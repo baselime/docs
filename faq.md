@@ -106,3 +106,15 @@ Once you sign up to Baselime with your organisation domain email, you can config
 
 Moreover, you can invite your teammates individurally. Additionally, every query result, dashboards, an alerts have a unique permalink in Baselime that you can share with your team.
 
+---
+
+## Does Baselime have an impact on my AWS bill?
+
+Baselime relies on a few AWS resources in your AWS account, most notably:
+- Amazon CloudWatch metrics stream: to enable CloudWatch metrics to be queried using the Baselime query engine
+- Amazon CloudTrail: to enable CloudTrail events, and also register new subscription filters as soon as new serverless functions or services are created
+- Amazon Kinesis Data Firehose: To store telemetry data in cold storage in your AWS account
+
+These services may add a minimal cost on your AWS monthly bill. Please refer to the [AWS princing calculator](https://calculator.aws/) for estimates based on your usage. 
+
+

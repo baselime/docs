@@ -7,22 +7,25 @@ order: -8
 
 This page describes how you can rehydrate your telemetry data from Amazon S3 into Baselime.
 
+---
+
 ## How it works
+
 When your data is streamed to Baselime, through different sources described in the [Sending Data to Baselime](./) section,
-it is also streamed to a Kinesis Firehose created in your AWS at the time of integration. The Firehose then saves
-the data in an S3 bucket in your AWS account.
+it is also streamed to a Kinesis Firehose created in your AWS account. The Data Firehose stores
+the telemetry data in a S3 bucket in your AWS account.
+
+This gives you full ownership of your data and enables you to use it outside the Baselime; for example to feed it into a data lake. It is also possible to rehydrate the data from the S3 bucket into Baselime once the data is past its expiration period on Baselime.
 
 ![Data flow](../assets/images/illustrations/sending-data/s3-rehydration.png)
 
 
-This allows you to use your data even outside the Baselime, for example feed it into a data lake.
 
-At the time of connecting your AWS account to Baselime a role is also created which gives access to
-list and read files specifically from that bucket. This role is assumed by Baselime Rehydration Lambda,
-which lists and reads the files, and sends them to our system once gain.
+!!! Note
+We set the default TTL for objects stored in the bucket to 180 days to prevent extremely long storage of telemetry data you might not need; Feel free to adjust it to your needs.
+!!!
 
-This way you can query data in Baselime, even long after it has expired. Just keep in mind
-that default TTL for objects set in that Bucket is set to 180 days, but feel free to change it to your needs.
+---
 
 ## How to use it
 First, you'll need to have Baselime CLI installed. You can find the installation instructions [here](../cli/install.md).
