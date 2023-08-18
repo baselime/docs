@@ -9,14 +9,6 @@ order: -4
 
 Baselime enables you to ingest this tracing data and make it available for analysis and troubleshooting.
 
-!!! Essential
-Sending AWS X-Ray traces to Baselime is essential to gain a comprehensive view of your distributed applications. By ingesting X-Ray traces, Baselime can provide in-depth analysis and visualization of your application's performance and behavior, including end-to-end request tracking, error analysis, and latency monitoring.
-!!!
-
-!!! Automatic
-Baselime automatically ingests AWS X-Ray traces, there is no need for any additional steps after connecting your AWS account.
-!!!
-
 ---
 
 ## How it works

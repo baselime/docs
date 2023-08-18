@@ -10,13 +10,6 @@ Once you connect your AWS account to Baselime, Baselime automatically create [Cl
 
 Baselime automatically captures logs for newly created AWS Lambda functions, and enables you to query and visualise logs across log groups and log streams.
 
-!!! Essential
-To effectively monitor your applications deployed on AWS on Baselime, it is essential to send AWS Lambda logs.
-!!!
-
-!!! Automatic
-Baselime automatically ingests AWS Lambda logs, there is no need for any additional steps after connecting your AWS account.
-!!!
 
 ---
 

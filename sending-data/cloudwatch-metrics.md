@@ -7,14 +7,6 @@ order: -6
 
 Baselime automatically collects Amazon CloudWatch Metrics from your AWS account. Once you connect your AWS account to Baselime, the necessary resources including a [CloudWatch Metrics Stream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html) and a [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose/) will be automatically created and configured. No additional setup or configuration is required.
 
-!!! Essential
-Sending Amazon CloudWatch metrics to Baselime is essential to effectively monitor your AWS resources and applications. By ingesting Amazon CloudWatch metrics, Baselime can provide real-time analysis and visualization of your application's performance, health, and availability. This enables you to quickly identify and troubleshoot issues before they impact your users.
-!!!
-
-!!! Automatic
-Baselime automatically ingests Amazon CloudWatch Metrics, no additional steps are required after connecting your AWS account.
-!!!
-
 ---
 
 ## Why Amazon CloudWatch Metrics ?
