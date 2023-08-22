@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.745418057035">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.746038557995">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.1.0">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.1.0.745418057035" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.1.0.746038557995" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.1.0.745418057035" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.1.0.746038557995" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.1.0.745418057035" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.1.0.746038557995" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -227,8 +227,9 @@
         <span>How does Baselime count invocations and traces for billing?</span>
     </h2>
 </doc-anchor-target>
-<p>Invocations are counted using the <code v-pre>REPORT</code> line of your AWS Lambda function logs. Each instance of the <code v-pre>REPORT</code> line is an invocations. Distributed traces are counted using the number of unique trace ids received from your services. If a traceID is matched with an existing invocation using the <code v-pre>REPORT</code> line, the trace is not counted towards your monthly number of traces.</p>
+<p>Invocations are counted using the <code v-pre>REPORT</code> line of your AWS Lambda function logs. Each instance of the <code v-pre>REPORT</code> line is an invocation. Distributed traces are counted using the number of unique trace ids received from your services. If a traceID is matched with an existing invocation using the <code v-pre>REPORT</code> line, the trace is not counted towards your monthly number of traces.</p>
 <p>If a trace goes through multiple function invocations, each invocation is counted individually, and the trace is not counted. As such you are not charged twice for the same invocations.</p>
+<p>If Baselime receives a trace with a unique trace id, but no invocation matching this trace id, the trace is counted towards your monthly number of traces.</p>
 <p>Baselime counts the number of invocations and traces daily and updates your dashboard accordingly.</p>
 <hr>
 <doc-anchor-target id="does-baselime-support-containers">
