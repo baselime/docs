@@ -19,9 +19,11 @@ Check out our [pricing page](https://baselime.io/pricing) for more details.
 
 ## How does Baselime count invocations and traces for billing?
 
-Invocations are counted using the `REPORT` line of your AWS Lambda function logs. Each instance of the `REPORT` line is an invocations. Distributed traces are counted using the number of unique trace ids received from your services. If a traceID is matched with an existing invocation using the `REPORT` line, the trace is not counted towards your monthly number of traces.
+Invocations are counted using the `REPORT` line of your AWS Lambda function logs. Each instance of the `REPORT` line is an invocation. Distributed traces are counted using the number of unique trace ids received from your services. If a traceID is matched with an existing invocation using the `REPORT` line, the trace is not counted towards your monthly number of traces.
 
 If a trace goes through multiple function invocations, each invocation is counted individually, and the trace is not counted. As such you are not charged twice for the same invocations.
+
+If Baselime receives a trace with a unique trace id, but no invocation matching this trace id, the trace is counted towards your monthly number of traces.
 
 Baselime counts the number of invocations and traces daily and updates your dashboard accordingly.
 
