@@ -9,6 +9,10 @@ Once ingested, the data is securely stored in hot storage for querying and in co
 
 ![Sending Telemetry data to Baselime](../assets/images/illustrations/sending-data/s3.png)
 
+!!!
+The retention period of your telemetry data on Baselime is independent of the retention period in AWS. You can safely reduce the retention period of your CloudWatch log groups.
+!!!
+
 ---
 
 ## Data sources
