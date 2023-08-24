@@ -3,6 +3,18 @@
 The [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) (Star us ⭐) instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends the OpenTelemetry compatible trace data to Baselime. This is the most powerful and flexible way to instrument your Node.js AWS Lambda functions.
 
 
+!!! Note
+Be aware, OTEL is causing issues with request retries for the AWS SDK JS v2. We are working with [AWS](https://github.com/aws/aws-sdk-js/issues/4472#issuecomment-1660786070) and OTEL to resolve this issue. 
+
+Apply this workaround to prevent the issue 
+
+
+```javascript
+const SignersV4 = require('aws-sdk/lib/signers/v4')
+
+SignersV4.prototype.unsignableHeaders.push('traceparent');
+```
+!!!
 ---
 
 ## Automatic Instrumentation
@@ -177,81 +189,8 @@ In production we recommend additionally adding the Baselime AWS Lambda extension
 
 ---
 
-## Adding custom OpenTelemetry events
-
-The [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) provides and extension that enables you add context rich events to your traces using an API that feels like a logger. These events can be useful to show more detailed context on errors, add steps that you want recorded for a business process or adding extra debugging information.
-
-```javascript
-const { logger } = require("@baselime/lambda-node-opentelemetry");
-
-logger.info("This is an informational message", {
-  operation: "copy-paste-replace",
-  count: 9000,
-});
-```
-
-The extension provides an object that includes four logging functions - info, warn, debug, and error - enabling you to log messages with varying levels of severity. By setting the LOG_LEVEL environment variable, you can control the visibility of the events.
-
-```javascript
-const { logger } = require("@baselime/lambda-node-opentelemetry");
-
-logger.info("This is an informational message", { payload: { foo: "bar" } });
-logger.warn("This is a warning message", { payload: { foo: "bar" } });
-logger.debug("This is a debug message", { payload: { foo: "bar" } });
-logger.error("This is an error message", { payload: { foo: "bar" } });
-```
-
-It shares the same interface as `@baselime/lambda-logger` so if you are moving from cloudwatch to open telemetry this makes the transision seamless.
-
----
-
-## Adding custom OpenTelemetry spans
-
-To add custom spans to your OpenTelemetry traces, it is necessary to install the `@opentelemetry/api` package. It is left out of the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) to limit the impact on cold-starts, such that your can add it only to the AWS Lambda functions that require it.
-
-```javascript
-import { trace } from "@opentelemetry/api";
-const tracer = trace.getTracer('your-custom-traces');
-
-export async function handler(event) {
-  const activeSpan = trace.getActiveSpan();
-  
-  const { userId } = JSON.parse(event.body);
-  span.setAttribute('user', userId)
-  
-  // do something meaningful
-  
-  const result = await tracer.startActiveSpan(`business-logic`, async (span) => {
-    span.setAttributes(args)
-    // your business logic
-    const result = await yourBusinessLogic(args)
-    span.setAttributes(result)
-    return result
-  });
-}
-
-```
-
-
----
-
-## Sending data to another OpenTelemetry backend
+## Send data to another OpenTelemetry backend
 
 OpenTelemetry is an open standard, and you can use the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) to send telemetry data to another backend of your choice.
 
 Add the environment variable `COLLECTOR_URL` to send the data somewhere else than the Baselime backend.
-
----
-
-## Limitations
-
-
-The AWS JS SDK v2 can result in errors when interacting with OpenTelemetry during automatic request retries. This is the result of trace headers changing between retries and failing the signing verification processes. We've submitted a [Pull Request to the AWS JS SDK](https://github.com/aws/aws-sdk-js/issues/4472#issuecomment-1660786070) and will be updating accordingly. 
-
-To prevent this issue from arising, add the code snippet below to your code.
-
-```javascript
-const SignersV4 = require('aws-sdk/lib/signers/v4')
-
-SignersV4.prototype.unsignableHeaders.push('traceparent');
-```

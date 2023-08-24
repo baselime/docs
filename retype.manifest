@@ -1,6 +1,6 @@
 {
   "version": "3.1.0",
-  "created": "2023-08-14T13:31:03Z",
+  "created": "2023-08-18T12:30:12Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -390,7 +390,14 @@
       "path": "sending-data/opentelemetry/index.html"
     },
     {
-      "path": "sending-data/opentelemetry/nodejs/events/index.html"
+      "path": "sending-data/opentelemetry/node.js/lambda/events/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/node.js/lambda/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/nodejs/events/index.html",
+      "old": true
     },
     {
       "path": "sending-data/opentelemetry/nodejs/index.html"
