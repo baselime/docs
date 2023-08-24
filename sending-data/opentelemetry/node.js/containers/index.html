@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746188410969">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746199219648">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.2.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.2.0.746188410969" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.2.0.746199219648" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.2.0.746188410969" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.2.0.746199219648" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.2.0.746188410969" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.2.0.746188410969" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.2.0.746199219648" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.2.0.746199219648" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -231,7 +231,7 @@ sdk.start();</code></pre>
 <p>Set the environment variables</p>
 <ul>
 <li>BASELIME_KEY set to the api key for your Baselime environment</li>
-<li></li>
+<li>NODE_OPTIONS to load the tracer when the container starts</li>
 </ul>
 <p>Make the BASELIME_KEY environment variable is set to the api key for your Baselime environment and the NODE_OPTIONS e</p>
 <doc-tabs>
@@ -263,6 +263,51 @@ sdk.start();</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 </doc-tabs>
+<doc-anchor-target id="configuration">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#configuration">#</doc-anchor-trigger>
+        <span>Configuration</span>
+    </h2>
+</doc-anchor-target>
+<p>The BaselimeSDK class takes the following configuration options</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instrumentations</td>
+<td>InstrumentationOption[]</td>
+<td>An array of instrumentation options.</td>
+</tr>
+<tr>
+<td>baselimeKey</td>
+<td>string (optional)</td>
+<td>The Baselime key.</td>
+</tr>
+<tr>
+<td>collectorUrl</td>
+<td>string (optional)</td>
+<td>The URL of the collector.</td>
+</tr>
+<tr>
+<td>service</td>
+<td>string (optional)</td>
+<td>The service name.</td>
+</tr>
+<tr>
+<td>namespace</td>
+<td>string (optional)</td>
+<td>The namespace.</td>
+</tr>
+</tbody>
+</table>
+</div>
 
                                 
                                 <!-- Required only on API pages -->
