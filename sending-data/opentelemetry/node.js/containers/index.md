@@ -26,7 +26,7 @@ sdk.start();
 Set the environment variables
 
 * BASELIME_KEY set to the api key for your Baselime environment
-* 
+* NODE_OPTIONS to load the tracer when the container starts
 
 
 Make the BASELIME_KEY environment variable is set to the api key for your Baselime environment and the NODE_OPTIONS e
@@ -54,4 +54,17 @@ const loadBalancedFargateService = new ecsPatterns.ApplicationLoadBalancedFargat
     },
 });
 ```
-+++ 
++++
+
+
+## Configuration
+
+The BaselimeSDK class takes the following configuration options
+
+| Field            | Type                    | Description                          |
+| ---------------- | ----------------------- | ------------------------------------ |
+| instrumentations | InstrumentationOption[] | An array of instrumentation options. |
+| baselimeKey      | string (optional)       | The Baselime key.                    |
+| collectorUrl     | string (optional)       | The URL of the collector.            |
+| service          | string (optional)       | The service name.                    |
+| namespace        | string (optional)       | The namespace.                       |

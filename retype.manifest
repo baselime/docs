@@ -1,6 +1,6 @@
 {
   "version": "3.1.0",
-  "created": "2023-08-18T12:30:12Z",
+  "created": "2023-08-24T13:28:08Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -390,7 +390,14 @@
       "path": "sending-data/opentelemetry/index.html"
     },
     {
-      "path": "sending-data/opentelemetry/node.js/lambda/events/index.html"
+      "path": "sending-data/opentelemetry/node.js/containers/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/node.js/events/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/node.js/lambda/events/index.html",
+      "old": true
     },
     {
       "path": "sending-data/opentelemetry/node.js/lambda/index.html"
@@ -400,7 +407,8 @@
       "old": true
     },
     {
-      "path": "sending-data/opentelemetry/nodejs/index.html"
+      "path": "sending-data/opentelemetry/nodejs/index.html",
+      "old": true
     },
     {
       "path": "sending-data/s3-rehydration/index.html"
