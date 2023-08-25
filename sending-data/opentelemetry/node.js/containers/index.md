@@ -77,8 +77,8 @@ The `BaselimeSDK` class of the [Baselime Node.js SDK for OpenTelemetry](https://
 
 | Field            | Type                    | Description                          |
 | ---------------- | ----------------------- | ------------------------------------ |
-| instrumentations | InstrumentationOption[] | An array of instrumentation options. |
-| baselimeKey      | string (optional)       | The Baselime API key.                    |
-| collectorUrl     | string (optional)       | The URL of the collector.            |
-| service          | string (optional)       | The service name.                    |
-| namespace        | string (optional)       | The namespace.                       |
+| `instrumentations` | InstrumentationOption[] | An array of instrumentation options. |
+| `baselimeKey`      | string (optional)       | The Baselime API key.                    |
+| `collectorUrl`     | string (optional)       | The URL of the collector.            |
+| `service`          | string (optional)       | The service name.                    |
+| `namespace`        | string (optional)       | The namespace.                       |
