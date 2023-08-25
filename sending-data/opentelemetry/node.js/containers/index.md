@@ -1,18 +1,24 @@
 # Containers
 
-The [Baselime SDK for Open Telemetry](https://github.com/Baselime/lambda-node-opentelemetry) (Star us ⭐) for Node.js removes the boilerplate of instrumenting container based services. 
+The [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-opentelemetry) (Star us ⭐) enables you to instrument your Node.js container services with OpenTelemetry without the boilerplate of using the OpenTelemetry SDK directly. 
 
-## Quick Start
+---
 
-Install the dependencies
+## Instrumentation
 
-```
+### Step 1
+
+Install the [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-opentelemetry). 
+
+```bash
 npm i --save-dev @baselime/node-opentelemetry @opentelemetry/auto-instrumentations-node
 ```
 
-Create the `src/tracing.cjs` file inside your containers `src` directory
+### Step 2
 
-```javascript
+Create a `tracing.cjs` file inside your application working directory.
+
+``` javascript # :icon-code: src/tracing.cjs
 const { BaselimeSDK } = require('@baselime/node-opentelemetry');
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
 
@@ -23,16 +29,19 @@ const sdk = new BaselimeSDK({
 
 sdk.start();
 ```
-Set the environment variables
 
-* BASELIME_KEY set to the api key for your Baselime environment
-* NODE_OPTIONS to load the tracer when the container starts
+### Step 3
 
+Set the environment variables of your comntainer service to include the Baselime API Key and set the NODE_OPTIONS enviroment variable to preload the OpenTelemetry SDK into your application.
 
-Make the BASELIME_KEY environment variable is set to the api key for your Baselime environment and the NODE_OPTIONS e
+| Key          | Value                                       | Description                                                                         |
+| ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------- |
+| BASELIME_KEY | <you-api-key>               | Get this key from the [Baselime CLI](https://github.com/Baselime/cli) running `baselime iam` |
+| NODE_OPTIONS | `-r ./src/tracing.cjs --experimental-loader=import-in-the-middle/hook.mjs` | Preloads the OpenTelemetry SDK at startup                                                 |
 
 +++ SST
-```typescript
+
+```typescript #
 const service = new Service(stack, 'sst-service', {
     path: './',
     environment: {
@@ -41,8 +50,8 @@ const service = new Service(stack, 'sst-service', {
     }
 });
 ```
-+++ CDK
-```typescript
++++ AWS CDK
+```typescript #
 const loadBalancedFargateService = new ecsPatterns.ApplicationLoadBalancedFargateService(stack, 'Service', {
     cluster,
     taskImageOptions: {
@@ -56,15 +65,20 @@ const loadBalancedFargateService = new ecsPatterns.ApplicationLoadBalancedFargat
 ```
 +++
 
+Once these steps are completed, distributed traces from your Node.js container applications should be available in Baselime to query via the console or the CLI.
+
+![Example OpenTelemetry Trace](../../../../assets/images/illustrations/sending-data/opentelemetry/trace.png)
+
+---
 
 ## Configuration
 
-The BaselimeSDK class takes the following configuration options
+The `BaselimeSDK` class of the [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-opentelemetry) takes the following configuration options.
 
 | Field            | Type                    | Description                          |
 | ---------------- | ----------------------- | ------------------------------------ |
 | instrumentations | InstrumentationOption[] | An array of instrumentation options. |
-| baselimeKey      | string (optional)       | The Baselime key.                    |
+| baselimeKey      | string (optional)       | The Baselime API key.                    |
 | collectorUrl     | string (optional)       | The URL of the collector.            |
 | service          | string (optional)       | The service name.                    |
 | namespace        | string (optional)       | The namespace.                       |

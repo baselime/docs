@@ -20,4 +20,5 @@ If you have not instrumented your codebase with OpenTelemetry yet, do not worry.
 
 ## OpenTelemetry Auto Instrumentation
 
-[!ref icon="../../assets/images/logos/node.svg"](./nodejs/index.md)
+[!ref icon="../../assets/images/logos/node.svg"](./node.js/lambda/index.md)
+[!ref icon="../../assets/images/logos/node.svg"](./node.js/containers/index.md)
