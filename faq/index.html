@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746272464398">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746394063695">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.2.0">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.2.0.746272464398" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.2.0.746394063695" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.2.0.746272464398" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.2.0.746394063695" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.2.0.746272464398" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.2.0.746394063695" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -318,12 +318,26 @@
     </h2>
 </doc-anchor-target>
 <p>You own your data.</p>
-<p>All the telemetry data your cloud infrastructure generate is storred in two data tiers:</p>
+<p>You can select to use either our cloud offering, or our <strong>Bring Your Own Backend</strong> solution.</p>
+<doc-anchor-target id="cloud-offering">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#cloud-offering">#</doc-anchor-trigger>
+        <span>Cloud offering</span>
+    </h3>
+</doc-anchor-target>
+<p>All the telemetry data your cloud infrastructure generate is stored in two data tiers:</p>
 <ul>
 <li>hot tier: on Baselime accounts, to enable fast queries</li>
 <li>cold tier: in an Amazon S3 bucket in your AWS cloud account for long terms storage</li>
 </ul>
 <p>It is possible to rehydrate data from the cold tier to the hot tier for queriyng historical incidents free of charge.</p>
+<doc-anchor-target id="bring-your-own-backend">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bring-your-own-backend">#</doc-anchor-trigger>
+        <span>Bring Your Own Backend</span>
+    </h3>
+</doc-anchor-target>
+<p>Baselime can integrate with your own backend. As such, all the telemetry data is stored and queried in your cloud account. The enables you to keep maximum flexibility and privacy for storing sensitive data. You will be able to set your own retention periods, your own storage type, and your own privacy settings.</p>
 <hr>
 <doc-anchor-target id="is-my-data-secure">
     <h2>
@@ -331,7 +345,7 @@
         <span>Is my data secure?</span>
     </h2>
 </doc-anchor-target>
-<p>Baselime is fully GDPR compliant and your data is storred in data centers that are all SOC2 compliant.</p>
+<p>Baselime is fully GDPR compliant and your data is stored in data centers that are all SOC2 compliant.</p>
 <hr>
 <doc-anchor-target id="how-can-i-work-with-my-team">
     <h2>

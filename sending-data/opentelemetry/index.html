@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746272464398">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746394063695">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.2.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>OpenTelemetry Traces | Baselime - Observability for Serverless</title>
     <meta name="title" content="OpenTelemetry Traces | Baselime - Observability for Serverless">
-    <meta name="description" content="If your codebase is already instrumented with OpenTelemetry, you can start sending us your tracing data today.">
+    <meta name="description" content="If your codebase is already instrumented with OpenTelemetry, you can start sending your tracing data to Baselime today.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/opentelemetry/">
@@ -21,23 +21,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/opentelemetry/">
     <meta property="og:title" content="OpenTelemetry Traces | Baselime - Observability for Serverless">
-    <meta property="og:description" content="If your codebase is already instrumented with OpenTelemetry, you can start sending us your tracing data today.">
+    <meta property="og:description" content="If your codebase is already instrumented with OpenTelemetry, you can start sending your tracing data to Baselime today.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/opentelemetry/">
     <meta property="twitter:title" content="OpenTelemetry Traces | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="If your codebase is already instrumented with OpenTelemetry, you can start sending us your tracing data today.">
+    <meta property="twitter:description" content="If your codebase is already instrumented with OpenTelemetry, you can start sending your tracing data to Baselime today.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.2.0.746272464398" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.2.0.746394063695" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.2.0.746272464398" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.2.0.746394063695" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.2.0.746272464398" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.2.0.746272464398" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.2.0.746394063695" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.2.0.746394063695" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -206,13 +206,13 @@
     </h1>
 </doc-anchor-target>
 <hr>
-<p>If your codebase is already instrumented with <a href="https://opentelemetry.io/">OpenTelemetry</a>, you can start sending us your tracing data today.</p>
+<p>If your codebase is already instrumented with <a href="https://opentelemetry.io/">OpenTelemetry</a>, you can start sending your tracing data to Baselime today.</p>
 <p>Add the Baselime OTel endpoint to your exporter:</p>
 <ul>
 <li>Endpoint <code v-pre>https://otel.baselime.io/v1/</code></li>
-<li>Header: <code v-pre>x-api-key: &lt;YOUR_BASELIME_API_KEY&gt;</code></li>
+<li>Header: <code v-pre>x-api-key: &lt;BASELIME_API_KEY&gt;</code></li>
 </ul>
-<p>You can get your Baselime API key from the Baselime CLI with</p>
+<p>You can get your Baselime API key in the <a href="https://console.baselime.io">Baselime console</a> from the <a href="../../cli/install/">Baselime CLI</a> with:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 0 1-.22.53l-2.75 2.75a.75.75 0 0 1-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 1 1 1.06-1.06l2.75 2.75c.141.14.22.331.22.53Zm2 2a.75.75 0 0 0 0 1.5h5a.75.75 0 0 0 0-1.5h-5Z"/><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/></g></g></svg> terminal</div>
 <pre class="language-bash"><code v-pre class="language-bash">baselime iam</code></pre>
@@ -222,8 +222,14 @@
 <doc-anchor-target id="opentelemetry-auto-instrumentation">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#opentelemetry-auto-instrumentation">#</doc-anchor-trigger>
-        <span>OpenTelemetry Auto Instrumentation</span>
+        <span>OpenTelemetry Auto-Instrumentation</span>
     </h2>
+</doc-anchor-target>
+<doc-anchor-target id="aws-lambda">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#aws-lambda">#</doc-anchor-trigger>
+        <span>AWS Lambda</span>
+    </h3>
 </doc-anchor-target>
 <p>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
@@ -231,24 +237,32 @@
         <span class="inline-block mb-px">
             <img width="20" src="../../assets/images/logos/node.svg">
         </span>
-        <span class="inline-block font-medium ml-2">AWS Lambda</span>
+        <span class="inline-block font-medium ml-2">OpenTelemetry for Node.js on AWS Lambda</span>
     </div>
     <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>node.js/lambda/</span>
+        <span>aws-lambda/node.js/</span>
     </div>
-    <a href="node.js/lambda/" class="absolute block inset-0"></a>
+    <a href="aws-lambda/node.js/" class="absolute block inset-0"></a>
 </div>
+</p>
+<doc-anchor-target id="containers">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#containers">#</doc-anchor-trigger>
+        <span>Containers</span>
+    </h3>
+</doc-anchor-target>
+<p>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
             <img width="20" src="../../assets/images/logos/node.svg">
         </span>
-        <span class="inline-block font-medium ml-2">Containers</span>
+        <span class="inline-block font-medium ml-2">OpenTelemetry for Node.js Containers</span>
     </div>
     <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>node.js/containers/</span>
+        <span>containers/node.js/</span>
     </div>
-    <a href="node.js/containers/" class="absolute block inset-0"></a>
+    <a href="containers/node.js/" class="absolute block inset-0"></a>
 </div>
 </p>
 
@@ -266,20 +280,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/lambda-logs/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">AWS Lambda Logs</span>
+                                                <span class="block mt-1">Sending Data to Baselime</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/opentelemetry/node.js/lambda/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/opentelemetry/aws-lambda/node.js/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">AWS Lambda</span>
+                                                <span class="block mt-1">Open​Telemetry for Node.​js on AWS Lambda</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>

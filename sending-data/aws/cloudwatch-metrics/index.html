@@ -4,42 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746272464398">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746394063695">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.2.0">
 
     <!-- Primary Meta Tags -->
-    <title>Amazon API Gateway Logs | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Amazon API Gateway Logs | Baselime - Observability for Serverless">
-    <meta name="description" content="Once you connect your AWS account to Baselime, Baselime automatically create CloudWatch Logs subscription filters">
+    <title>Amazon CloudWatch Metrics | Baselime - Observability for Serverless</title>
+    <meta name="title" content="Amazon CloudWatch Metrics | Baselime - Observability for Serverless">
+    <meta name="description" content="Baselime automatically collects Amazon CloudWatch Metrics from your AWS account.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://baselime.io/docs/sending-data/apigateway-logs/">
+    <link rel="canonical" href="https://baselime.io/docs/sending-data/aws/cloudwatch-metrics/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://baselime.io/docs/sending-data/apigateway-logs/">
-    <meta property="og:title" content="Amazon API Gateway Logs | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Once you connect your AWS account to Baselime, Baselime automatically create CloudWatch Logs subscription filters">
-    <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/apigateway.png">
+    <meta property="og:url" content="https://baselime.io/docs/sending-data/aws/cloudwatch-metrics/">
+    <meta property="og:title" content="Amazon CloudWatch Metrics | Baselime - Observability for Serverless">
+    <meta property="og:description" content="Baselime automatically collects Amazon CloudWatch Metrics from your AWS account.">
+    <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/metrics.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://baselime.io/docs/sending-data/apigateway-logs/">
-    <meta property="twitter:title" content="Amazon API Gateway Logs | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Once you connect your AWS account to Baselime, Baselime automatically create CloudWatch Logs subscription filters">
-    <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/apigateway.png">
+    <meta property="twitter:url" content="https://baselime.io/docs/sending-data/aws/cloudwatch-metrics/">
+    <meta property="twitter:title" content="Amazon CloudWatch Metrics | Baselime - Observability for Serverless">
+    <meta property="twitter:description" content="Baselime automatically collects Amazon CloudWatch Metrics from your AWS account.">
+    <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/metrics.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.2.0.746272464398" rel="stylesheet">
+    <link href="../../../assets/images/logo.svg" rel="icon">
+    <link href="../../../resources/css/retype.css?v=3.2.0.746394063695" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.2.0.746272464398" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.2.0.746272464398" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.2.0.746272464398" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.2.0.746394063695" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.2.0.746394063695" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -64,10 +63,10 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
                             <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
-                                <img class="max-h-10 dark:hidden md:inline-block" src="../../assets/images/logo.svg">
-                                <img class="max-h-10 hidden dark:inline-block" src="../../assets/images/logo.svg">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../assets/images/logo.svg">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../../assets/images/logo.svg">
                             </span>
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Baselime</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">BETA</span>
@@ -201,57 +200,23 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="amazon-api-gateway-logs" class="break-words">
+<doc-anchor-target id="amazon-cloudwatch-metrics" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#amazon-api-gateway-logs">#</doc-anchor-trigger>
-        <span>Amazon API Gateway Logs</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#amazon-cloudwatch-metrics">#</doc-anchor-trigger>
+        <span>Amazon CloudWatch Metrics</span>
     </h1>
 </doc-anchor-target>
-<p>Once you connect your AWS account to Baselime, Baselime automatically create
-<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html">CloudWatch Logs subscription filters</a>
-to automatically ingest logs from your Amazon API Gateways.</p>
+<p>Baselime automatically collects Amazon CloudWatch Metrics from your AWS account. Once you connect your AWS account to Baselime, the necessary resources including a <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">CloudWatch Metrics Stream</a> and a <a href="https://aws.amazon.com/kinesis/data-firehose/">Kinesis Firehose</a> will be automatically created and configured. No additional setup or configuration is required.</p>
 <hr>
-<doc-anchor-target id="setup">
+<doc-anchor-target id="why-amazon-cloudwatch-metrics-">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#setup">#</doc-anchor-trigger>
-        <span>Setup</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#why-amazon-cloudwatch-metrics-">#</doc-anchor-trigger>
+        <span>Why Amazon CloudWatch Metrics ?</span>
     </h2>
 </doc-anchor-target>
-<p>Baselime can ingest logs only for Amazon API Gateways where access logs are
-appropriately configured.</p>
-<p>We recommend this configuration for Amazon API Gateway logs:</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-json"><code v-pre class="language-json">{
-  &quot;requestTime&quot;:&quot;$context.requestTime&quot;,
-  &quot;requestId&quot;:&quot;$context.requestId&quot;,
-  &quot;httpMethod&quot;:&quot;$context.httpMethod&quot;,
-  &quot;path&quot;:&quot;$context.path&quot;,
-  &quot;resourcePath&quot;:&quot;$context.resourcePath&quot;,
-  &quot;status&quot;:&quot;$context.status&quot;,
-  &quot;responseLatency&quot;:&quot;$context.responseLatency&quot;,
-  &quot;xrayTraceId&quot;:&quot;$context.xrayTraceId&quot;,
-  &quot;integrationRequestId&quot;:&quot;$context.integration.requestId&quot;,
-  &quot;functionResponseStatus&quot;:&quot;$context.integration.status&quot;,
-  &quot;integrationLatency&quot;:&quot;$context.integration.latency&quot;,
-  &quot;integrationServiceStatus&quot;:&quot;$context.integration.integrationStatus&quot;,
-  &quot;ip&quot;:&quot;$context.identity.sourceIp&quot;,
-  &quot;userAgent&quot;:&quot;$context.identity.userAgent&quot;,
-  &quot;principalId&quot;:&quot;$context.authorizer.principalId&quot;
-}</code></pre>
-</doc-codeblock></div>
-<p>It is possible to enable Amazon API Gateway access logs from your favourite Infrastructure as Code tool, using the CLI or in the AWS console. Below is an example of how to enable Amazon API Gateway logs using the serverless framework.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-yaml"><code v-pre class="language-yaml"># serverless.yml
-service: my-service
-
-provider:
-  name: aws
-  runtime: nodejs16.x
-  logs:
-    restApi:
-      accessLogging: true
-      format: '{&quot;requestTime&quot;:&quot;$context.requestTime&quot;,&quot;requestId&quot;:&quot;$context.requestId&quot;,&quot;httpMethod&quot;:&quot;$context.httpMethod&quot;,&quot;path&quot;:&quot;$context.path&quot;,&quot;resourcePath&quot;:&quot;$context.resourcePath&quot;,&quot;status&quot;:$context.status,&quot;responseLatency&quot;:$context.responseLatency,&quot;xrayTraceId&quot;:&quot;$context.xrayTraceId&quot;,&quot;integrationRequestId&quot;:&quot;$context.integration.requestId&quot;,&quot;functionResponseStatus&quot;:&quot;$context.integration.status&quot;,&quot;integrationLatency&quot;:&quot;$context.integration.latency&quot;,&quot;integrationServiceStatus&quot;:&quot;$context.integration.integrationStatus&quot;,&quot;ip&quot;:&quot;$context.identity.sourceIp&quot;,&quot;userAgent&quot;:&quot;$context.identity.userAgent&quot;,&quot;principalId&quot;:&quot;$context.authorizer.principalId&quot;}'</code></pre>
-</doc-codeblock></div>
+<p><a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch</a> is a monitoring service provided by AWS that enables you to collect and track metrics for your AWS resources and applications. Metrics are important as they provide insight into the performance and behavior of your serverless applications and the underlying infrastructure.</p>
+<p>Amazon CloudWatch Metrics can help you identify issues such as high error rates and latencies, which can help improve the overall reliability and scalability of your applications.</p>
+<p>Amazon CloudWatch Metrics cover all aspects of your serverless architecture automatically, from DynamoDB tables to S3 buckets and SQS Queues.</p>
 <hr>
 <doc-anchor-target id="how-it-works">
     <h2>
@@ -259,13 +224,60 @@ provider:
         <span>How it works</span>
     </h2>
 </doc-anchor-target>
-<p>Once Baselime is connected to your AWS Account, it automatically creates Logs subscription filters for all the Amazon API Gateways in the account.</p>
+<p>Once Baselime is connected to an AWS Account, it automatically created the telemetry pipeline for ingesting Amazon CloudWatch metrics into Baselime. The pipeline comprises a CloudWatch Metrics Stream, a Kinesis Firehose and all IAM roles and permissions associated.</p>
+<p>This pipeline automatically and continuously sends metrics from your AWS account to Baselime.</p>
 <p><figure class="content-center">
-    <img src="../../assets/images/illustrations/sending-data/apigateway.png" alt="Sending API Gateway Logs to Baselime">
-    <figcaption class="caption">Sending API Gateway Logs to Baselime</figcaption>
+    <img src="../../../assets/images/illustrations/sending-data/metrics.png" alt="Sending Amazon CloudWatch Metrics to Baselime">
+    <figcaption class="caption">Sending Amazon CloudWatch Metrics to Baselime</figcaption>
 </figure>
 </p>
-<p>Moreover, Baselime automatically creates new subscription filters for newly deployed Amazon API Gateways. Baselime listens to new API Gateway events in Amazon CloudTrail and creates subscription filters for newly created Amazon API Gateways.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>AWS Cost</h5>
+<p>Amazon CloudWatch Metrics Stream might incur a minimal cost on your AWS account. AWS charges $0.003 per 1,000 metric updates. Refer to the <a href="https://aws.amazon.com/cloudwatch/pricing/">AWS docs</a> for more details.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<doc-anchor-target id="custom-amazon-cloudwatch-metrics">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#custom-amazon-cloudwatch-metrics">#</doc-anchor-trigger>
+        <span>Custom Amazon CloudWatch Metrics</span>
+    </h2>
+</doc-anchor-target>
+<p>Baselime automatically ingests all metrics published to Amazon CloudWatch. This includes both standard Amazon CloudWatch metrics and any <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">custom metrics</a> that you may have created.</p>
+<p>There is no need to manually configure or set up anything to start ingesting custom Amazon CloudWatch metrics. Once your AWS account is connected, all metrics will be available for querying in Baselime.</p>
+<hr>
+<doc-anchor-target id="querying-amazon-cloudwatch-metrics">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#querying-amazon-cloudwatch-metrics">#</doc-anchor-trigger>
+        <span>Querying Amazon CloudWatch Metrics</span>
+    </h2>
+</doc-anchor-target>
+<p>Once your AWS account is connected to Baselime, you can use any of the our clients to visualize and query your Amazon CloudWatch Metrics. You&#x27;ll have access to all the metrics available in your AWS account, and you can use the <a href="../oac/observability-reference-language/overview.md">Observability Reference Language (ORL)</a> to filter and aggregate the data in near real-time.</p>
+<hr>
+<doc-anchor-target id="troubleshooting">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#troubleshooting">#</doc-anchor-trigger>
+        <span>Troubleshooting</span>
+    </h2>
+</doc-anchor-target>
+<p>If you&#x27;re having trouble sending metrics from Amazon CloudWatch to Baselime, here are a few things to check:</p>
+<ul>
+<li>Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as <a href="../lambda-logs/">AWS Lambda Logs</a> or <a href="../cloudtrail/">CloudTrail Events</a></li>
+<li>Check that the Kinesis Firehose created in your AWS account as part of the Baselime connection has the appropriate API key to connect with the Baselime backend. If the API key is missing, please contact us.</li>
+</ul>
 
                                 
                                 <!-- Required only on API pages -->
@@ -273,7 +285,7 @@ provider:
                             </div>
                             <footer class="clear-both">
                                 <div class="flex flex-wrap items-center justify-between mt-14">
-                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/sending-data/apigateway-logs.md" target="_blank" rel="noopener">
+                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/sending-data/aws/cloudwatch-metrics.md" target="_blank" rel="noopener">
                                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         <span>Edit on GitHub</span>
                                     </a>
@@ -281,20 +293,20 @@ provider:
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/opentelemetry/node.js/containers/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../sending-data/aws/cloudtrail/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Containers</span>
+                                                <span class="block mt-1">Amazon Cloud​Trail</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/ecs-logs/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../sending-data/events-api/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Amazon ECS Container Logs</span>
+                                                <span class="block mt-1">Events API</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -338,7 +350,7 @@ provider:
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Amazon API Gateway Logs", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Amazon CloudWatch Metrics", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
     <script data-cfasync="false">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>

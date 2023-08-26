@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746272464398">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746394063695">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.2.0">
@@ -34,11 +34,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.2.0.746272464398" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.2.0.746394063695" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.2.0.746272464398" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.2.0.746394063695" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.2.0.746272464398" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.2.0.746394063695" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -220,7 +220,7 @@
         <span>Our mission</span>
     </h2>
 </doc-anchor-target>
-<p>Our mission is to simplify the complexity of serverless stacks. We make observability easy for developers such that they can focus on what truly matters: building better products.</p>
+<p>Our mission is to simplify the complexity of serverless stacks. We make observability easy for you such that you can focus on what truly matters: building better products.</p>
 <hr>
 <doc-anchor-target id="how-is-baselime-different">
     <h2>
@@ -230,12 +230,13 @@
 </doc-anchor-target>
 <p>Traditional monitoring solutions were built for a world where most applications were single monolithic applications. These solutions lack when it comes to microservices and serverless in 3 major ways:</p>
 <ul>
-<li><strong>Data volume and cardinality</strong>: Microservices generate a higher amounts of data with higher cardinality. The cost of traditional solutions scales exponentially with higher cardinality data.</li>
-<li><strong>Distributed transactions</strong>: Microservices handle distributed transactions across multiple services and serverless functions. Traditional solutions based on logs struggle to capture the end-to-end transactions, and limit the ability to diagnose performance bottlenecks and failures.</li>
-<li><strong>Silos and fragmentation</strong>: Traditional solutions provide typically previde logs, metrics and traces in isolation without the contextual correlation to understand the business impact of defects and performance issues.</li>
+<li><strong>Logs volume and cardinality</strong>: Microservices generate a higher amounts of data with higher cardinality. The cost of traditional solutions scales exponentially with higher cardinality data.</li>
+<li><strong>Distributed tracing</strong>: Microservices handle distributed transactions across multiple services and serverless functions. Traditional solutions based on logs struggle to capture the end-to-end transactions.</li>
+<li><strong>Centralized architecture</strong>: Traditional solutions typically collect all the logs and metrics and store them in a centralised place. This approach is not suitable for microservices as the data volume increases exponentially.</li>
 </ul>
 <p>Baselime directly connects to your AWS account and uses OpenTelemetry to automatically instrument your microservices and serverless functions.</p>
 <p>Also, Baselime uses our proprietary query engine built on top of ClickHouse to effectively index all your telemetry data. From day 0, everything is queriable and searchable, and correlation between data sources is a breeze.</p>
+<p>Moreover, Baselime gives your control over the residency of your data. Either using our backend or a <strong>Bring Your Own Backend</strong> solution where all the data is stored on your cloud account.</p>
 <hr>
 <doc-anchor-target id="how-does-baselime-work">
     <h2>
@@ -243,8 +244,8 @@
         <span>How does Baselime work?</span>
     </h2>
 </doc-anchor-target>
-<p>Connecting your AWS account to Baselime takes under 2 minutes, after which you can start troubleshooting and solving infrastructure and application issues unbelievably fast with high cardinalty data.</p>
-<p>Baselime is built on top of ClickHouse, the open-source fastest database in the world and leverages OpenTelemetry to instrument your applications.</p>
+<p>Connecting your AWS account to Baselime takes under 5 minutes, after which you can start troubleshooting and solving infrastructure and application issues unbelievably fast with high cardinalty data.</p>
+<p>Baselime is built on top of ClickHouse, the fastest open-source database in the world, and leverages OpenTelemetry to instrument your applications.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -262,7 +263,7 @@
         </div>
     </div>
 </div>
-<p>Baselime does not perform any pre-aggregation of data before ingestion; as such developers can run arbitrary queries on their telemetry data, and get answers about the state of their application, regardless of how unusual or unique this state is.</p>
+<p>Baselime does not perform any pre-aggregation of data before ingestion; as such you can run arbitrary queries on you telemetry data, and get answers about the state of your application, regardless of how unusual or unique this state is.</p>
 <p><figure class="content-center">
     <img src="../assets/images/illustrations/o11y-for-serverless/ecosystem.png" alt="Baselime in your ecosystem">
     <figcaption class="caption">Baselime in your ecosystem</figcaption>
@@ -276,21 +277,17 @@
     </h2>
 </doc-anchor-target>
 <doc-panels>
-   <doc-panel id="end-to-end-observability" collapsed>
-       <template #title>End-to-end observability</template>
-<p>Slice and dice millions of logs, metrics, traces and events faster than on any other serverless solution. Full visibility across your stack, no blind-spots.</p>
-   </doc-panel>
-   <doc-panel id="detect-solve-issues-faster" collapsed>
-       <template #title>Detect &amp; solve issues faster</template>
+   <doc-panel id="reduce-downtime" collapsed>
+       <template #title>Reduce downtime</template>
 <p>Troubleshoot infrastructure and application issues unbelievably fast with high cardinality data.</p>
    </doc-panel>
-   <doc-panel id="unlimited-cardinality-all-indexed-all-searchable" collapsed>
-       <template #title>Unlimited cardinality, all indexed, all searchable</template>
-<p>Query against any nested field and automatically surface anomalies; no matter how rare, specific, or deep in your serverless stack.</p>
+   <doc-panel id="search-anything-anywhere-it-s-all-indexed" collapsed>
+       <template #title>Search anything, anywhere. It&#x27;s all indexed</template>
+<p>Query against any nested field and automatically surface anomalies fast; no matter how rare, specific, or deep in your stack.</p>
    </doc-panel>
    <doc-panel id="take-control-of-your-data-and-costs" collapsed>
        <template #title>Take control of your data and costs</template>
-<p>Up to 6x more value than the big dogs. No per-function pricing, no per-seat pricing, no per-alert pricing. Start at $0 and scale up as your apps grow, with no hidden fees.</p>
+<p>Use or backend or <strong>Bring Your Own Backend</strong>. Up to 6x more value than the big dogs. No per-function pricing, no per-seat pricing, no per-alert pricing. Start at $0 and scale up as your apps grow, with no hidden fees.</p>
    </doc-panel>
 </doc-panels>
 
