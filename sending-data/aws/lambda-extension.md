@@ -1,6 +1,6 @@
 ---
 label: AWS Lambda Telemetry Extension
-order: -3
+order: -4
 ---
 
 # Lambda Telemetry Extension
@@ -34,7 +34,7 @@ single binary, such that it minimises its impact cold-starts and performance.
 The diagram below illustrates how the Baselime Lambda Extension works within
 your architecture.
 
-![Using the Baselime Lambda Extension](../assets/images/illustrations/sending-data/lambda-extension.png)
+![Using the Baselime Lambda Extension](../../assets/images/illustrations/sending-data/lambda-extension.png)
 
 All the telemetry data from your Lambda function is collected asynchronously
 from your invocation, and sent to the Baselime backend in a separate process

@@ -1,4 +1,4 @@
-# Containers
+# OpenTelemetry for Node.js Containers
 
 The [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-opentelemetry) (Star us ⭐) enables you to instrument your Node.js container services with OpenTelemetry without the boilerplate of using the OpenTelemetry SDK directly. 
 
@@ -6,7 +6,7 @@ The [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-op
 
 ## Instrumentation
 
-### Step 1
+### Step 1: Install the SDKs
 
 Install the [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-opentelemetry). 
 
@@ -14,7 +14,7 @@ Install the [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime
 npm i --save-dev @baselime/node-opentelemetry @opentelemetry/auto-instrumentations-node
 ```
 
-### Step 2
+### Step 2: Create your auto-tracer file
 
 Create a `tracing.cjs` file inside your application working directory.
 
@@ -30,13 +30,13 @@ const sdk = new BaselimeSDK({
 sdk.start();
 ```
 
-### Step 3
+### Step 3: Set the Baselime environment variables
 
 Set the environment variables of your comntainer service to include the Baselime API Key and set the NODE_OPTIONS enviroment variable to preload the OpenTelemetry SDK into your application.
 
 | Key          | Value                                       | Description                                                                         |
 | ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------- |
-| BASELIME_KEY | <you-api-key>               | Get this key from the [Baselime CLI](https://github.com/Baselime/cli) running `baselime iam` |
+| BASELIME_KEY | `your-api-key`               | Get this key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) running `baselime iam` |
 | NODE_OPTIONS | `-r ./src/tracing.cjs --experimental-loader=import-in-the-middle/hook.mjs` | Preloads the OpenTelemetry SDK at startup                                                 |
 
 +++ SST

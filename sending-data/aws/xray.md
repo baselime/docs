@@ -1,6 +1,6 @@
 ---
 label: AWS X-Ray Traces
-order: -4
+order: -2
 ---
 
 # AWS X-Ray Traces
@@ -13,9 +13,9 @@ Baselime enables you to ingest this tracing data and make it available for analy
 
 ## How it works
 
-To start ingesting traces from AWS X-Ray to Baselime, you'll need to [connect your AWS account to Baselime](../readme.md). Once connected, Baselime will periodically poll your AWS account for new traces and automatically ingest them into your Baselime dataset.
+Once Baselime is connected to an AWS Account, it will periodically poll your AWS account for new traces and automatically ingest them into your Baselime dataset.
 
-![Sending X-Ray Traces to Baselime](../assets/images/illustrations/sending-data/xray.png)
+![Sending X-Ray Traces to Baselime](../../assets/images/illustrations/sending-data/xray.png)
 
 ---
 

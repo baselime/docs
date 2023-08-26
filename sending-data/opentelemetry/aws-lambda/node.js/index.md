@@ -1,4 +1,4 @@
-# Opentelemetry for Node.js on AWS Lambda
+# OpenTelemetry for Node.js on AWS Lambda
 
 The [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) (Star us ⭐) instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends the OpenTelemetry compatible trace data to Baselime. This is the most powerful and flexible way to instrument your Node.js AWS Lambda functions.
 
@@ -52,8 +52,12 @@ Globals:
 
 +++
 
-!!! Note
-OpenTelemetry Automatic Instrumentation works only once you have connected your AWS Account to Baselime. Adding the tag to AWS Lambda functions in an AWS Account not connected to Baselime will not have any effect.
+!!! 
+OpenTelemetry automatic instrumentation is available only once you have connected your AWS Account to Baselime. Adding the tag to AWS Lambda functions in an AWS Account not connected to Baselime will not have any effect.
+!!!
+
+!!! 
+To remove the OpenTelemetry instrumentation from your AWS Lambda functions, remove the `baselime:tracing=true` tag from the function and Baselime will revert the function to un-instrumentate state.
 !!!
 
 
@@ -61,8 +65,8 @@ OpenTelemetry Automatic Instrumentation works only once you have connected your 
 
 The automatic instrumentation makes changes to your AWS Lambda functions once they are deployed:
 
-- Add the Baselime Node.js OTel AWS Lambda Layer to your AWS Lambda function: `arn:aws:lambda:${region:097948374213:layer:baselime-node:6` - This layer is a slimmed down version of the [OpenTelemetry JavaScript Client](https://github.com/open-telemetry/opentelemetry-js) that will have minimal impact on the cold starts of your AWS Lambda functions
-- Add the Baselime Extension added to your AWS Lambda function: `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1` - This extension enables the Baselime Layers to send the trace data to the Baselime backend after the invocation is complete, as such, distributed tracing will not have any negative impact on the latency of your AWS Lambda functions
+- Add the Baselime Node.js OTel AWS Lambda Layer to your AWS Lambda function: `arn:aws:lambda:${region}:097948374213:layer:baselime-node:${version}` - This layer is a slimmed down version of the [OpenTelemetry JavaScript Client](https://github.com/open-telemetry/opentelemetry-js) that will have minimal impact on the cold starts of your AWS Lambda functions
+- Add the Baselime Extension added to your AWS Lambda function: `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:${version}` - This extension enables the Baselime Layers to send the trace data to the Baselime backend after the invocation is complete, as such, distributed tracing will not have any negative impact on the latency of your AWS Lambda functions
 - Set the `BASELIME_KEY` environment variable with the value of your environments Baselime API Key
 
 These changes are kept in sync with your AWS Lambda function as you iterate on your architecture via events from Amazon CloudTrail.
@@ -71,11 +75,66 @@ These changes are kept in sync with your AWS Lambda function as you iterate on y
 
 ---
 
+## Adding custom OpenTelemetry events
+
+The [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) provides and extension that enables you add context rich events to your traces using an API that feels like a logger. These events can be useful to show more detailed context on errors, add steps that you want recorded for a business process or adding extra debugging information.
+
+```javascript #
+const { logger } = require("@baselime/lambda-node-opentelemetry");
+
+logger.info("This is an informational message", {
+  operation: "copy-paste-replace",
+  count: 9000,
+});
+```
+
+The extension provides an object that includes four logging functions - `info`, `warn`, `debug`, and `error` - enabling you to log messages with varying levels of severity. You can control the visibility of the events by setting the LOG_LEVEL environment variable, .
+
+```javascript #
+const { logger } = require("@baselime/lambda-node-opentelemetry");
+
+logger.info("This is an informational message", { payload: { foo: "bar" } });
+logger.warn("This is a warning message", { payload: { foo: "bar" } });
+logger.debug("This is a debug message", { payload: { foo: "bar" } });
+logger.error("This is an error message", { payload: { foo: "bar" } });
+```
+
+---
+
+## Adding custom OpenTelemetry spans
+
+To add custom spans to your OpenTelemetry traces, it is necessary to install the `@opentelemetry/api` package. It is left out of the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) to limit the impact on cold-starts, such that your can add it only to the AWS Lambda functions that require it.
+
+```javascript #
+import { trace } from "@opentelemetry/api";
+const tracer = trace.getTracer('your-custom-traces');
+
+export async function handler(event) {
+  const activeSpan = trace.getActiveSpan();
+  
+  const { userId } = JSON.parse(event.body);
+  span.setAttribute('user', userId)
+  
+  // do something meaningful
+  
+  const result = await tracer.startActiveSpan(`business-logic`, async (span) => {
+    span.setAttributes(args)
+    // your business logic
+    const result = await yourBusinessLogic(args)
+    span.setAttributes(result)
+    return result
+  });
+}
+
+```
+
+---
+
 ## Manual Instrumentation
 
 If you prefer to send the OpenTelemetry traces to Baselime manually, you can use the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) (Star us ⭐) independently from connecting your AWS Account to Baselime.
 
-### Step 1
+### Step 1: Install the SDK
 
 Install the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry).
 
@@ -83,7 +142,7 @@ Install the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://githu
 npm install @baselime/lambda-node-opentelemetry
 ```
 
-### Step 2
+### Step 2: Manually wrap your function handlers with the SDK
 
 Wrap the handlers of your AWS Lambda functions with the `baselime.wrap(handler)` method.
 
@@ -97,16 +156,16 @@ async function main(event, context) {
 export const handler = baselime.wrap(main);
 ```
 
-### Step 3
+### Step 3: Set the Baselime environment variables
 
 Set the environment variables of your AWS Lambda functions to include the Baselime API Key and set the NODE_OPTIONS enviroment variable to preload the OpenTelemetry SDK into your AWS Lambda bundle.
 
 | Key          | Value                                       | Description                                                                         |
 | ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------- |
-| BASELIME_KEY | <you-api-key>               | Get this key from the [Baselime CLI](https://github.com/Baselime/cli) running `baselime iam` |
+| BASELIME_KEY | `your-api-key`              | Get this key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) running `baselime iam` |
 | NODE_OPTIONS | `--require @baselime/lambda-node-opentelemetry` | Preloads the OpenTelemetry SDK at startup                                                 |
 
-### Step 4
+### Step 4: Bundle the OpenTelemetry SDK with your code
 
 Ensure that the OpenTelemetry SDK is included in the `.zip` file that is uploaded to AWS Lambda during your deployment. The step depends on your deployment framework.
 
@@ -174,64 +233,6 @@ In production we recommend additionally adding the Baselime AWS Lambda extension
 ```javascript
 `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
 ```
-
----
-
-## Adding custom OpenTelemetry events
-
-The [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) provides and extension that enables you add context rich events to your traces using an API that feels like a logger. These events can be useful to show more detailed context on errors, add steps that you want recorded for a business process or adding extra debugging information.
-
-```javascript #
-const { logger } = require("@baselime/lambda-node-opentelemetry");
-
-logger.info("This is an informational message", {
-  operation: "copy-paste-replace",
-  count: 9000,
-});
-```
-
-The extension provides an object that includes four logging functions - info, warn, debug, and error - enabling you to log messages with varying levels of severity. By setting the LOG_LEVEL environment variable, you can control the visibility of the events.
-
-```javascript #
-const { logger } = require("@baselime/lambda-node-opentelemetry");
-
-logger.info("This is an informational message", { payload: { foo: "bar" } });
-logger.warn("This is a warning message", { payload: { foo: "bar" } });
-logger.debug("This is a debug message", { payload: { foo: "bar" } });
-logger.error("This is an error message", { payload: { foo: "bar" } });
-```
-
-It shares the same interface as `@baselime/lambda-logger` so if you are moving from cloudwatch to open telemetry this makes the transision seamless.
-
----
-
-## Adding custom OpenTelemetry spans
-
-To add custom spans to your OpenTelemetry traces, it is necessary to install the `@opentelemetry/api` package. It is left out of the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) to limit the impact on cold-starts, such that your can add it only to the AWS Lambda functions that require it.
-
-```javascript #
-import { trace } from "@opentelemetry/api";
-const tracer = trace.getTracer('your-custom-traces');
-
-export async function handler(event) {
-  const activeSpan = trace.getActiveSpan();
-  
-  const { userId } = JSON.parse(event.body);
-  span.setAttribute('user', userId)
-  
-  // do something meaningful
-  
-  const result = await tracer.startActiveSpan(`business-logic`, async (span) => {
-    span.setAttributes(args)
-    // your business logic
-    const result = await yourBusinessLogic(args)
-    span.setAttributes(result)
-    return result
-  });
-}
-
-```
-
 
 ---
 

@@ -10,21 +10,28 @@ Once ingested, the data is securely stored in hot storage for querying and in co
 ![Sending Telemetry data to Baselime](../assets/images/illustrations/sending-data/s3.png)
 
 !!!
-The retention period of your telemetry data on Baselime is independent of the retention period in AWS. You can safely reduce the retention period of your CloudWatch log groups.
+The retention period of your telemetry data on Baselime is independent of the retention periods in AWS. You can safely reduce the retention period of your CloudWatch log groups.
 !!!
 
 ---
 
-## Data sources
+## Data Sources
 
-[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./lambda-logs.md)
+### OpenTelemetry
 [!ref icon="../assets/images/logos/logo_open_telemetry.png"](./opentelemetry/index.md)
-[!ref icon="../assets/images/logos/logo_aws_apigateway.png"](./apigateway-logs.md)
-[!ref icon="../assets/images/logos/logo_ecs_logs.png"](./ecs-logs.md)
-[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./lambda-extension.md)
-[!ref icon="../assets/images/logos/logo_xray.png"](./xray.md)
-[!ref icon="../assets/images/logos/logo_cloudtrail.png"](./cloudtrail.md)
-[!ref icon="../assets/images/logos/logo_cloudwatch.png"](./cloudwatch-metrics.md)
+
+
+### AWS Native
+[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./aws/lambda-logs.md)
+[!ref icon="../assets/images/logos/logo_ecs_logs.png"](./aws/ecs-logs.md)
+[!ref icon="../assets/images/logos/logo_xray.png"](./aws/xray.md)
+[!ref icon="../assets/images/logos/apprunner_logo.png"](./aws/apprunner-logs.md)
+[!ref icon="../assets/images/logos/logo_aws_apigateway.png"](./aws/apigateway-logs.md)
+[!ref icon="../assets/images/logos/logo_aws_lambda.png"](./aws/lambda-extension.md)
+[!ref icon="../assets/images/logos/logo_cloudtrail.png"](./aws/cloudtrail.md)
+[!ref icon="../assets/images/logos/logo_cloudwatch.png"](./aws/cloudwatch-metrics.md)
+
+### Other Sources
 [!ref icon="../assets/images/logos/http_flat@3x.png"](./events-api.md)
 [!ref icon="../assets/images/logos/s3_flat@3x.png"](./s3-rehydration.md)
 

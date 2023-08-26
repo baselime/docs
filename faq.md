@@ -88,17 +88,25 @@ Yes, when you deploy new serverless functions and services to your cloud infrast
 
 You own your data.
 
-All the telemetry data your cloud infrastructure generate is storred in two data tiers:
+You can select to use either our cloud offering, or our **Bring Your Own Backend** solution.
+
+### Cloud offering
+
+All the telemetry data your cloud infrastructure generate is stored in two data tiers:
 - hot tier: on Baselime accounts, to enable fast queries
 - cold tier: in an Amazon S3 bucket in your AWS cloud account for long terms storage
 
 It is possible to rehydrate data from the cold tier to the hot tier for queriyng historical incidents free of charge.
 
+### Bring Your Own Backend
+
+Baselime can integrate with your own backend. As such, all the telemetry data is stored and queried in your cloud account. The enables you to keep maximum flexibility and privacy for storing sensitive data. You will be able to set your own retention periods, your own storage type, and your own privacy settings.
+
 ---
 
 ## Is my data secure?
 
-Baselime is fully GDPR compliant and your data is storred in data centers that are all SOC2 compliant.
+Baselime is fully GDPR compliant and your data is stored in data centers that are all SOC2 compliant.
 
 ---
 

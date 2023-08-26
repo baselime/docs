@@ -1,6 +1,6 @@
 ---
 label: Amazon ECS Container Logs
-order: -3
+order: -1
 ---
 
 # Amazon ECS Container Logs
@@ -17,7 +17,7 @@ Sending AWS ECS container logs to Baselime is optional, but highly recommended t
 
 [FireLens](https://aws.amazon.com/about-aws/whats-new/2019/11/aws-launches-firelens-log-router-for-amazon-ecs-and-aws-fargate/) is an Amazon ECS native log router that enables you to send logs from your containerized applications to different destinations, including Baselime. By adding the FireLens sidecar to your task definitions, you can configure and route your container logs to different destinations without modifying your application code.
 
-![Sending ECS Logs to Baselime](../assets/images/illustrations/sending-data/ecs.png)
+![Sending ECS Logs to Baselime](../../assets/images/illustrations/sending-data/ecs.png)
 
 Each of your ECS tasks can take a sidecar container running the FireLens log driver that will forward all the logs from the containers to Baselime.
 
