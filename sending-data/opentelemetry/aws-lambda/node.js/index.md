@@ -65,7 +65,7 @@ To remove the OpenTelemetry instrumentation from your AWS Lambda functions, remo
 
 The automatic instrumentation makes changes to your AWS Lambda functions once they are deployed:
 
-- Add the Baselime Node.js OTel AWS Lambda Layer to your AWS Lambda function: `arn:aws:lambda:${region}:097948374213:layer:baselime-node:${version}` - This layer is a slimmed down version of the [OpenTelemetry JavaScript Client](https://github.com/open-telemetry/opentelemetry-js) that will have minimal impact on the cold starts of your AWS Lambda functions
+- Add the Baselime Node.js OpenTelemetry AWS Lambda Layer to your AWS Lambda function: `arn:aws:lambda:${region}:097948374213:layer:baselime-node:${version}` - This layer is a slimmed down version of the [OpenTelemetry JavaScript Client](https://github.com/open-telemetry/opentelemetry-js) that will have minimal impact on the cold starts of your AWS Lambda functions
 - Add the Baselime Extension added to your AWS Lambda function: `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:${version}` - This extension enables the Baselime Layers to send the trace data to the Baselime backend after the invocation is complete, as such, distributed tracing will not have any negative impact on the latency of your AWS Lambda functions
 - Set the `BASELIME_KEY` environment variable with the value of your environments Baselime API Key
 
@@ -228,7 +228,7 @@ arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-
 
 This method will however send the traces to the Baselime backend during the invocation of your AWS Lambda functions, and will result in a degradation in the latency performace of your functions.
 
-In production we recommend additionally adding the Baselime AWS Lambda extension, as it will enable the OTel tracer to send traces to the Baselime backend after the excecution of your AWS Lambda functions.
+In production we recommend additionally adding the Baselime AWS Lambda extension, as it will enable the OpenTelemetry tracer to send traces to the Baselime backend after the excecution of your AWS Lambda functions.
 
 ```javascript
 `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`

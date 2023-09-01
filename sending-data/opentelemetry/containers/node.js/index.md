@@ -14,6 +14,14 @@ Install the [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime
 npm i --save-dev @baselime/node-opentelemetry @opentelemetry/auto-instrumentations-node
 ```
 
+!!!
+If your containerized application is already instrumented with [OpenTelemetry](https://opentelemetry.io/), you can start sending your tracing data to Baselime without any additional code changes.
+
+Add the Baselime OpenTelemetry endpoint to your exporter:
+- Endpoint `https://otel.baselime.io/v1/`
+- Header: `x-api-key: <BASELIME_API_KEY>` 
+!!!
+
 ### Step 2: Create your auto-tracer file
 
 Create a `tracing.cjs` file inside your application working directory.
@@ -38,32 +46,6 @@ Set the environment variables of your comntainer service to include the Baselime
 | ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------- |
 | BASELIME_KEY | `your-api-key`               | Get this key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) running `baselime iam` |
 | NODE_OPTIONS | `-r ./src/tracing.cjs --experimental-loader=import-in-the-middle/hook.mjs` | Preloads the OpenTelemetry SDK at startup                                                 |
-
-+++ SST
-
-```typescript #
-const service = new Service(stack, 'sst-service', {
-    path: './',
-    environment: {
-        BASELIME_KEY: StringParameter.valueForStringParameter(stack, 'baselime-key'),
-        NODE_OPTIONS: '-r ./src/tracing.cjs --experimental-loader=import-in-the-middle/hook.mjs'
-    }
-});
-```
-+++ AWS CDK
-```typescript #
-const loadBalancedFargateService = new ecsPatterns.ApplicationLoadBalancedFargateService(stack, 'Service', {
-    cluster,
-    taskImageOptions: {
-        environment: {
-            BASELIME_KEY: StringParameter.valueForStringParameter(stack, 'baselime-key'),
-            PORT: '80',
-            NODE_OPTIONS: '-r ./src/tracing.cjs',
-        }
-    },
-});
-```
-+++
 
 Once these steps are completed, distributed traces from your Node.js container applications should be available in Baselime to query via the console or the CLI.
 
