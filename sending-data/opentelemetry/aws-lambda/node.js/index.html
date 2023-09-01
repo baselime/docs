@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746395309498">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.3.0.746910368024">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.2.0">
+    <meta name="generator" content="Retype 3.3.0">
 
     <!-- Primary Meta Tags -->
     <title>OpenTelemetry for Node.js on AWS Lambda | Baselime - Observability for Serverless</title>
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.2.0.746395309498" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.3.0.746910368024" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.2.0.746395309498" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.2.0.746395309498" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.2.0.746395309498" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.3.0.746910368024" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.3.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.3.0.746910368024" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.3.0.746910368024" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -199,7 +199,6 @@
                             <div class="docs-markdown" id="docs-content">
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
-                
                                 <!-- Page content  -->
 <doc-anchor-target id="opentelemetry-for-nodejs-on-aws-lambda" class="break-words">
     <h1>
@@ -297,7 +296,7 @@ Globals:
 </doc-anchor-target>
 <p>The automatic instrumentation makes changes to your AWS Lambda functions once they are deployed:</p>
 <ul>
-<li>Add the Baselime Node.js OTel AWS Lambda Layer to your AWS Lambda function: <code v-pre>arn:aws:lambda:${region}:097948374213:layer:baselime-node:${version}</code> - This layer is a slimmed down version of the <a href="https://github.com/open-telemetry/opentelemetry-js">OpenTelemetry JavaScript Client</a> that will have minimal impact on the cold starts of your AWS Lambda functions</li>
+<li>Add the Baselime Node.js OpenTelemetry AWS Lambda Layer to your AWS Lambda function: <code v-pre>arn:aws:lambda:${region}:097948374213:layer:baselime-node:${version}</code> - This layer is a slimmed down version of the <a href="https://github.com/open-telemetry/opentelemetry-js">OpenTelemetry JavaScript Client</a> that will have minimal impact on the cold starts of your AWS Lambda functions</li>
 <li>Add the Baselime Extension added to your AWS Lambda function: <code v-pre>arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:${version}</code> - This extension enables the Baselime Layers to send the trace data to the Baselime backend after the invocation is complete, as such, distributed tracing will not have any negative impact on the latency of your AWS Lambda functions</li>
 <li>Set the <code v-pre>BASELIME_KEY</code> environment variable with the value of your environments Baselime API Key</li>
 </ul>
@@ -482,7 +481,7 @@ arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-
 </doc-tab>
 </doc-tabs>
 <p>This method will however send the traces to the Baselime backend during the invocation of your AWS Lambda functions, and will result in a degradation in the latency performace of your functions.</p>
-<p>In production we recommend additionally adding the Baselime AWS Lambda extension, as it will enable the OTel tracer to send traces to the Baselime backend after the excecution of your AWS Lambda functions.</p>
+<p>In production we recommend additionally adding the Baselime AWS Lambda extension, as it will enable the OpenTelemetry tracer to send traces to the Baselime backend after the excecution of your AWS Lambda functions.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-javascript"><code v-pre class="language-javascript">`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`</code></pre>
 </doc-codeblock></div>

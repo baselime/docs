@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746395309498">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.3.0.746910368024">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.2.0">
+    <meta name="generator" content="Retype 3.3.0">
 
     <!-- Primary Meta Tags -->
     <title>OpenTelemetry for Node.js Containers | Baselime - Observability for Serverless</title>
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.2.0.746395309498" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.3.0.746910368024" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.2.0.746395309498" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.2.0.746395309498" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.2.0.746395309498" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.3.0.746910368024" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.3.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.3.0.746910368024" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.3.0.746910368024" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -199,7 +199,6 @@
                             <div class="docs-markdown" id="docs-content">
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
-                
                                 <!-- Page content  -->
 <doc-anchor-target id="opentelemetry-for-nodejs-containers" class="break-words">
     <h1>
@@ -225,6 +224,28 @@
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">npm i --save-dev @baselime/node-opentelemetry @opentelemetry/auto-instrumentations-node</code></pre>
 </doc-codeblock></div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>If your containerized application is already instrumented with <a href="https://opentelemetry.io/">OpenTelemetry</a>, you can start sending your tracing data to Baselime without any additional code changes.</p>
+<p>Add the Baselime OpenTelemetry endpoint to your exporter:</p>
+<ul>
+<li>Endpoint <code v-pre>https://otel.baselime.io/v1/</code></li>
+<li>Header: <code v-pre>x-api-key: &lt;BASELIME_API_KEY&gt;</code></li>
+</ul>
+        </div>
+    </div>
+</div>
 <doc-anchor-target id="step-2-create-your-auto-tracer-file">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#step-2-create-your-auto-tracer-file">#</doc-anchor-trigger>
@@ -274,35 +295,6 @@ sdk.start();</code></pre>
 </tbody>
 </table>
 </div>
-<doc-tabs>
-<doc-tab v-cloak id="sst">
-<template #title>SST</template>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-typescript"><code v-pre class="language-typescript">const service = new Service(stack, 'sst-service', {
-    path: './',
-    environment: {
-        BASELIME_KEY: StringParameter.valueForStringParameter(stack, 'baselime-key'),
-        NODE_OPTIONS: '-r ./src/tracing.cjs --experimental-loader=import-in-the-middle/hook.mjs'
-    }
-});</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-<doc-tab v-cloak id="aws-cdk">
-<template #title>AWS CDK</template>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-typescript"><code v-pre class="language-typescript">const loadBalancedFargateService = new ecsPatterns.ApplicationLoadBalancedFargateService(stack, 'Service', {
-    cluster,
-    taskImageOptions: {
-        environment: {
-            BASELIME_KEY: StringParameter.valueForStringParameter(stack, 'baselime-key'),
-            PORT: '80',
-            NODE_OPTIONS: '-r ./src/tracing.cjs',
-        }
-    },
-});</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-</doc-tabs>
 <p>Once these steps are completed, distributed traces from your Node.js container applications should be available in Baselime to query via the console or the CLI.</p>
 <p><figure class="content-center">
     <img src="../../../../assets/images/illustrations/sending-data/opentelemetry/trace.png" alt="Example OpenTelemetry Trace">
