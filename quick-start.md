@@ -1,9 +1,9 @@
 ---
-label: Quickstart
+label: Quick Start
 order: 0
 ---
 
-# Quickstart Guide
+# Quick Start Guide
 
 ---
 
@@ -15,21 +15,32 @@ You can sign up for a free Baselime account [here](https://console.baselime.io).
 
 ## Step 2: Add an Environment
 
-### Manual Environment
+You can add an environment by connecting your cloud account, or by creating an environment manually to send data manually to Baselime.
 
-Once you're logged in, add a new environment manually from the [Baselime console](https://console.baselime.io). Next, navigate to API Keys and retrieve your Baselime API key.
-
-### AWS Environment
++++ Connect your AWS Account
 
 Generate the connector CloudFormation template from the [Baselime console](https://console.baselime.io) and deploy it to your AWS account.
 
 Once the stack is deployed, telemetry data from your AWS account will be automatically ingested in Baselime. You will receive an email once the connection is complete.
 
-Next, navigate to API Keys and retrieve your Baselime API key.
+Next, navigate invide the newly created environment and to the API Keys sections, and retrieve your Baselime API key.
+
+![Your Baselime API Key](./assets/images/illustrations/quickstart/api-key.png)
 
 !!!warning
-If you do not see any data in the [Baselime console](https://console.baselime.io) within minutes of deploying the CloudFormation stacj, something went wrong. Please [contact us](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ).
+If you do not see any data in the [Baselime console](https://console.baselime.io) within minutes of deploying the CloudFormation stack, something went wrong. Please [contact us](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ).
 !!!
+
++++ Send data manually
+
+Once you're logged in, add a new environment manually from the [Baselime console](https://console.baselime.io).
+
+Next, navigate invide the newly created environment and to the API Keys sections, and retrieve your Baselime API key.
+
+![Your Baselime API Key](./assets/images/illustrations/quickstart/api-key.png)
+
+
++++
 
 ---
 
@@ -57,11 +68,13 @@ curl -X 'POST' 'https://events.baselime.io/v1/lambda-logs/default/test-namespace
 
 Congratulations! Your first event should be available to query in Baselime. You can start exploring your data using the [Baselime console](https://console.baselime.io), the [Baselime CLI](./cli/install.md) or any other of our clients.
 
+![View of an AWS Lambda function in Baselime](./assets/images/illustrations/quickstart/lambda.png)
+
 ---
 
 ## Guides
 
-- [Sending Data](./sending-data/): Learn how to ingest telemetry data from your serverless applications
+- [Sending Data](./sending-data/): Learn how to ingest telemetry data from your cloud-native applications
 - [Analyzing Data](./analysing-data/service-discovery.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
 - [Integrations](./): Find out how to connect Baselime with your favorite tools
 

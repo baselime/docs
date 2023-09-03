@@ -1,3 +1,7 @@
+---
+order: -3
+---
+
 # OpenTelemetry for Node.js on AWS Lambda
 
 The [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) (Star us ⭐) instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends the OpenTelemetry compatible trace data to Baselime. This is the most powerful and flexible way to instrument your Node.js AWS Lambda functions.

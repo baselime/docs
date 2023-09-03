@@ -49,7 +49,7 @@ recommend using your Infrastructure as Code tool of choice, and add the
 Extension as a Lambda Layer.
 
 It is necessary to add the Baselime API key to the extension as an environment
-variable. The example below shows the process with the serverless framework.
+variable. The example below shows the process with the Serverless Framework.
 
 ```yaml #
 # serverless.yml

@@ -7,10 +7,6 @@ order: -1
 
 This page describes how to collect application container logs from [Amazon ECS](https://aws.amazon.com/ecs/) clusters launched with AWS ECS using AWS FireLens. This method can also be used to collect ECS clusters with EC2 containers.
 
-!!! Optional
-Sending AWS ECS container logs to Baselime is optional, but highly recommended to gain full visibility into your containerized applications.
-!!!
-
 ---
 
 ## How it works
@@ -42,7 +38,7 @@ Add the Baselime ECS endpoint to your FireLens configuration:
 - Endpoint `ecs-logs-ingest.baselime.io`
 - Header: `x-api-key <BASELIME_API_KEY>` 
 
-#### Using SST
++++ SST
 
 ```ts #
 import { StackContext, Service } from "sst/constructs";
@@ -79,7 +75,7 @@ export function API({ stack }: StackContext) {
   })
 }
 ```
-#### Using Terraform
++++ Terraform
 
 ```hcl #
 resource "aws_ecs_task_definition" "example_task" {
@@ -105,7 +101,7 @@ resource "aws_ecs_task_definition" "example_task" {
 }
 ```
 
-#### Using AWS CDK for TypeScript
++++ AWS CDK
 
 ```ts #
 import * as ecs from "aws-cdk-lib/aws-ecs";
@@ -131,7 +127,7 @@ taskDef.addContainer("container", {
 
 ```
 
-#### Directly in AWS console
++++ Directly in AWS console
 
 ```json #
 {
@@ -160,6 +156,9 @@ taskDef.addContainer("container", {
   ]
 }
 ```
++++
+
+![Amazom ECS Logs in Baselime](../../assets/images/illustrations/sending-data/ecs-illustration.png)
 
 ---
 

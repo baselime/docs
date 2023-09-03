@@ -1,6 +1,6 @@
 {
-  "version": "3.1.0",
-  "created": "2023-08-24T13:28:08Z",
+  "version": "3.0.3",
+  "created": "2023-09-02T09:14:51Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -96,10 +96,14 @@
       "path": "assets/images/illustrations/o11y-for-serverless/waterfall.png"
     },
     {
-      "path": "assets/images/illustrations/quickstart/connect.png"
+      "path": "assets/images/illustrations/quickstart/connect.png",
+      "old": true
     },
     {
       "path": "assets/images/illustrations/sending-data/apigateway.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/apprunner.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/cloudtrail.png"
@@ -118,6 +122,9 @@
     },
     {
       "path": "assets/images/illustrations/sending-data/opentelemetry/extension.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/opentelemetry/trace.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/otel-extension.png"
@@ -153,6 +160,9 @@
       "path": "assets/images/logo.svg"
     },
     {
+      "path": "assets/images/logos/apprunner_logo.png"
+    },
+    {
       "path": "assets/images/logos/aws.svg"
     },
     {
@@ -160,6 +170,9 @@
     },
     {
       "path": "assets/images/logos/http_flat3x.png"
+    },
+    {
+      "path": "assets/images/logos/logo_apprunner.svg"
     },
     {
       "path": "assets/images/logos/logo_aws_apigateway.png"
@@ -195,7 +208,8 @@
       "path": "cli/anonymous-telemetry/index.html"
     },
     {
-      "path": "cli/getting-started/index.html"
+      "path": "cli/getting-started/index.html",
+      "old": true
     },
     {
       "path": "cli/install/index.html"
@@ -363,16 +377,47 @@
       "path": "security/privacy/index.html"
     },
     {
-      "path": "sending-data/apigateway-logs/index.html"
+      "path": "sending-data/apigateway-logs/index.html",
+      "old": true
     },
     {
-      "path": "sending-data/cloudtrail/index.html"
+      "path": "sending-data/aws/apigateway-logs/index.html"
     },
     {
-      "path": "sending-data/cloudwatch-metrics/index.html"
+      "path": "sending-data/aws/apprunner-logs/index.html"
     },
     {
-      "path": "sending-data/ecs-logs/index.html"
+      "path": "sending-data/aws/cloudtrail/index.html"
+    },
+    {
+      "path": "sending-data/aws/cloudwatch-metrics/index.html"
+    },
+    {
+      "path": "sending-data/aws/ecs-logs/index.html"
+    },
+    {
+      "path": "sending-data/aws/index.html"
+    },
+    {
+      "path": "sending-data/aws/lambda-extension/index.html"
+    },
+    {
+      "path": "sending-data/aws/lambda-logs/index.html"
+    },
+    {
+      "path": "sending-data/aws/xray/index.html"
+    },
+    {
+      "path": "sending-data/cloudtrail/index.html",
+      "old": true
+    },
+    {
+      "path": "sending-data/cloudwatch-metrics/index.html",
+      "old": true
+    },
+    {
+      "path": "sending-data/ecs-logs/index.html",
+      "old": true
     },
     {
       "path": "sending-data/events-api/index.html"
@@ -381,26 +426,37 @@
       "path": "sending-data/index.html"
     },
     {
-      "path": "sending-data/lambda-extension/index.html"
+      "path": "sending-data/lambda-extension/index.html",
+      "old": true
     },
     {
-      "path": "sending-data/lambda-logs/index.html"
+      "path": "sending-data/lambda-logs/index.html",
+      "old": true
+    },
+    {
+      "path": "sending-data/opentelemetry/aws-lambda/node.js/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/containers/node.js/index.html"
     },
     {
       "path": "sending-data/opentelemetry/index.html"
     },
     {
-      "path": "sending-data/opentelemetry/node.js/containers/index.html"
+      "path": "sending-data/opentelemetry/node.js/containers/index.html",
+      "old": true
     },
     {
-      "path": "sending-data/opentelemetry/node.js/events/index.html"
+      "path": "sending-data/opentelemetry/node.js/events/index.html",
+      "old": true
     },
     {
       "path": "sending-data/opentelemetry/node.js/lambda/events/index.html",
       "old": true
     },
     {
-      "path": "sending-data/opentelemetry/node.js/lambda/index.html"
+      "path": "sending-data/opentelemetry/node.js/lambda/index.html",
+      "old": true
     },
     {
       "path": "sending-data/opentelemetry/nodejs/events/index.html",
@@ -417,7 +473,8 @@
       "path": "sending-data/validation/index.html"
     },
     {
-      "path": "sending-data/xray/index.html"
+      "path": "sending-data/xray/index.html",
+      "old": true
     },
     {
       "path": "sitemap.xml.gz"

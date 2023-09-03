@@ -1,12 +1,12 @@
-# AWS Native Data
+# AWS
 
 ---
 
-When you [connect your AWS account to Baselime](../../quick-start.md), AWS Native logs, metrics, traces and events start to be ingested in Baselime automatically.   
+When you [connect your AWS account to Baselime](../../quick-start.md), logs, metrics, traces and events from your AWS services are sent to Baselime automatically.   
 
 ---
 
-## AWS Native Data Sources
+## AWS Data Sources
 
 [!ref icon="../../assets/images/logos/logo_aws_lambda.png"](./lambda-logs.md)
 [!ref icon="../../assets/images/logos/logo_ecs_logs.png"](./ecs-logs.md)

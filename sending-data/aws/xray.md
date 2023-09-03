@@ -5,9 +5,12 @@ order: -2
 
 # AWS X-Ray Traces
 
-[AWS X-Ray](https://aws.amazon.com/xray/) enables developers to gather traces across their distributed services. In order to gain visibility into their applications, developers can use AWS X-Ray to trace requests as they travel through their application, and collect data about the performance of their application.
+[AWS X-Ray](https://aws.amazon.com/xray/) enables developers to generate and collect traces across their distributed services. In order to gain visibility into their applications, developers can use AWS X-Ray to trace requests as they travel through their application, and collect data about the performance of their application.
 
 Baselime enables you to ingest this tracing data and make it available for analysis and troubleshooting.
+
+![AWS X-Ray trace diagram in Baselime](../../assets/images/illustrations/sending-data/xray-diagram.png)
+![AWS X-Ray trace waterfall in Baselime](../../assets/images/illustrations/sending-data/xray-waterfall.png)
 
 ---
 

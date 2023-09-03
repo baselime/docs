@@ -11,11 +11,11 @@ Baselime automatically collects Amazon CloudWatch Metrics from your AWS account.
 
 ## Why Amazon CloudWatch Metrics ?
 
-[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) is a monitoring service provided by AWS that enables you to collect and track metrics for your AWS resources and applications. Metrics are important as they provide insight into the performance and behavior of your serverless applications and the underlying infrastructure.
+[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) is a monitoring service provided by AWS that enables you to collect and track metrics for your AWS resources and applications. Metrics are important as they provide insight into the performance and behavior of your applications and the underlying infrastructure.
 
 Amazon CloudWatch Metrics can help you identify issues such as high error rates and latencies, which can help improve the overall reliability and scalability of your applications.
 
-Amazon CloudWatch Metrics cover all aspects of your serverless architecture automatically, from DynamoDB tables to S3 buckets and SQS Queues.
+Amazon CloudWatch Metrics cover all aspects of your architecture automatically, from DynamoDB tables to S3 buckets and SQS Queues.
 
 ---
 

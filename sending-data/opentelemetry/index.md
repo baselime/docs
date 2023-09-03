@@ -14,15 +14,12 @@ You can get your Baselime API key in the [Baselime console](https://console.base
 baselime iam
 ```
 
-If you have not instrumented your codebase with OpenTelemetry yet, do not worry. We are building OpenTelemetry instrumentation methods for serverless that will not significantly negatively impact the performance of your systems.
+If you have not instrumented your codebase with OpenTelemetry yet, do not worry. We are building OpenTelemetry SDKs to facilitate instrumenting your code.
 
 ---
 
-## OpenTelemetry Auto-Instrumentation
+## OpenTelemetry SDKs
 
-### AWS Lambda
+[!ref icon="../../assets/images/logos/node.svg"](./node.js.md)
 [!ref icon="../../assets/images/logos/node.svg"](./aws-lambda/node.js/index.md)
 
-### Containers
-
-[!ref icon="../../assets/images/logos/node.svg"](./containers/node.js/index.md)

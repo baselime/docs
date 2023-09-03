@@ -1,6 +1,20 @@
-# OpenTelemetry for Node.js Containers
+---
+order: 0
+---
 
-The [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-opentelemetry) (Star us ⭐) enables you to instrument your Node.js container services with OpenTelemetry without the boilerplate of using the OpenTelemetry SDK directly. 
+# OpenTelemetry for Node.js
+
+The [Baselime Node.js OpenTelemetry SDK](https://github.com/baselime/node-opentelemetry) (Star us ⭐) enables you to instrument your Node.js services with OpenTelemetry without the boilerplate of using the OpenTelemetry SDK directly.
+
+This SDK uses [OpenTelemetry for JavaScript](https://opentelemetry.io/docs/instrumentation/js/) and provides a layer that facilitates instrumenting your Node.js applications.
+
+!!!
+If your application is already instrumented with [OpenTelemetry](https://opentelemetry.io/), you can start sending your tracing data to Baselime without any additional code changes.
+
+Add the Baselime OpenTelemetry endpoint to your exporter:
+- Endpoint `https://otel.baselime.io/v1/`
+- Header: `x-api-key: <BASELIME_API_KEY>` 
+!!!
 
 ---
 
@@ -8,21 +22,15 @@ The [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-op
 
 ### Step 1: Install the SDKs
 
-Install the [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-opentelemetry). 
+Install the [Baselime Node.js OpenTelemetry SDK](https://github.com/baselime/node-opentelemetry). 
 
-```bash
-npm i --save-dev @baselime/node-opentelemetry @opentelemetry/auto-instrumentations-node
+```bash # :icon-terminal: terminal
+npm i --save \
+  @baselime/node-opentelemetry \
+  @opentelemetry/auto-instrumentations-node
 ```
 
-!!!
-If your containerized application is already instrumented with [OpenTelemetry](https://opentelemetry.io/), you can start sending your tracing data to Baselime without any additional code changes.
-
-Add the Baselime OpenTelemetry endpoint to your exporter:
-- Endpoint `https://otel.baselime.io/v1/`
-- Header: `x-api-key: <BASELIME_API_KEY>` 
-!!!
-
-### Step 2: Create your auto-tracer file
+### Step 2: Initialise the tracer
 
 Create a `tracing.cjs` file inside your application working directory.
 
@@ -32,7 +40,9 @@ const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumenta
 
 
 const sdk = new BaselimeSDK({
-  instrumentations: [getNodeAutoInstrumentations()],
+  instrumentations: [
+    getNodeAutoInstrumentations(),
+  ],
 });
 
 sdk.start();
@@ -47,15 +57,15 @@ Set the environment variables of your comntainer service to include the Baselime
 | BASELIME_KEY | `your-api-key`               | Get this key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) running `baselime iam` |
 | NODE_OPTIONS | `-r ./src/tracing.cjs --experimental-loader=import-in-the-middle/hook.mjs` | Preloads the OpenTelemetry SDK at startup                                                 |
 
-Once these steps are completed, distributed traces from your Node.js container applications should be available in Baselime to query via the console or the CLI.
+Once these steps are completed, distributed traces from your Node.js container applications should be available in Baselime to query via the console or the Baselime CLI.
 
-![Example OpenTelemetry Trace](../../../../assets/images/illustrations/sending-data/opentelemetry/trace.png)
+![Example OpenTelemetry Trace](../../assets/images/illustrations/sending-data/opentelemetry/trace.png)
 
 ---
 
 ## Configuration
 
-The `BaselimeSDK` class of the [Baselime Node.js SDK for OpenTelemetry](https://github.com/baselime/node-opentelemetry) takes the following configuration options.
+The `BaselimeSDK` class of the [Baselime Node.js OpenTelemetry SDK](https://github.com/baselime/node-opentelemetry) takes the following configuration options.
 
 | Field            | Type                    | Description                          |
 | ---------------- | ----------------------- | ------------------------------------ |
