@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.3.0.746961289937">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.3.0.747055217903">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.3.0">
 
     <!-- Primary Meta Tags -->
-    <title>Quickstart Guide | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Quickstart Guide | Baselime - Observability for Serverless">
+    <title>Quick Start Guide | Baselime - The cloud-native observability platform</title>
+    <meta name="title" content="Quick Start Guide | Baselime - The cloud-native observability platform">
     <meta name="description" content="You can sign up for a free Baselime account here.">
 
     <!-- Canonical -->
@@ -20,24 +20,26 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/quick-start/">
-    <meta property="og:title" content="Quickstart Guide | Baselime - Observability for Serverless">
+    <meta property="og:title" content="Quick Start Guide | Baselime - The cloud-native observability platform">
     <meta property="og:description" content="You can sign up for a free Baselime account here.">
+    <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/quickstart/api-key.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/quick-start/">
-    <meta property="twitter:title" content="Quickstart Guide | Baselime - Observability for Serverless">
+    <meta property="twitter:title" content="Quick Start Guide | Baselime - The cloud-native observability platform">
     <meta property="twitter:description" content="You can sign up for a free Baselime account here.">
+    <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/quickstart/api-key.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.3.0.746961289937" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.3.0.747055217903" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.3.0.746961289937" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.3.0.747055217903" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.3.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.3.0.746961289937" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.3.0.746961289937" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.3.0.747055217903" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.3.0.747055217903" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -198,10 +200,10 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="quickstart-guide" class="break-words">
+<doc-anchor-target id="quick-start-guide" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#quickstart-guide">#</doc-anchor-trigger>
-        <span>Quickstart Guide</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#quick-start-guide">#</doc-anchor-trigger>
+        <span>Quick Start Guide</span>
     </h1>
 </doc-anchor-target>
 <hr>
@@ -219,22 +221,18 @@
         <span>Step 2: Add an Environment</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="manual-environment">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#manual-environment">#</doc-anchor-trigger>
-        <span>Manual Environment</span>
-    </h3>
-</doc-anchor-target>
-<p>Once you&#x27;re logged in, add a new environment manually from the <a href="https://console.baselime.io">Baselime console</a>. Next, navigate to API Keys and retrieve your Baselime API key.</p>
-<doc-anchor-target id="aws-environment">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#aws-environment">#</doc-anchor-trigger>
-        <span>AWS Environment</span>
-    </h3>
-</doc-anchor-target>
+<p>You can add an environment by connecting your cloud account, or by creating an environment manually to send data manually to Baselime.</p>
+<doc-tabs>
+<doc-tab v-cloak id="connect-your-aws-account">
+<template #title>Connect your AWS Account</template>
 <p>Generate the connector CloudFormation template from the <a href="https://console.baselime.io">Baselime console</a> and deploy it to your AWS account.</p>
 <p>Once the stack is deployed, telemetry data from your AWS account will be automatically ingested in Baselime. You will receive an email once the connection is complete.</p>
-<p>Next, navigate to API Keys and retrieve your Baselime API key.</p>
+<p>Next, navigate invide the newly created environment and to the API Keys sections, and retrieve your Baselime API key.</p>
+<p><figure class="content-center">
+    <img src="../assets/images/illustrations/quickstart/api-key.png" alt="Your Baselime API Key">
+    <figcaption class="caption">Your Baselime API Key</figcaption>
+</figure>
+</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -247,10 +245,22 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>If you do not see any data in the <a href="https://console.baselime.io">Baselime console</a> within minutes of deploying the CloudFormation stacj, something went wrong. Please <a href="https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ">contact us</a>.</p>
+<p>If you do not see any data in the <a href="https://console.baselime.io">Baselime console</a> within minutes of deploying the CloudFormation stack, something went wrong. Please <a href="https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ">contact us</a>.</p>
         </div>
     </div>
 </div>
+</doc-tab>
+<doc-tab v-cloak id="send-data-manually">
+<template #title>Send data manually</template>
+<p>Once you&#x27;re logged in, add a new environment manually from the <a href="https://console.baselime.io">Baselime console</a>.</p>
+<p>Next, navigate invide the newly created environment and to the API Keys sections, and retrieve your Baselime API key.</p>
+<p><figure class="content-center">
+    <img src="../assets/images/illustrations/quickstart/api-key.png" alt="Your Baselime API Key">
+    <figcaption class="caption">Your Baselime API Key</figcaption>
+</figure>
+</p>
+</doc-tab>
+</doc-tabs>
 <hr>
 <doc-anchor-target id="step-3-send-a-log-event">
     <h2>
@@ -280,6 +290,11 @@
     </h2>
 </doc-anchor-target>
 <p>Congratulations! Your first event should be available to query in Baselime. You can start exploring your data using the <a href="https://console.baselime.io">Baselime console</a>, the <a href="../cli/install/">Baselime CLI</a> or any other of our clients.</p>
+<p><figure class="content-center">
+    <img src="../assets/images/illustrations/quickstart/lambda.png" alt="View of an AWS Lambda function in Baselime">
+    <figcaption class="caption">View of an AWS Lambda function in Baselime</figcaption>
+</figure>
+</p>
 <hr>
 <doc-anchor-target id="guides">
     <h2>
@@ -288,7 +303,7 @@
     </h2>
 </doc-anchor-target>
 <ul>
-<li><a href="../sending-data/">Sending Data</a>: Learn how to ingest telemetry data from your serverless applications</li>
+<li><a href="../sending-data/">Sending Data</a>: Learn how to ingest telemetry data from your cloud-native applications</li>
 <li><a href="../analysing-data/service-discovery/">Analyzing Data</a>: Discover how to use the various interfaces provided by Baselime to analyze and understand your data</li>
 <li><a href="../">Integrations</a>: Find out how to connect Baselime with your favorite tools</li>
 </ul>
@@ -390,7 +405,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Quickstart", level: 1, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Quick Start", level: 1, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     <script data-cfasync="false">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>

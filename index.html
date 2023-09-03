@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.3.0.746961289937">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.3.0.747055217903">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.3.0">
 
     <!-- Primary Meta Tags -->
-    <title>Observability for Serverless | Baselime - Observability for Serverless</title>
-    <meta name="title" content="Observability for Serverless | Baselime - Observability for Serverless">
-    <meta name="description" content="Serverless architectures have gained momentum with engineers building distributed systems.">
+    <title>Baselime Documentation | Baselime - The cloud-native observability platform</title>
+    <meta name="title" content="Baselime Documentation | Baselime - The cloud-native observability platform">
+    <meta name="description" content="To get started, read the quick start guide.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/">
@@ -20,25 +20,23 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/">
-    <meta property="og:title" content="Observability for Serverless | Baselime - Observability for Serverless">
-    <meta property="og:description" content="Serverless architectures have gained momentum with engineers building distributed systems.">
-    <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/o11y-for-serverless/meme.png">
+    <meta property="og:title" content="Baselime Documentation | Baselime - The cloud-native observability platform">
+    <meta property="og:description" content="To get started, read the quick start guide.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/">
-    <meta property="twitter:title" content="Observability for Serverless | Baselime - Observability for Serverless">
-    <meta property="twitter:description" content="Serverless architectures have gained momentum with engineers building distributed systems.">
-    <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/o11y-for-serverless/meme.png">
+    <meta property="twitter:title" content="Baselime Documentation | Baselime - The cloud-native observability platform">
+    <meta property="twitter:description" content="To get started, read the quick start guide.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="assets/images/logo.svg" rel="icon">
-    <link href="resources/css/retype.css?v=3.3.0.746961289937" rel="stylesheet">
+    <link href="resources/css/retype.css?v=3.3.0.747055217903" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.3.0.746961289937" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="resources/js/config.js?v=3.3.0.747055217903" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="resources/js/retype.js?v=3.3.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.3.0.746961289937" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.3.0.747055217903" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -199,174 +197,96 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="observability-for-serverless" class="break-words">
+<doc-anchor-target id="baselime-documentation" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#observability-for-serverless">#</doc-anchor-trigger>
-        <span>Observability for Serverless</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-documentation">#</doc-anchor-trigger>
+        <span>Baselime Documentation</span>
     </h1>
 </doc-anchor-target>
-<hr>
-<doc-anchor-target id="1-introduction">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#1-introduction">#</doc-anchor-trigger>
-        <span>1. Introduction</span>
-    </h1>
-</doc-anchor-target>
-<p>Serverless architectures have gained momentum with engineers building distributed systems. However, due to their stateless, ephemeral nature, they are difficult to observe with standard observability approaches. Investigating bugs typically turns into crime scenes, piecing together data from multiple sources to get a blurry image of the root cause of the issue.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/meme.png" alt="Typical serverless application">
-    <figcaption class="caption">Typical serverless application</figcaption>
-</figure>
-</p>
-<p>Baselime is an observability solution for serverless architectures. It enables developers to unlock key insights from their serverless architectures through the use of telemetry data.</p>
-<hr>
-<doc-anchor-target id="2-what-is-serverless">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#2-what-is-serverless">#</doc-anchor-trigger>
-        <span>2. What is serverless?</span>
-    </h1>
-</doc-anchor-target>
-<doc-anchor-target id="21-microservices">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#21-microservices">#</doc-anchor-trigger>
-        <span>2.1. Microservices</span>
-    </h2>
-</doc-anchor-target>
-<p>Microservices are a software development approach where an application is built as a collection of small, independent services that communicate with each other over a network. Each service performs a specific business function and can be deployed, scaled, and updated independently of the other services. Microservices are designed to be loosely coupled and use standard interfaces to communicate with other services.</p>
-<p>The benefits of microservices include improved scalability, fault tolerance and resilience, as well as easier deployment and maintenance.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/microservices.png" alt="Microservices Architecture">
-    <figcaption class="caption">Microservices Architecture</figcaption>
-</figure>
-</p>
-<doc-anchor-target id="22-serverless">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#22-serverless">#</doc-anchor-trigger>
-        <span>2.2. Serverless</span>
-    </h2>
-</doc-anchor-target>
-<p>Serverless computing is a cloud computing model where the cloud provider manages and allocates computing resources dynamically based on the demand of the application. In this model, the user does not need to manage or provision any servers, as the provider manages everything related to infrastructure.</p>
-<p>The serverless model is event-driven and is commonly used for short-lived functions or applications that need to scale up or down quickly, such as in response to sudden traffic spikes. The application logic is broken down into small functions that can be executed independently, and each function is triggered by an event, such as an API request, a change in a database, or a message from a message queue.</p>
-<p>The pricing model for serverless computing is based on the number of requests and the duration of execution, rather than on the underlying infrastructure. This makes it a cost-effective option for applications with unpredictable or variable workloads.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/serverless.png" alt="Serverless architecture">
-    <figcaption class="caption">Serverless architecture</figcaption>
-</figure>
-</p>
-<doc-anchor-target id="221-functions-as-a-service-faas">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#221-functions-as-a-service-faas">#</doc-anchor-trigger>
-        <span>2.2.1 Functions-as-a-Service (FaaS)</span>
-    </h3>
-</doc-anchor-target>
-<p>Functions as a Service (FaaS) is a cloud computing model where a cloud provider manages and runs small code functions in response to specific events or requests. FaaS enables developers to write and deploy individual functions performing a well-defined task as a response to an event. Once the event is triggered, the cloud provider spins up a new instance of the function, runs the code the developer wrote, and returns the result.</p>
-<p>In this model, the cloud provider allocates compute resources only when required. When there’s an increase in traffic, more resources are allocated, and when traffic goes down, resources are deallocated. As such, developers don’t need to provision compute and storage resources in advance, or anticipate spikes in traffic with over-provisioning, as is typically the case in traditional architectures.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/invocation.png" alt="Lifecycle of serverless function invocations">
-    <figcaption class="caption">Lifecycle of serverless function invocations</figcaption>
-</figure>
-</p>
-<p>The ephemeral, auto-scaling and pricing model of FaaS enables developers to accelerate development cycles, as they are freed from the challenges of provisioning, troubleshooting and maintaining servers.</p>
-<doc-anchor-target id="222-troubleshooting">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#222-troubleshooting">#</doc-anchor-trigger>
-        <span>2.2.2 Troubleshooting</span>
-    </h3>
-</doc-anchor-target>
-<p>In the serverless computing model, accessing and modifying the infrastructure, typically within the cloud provider&#x27;s environment, can be limited. This can make it challenging for developers to collect data about the behaviour of their applications. Unlike traditional servers, serverless services are managed and scaled by the cloud provider so developers need to adopt different strategies for collecting data about performance, errors and other metrics.</p>
-<p>These strategies may include using logging and monitoring tools provided by the cloud provider, adding custom instrumentation to the application code, and implementing distributed tracing techniques to track requests across multiple services. By using these strategies, developers can gain insights into the behaviour of their serverless applications and optimize their performance and scalability.</p>
-<hr>
-<doc-anchor-target id="3-what-is-observability">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#3-what-is-observability">#</doc-anchor-trigger>
-        <span>3. What is Observability?</span>
-    </h1>
-</doc-anchor-target>
-<p>Observability is the ability to understand and measure the internal state of a system based on its external outputs, achieved through instrumentation.</p>
-<p>Imagine you are a developer responsible for maintaining a large e-commerce application that experiences frequent outages and performance issues. You have a hard time pinpointing the root cause of these issues because you lack visibility into the internal state of the application. You are unable to tell what happens to a customer&#x27;s order when it goes through multiple services, and you struggle to identify which component is causing the slowdown. This is where observability comes in.</p>
-<p>Observability is like turning on the lights in a dark room. Without it, developers are working in the dark, struggling to diagnose issues and maintain the health of the system. Observability provides the necessary tools and techniques for developers to gain visibility into the system&#x27;s internal workings, allowing them to diagnose issues and optimize performance.</p>
-<p><strong>Telemetry data</strong> is at the heart of observability. Developers need to instrument their systems with various tools that collect and analyze telemetry data. This data may include logs, metrics, traces, and events among other things.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/o11y.png" alt="Telemetry data in modern observability">
-    <figcaption class="caption">Telemetry data in modern observability</figcaption>
-</figure>
-</p>
-<p>Metrics can include things like the number of requests served, the latency of each request, and the memory usage of each service. Logging enables developers to capture important events and metrics, such as error messages and service availability, while tracing enables them to follow the path of a request through multiple services. By using these observability techniques, developers can quickly diagnose issues and improve the overall health and performance of the system.</p>
-<doc-anchor-target id="31-logs">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#31-logs">#</doc-anchor-trigger>
-        <span>3.1 Logs</span>
-    </h2>
-</doc-anchor-target>
-<p>Application logs are time-stamped messages capturing a pre-defined event about an application&#x27;s behaviour. In a cloud-based environment, where applications are distributed across multiple servers and services, application logs are essential for developers to gain visibility into the system and quickly diagnose issues.</p>
-<p>However, text based logs are pretty bad at providing insights into the entire lifecycle of a request or event throughout the entire distributed system. This is why we encourage that you log structured JSON events that provide detailed information about what the application code has been doing. From this you can more easily build an understanding about the state of the system. The <a href="https://github.com/baselime/lambda-logger"><code v-pre>@baselime/lambda-logger</code></a> helps you apply these best practices in a tiny package.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/logs.png" alt="Application logs from AWS CloudWatch">
-    <figcaption class="caption">Application logs from AWS CloudWatch</figcaption>
-</figure>
-</p>
-<doc-anchor-target id="32-metrics">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#32-metrics">#</doc-anchor-trigger>
-        <span>3.2 Metrics</span>
-    </h2>
-</doc-anchor-target>
-<p>Application metrics capture quantitative measurements of an application&#x27;s behavior and performance aggregated over a defined period of time. These metrics provide developers with valuable insights into how the application is performing, how resources are being utilized, and how users are interacting with the system.</p>
-<p>Examples of application metrics include response time, error rate, throughput and resource utilization, which can be tracked and analyzed to identify areas for optimization and improvement.</p>
-<p>Metrics can give a signal to indicate a defect, but they lack the granularity necessary to pinpoint the root cause of the issue.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/metrics.png" alt="Account-level AWS Lambda metrics in AWS CloudWatch">
-    <figcaption class="caption">Account-level AWS Lambda metrics in AWS CloudWatch</figcaption>
-</figure>
-</p>
-<doc-anchor-target id="33-traces">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#33-traces">#</doc-anchor-trigger>
-        <span>3.3 Traces</span>
-    </h2>
-</doc-anchor-target>
-<p>Distributed tracing is a technique used to track the path of a request or event as it travels through a complex distributed system, consisting of multiple interconnected services and components. This involves capturing and correlating data from each service involved in processing the request, including information about service dependencies, communication protocols and processing times.</p>
-<p>Let’s look at a typical distributed application:</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/trace.png" alt="A typical distributed application">
-    <figcaption class="caption">A typical distributed application</figcaption>
-</figure>
-</p>
-<p>The diagram above tells us what components are part of the application, but it doesn’t tell us how the request propagates through the system, which services are performance bottlenecks and which can be optimised. Distributed tracing shines in those scenarios:</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/waterfall.png" alt="A typical distributed trace">
-    <figcaption class="caption">A typical distributed trace</figcaption>
-</figure>
-</p>
-<p>The trace above consists of multiple components, each referred to as a span. A span represents a unit of work and its associated processing time. The root span is the first span in the trace and typically represents a request&#x27;s lifecycle from start to finish. The subsequent spans are child spans, each representing a specific unit of work within the request&#x27;s journey.</p>
-<p>From the trace, we can identify that the calls to <code v-pre>service F</code> and <code v-pre>service G</code> can be made in parallel, which will make the call to <code v-pre>services D and E</code> shorter, ultimately resulting in a faster response to the client.</p>
-<p>One of the key ingredients of distributed tracing is their ability to propagate metadata about the request from parent spans to child spans. This context propagation provides developers with a detailed view of how requests flow through the system and enables faster troubleshooting and debugging of complex distributed applications, as well as easier performance optimization.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/context.png" alt="Distributed trace context propagation">
-    <figcaption class="caption">Distributed trace context propagation</figcaption>
-</figure>
+<p>To get started, read the <a href="quick-start/">quick start guide</a>.</p>
+<p>This documentation highlights what Baselime is, how to get it working with your stack and how it can help you discover, investigate, and resolve issues faster.</p>
+<p>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Quick Start</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>quick-start/</span>
+    </div>
+    <a href="quick-start/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Sending Data to Baselime</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>sending-data/</span>
+    </div>
+    <a href="sending-data/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Analyzing Data in Baselime</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>analysing-data/service-discovery/</span>
+    </div>
+    <a href="analysing-data/service-discovery/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Baselime CLI</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>cli/install/</span>
+    </div>
+    <a href="cli/install/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Observability as Code</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>oac/cdk/quick-start/</span>
+    </div>
+    <a href="oac/cdk/quick-start/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Data Security</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>security/overview/</span>
+    </div>
+    <a href="security/overview/" class="absolute block inset-0"></a>
+</div>
 </p>
 <hr>
-<doc-anchor-target id="4-challenges-of-observability-for-serverless">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#4-challenges-of-observability-for-serverless">#</doc-anchor-trigger>
-        <span>4. Challenges of Observability for Serverless</span>
-    </h1>
+<doc-anchor-target id="support">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#support">#</doc-anchor-trigger>
+        <span>Support</span>
+    </h2>
 </doc-anchor-target>
-<p>Observability for serverless can pose several challenges for developers. One of the major issues is the stateless and ephemeral nature of serverless functions, which makes it harder to pinpoint and troubleshoot issues related to specific requests or users. Serverless platforms abstract much of the underlying infrastructure, reducing the visibility into the runtime environment, and making it harder to troubleshoot issues when they inevitably occur.</p>
-<p>Additionally, the event-driven nature of serverless applications can exacerbate the observability challenge. In contrast to traditional HTTP-based architectures, serverless functions very often communicate with each other through event brokers like message queues, event buses or event streams, introducing new complexities, such as asynchronous processing, message ordering, and event aggregation. The non-linear path of event-driven architectures can make it more difficult to trace requests, especially when multiple services consume and produce events asynchronously.</p>
-<p><figure class="content-center">
-    <img src="assets/images/illustrations/o11y-for-serverless/event-driven.png" alt="Typical event-driven architecture">
-    <figcaption class="caption">Typical event-driven architecture</figcaption>
-</figure>
-</p>
-<p>Event-driven serverless systems bring unique challenges that developers must address:</p>
-<ul>
-<li>Context propagation: context propagation is critical to creating a complete trace of the request&#x27;s lifecycle. Events must carry the context of upstream services and propagate it to downstream services and functions. This context propagation needs to account for the specificity of each event bus, queue or stream to create an unbroken trace across the lifecycle of the request.</li>
-<li>Identity and Access Management: Identity and access management (IAM) is essential to ensure each service in the architecture has the necessary permissions to interact with other components. Improperly configured IAM can lead to process failures that are difficult to track.</li>
-<li>Metrics: Metrics provide valuable context about requests and services that should not be ignored. Developers must observe each service used to communicate between serverless functions through metrics and logs when available.</li>
-</ul>
-<p>To overcome these challenges, developers can leverage tools like AWS CloudTrail, which enables them to track IAM activities and diagnose operational issues.</p>
+<p>Join the <a href="https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ">Baselime Slack Community</a> if you have any questions, or you want to learn and discuss ideas around observability practices.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -432,7 +352,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Observability for Serverless", isRoot: true, level: 0, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Baselime Documentation", isRoot: true, level: 0, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
     <script data-cfasync="false">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
