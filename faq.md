@@ -11,7 +11,7 @@ order: 1
 
 ## How much does it cost?
 
-Baselime pricing is based on the number of traces your systems produce. This scales linearly with the traffic your applications handle. Moreover, Baselime has a full free tier for up to 200K traces per month.
+Baselime pricing is based on the number of events your systems produce. This scales linearly with the traffic your applications handle. Moreover, Baselime has a full free tier for up to 4M events per month.
 
 Check out our [pricing page](https://baselime.io/pricing) for more details.
 
