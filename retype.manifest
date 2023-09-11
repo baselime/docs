@@ -1,6 +1,6 @@
 {
-  "version": "3.0.3",
-  "created": "2023-09-02T09:14:51Z",
+  "version": "3.1.0",
+  "created": "2023-09-11T16:52:45Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -96,8 +96,14 @@
       "path": "assets/images/illustrations/o11y-for-serverless/waterfall.png"
     },
     {
+      "path": "assets/images/illustrations/quickstart/api-key.png"
+    },
+    {
       "path": "assets/images/illustrations/quickstart/connect.png",
       "old": true
+    },
+    {
+      "path": "assets/images/illustrations/quickstart/lambda.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/apigateway.png"
@@ -109,10 +115,16 @@
       "path": "assets/images/illustrations/sending-data/cloudtrail.png"
     },
     {
+      "path": "assets/images/illustrations/sending-data/ecs-illustration.png"
+    },
+    {
       "path": "assets/images/illustrations/sending-data/ecs.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/lambda-extension.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/lambda-logs-illustration.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/lambda-logs.png"
@@ -134,6 +146,15 @@
     },
     {
       "path": "assets/images/illustrations/sending-data/s3.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/vercel.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/xray-diagram.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/xray-waterfall.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/xray.png"
@@ -437,7 +458,8 @@
       "path": "sending-data/opentelemetry/aws-lambda/node.js/index.html"
     },
     {
-      "path": "sending-data/opentelemetry/containers/node.js/index.html"
+      "path": "sending-data/opentelemetry/containers/node.js/index.html",
+      "old": true
     },
     {
       "path": "sending-data/opentelemetry/index.html"
@@ -449,6 +471,9 @@
     {
       "path": "sending-data/opentelemetry/node.js/events/index.html",
       "old": true
+    },
+    {
+      "path": "sending-data/opentelemetry/node.js/index.html"
     },
     {
       "path": "sending-data/opentelemetry/node.js/lambda/events/index.html",
@@ -471,6 +496,9 @@
     },
     {
       "path": "sending-data/validation/index.html"
+    },
+    {
+      "path": "sending-data/vercel/index.html"
     },
     {
       "path": "sending-data/xray/index.html",

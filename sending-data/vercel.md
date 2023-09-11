@@ -17,7 +17,7 @@ Install the integration for free on the Vercel marketplace [https://vercel.com/i
 
 ## How to observe your application
 
-Now you will get real time request monitoring, and error monitoring for your projects deployed to Vercel.
+Now you will get real time request monitoring, and error detection for your projects deployed to Vercel.
 
-In Baselime you can use this data to create advanced queries with our incredibly powerful and flexible query engine 
+In Baselime you can use this data to create advanced queries, dashboards, and alerts using all the information from your vercel logs.
 
