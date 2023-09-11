@@ -5,52 +5,60 @@ order: -1
 
 # Installing the Baselime CLI
 
-The Baselime CLI is the primary way to interact with Baselime and your serverless observability data. It allows you to connect your serverless applications, query and explore your data, and set up integrations with your tools.
-
-You can install the Baselime CLI using one of the following methods:
+The Baselime CLI enables you to interact with Baselime and your observability data through the command line.
 
 ---
 
 ## Installing
 
-### Installing with Homebrew (for MacOS)
++++ MacOS
 
-1. Make sure you have Homebrew installed on your system. If you don't, you can install it by following the instructions [here](https://docs.brew.sh/Installation).
-2. Run the following commands to add the Baselime tap to your Homebrew installation:
+- Installing with Homebrew
 
 ```bash # :icon-terminal: terminal
 brew tap baselime/tap
 brew install baselime
 ```
 
-### Installing with curl (for MacOS and Linux)
+- Installing with `curl`
 
-1. Run the following command to download and install the Baselime CLI:
-
-- MacOS
 
 ```bash # :icon-terminal: terminal
 curl -s https://get.baselime.io | bash
 ```
 
-- Linux
+- Installing with `npm`
 
-```bash # :icon-terminal: terminal
-curl -s https://get.baselime.io | sudo bash
-```
-
-### Installing with npm (for MacOS, Linux, and Windows)
-
-1. Make sure you have npm installed on your system. If you don't, you can install it by following the instructions [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-2. Run the following command to install the Baselime CLI:
 
 ```bash # :icon-terminal: terminal
 npm install @baselime/cli -g
 ```
 
-### Downloading the binary (for MacOS, and Linux)
++++ Linux
 
-You can download the latest version of the Baselime CLI binary from [the releases page on GitHub](https://github.com/baselime/cli/releases/latest).
+- Installing with `curl`
+
+```bash # :icon-terminal: terminal
+curl -s https://get.baselime.io | sudo bash
+```
+
+- Installing with `npm`
+
+```bash # :icon-terminal: terminal
+npm install @baselime/cli -g
+```
+
++++ Windows
+
+- Installing with `npm`
+
+```bash # :icon-terminal: terminal
+npm install @baselime/cli -g
+```
++++
+
+
+Optionally, you can download the latest version of the Baselime CLI binary from [the releases page on GitHub](https://github.com/baselime/cli/releases/latest).
 
 1. Download the binary for your operating system and architecture (e.g., `baselime_linux_x64` or `baselime_darwin_x64`).
 4. Unzip the tarball with `tar -xf baselime-<os>-<arch>-<version>.tar.gz`
@@ -65,26 +73,23 @@ On some systems, you might need to run these commands with `sudo`.
 
 ## Verifying the installation
 
-To verify that the Baselime CLI has been installed correctly, run the following command:
+Verify that the Baselime CLI was installed with:
 
 ```bash # :icon-terminal: terminal
 baselime --version
 ```
-
-You should see the version number of the Baselime CLI that you installed.
-
-If you encounter any issues during the installation process, please don't hesitate to [contact us](mailto:support@baselime.io).
-
 ---
 ## Authenticating the CLI
 
-Before you can use the Baselime CLI, you must authenticate it with your Baselime account. To do this, run the following command:
+Before you can use the Baselime CLI, you must authenticate it with your Baselime account.
 
 ```bash # :icon-terminal: terminal
 baselime login
 ```
 
-This command opens a new browser window and asks you to sign in to your Baselime account. Once you sign in, the CLI is authenticated and you can start using it to interact with your Baselime account.
+!!!
+To use the Baselime CLI in non-interactive evironments, such as in CI pipelines, set the `BASELIME_API_KEY` environment variable to your Baselime API key and the CLI will use it for all commands.
+!!!
 
 --- 
 ## Updating the Baselime CLI

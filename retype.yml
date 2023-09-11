@@ -14,7 +14,7 @@ branding:
 favicon: assets/images/logo.svg
 
 meta:
-  title: " | Baselime - Observability for Serverless "
+  title: " | Baselime - The cloud-native observability platform "
 
 links:
 - text: Home

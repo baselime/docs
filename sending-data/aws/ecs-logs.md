@@ -1,15 +1,11 @@
 ---
 label: Amazon ECS Container Logs
-order: -3
+order: -1
 ---
 
 # Amazon ECS Container Logs
 
 This page describes how to collect application container logs from [Amazon ECS](https://aws.amazon.com/ecs/) clusters launched with AWS ECS using AWS FireLens. This method can also be used to collect ECS clusters with EC2 containers.
-
-!!! Optional
-Sending AWS ECS container logs to Baselime is optional, but highly recommended to gain full visibility into your containerized applications.
-!!!
 
 ---
 
@@ -17,7 +13,7 @@ Sending AWS ECS container logs to Baselime is optional, but highly recommended t
 
 [FireLens](https://aws.amazon.com/about-aws/whats-new/2019/11/aws-launches-firelens-log-router-for-amazon-ecs-and-aws-fargate/) is an Amazon ECS native log router that enables you to send logs from your containerized applications to different destinations, including Baselime. By adding the FireLens sidecar to your task definitions, you can configure and route your container logs to different destinations without modifying your application code.
 
-![Sending ECS Logs to Baselime](../assets/images/illustrations/sending-data/ecs.png)
+![Sending ECS Logs to Baselime](../../assets/images/illustrations/sending-data/ecs.png)
 
 Each of your ECS tasks can take a sidecar container running the FireLens log driver that will forward all the logs from the containers to Baselime.
 
@@ -42,7 +38,7 @@ Add the Baselime ECS endpoint to your FireLens configuration:
 - Endpoint `ecs-logs-ingest.baselime.io`
 - Header: `x-api-key <BASELIME_API_KEY>` 
 
-#### Using SST
++++ SST
 
 ```ts #
 import { StackContext, Service } from "sst/constructs";
@@ -79,7 +75,7 @@ export function API({ stack }: StackContext) {
   })
 }
 ```
-#### Using Terraform
++++ Terraform
 
 ```hcl #
 resource "aws_ecs_task_definition" "example_task" {
@@ -105,7 +101,7 @@ resource "aws_ecs_task_definition" "example_task" {
 }
 ```
 
-#### Using AWS CDK for TypeScript
++++ AWS CDK
 
 ```ts #
 import * as ecs from "aws-cdk-lib/aws-ecs";
@@ -131,7 +127,7 @@ taskDef.addContainer("container", {
 
 ```
 
-#### Directly in AWS console
++++ Directly in AWS console
 
 ```json #
 {
@@ -160,6 +156,9 @@ taskDef.addContainer("container", {
   ]
 }
 ```
++++
+
+![Amazom ECS Logs in Baselime](../../assets/images/illustrations/sending-data/ecs-illustration.png)
 
 ---
 

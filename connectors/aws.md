@@ -7,7 +7,7 @@ order: -1
 
 ---
 
-The AWS Connector allows you to send data from your AWS resources to Baselime. This includes logs, traces, and metrics. By connecting your AWS account to Baselime, you can get a unified view of your serverless architecture, query your data, and set up alerts.
+The AWS Connector allows you to send data from your AWS resources to Baselime. This includes logs, traces, and metrics. By connecting your AWS account to Baselime, you can get a unified view of your architecture, query your data, and set up alerts.
 
 ## Setting up the AWS Connector
 

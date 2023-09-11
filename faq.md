@@ -5,35 +5,35 @@ order: 1
 
 ## What is Baselime?
 
-[Baselime](https://baselime.io) is an observability solution that makes observability for cloud-native microservices easy. Baselime covers your logs, metrics, traces (both [OpenTelemetry](https://opentelemetry.io/) and AWS X-Ray) and security events in a single solution. Baselime is built on top of ClickHouse, the fastest analytics database in the world. 
+[Baselime](https://baselime.io) is an observability solution that makes observability for cloud-native microservices easy. Baselime covers your logs, metrics, traces in a single solution. Baselime is built on top of ClickHouse, the fastest columnar database in the world. 
 
 ---
 
 ## How much does it cost?
 
-Baselime pricing is based on the number of invocations or traces your systems produce. This scales linearly with the traffic your applications handle. Moreover, Baselime has a full free tier for up to 200K invocations / traces.
+Baselime pricing is based on the number of events your systems produce. This scales linearly with the traffic your applications handle. Moreover, Baselime has a full free tier for up to 4M events per month.
 
 Check out our [pricing page](https://baselime.io/pricing) for more details.
 
 ---
 
-## How does Baselime count invocations and traces for billing?
+## How does Baselime count traces for billing?
 
-Invocations are counted using the `REPORT` line of your AWS Lambda function logs. Each instance of the `REPORT` line is an invocation. Distributed traces are counted using the number of unique trace ids received from your services. If a traceID is matched with an existing invocation using the `REPORT` line, the trace is not counted towards your monthly number of traces.
+Distributed traces are counted using the number of unique trace IDs received from your services. If a trace ID is not found, Baselime counts the unique request ID associated with your transactions.
 
-If a trace goes through multiple function invocations, each invocation is counted individually, and the trace is not counted. As such you are not charged twice for the same invocations.
+If a trace goes through multiple request ID, each request is counted individually, and the trace is not counted. As such you are not charged twice for the same requests.
 
-If Baselime receives a trace with a unique trace id, but no invocation matching this trace id, the trace is counted towards your monthly number of traces.
+If Baselime receives a trace with a unique trace ID, but no request matching this trace ID, the trace is counted towards your monthly number of traces.
 
-Baselime counts the number of invocations and traces daily and updates your dashboard accordingly.
+Baselime counts the number of traces daily and updates your dashboard accordingly.
 
 ---
 
 ## Does Baselime support containers?
 
-Baselime works with any environment where OpenTelemetry is available. Moreover, Baselime provides an events HTTP API that could be used to send events individually from environments where OpenTelemetry is not available.
+Baselime works with any environment where OpenTelemetry is available. Moreover, Baselime provides an HTTP API where you can send events individually from environments where OpenTelemetry is not available.
 
-That being said, Baselime has a native integration with both serverless and container platforms on AWS:
+Baselime has a native integration with both serverless and container platforms on AWS:
 - AWS Lambda
 - Amazon ECS (Fargate and EC2)
 - Amazon AppRunner
@@ -42,7 +42,7 @@ That being said, Baselime has a native integration with both serverless and cont
 
 ## Does Baselime support multi-accounts and multi-regions?
 
-Yes, Baselime has support for multi-accounts and multi-region. When you connect your first cloud account to Baselime, Baselime created a Baselime Environment. You can subsequently add as many new cloud accounts or region to the Baselime environment. All your telemetry data from those separate accounts and regions will be unified in the Baselime environment.
+Yes, Baselime supports for multi-account and multi-region setups. When you connect your first cloud account to Baselime, Baselime creats a Baselime environment. You can subsequently add as many new cloud accounts or regions to the Baselime environment. All your telemetry data from those separate accounts and regions will be unified in the Baselime environment.
 
 ---
 
@@ -52,7 +52,9 @@ When you connect your AWS account to Baselime, logs from your AWS Lambda functio
 
 Moreover, if you have Amazon X-Ray enabled on your services (both serverless functions and containers), these traces are automatically ingested into Baselime.
 
-To adopt OpenTelemetry distributed tracing, add the `baselime:tracing` tag to your AWS Lambda functions using the Node.js runtime and these will be automatically instrumented. We're currently working on more runtimes. 
+To use OpenTelemetry distributed tracing, add the `baselime:tracing` tag to your AWS Lambda functions using the Node.js runtime and these will be automatically instrumented. We're currently working on more runtimes.
+
+For any other runtimes or environments, instrument your applications with OpenTelemetry or send your logs via the HTTP API.
 
 ---
 
@@ -62,7 +64,7 @@ Baselime supports both OpenTelemetry and AWS X-Ray for distributed tracing. If y
 - URL: https://otel.baselime.io/v1
 - Header: `x-api-key: <BASELIME_API_KEY>`
 
-Alternatively, you can instrument your AWS Lambda function with the Baselime OpenTelemetry tracer. Simply add the `baselime:tracing` tag to your AWS Lambda functions, and set it to `true`.
+Alternatively, you can instrument your AWS Lambda function with the Baselime OpenTelemetry tracer. Add the `baselime:tracing` tag to your AWS Lambda functions, and set it to `true`.
 
 !!!
 The automatic OpenTelemetry tracing with the tag is available for Node.js AWS Lambda functions, we're currently working on enabling this for other runtimes.
@@ -88,17 +90,27 @@ Yes, when you deploy new serverless functions and services to your cloud infrast
 
 You own your data.
 
-All the telemetry data your cloud infrastructure generate is storred in two data tiers:
-- hot tier: on Baselime accounts, to enable fast queries
-- cold tier: in an Amazon S3 bucket in your AWS cloud account for long terms storage
+You can select to use either our cloud offering, or our **Bring Your Own Backend** solution. With **Bring Your Own Backend**, all the data is stored on your AWS account and your use the Baselime clients to access it.
+
+### Cloud offering
+
+All the telemetry data your cloud infrastructure generate is stored in two data tiers:
+- hot tier: on Baselime AWS accounts in the `eu-west-1` region. This data is used for fast questions
+- cold tier: in an Amazon S3 bucket in your AWS cloud account. This data is used for long terms storage in a resource you own
 
 It is possible to rehydrate data from the cold tier to the hot tier for queriyng historical incidents free of charge.
+
+### Bring Your Own Backend
+
+Baselime can integrate with your own backend. As such, all the telemetry data is stored and queried in your cloud account. The enables you to keep maximum flexibility and privacy for storing sensitive data. You will be able to set your own retention periods, your own storage type, and your own privacy settings.
+
+**Bring Your Own Backend** is available on our Enterprise Plans.
 
 ---
 
 ## Is my data secure?
 
-Baselime is fully GDPR compliant and your data is storred in data centers that are all SOC2 compliant.
+Baselime is fully GDPR compliant and your data is stored in data centers that are all SOC2 compliant.
 
 ---
 
