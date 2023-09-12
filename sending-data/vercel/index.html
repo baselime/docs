@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.747768525601">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.747839186542">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.4.1">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.4.1.747768525601" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.4.1.747839186542" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.747768525601" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.747839186542" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.4.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.747768525601" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.747839186542" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -203,7 +203,8 @@
         <span>Vercel</span>
     </h1>
 </doc-anchor-target>
-<p>Vercel is a cloud platform for hosting and deploying web applications and websites. It is designed to make the process of deploying, scaling, and managing web projects as simple and efficient as possible. Vercel offers a variety of features and tools for web developers.</p>
+<hr>
+<p>Vercel is a cloud platform for hosting and deploying web applications and websites. It is designed to make the process of deploying, scaling, and managing web apps as simple and efficient as possible. Vercel offers a variety of features and tools for web developers.</p>
 <doc-anchor-target id="baselime-integration">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-integration">#</doc-anchor-trigger>
@@ -211,20 +212,34 @@
     </h2>
 </doc-anchor-target>
 <p>Baselime provides advanced observability capabilities for applications running on Vercel.</p>
-<p>Install the integration for free on the Vercel marketplace <a href="https://vercel.com/integrations/baselime">https://vercel.com/integrations/baselime</a></p>
+<p>Install the integration for free on the <a href="https://vercel.com/integrations/baselime">Vercel marketplace</a> and start observing your Vercel apps in minutes.</p>
+<doc-anchor-target id="how-it-works">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
+        <span>How it works</span>
+    </h3>
+</doc-anchor-target>
+<p>When you install the Baselime integration on the Vercel Marketplace, Baselime automatically creates a <a href="https://vercel.com/blog/log-drains">log drain</a> on your Vercel account to start streaming all your logs in real-time.</p>
+<p>Once Baselime receives your data, we automatically discover all your Vercel apps and ingests all your logs into three datasets:</p>
+<ul>
+<li><code v-pre>vercel-build</code>: logs from your Vercel build steps</li>
+<li><code v-pre>vercel-edge</code>: logs from Vercel Edge functions</li>
+<li><code v-pre>vercel-functions</code>: logs from Vercel functions such as API routes</li>
+<li><code v-pre>vercel-static</code>: logs from requests to static assets on Vercel such as HTML and CSS files</li>
+</ul>
+<p>The logs are separated in multiple datasets to give you a complete view of your Vercel applications.</p>
+<doc-anchor-target id="using-the-vercel-integration">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-the-vercel-integration">#</doc-anchor-trigger>
+        <span>Using the Vercel integration</span>
+    </h3>
+</doc-anchor-target>
+<p>All the logs from your Vercel apps are streamed to Baselime. You can search, query or tail your logs from the console and the CLI. You can create alerts from derived metrics from your logs. You can use our dashboard templates to create dashboards based on your Vercel logs, and modify them at will.</p>
 <p><figure class="content-center">
     <img src="../../assets/images/illustrations/sending-data/vercel.png" alt="Vercel Logs in Baselime">
     <figcaption class="caption">Vercel Logs in Baselime</figcaption>
 </figure>
 </p>
-<doc-anchor-target id="how-to-observe-your-application">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-to-observe-your-application">#</doc-anchor-trigger>
-        <span>How to observe your application</span>
-    </h2>
-</doc-anchor-target>
-<p>Now you will get real time request monitoring, and error detection for your projects deployed to Vercel.</p>
-<p>In Baselime you can use this data to create advanced queries, dashboards, and alerts using all the information from your vercel logs.</p>
 
                                 
                                 <!-- Required only on API pages -->
