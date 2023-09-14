@@ -17,15 +17,9 @@ Check out our [pricing page](https://baselime.io/pricing) for more details.
 
 ---
 
-## How does Baselime count traces for billing?
+## How does Baselime count events for billing?
 
-Distributed traces are counted using the number of unique trace IDs received from your services. If a trace ID is not found, Baselime counts the unique request ID associated with your transactions.
-
-If a trace goes through multiple request ID, each request is counted individually, and the trace is not counted. As such you are not charged twice for the same requests.
-
-If Baselime receives a trace with a unique trace ID, but no request matching this trace ID, the trace is counted towards your monthly number of traces.
-
-Baselime counts the number of traces daily and updates your dashboard accordingly.
+Baselime counts the number of events daily and updates your dashboard accordingly. Baselime does not count Amazon CloudWatch metrics or Amazon CloudTrail logs as part of the monthly event cap. All other events are counted, include the `START`, `END` and `REPORT` log lines from serverless functions.
 
 ---
 
@@ -33,11 +27,11 @@ Baselime counts the number of traces daily and updates your dashboard accordingl
 
 Baselime works with any environment where OpenTelemetry is available. Moreover, Baselime provides an HTTP API where you can send events individually from environments where OpenTelemetry is not available.
 
-Baselime has a native integration with both serverless and container platforms on AWS:
-- AWS Lambda
+Baselime has a native integration with container platforms on AWS:
 - Amazon ECS (Fargate and EC2)
 - Amazon AppRunner
 
+These integration enable logs, metrics and traces generated without OpenTelemetry to be automatically ingested into Baselime.
 ---
 
 ## Does Baselime support multi-accounts and multi-regions?
@@ -46,15 +40,24 @@ Yes, Baselime supports for multi-account and multi-region setups. When you conne
 
 ---
 
-## How easy is it to instrument my applications?
+## How easy is it to instrument my AWS applications?
 
 When you connect your AWS account to Baselime, logs from your AWS Lambda functions, API Gateways and AppRunner services, and metrics from your entire AWS account are automatically ingested into Baselime. No further setup is required.
+
+When you connect your Vercel account to Baselime, all your Vercel application logs, edge function logs and build logs are ingested into Baselime. No further setup is required.
 
 Moreover, if you have Amazon X-Ray enabled on your services (both serverless functions and containers), these traces are automatically ingested into Baselime.
 
 To use OpenTelemetry distributed tracing, add the `baselime:tracing` tag to your AWS Lambda functions using the Node.js runtime and these will be automatically instrumented. We're currently working on more runtimes.
 
 For any other runtimes or environments, instrument your applications with OpenTelemetry or send your logs via the HTTP API.
+
+---
+
+## How easy is it to instrument my Vercel applications?
+
+
+When you connect your Vercel account to Baselime, all your Vercel application logs, edge function logs and build logs are ingested into Baselime. No further setup is required.
 
 ---
 
@@ -131,4 +134,7 @@ Baselime relies on a few AWS resources in your AWS account, most notably:
 
 These services may add a minimal cost on your AWS monthly bill. Please refer to the [AWS princing calculator](https://calculator.aws/) for estimates based on your usage. 
 
+## Does Baselime have an impact on my Vercel bill?
+
+No, Baselime doesn't have any impact on your Vercel bill.
 
