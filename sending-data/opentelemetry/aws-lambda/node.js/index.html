@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748005354113">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748048713911">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.4.1">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>OpenTelemetry for Node.js on AWS Lambda | Baselime - The cloud-native observability platform</title>
     <meta name="title" content="OpenTelemetry for Node.js on AWS Lambda | Baselime - The cloud-native observability platform">
-    <meta name="description" content="The Baselime Node.js OpenTelemetry tracer for AWS Lambda(Star us ⭐) instruments your Node.">
+    <meta name="description" content="The Baselime Node.js OpenTelemetry tracer for AWS Lambda instruments your Node.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/opentelemetry/aws-lambda/node.js/">
@@ -21,25 +21,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/opentelemetry/aws-lambda/node.js/">
     <meta property="og:title" content="OpenTelemetry for Node.js on AWS Lambda | Baselime - The cloud-native observability platform">
-    <meta property="og:description" content="The Baselime Node.js OpenTelemetry tracer for AWS Lambda(Star us ⭐) instruments your Node.">
-    <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/opentelemetry/extension.png">
+    <meta property="og:description" content="The Baselime Node.js OpenTelemetry tracer for AWS Lambda instruments your Node.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/opentelemetry/aws-lambda/node.js/">
     <meta property="twitter:title" content="OpenTelemetry for Node.js on AWS Lambda | Baselime - The cloud-native observability platform">
-    <meta property="twitter:description" content="The Baselime Node.js OpenTelemetry tracer for AWS Lambda(Star us ⭐) instruments your Node.">
-    <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/opentelemetry/extension.png">
+    <meta property="twitter:description" content="The Baselime Node.js OpenTelemetry tracer for AWS Lambda instruments your Node.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.4.1.748005354113" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.4.1.748048713911" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.4.1.748005354113" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.4.1.748048713911" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.4.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.4.1.748005354113" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.4.1.748005354113" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.4.1.748048713911" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.4.1.748048713911" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -206,7 +204,7 @@
         <span>OpenTelemetry for Node.js on AWS Lambda</span>
     </h1>
 </doc-anchor-target>
-<p>The <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> (Star us <span class="docs-emoji">&#x2B50;</span>) instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends the OpenTelemetry compatible trace data to Baselime. This is the most powerful and flexible way to instrument your Node.js AWS Lambda functions.</p>
+<p>The <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends OpenTelemetry traces to Baselime. This is the most powerful and flexible way to instrument your Node.js AWS Lambda functions.</p>
 <hr>
 <doc-anchor-target id="automatic-instrumentation">
     <h2>
@@ -254,6 +252,7 @@ Globals:
 </doc-codeblock></div>
 </doc-tab>
 </doc-tabs>
+<p>That&#x27;s all you are all set with OpenTelemetry on Node.js AWS Lambda functions.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -294,6 +293,7 @@ Globals:
         <span>How it works</span>
     </h3>
 </doc-anchor-target>
+<p>This section outlines how the automatic instrumentation works.</p>
 <p>The automatic instrumentation makes changes to your AWS Lambda functions once they are deployed:</p>
 <ul>
 <li>Add the Baselime Node.js OpenTelemetry AWS Lambda Layer to your AWS Lambda function: <code v-pre>arn:aws:lambda:${region}:097948374213:layer:baselime-node:${version}</code> - This layer is a slimmed down version of the <a href="https://github.com/open-telemetry/opentelemetry-js">OpenTelemetry JavaScript Client</a> that will have minimal impact on the cold starts of your AWS Lambda functions</li>
@@ -368,7 +368,7 @@ export async function handler(event) {
         <span>Manual Instrumentation</span>
     </h2>
 </doc-anchor-target>
-<p>If you prefer to send the OpenTelemetry traces to Baselime manually, you can use the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> (Star us <span class="docs-emoji">&#x2B50;</span>) independently from connecting your AWS Account to Baselime.</p>
+<p>To manually instrument your Node.js AWS Lambda functions, you can use the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> independently from connecting your AWS Account to Baselime.</p>
 <doc-anchor-target id="step-1-install-the-sdk">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#step-1-install-the-sdk">#</doc-anchor-trigger>
@@ -515,7 +515,7 @@ SignersV4.prototype.unsignableHeaders.push('traceparent');</code></pre>
                             </div>
                             <footer class="clear-both">
                                 <div class="flex flex-wrap items-center justify-between mt-14">
-                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/sending-data/opentelemetry/aws-lambda/node.js/index.md" target="_blank" rel="noopener">
+                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/Baselime/docs/edit/main/sending-data/opentelemetry/aws-lambda/node.js.md" target="_blank" rel="noopener">
                                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         <span>Edit on GitHub</span>
                                     </a>
@@ -527,7 +527,7 @@ SignersV4.prototype.unsignableHeaders.push('traceparent');</code></pre>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Open​Telemetry for Node.​js</span>
+                                                <span class="block mt-1">Node.​js</span>
                                             </span>
                                         </a>
                                     </div>
@@ -580,7 +580,7 @@ SignersV4.prototype.unsignableHeaders.push('traceparent');</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "OpenTelemetry for Node.js on AWS Lambda", level: 4, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Node.js", level: 4, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
     <script data-cfasync="false">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
