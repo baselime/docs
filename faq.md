@@ -32,6 +32,7 @@ Baselime has a native integration with container platforms on AWS:
 - Amazon AppRunner
 
 These integration enable logs, metrics and traces generated without OpenTelemetry to be automatically ingested into Baselime.
+
 ---
 
 ## Does Baselime support multi-accounts and multi-regions?
@@ -132,7 +133,9 @@ Baselime relies on a few AWS resources in your AWS account, most notably:
 - Amazon CloudTrail: to enable CloudTrail events, and also register new subscription filters as soon as new serverless functions or services are created
 - Amazon Kinesis Data Firehose: To store telemetry data in cold storage in your AWS account
 
-These services may add a minimal cost on your AWS monthly bill. Please refer to the [AWS princing calculator](https://calculator.aws/) for estimates based on your usage. 
+These services may add a minimal cost on your AWS monthly bill. Please refer to the [AWS princing calculator](https://calculator.aws/) for estimates based on your usage.
+
+---
 
 ## Does Baselime have an impact on my Vercel bill?
 

@@ -7,14 +7,6 @@ order: 2
 
 ![Baselime Console](./assets/images/illustrations/diagrams.png)
 
-Baselime makes it easy to observe your cloud services, containers orchestrators (AWS ECS), and serverless functions. Monitor everything, from latencies to business domain metrics derived from your logs and distributed traces. 
-
-
----
-
-## Our mission
-
-Our mission is to simplify the complexity of distributed cloud-native systems. We make observability easy for you such that you can focus on what truly matters: building better products.
 
 ---
 
@@ -50,7 +42,7 @@ Moreover, Baselime gives your control over the residency of your data. Either us
 
 ## Why Baselime?
 
-### Reduce downtime
+### Find and solve issues faster 
 Troubleshoot infrastructure and application issues with high cardinality data and a fast query enginer.
 
 ### Search anything, anywhere. It's all indexed
