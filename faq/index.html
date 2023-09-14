@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.747839186542">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748003696026">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.4.1">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.4.1.747839186542" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.4.1.748003696026" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.4.1.747839186542" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.4.1.748003696026" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.4.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.4.1.747839186542" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.4.1.748003696026" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -220,16 +220,13 @@
 <p>Baselime pricing is based on the number of events your systems produce. This scales linearly with the traffic your applications handle. Moreover, Baselime has a full free tier for up to 4M events per month.</p>
 <p>Check out our <a href="https://baselime.io/pricing">pricing page</a> for more details.</p>
 <hr>
-<doc-anchor-target id="how-does-baselime-count-traces-for-billing">
+<doc-anchor-target id="how-does-baselime-count-events-for-billing">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-does-baselime-count-traces-for-billing">#</doc-anchor-trigger>
-        <span>How does Baselime count traces for billing?</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-does-baselime-count-events-for-billing">#</doc-anchor-trigger>
+        <span>How does Baselime count events for billing?</span>
     </h2>
 </doc-anchor-target>
-<p>Distributed traces are counted using the number of unique trace IDs received from your services. If a trace ID is not found, Baselime counts the unique request ID associated with your transactions.</p>
-<p>If a trace goes through multiple request ID, each request is counted individually, and the trace is not counted. As such you are not charged twice for the same requests.</p>
-<p>If Baselime receives a trace with a unique trace ID, but no request matching this trace ID, the trace is counted towards your monthly number of traces.</p>
-<p>Baselime counts the number of traces daily and updates your dashboard accordingly.</p>
+<p>Baselime counts the number of events daily and updates your dashboard accordingly. Baselime does not count Amazon CloudWatch metrics or Amazon CloudTrail logs as part of the monthly event cap. All other events are counted, include the <code v-pre>START</code>, <code v-pre>END</code> and <code v-pre>REPORT</code> log lines from serverless functions.</p>
 <hr>
 <doc-anchor-target id="does-baselime-support-containers">
     <h2>
@@ -238,13 +235,17 @@
     </h2>
 </doc-anchor-target>
 <p>Baselime works with any environment where OpenTelemetry is available. Moreover, Baselime provides an HTTP API where you can send events individually from environments where OpenTelemetry is not available.</p>
-<p>Baselime has a native integration with both serverless and container platforms on AWS:</p>
+<p>Baselime has a native integration with container platforms on AWS:</p>
 <ul>
-<li>AWS Lambda</li>
 <li>Amazon ECS (Fargate and EC2)</li>
 <li>Amazon AppRunner</li>
 </ul>
-<hr>
+<doc-anchor-target id="these-integration-enable-logs-metrics-and-traces-generated-without-opentelemetry-to-be-automatically-ingested-into-baselime">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#these-integration-enable-logs-metrics-and-traces-generated-without-opentelemetry-to-be-automatically-ingested-into-baselime">#</doc-anchor-trigger>
+        <span>These integration enable logs, metrics and traces generated without OpenTelemetry to be automatically ingested into Baselime.</span>
+    </h2>
+</doc-anchor-target>
 <doc-anchor-target id="does-baselime-support-multi-accounts-and-multi-regions">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#does-baselime-support-multi-accounts-and-multi-regions">#</doc-anchor-trigger>
@@ -253,16 +254,25 @@
 </doc-anchor-target>
 <p>Yes, Baselime supports for multi-account and multi-region setups. When you connect your first cloud account to Baselime, Baselime creats a Baselime environment. You can subsequently add as many new cloud accounts or regions to the Baselime environment. All your telemetry data from those separate accounts and regions will be unified in the Baselime environment.</p>
 <hr>
-<doc-anchor-target id="how-easy-is-it-to-instrument-my-applications">
+<doc-anchor-target id="how-easy-is-it-to-instrument-my-aws-applications">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-easy-is-it-to-instrument-my-applications">#</doc-anchor-trigger>
-        <span>How easy is it to instrument my applications?</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-easy-is-it-to-instrument-my-aws-applications">#</doc-anchor-trigger>
+        <span>How easy is it to instrument my AWS applications?</span>
     </h2>
 </doc-anchor-target>
 <p>When you connect your AWS account to Baselime, logs from your AWS Lambda functions, API Gateways and AppRunner services, and metrics from your entire AWS account are automatically ingested into Baselime. No further setup is required.</p>
+<p>When you connect your Vercel account to Baselime, all your Vercel application logs, edge function logs and build logs are ingested into Baselime. No further setup is required.</p>
 <p>Moreover, if you have Amazon X-Ray enabled on your services (both serverless functions and containers), these traces are automatically ingested into Baselime.</p>
 <p>To use OpenTelemetry distributed tracing, add the <code v-pre>baselime:tracing</code> tag to your AWS Lambda functions using the Node.js runtime and these will be automatically instrumented. We&#x27;re currently working on more runtimes.</p>
 <p>For any other runtimes or environments, instrument your applications with OpenTelemetry or send your logs via the HTTP API.</p>
+<hr>
+<doc-anchor-target id="how-easy-is-it-to-instrument-my-vercel-applications">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-easy-is-it-to-instrument-my-vercel-applications">#</doc-anchor-trigger>
+        <span>How easy is it to instrument my Vercel applications?</span>
+    </h2>
+</doc-anchor-target>
+<p>When you connect your Vercel account to Baselime, all your Vercel application logs, edge function logs and build logs are ingested into Baselime. No further setup is required.</p>
 <hr>
 <doc-anchor-target id="how-do-i-get-distributed-tracing">
     <h2>
@@ -370,6 +380,13 @@
 <li>Amazon Kinesis Data Firehose: To store telemetry data in cold storage in your AWS account</li>
 </ul>
 <p>These services may add a minimal cost on your AWS monthly bill. Please refer to the <a href="https://calculator.aws/">AWS princing calculator</a> for estimates based on your usage.</p>
+<doc-anchor-target id="does-baselime-have-an-impact-on-my-vercel-bill">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#does-baselime-have-an-impact-on-my-vercel-bill">#</doc-anchor-trigger>
+        <span>Does Baselime have an impact on my Vercel bill?</span>
+    </h2>
+</doc-anchor-target>
+<p>No, Baselime doesn&#x27;t have any impact on your Vercel bill.</p>
 
                                 
                                 <!-- Required only on API pages -->
