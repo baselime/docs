@@ -1,10 +1,11 @@
 ---
 order: 0
+label: Node.js
 ---
 
 # OpenTelemetry for Node.js
 
-The [Baselime Node.js OpenTelemetry SDK](https://github.com/baselime/node-opentelemetry) (Star us ⭐) enables you to instrument your Node.js services with OpenTelemetry without the boilerplate of using the OpenTelemetry SDK directly.
+The [Baselime Node.js OpenTelemetry SDK](https://github.com/baselime/node-opentelemetry) enables you to instrument your Node.js services with OpenTelemetry without the boilerplate of using the OpenTelemetry SDK directly.
 
 This SDK uses [OpenTelemetry for JavaScript](https://opentelemetry.io/docs/instrumentation/js/) and provides a layer that facilitates instrumenting your Node.js applications.
 

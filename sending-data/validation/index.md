@@ -1,4 +1,4 @@
-# Data Validation in Baselime
+# Data Validation
 
 Baselime has a size limit for events of `256kb`. This size limit helps ensure that the ingestion process is efficient and that the data stored in Baselime is manageable and fast to query. If an event exceeds this `256kb` size limit, it will not be ingested into Baselime.
 

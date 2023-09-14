@@ -1,10 +1,11 @@
 ---
 order: -3
+label: Node.js
 ---
 
 # OpenTelemetry for Node.js on AWS Lambda
 
-The [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) (Star us ⭐) instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends the OpenTelemetry compatible trace data to Baselime. This is the most powerful and flexible way to instrument your Node.js AWS Lambda functions.
+The [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends OpenTelemetry traces to Baselime. This is the most powerful and flexible way to instrument your Node.js AWS Lambda functions.
 
 
 ---
@@ -53,8 +54,9 @@ Globals:
     Tags:
        "baselime:tracing": "true"
 ```
-
 +++
+
+That's all you are all set with OpenTelemetry on Node.js AWS Lambda functions.
 
 !!! 
 OpenTelemetry automatic instrumentation is available only once you have connected your AWS Account to Baselime. Adding the tag to AWS Lambda functions in an AWS Account not connected to Baselime will not have any effect.
@@ -66,6 +68,8 @@ To remove the OpenTelemetry instrumentation from your AWS Lambda functions, remo
 
 
 ### How it works
+
+This section outlines how the automatic instrumentation works.
 
 The automatic instrumentation makes changes to your AWS Lambda functions once they are deployed:
 
@@ -136,7 +140,7 @@ export async function handler(event) {
 
 ## Manual Instrumentation
 
-If you prefer to send the OpenTelemetry traces to Baselime manually, you can use the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) (Star us ⭐) independently from connecting your AWS Account to Baselime.
+To manually instrument your Node.js AWS Lambda functions, you can use the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) independently from connecting your AWS Account to Baselime.
 
 ### Step 1: Install the SDK
 

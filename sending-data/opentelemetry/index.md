@@ -14,12 +14,12 @@ You can get your Baselime API key in the [Baselime console](https://console.base
 baselime iam
 ```
 
-If you have not instrumented your codebase with OpenTelemetry yet, do not worry. We are building OpenTelemetry SDKs to facilitate instrumenting your code.
+If you have not instrumented your codebase with OpenTelemetry yet, we are building OpenTelemetry SDKs to facilitate instrumenting your code.
 
 ---
 
 ## OpenTelemetry SDKs
 
 [!ref icon="../../assets/images/logos/node.svg"](./node.js.md)
-[!ref icon="../../assets/images/logos/node.svg"](./aws-lambda/node.js/index.md)
+[!ref icon="../../assets/images/logos/node.svg"](./aws-lambda/node.js.md)
 

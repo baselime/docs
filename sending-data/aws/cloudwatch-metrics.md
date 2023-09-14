@@ -44,7 +44,7 @@ There is no need to manually configure or set up anything to start ingesting cus
 
 ## Querying Amazon CloudWatch Metrics
 
-Once your AWS account is connected to Baselime, you can use any of the our clients to visualize and query your Amazon CloudWatch Metrics. You'll have access to all the metrics available in your AWS account, and you can use the [Observability Reference Language (ORL)](../oac/observability-reference-language/overview.md) to filter and aggregate the data in near real-time.
+Once your AWS account is connected to Baselime, you can use any of the our clients to visualize and query your Amazon CloudWatch Metrics. You'll have access to all the metrics available in your AWS account, and you can filter and aggregate the data in near real-time.
 
 ---
 

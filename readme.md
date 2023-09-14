@@ -6,7 +6,7 @@ This documentation highlights what Baselime is, how to get it working with your 
 
 [!ref Quick Start](./quick-start.md)
 [!ref](./sending-data/index.md)
-[!ref Analyzing Data in Baselime](./analysing-data/service-discovery.md)
+[!ref Analyzing Data in Baselime](./analysing-data/overview.md)
 [!ref Baselime CLI](./cli/install.md)
 [!ref Observability as Code](./oac/cdk/quick-start.md)
 [!ref Data Security](./security/overview.md)

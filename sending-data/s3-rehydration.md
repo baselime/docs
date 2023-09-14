@@ -7,6 +7,14 @@ order: -8
 
 This page describes how you can rehydrate your telemetry data from Amazon S3 into Baselime.
 
+Once received, all telemetry data from your AWS Accounts is securely stored in hot storage for querying and in cold storage within your own AWS environment, in an **Amazon S3 bucket in your AWS account**. This ensures that you have complete long-term control over your data and its storage location.
+
+![Sending Telemetry data to Baselime](../assets/images/illustrations/sending-data/s3.png)
+
+!!!
+The retention period of your telemetry data on Baselime is independent of the retention periods in AWS. You can safely reduce the retention period of your CloudWatch log groups.
+!!!
+
 ---
 
 ## How it works
