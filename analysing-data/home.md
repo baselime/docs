@@ -1,6 +1,6 @@
 ---
 label: Service Home
-order: 3
+order: 4
 ---
 
 # Service Home

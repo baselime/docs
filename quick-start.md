@@ -24,7 +24,7 @@ You can add an environment by connecting your cloud account, or by creating an e
 
 ## Step 3: Send a log event (optional)
 
-If you created anenvironment manually, execute this `cURL` command to send your first log event to Baselime.
+If you created an environment manually, execute this `cURL` command to send your first log event to Baselime.
 
 Replace your `BASELIME_API_KEY` with the API key your got from step 2.
 

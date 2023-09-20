@@ -5,6 +5,8 @@ order: 2
 
 # Baselime AI
 
+---
+
 Baselime AI provides explanations for any chart, log, event, metric or trace on Baselime. It enables you to identify patterns and anomalies in your systems, providing deeper insights into your system performance and behavior.
 
 ---

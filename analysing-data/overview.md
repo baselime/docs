@@ -1,6 +1,6 @@
 ---
 label: Troubleshooting
-order: 4
+order: 6
 ---
 
 # Troubleshooting in Baselime

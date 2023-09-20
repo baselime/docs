@@ -23,6 +23,9 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 [!ref icon="../assets/images/logos/logo_cloudtrail.png"](./aws/cloudtrail.md)
 [!ref icon="../assets/images/logos/logo_cloudwatch.png"](./aws/cloudwatch-metrics.md)
 
+### Vercel
+[!ref icon="../assets/images/logos/vercel.png"](./vercel.md)
+
 ### Other Sources
 [!ref icon="../assets/images/logos/http_flat@3x.png"](./events-api.md)
 [!ref icon="../assets/images/logos/s3_flat@3x.png"](./s3-rehydration.md)
