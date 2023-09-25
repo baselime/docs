@@ -58,7 +58,7 @@ export function API({ stack }: StackContext) {
         logging: new ecs.FireLensLogDriver({
           options: {
             "Name": "http",
-            "Host": "ecs-logs-ingest.baselime.cc",
+            "Host": "ecs-logs-ingest.baselime.io",
             "Port": "443",
             "TLS": "on",
             "format": "json",

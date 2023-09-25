@@ -62,7 +62,7 @@ The HTTP API validates the provided events and returns a `400 Bad Request` statu
 ### High-level requirements
 - Baselime accepts up to `6MB` of uncompressed data per request 
 - Each event must be a properly formatted JSON
-- Each event must be smaller than `128kb` of uncompressed JSON
+- Each event must be smaller than `256kb` of uncompressed JSON
 
 ---
 

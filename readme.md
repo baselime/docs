@@ -2,11 +2,11 @@
 
 To get started, read the [quick start guide](./quick-start.md).
 
-This documentation highlights what Baselime is, how to get it working with your stack and how it can help you discover, investigate, and resolve issues faster.
+This documentation highlights what Baselime is, how to get it working with your stack and how it can help you discover, investigate, and resolve errors faster.
 
 [!ref Quick Start](./quick-start.md)
 [!ref](./sending-data/index.md)
-[!ref Analyzing Data in Baselime](./analysing-data/service-discovery.md)
+[!ref Analyzing Data in Baselime](./analysing-data/overview.md)
 [!ref Baselime CLI](./cli/install.md)
 [!ref Observability as Code](./oac/cdk/quick-start.md)
 [!ref Data Security](./security/overview.md)

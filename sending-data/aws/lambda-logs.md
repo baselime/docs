@@ -46,7 +46,7 @@ exports.handler = async (event, context) => {
 });
 ```
 
-To facilitate this in Node.js runtimes, we maintain a custom logger well suited for AWS Lambda.
+To facilitate this in Node.js runtimes, we maintain a [custom logger well suited for AWS Lambda](https://github.com/baselime/lambda-logger).
 
 ```bash
 npm i @baselime/lambda-logger

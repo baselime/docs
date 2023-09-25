@@ -1,6 +1,6 @@
 ---
-label: Automatic Service Discovery
-order: 3
+label: Service Discovery
+order: 2
 ---
 
 # Automatic Service Discovery

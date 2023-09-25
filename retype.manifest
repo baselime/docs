@@ -1,6 +1,6 @@
 {
-  "version": "3.1.0",
-  "created": "2023-09-11T16:52:45Z",
+  "version": "3.0.3",
+  "created": "2023-09-14T11:15:56Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -99,8 +99,7 @@
       "path": "assets/images/illustrations/quickstart/api-key.png"
     },
     {
-      "path": "assets/images/illustrations/quickstart/connect.png",
-      "old": true
+      "path": "assets/images/illustrations/quickstart/connect.png"
     },
     {
       "path": "assets/images/illustrations/quickstart/lambda.png"

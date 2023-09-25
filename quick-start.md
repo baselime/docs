@@ -17,36 +17,14 @@ You can sign up for a free Baselime account [here](https://console.baselime.io).
 
 You can add an environment by connecting your cloud account, or by creating an environment manually to send data manually to Baselime.
 
-+++ Connect your AWS Account
+![Add an Environment](./assets/images/illustrations/quickstart/connect.png)
 
-Generate the connector CloudFormation template from the [Baselime console](https://console.baselime.io) and deploy it to your AWS account.
-
-Once the stack is deployed, telemetry data from your AWS account will be automatically ingested in Baselime. You will receive an email once the connection is complete.
-
-Next, navigate invide the newly created environment and to the API Keys sections, and retrieve your Baselime API key.
-
-![Your Baselime API Key](./assets/images/illustrations/quickstart/api-key.png)
-
-!!!warning
-If you do not see any data in the [Baselime console](https://console.baselime.io) within minutes of deploying the CloudFormation stack, something went wrong. Please [contact us](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ).
-!!!
-
-+++ Send data manually
-
-Once you're logged in, add a new environment manually from the [Baselime console](https://console.baselime.io).
-
-Next, navigate invide the newly created environment and to the API Keys sections, and retrieve your Baselime API key.
-
-![Your Baselime API Key](./assets/images/illustrations/quickstart/api-key.png)
-
-
-+++
 
 ---
 
-## Step 3: Send a log event
+## Step 3: Send a log event (optional)
 
-Once you've added your first environment, execute this `cURL` command to send your log event to Baselime.
+If you created an environment manually, execute this `cURL` command to send your first log event to Baselime.
 
 Replace your `BASELIME_API_KEY` with the API key your got from step 2.
 
@@ -75,7 +53,7 @@ Congratulations! Your first event should be available to query in Baselime. You 
 ## Guides
 
 - [Sending Data](./sending-data/): Learn how to ingest telemetry data from your cloud-native applications
-- [Analyzing Data](./analysing-data/service-discovery.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
+- [Analyzing Data](./analysing-data/overview.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
 - [Integrations](./): Find out how to connect Baselime with your favorite tools
 
 
