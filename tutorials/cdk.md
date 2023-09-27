@@ -3,64 +3,19 @@ label: Baselime CDK
 order: -1
 ---
 
-# Baselime CDK
+Baselime natively integrates with any AWS CDK application. This enables you to define your alerts and dashboards as code, alongside your application code. You can re-use your observability configurations, enforce consistency and share best practices with your team, in your codebase.  
 
-Baselime natively integrates with any CDK or SST application to let you set up your applications observability along side your existing infrastructure. By defining your Observability resources along side your application using the CDK you get some awesome productivity benefits like being able to reuse the types and resources created by your IAC directly in your observability code.
-
-```javascript
-const api = new Api(stack, "api", {
-  routes: {
-    "GET /": "packages/functions/src/lambda.handler",
-  },
-});
-
-new baselime.Query("api-get-resource-logs", {untill
-  parameters: {
-    datasets: ["lambda-logs"],
-    filters: [{
-      key: "$baselime.namespace",
-      value: api.getFunction("GET /")?.functionName as string,
-      operation: "=",
-    }],
-  },
-});
-```
-
-These queries can then be used within your alerts and dashboards to paint a complete picture of how your application is performing
+---
 
 ## Usage
 
-### Setting up the Baselime CDK
-
-The `@baselime/cdk` package should be installed in the same folder as your cdk application.
+Install the dependencies.
 
 ```bash
-# Select your projects package manager
-pnpm i --save-dev @baselime/cdk
 npm i --save-dev @baselime/cdk
-yarn add -D @baselime/cdk
 ```
 
-Next and store your api key in ssm. You can find your api key in CLI when running
-
-```bash
-baselime iam
-```
-
-or download it from [console.baselime.io](https://console.baselime.io/)
-
-![Get your API Key from the Console](../assets/images/illustrations/api-key.png)
-
-Then add the parameter to SSM
-
-```bash
-aws ssm put-parameter --name "/baselime/api-key" --value "<baselime_api_key>" --type "SecureString"
-```
-
-> If you deploy your application to multiple aws accounts and multiple Baselime environments make sure you add a baselime api key per environment and prefix with the correct stage variable
-
-
-Finally you can initialise `@baselime/cdk` in your CDK stack.
+Initialise `@baselime/cdk` in your CDK stack.
 
 
 ```javascript
@@ -71,8 +26,7 @@ import { Baselime } from "@baselime/cdk";
 export function API({ stack }: StackContext) {
 
   baselime.init(stack, {
-    // Remember to add a stage to your parameter if required
-    apiKey: ssm.StringParameter.valueForStringParameter(stack, `/baselime/api-key`),
+    apiKey: '<YOUR_BASELIME_API_KEY>',
   });
 
   const api = new Api(stack, "api", {
