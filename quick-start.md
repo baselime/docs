@@ -54,7 +54,6 @@ Congratulations! Your first event should be available to query in Baselime. You 
 
 - [Sending Data](./sending-data/): Learn how to ingest telemetry data from your cloud-native applications
 - [Analyzing Data](./analysing-data/overview.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
-- [Integrations](./): Find out how to connect Baselime with your favorite tools
 
 
 ---
