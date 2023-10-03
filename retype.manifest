@@ -1,6 +1,6 @@
 {
-  "version": "3.0.3",
-  "created": "2023-09-14T11:15:56Z",
+  "version": "3.1.0",
+  "created": "2023-09-25T09:02:22Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -16,6 +16,15 @@
     },
     {
       "path": "analysing-data/baselime-ai/index.html"
+    },
+    {
+      "path": "analysing-data/errors/index.html"
+    },
+    {
+      "path": "analysing-data/home/index.html"
+    },
+    {
+      "path": "analysing-data/overview/index.html"
     },
     {
       "path": "analysing-data/queries/index.html"
@@ -40,6 +49,63 @@
     },
     {
       "path": "assets/images/illustrations/analyzing-data/baselime-ai.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/errors/details.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/errors/errors.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/errors.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/events.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/inventory.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/request-logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/requests-filters.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/requests.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/summary.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/trace-logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/trace-timeline.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/trace.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/traces.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/filter.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/query.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/search.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/trace-timeline.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/trace.png"
     },
     {
       "path": "assets/images/illustrations/analyzing-data/service-list.png"
@@ -220,6 +286,9 @@
     },
     {
       "path": "assets/images/logos/s3_flat3x.png"
+    },
+    {
+      "path": "assets/images/logos/vercel.png"
     },
     {
       "path": "assets/templates/cf.yaml"

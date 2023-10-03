@@ -62,6 +62,10 @@ That's all you are all set with OpenTelemetry on Node.js AWS Lambda functions.
 OpenTelemetry automatic instrumentation is available only once you have connected your AWS Account to Baselime. Adding the tag to AWS Lambda functions in an AWS Account not connected to Baselime will not have any effect.
 !!!
 
+!!!
+It is recommended to have at least 512mb of ram configured. If your memory usage is lower you may see additional latency when sending traces to the extension
+!!!
+
 !!! 
 To remove the OpenTelemetry instrumentation from your AWS Lambda functions, remove the `baselime:tracing=true` tag from the function and Baselime will revert the function to un-instrumentate state.
 !!!

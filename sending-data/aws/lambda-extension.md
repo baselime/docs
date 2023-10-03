@@ -72,6 +72,28 @@ Where the `BASELIME_KEY` is your Baselime API Key and the
 `BASELIME_LAMBDA_LAYER_ARN` is the ARN of the Baselime Layer in your region.
 
 ```javascript
-`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
+`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:8`
+```
+
+## Configuration
+
+Logs can be toggled on and off by changing the `BASELIME_SUPPRESS_EXTENSION_LOGS` environment variable. The default setup for our OpenTelemetry integration is to suppress logs.
+
+To disable Cloudwatch logs you need to add an explicit deny iam policy that blocks the creation of log streams and log events for this function.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
 ```
 
