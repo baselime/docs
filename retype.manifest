@@ -1,6 +1,6 @@
 {
   "version": "3.1.0",
-  "created": "2023-09-25T09:02:22Z",
+  "created": "2023-10-03T12:29:57Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -9,7 +9,8 @@
       "path": "404.html"
     },
     {
-      "path": "advanced/materialized-keys/index.html"
+      "path": "advanced/materialized-keys/index.html",
+      "old": true
     },
     {
       "path": "analysing-data/alerts/index.html"
@@ -373,19 +374,24 @@
       "path": "index.html"
     },
     {
-      "path": "integrations/slack/alerts/index.html"
+      "path": "integrations/slack/alerts/index.html",
+      "old": true
     },
     {
-      "path": "integrations/slack/authentication/index.html"
+      "path": "integrations/slack/authentication/index.html",
+      "old": true
     },
     {
-      "path": "integrations/slack/commands/index.html"
+      "path": "integrations/slack/commands/index.html",
+      "old": true
     },
     {
-      "path": "integrations/slack/overview/index.html"
+      "path": "integrations/slack/overview/index.html",
+      "old": true
     },
     {
-      "path": "integrations/webhooks/overview/index.html"
+      "path": "integrations/webhooks/overview/index.html",
+      "old": true
     },
     {
       "path": "oac/cdk/quick-start/index.html"

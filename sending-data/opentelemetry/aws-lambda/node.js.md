@@ -156,16 +156,16 @@ npm install @baselime/lambda-node-opentelemetry
 
 ### Step 2: Manually wrap your function handlers with the SDK
 
-Wrap the handlers of your AWS Lambda functions with the `baselime.wrap(handler)` method.
+Wrap the handlers of your AWS Lambda functions with the `wrap(handler)` method.
 
 ```javascript #
-import baselime from '@baselime/lambda-node-opentelemetry'
+import { wrap } from '@baselime/lambda-node-opentelemetry'
 
 async function main(event, context) {
    // your handler logic
 }
 
-export const handler = baselime.wrap(main);
+export const handler = wrap(main);
 ```
 
 ### Step 3: Set the Baselime environment variables
@@ -187,14 +187,13 @@ Set the default function props of your service to include the wrapper in the bun
 
 ```typescript #
 app.setDefaultFunctionProps({
-  runtime: "nodejs18.x",
-  environment: {
-    NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry/lambda-wrapper',
-    BASELIME_KEY: process.env.BASELIME_KEY
-  },
-  nodejs: {
-    install: ["@baselime/lambda-node-opentelemetry"],
-  },
+      runtime: "nodejs18.x",
+      environment: {
+        NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry/lambda-wrapper.cjs',
+        BASELIME_KEY: "your-api-key-here",
+        COLLECTOR_URL: "https://console.baselime.cc/v1"
+      },
+      copyFiles: [{ from: "node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.cjs" }],
 });
 ```
 
