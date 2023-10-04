@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749720760836">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749726986154">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.5.0.749720760836" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.749726986154" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.749720760836" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.749726986154" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.749720760836" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.749720760836" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.749726986154" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.749726986154" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -402,15 +402,15 @@ export async function handler(event) {
         <span>Step 2: Manually wrap your function handlers with the SDK</span>
     </h3>
 </doc-anchor-target>
-<p>Wrap the handlers of your AWS Lambda functions with the <code v-pre>baselime.wrap(handler)</code> method.</p>
+<p>Wrap the handlers of your AWS Lambda functions with the <code v-pre>wrap(handler)</code> method.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-javascript"><code v-pre class="language-javascript">import baselime from '@baselime/lambda-node-opentelemetry'
+<pre class="language-javascript"><code v-pre class="language-javascript">import { wrap } from '@baselime/lambda-node-opentelemetry'
 
 async function main(event, context) {
    // your handler logic
 }
 
-export const handler = baselime.wrap(main);</code></pre>
+export const handler = wrap(main);</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="step-3-set-the-baselime-environment-variables">
     <h3>
@@ -455,14 +455,13 @@ export const handler = baselime.wrap(main);</code></pre>
 <p>Set the default function props of your service to include the wrapper in the bundle and add the environment variables</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-typescript"><code v-pre class="language-typescript">app.setDefaultFunctionProps({
-  runtime: &quot;nodejs18.x&quot;,
-  environment: {
-    NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry/lambda-wrapper',
-    BASELIME_KEY: process.env.BASELIME_KEY
-  },
-  nodejs: {
-    install: [&quot;@baselime/lambda-node-opentelemetry&quot;],
-  },
+      runtime: &quot;nodejs18.x&quot;,
+      environment: {
+        NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry/lambda-wrapper.cjs',
+        BASELIME_KEY: &quot;your-api-key-here&quot;,
+        COLLECTOR_URL: &quot;https://console.baselime.cc/v1&quot;
+      },
+      copyFiles: [{ from: &quot;node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.cjs&quot; }],
 });</code></pre>
 </doc-codeblock></div>
 </doc-tab>
