@@ -21,5 +21,9 @@ If you have not instrumented your codebase with OpenTelemetry yet, we are buildi
 ## OpenTelemetry SDKs
 
 [!ref icon="../../assets/images/logos/node.svg"](./node.js.md)
-[!ref icon="../../assets/images/logos/node.svg"](./aws-lambda/node.js.md)
+
+---
+
+## OpenTelemetry on AWS Lambda
+[!ref icon="../../assets/images/logos/logo_aws_lambda.png"](./aws-lambda/node.js.md)
 
