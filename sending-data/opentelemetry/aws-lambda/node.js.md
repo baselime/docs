@@ -191,7 +191,6 @@ app.setDefaultFunctionProps({
       environment: {
         NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry/lambda-wrapper.cjs',
         BASELIME_KEY: "your-api-key-here",
-        COLLECTOR_URL: "https://console.baselime.cc/v1"
       },
       copyFiles: [{ from: "node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.cjs" }],
 });
