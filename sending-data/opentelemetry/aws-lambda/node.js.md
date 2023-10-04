@@ -175,7 +175,7 @@ Set the environment variables of your AWS Lambda functions to include the Baseli
 | Key          | Value                                       | Description                                                                         |
 | ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------- |
 | BASELIME_KEY | `your-api-key`              | Get this key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) running `baselime iam` |
-| NODE_OPTIONS | `--require @baselime/lambda-node-opentelemetry` | Preloads the OpenTelemetry SDK at startup                                                 |
+| NODE_OPTIONS | `--require @baselime/lambda-node-opentelemetry/lambda-wrapper` | Preloads the OpenTelemetry SDK at startup                                                 |
 
 ### Step 4: Bundle the OpenTelemetry SDK with your code
 
