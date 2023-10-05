@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749758825775">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749812598301">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Using Terraform with Baselime.io | Baselime - The cloud-native observability platform</title>
-    <meta name="title" content="Using Terraform with Baselime.io | Baselime - The cloud-native observability platform">
-    <meta name="description" content="For your convienience, we have created a Terraform provider for Baselime.io. This allows you to manage your Baselime.io resources using Terraform.">
+    <title>Using Terraform with Baselime | Baselime - The cloud-native observability platform</title>
+    <meta name="title" content="Using Terraform with Baselime | Baselime - The cloud-native observability platform">
+    <meta name="description" content="For your convienience, we have created a Terraform provider for Baselime. This allows you to manage your Baselime resources using Terraform.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/oac/terraform/overview/">
@@ -20,24 +20,24 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/oac/terraform/overview/">
-    <meta property="og:title" content="Using Terraform with Baselime.io | Baselime - The cloud-native observability platform">
-    <meta property="og:description" content="For your convienience, we have created a Terraform provider for Baselime.io. This allows you to manage your Baselime.io resources using Terraform.">
+    <meta property="og:title" content="Using Terraform with Baselime | Baselime - The cloud-native observability platform">
+    <meta property="og:description" content="For your convienience, we have created a Terraform provider for Baselime. This allows you to manage your Baselime resources using Terraform.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/oac/terraform/overview/">
-    <meta property="twitter:title" content="Using Terraform with Baselime.io | Baselime - The cloud-native observability platform">
-    <meta property="twitter:description" content="For your convienience, we have created a Terraform provider for Baselime.io. This allows you to manage your Baselime.io resources using Terraform.">
+    <meta property="twitter:title" content="Using Terraform with Baselime | Baselime - The cloud-native observability platform">
+    <meta property="twitter:description" content="For your convienience, we have created a Terraform provider for Baselime. This allows you to manage your Baselime resources using Terraform.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../resources/css/retype.css?v=3.5.0.749758825775" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.749812598301" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.749758825775" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.749812598301" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.749758825775" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.749758825775" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.749812598301" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.749812598301" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -198,13 +198,13 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="using-terraform-with-baselimeio" class="break-words">
+<doc-anchor-target id="using-terraform-with-baselime" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#using-terraform-with-baselimeio">#</doc-anchor-trigger>
-        <span>Using Terraform with Baselime.io</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-terraform-with-baselime">#</doc-anchor-trigger>
+        <span>Using Terraform with Baselime</span>
     </h1>
 </doc-anchor-target>
-<p>For your convienience, we have created a Terraform provider for Baselime.io. This allows you to manage your Baselime.io resources using Terraform.</p>
+<p>For your convienience, we have created a Terraform provider for Baselime. This allows you to manage your Baselime resources using Terraform.</p>
 <doc-anchor-target id="terraform-registry">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#terraform-registry">#</doc-anchor-trigger>
@@ -236,10 +236,10 @@
         <span>Example Usage</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="initialising-baselimeio-terraform-provider">
+<doc-anchor-target id="initialising-baselime-terraform-provider">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#initialising-baselimeio-terraform-provider">#</doc-anchor-trigger>
-        <span>Initialising Baselime.io Terraform Provider</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#initialising-baselime-terraform-provider">#</doc-anchor-trigger>
+        <span>Initialising Baselime Terraform Provider</span>
     </h3>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
