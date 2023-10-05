@@ -3,8 +3,8 @@ label: Terraform Provider
 order: 0
 ---
 
-# Using Terraform with Baselime.io
-For your convienience, we have created a Terraform provider for Baselime.io. This allows you to manage your Baselime.io resources using Terraform.
+# Using Terraform with Baselime
+For your convienience, we have created a Terraform provider for Baselime. This allows you to manage your Baselime resources using Terraform.
 
 #### [Terraform Registry](https://registry.terraform.io/providers/baselime/baselime/latest)
 #### [Source on Github](https://github.com/baselime/terraform-provider-baselime/tree/main)
@@ -18,7 +18,7 @@ To use the provider, you will need to generate an API key. To find your key:
 
 ## Example Usage
 
-### Initialising Baselime.io Terraform Provider
+### Initialising Baselime Terraform Provider
 ```terraform
 terraform {
   required_providers {
