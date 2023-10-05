@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749812598301">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749821652455">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.5.0.749812598301" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.749821652455" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.749812598301" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.749821652455" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.749812598301" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.749812598301" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.749821652455" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.749821652455" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -304,51 +304,6 @@ Globals:
         </div>
     </div>
 </div>
-<doc-anchor-target id="how-it-works">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
-        <span>How it works</span>
-    </h3>
-</doc-anchor-target>
-<p>This section outlines how the automatic instrumentation works.</p>
-<p>The automatic instrumentation makes changes to your AWS Lambda functions once they are deployed:</p>
-<ul>
-<li>Add the Baselime Node.js OpenTelemetry AWS Lambda Layer to your AWS Lambda function: <code v-pre>arn:aws:lambda:${region}:097948374213:layer:baselime-node:${version}</code> - This layer is a slimmed down version of the <a href="https://github.com/open-telemetry/opentelemetry-js">OpenTelemetry JavaScript Client</a> that will have minimal impact on the cold starts of your AWS Lambda functions</li>
-<li>Add the Baselime Extension added to your AWS Lambda function: <code v-pre>arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:${version}</code> - This extension enables the Baselime Layers to send the trace data to the Baselime backend after the invocation is complete, as such, distributed tracing will not have any negative impact on the latency of your AWS Lambda functions</li>
-<li>Set the <code v-pre>BASELIME_KEY</code> environment variable with the value of your environments Baselime API Key</li>
-</ul>
-<p>These changes are kept in sync with your AWS Lambda function as you iterate on your architecture via events from Amazon CloudTrail.</p>
-<p><figure class="content-center">
-    <img src="../../../../assets/images/illustrations/sending-data/opentelemetry/extension.png" alt="OpenTelemetry Automatic Instrumentation FLow">
-    <figcaption class="caption">OpenTelemetry Automatic Instrumentation FLow</figcaption>
-</figure>
-</p>
-<hr>
-<doc-anchor-target id="adding-custom-opentelemetry-events">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-custom-opentelemetry-events">#</doc-anchor-trigger>
-        <span>Adding custom OpenTelemetry events</span>
-    </h2>
-</doc-anchor-target>
-<p>The <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> provides and extension that enables you add context rich events to your traces using an API that feels like a logger. These events can be useful to show more detailed context on errors, add steps that you want recorded for a business process or adding extra debugging information.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-javascript"><code v-pre class="language-javascript">const { logger } = require(&quot;@baselime/lambda-node-opentelemetry&quot;);
-
-logger.info(&quot;This is an informational message&quot;, {
-  operation: &quot;copy-paste-replace&quot;,
-  count: 9000,
-});</code></pre>
-</doc-codeblock></div>
-<p>The extension provides an object that includes four logging functions - <code v-pre>info</code>, <code v-pre>warn</code>, <code v-pre>debug</code>, and <code v-pre>error</code> - enabling you to log messages with varying levels of severity. You can control the visibility of the events by setting the LOG_LEVEL environment variable, .</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-javascript"><code v-pre class="language-javascript">const { logger } = require(&quot;@baselime/lambda-node-opentelemetry&quot;);
-
-logger.info(&quot;This is an informational message&quot;, { payload: { foo: &quot;bar&quot; } });
-logger.warn(&quot;This is a warning message&quot;, { payload: { foo: &quot;bar&quot; } });
-logger.debug(&quot;This is a debug message&quot;, { payload: { foo: &quot;bar&quot; } });
-logger.error(&quot;This is an error message&quot;, { payload: { foo: &quot;bar&quot; } });</code></pre>
-</doc-codeblock></div>
-<hr>
 <doc-anchor-target id="adding-custom-opentelemetry-spans">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#adding-custom-opentelemetry-spans">#</doc-anchor-trigger>
@@ -377,128 +332,6 @@ export async function handler(event) {
   });
 }
 </code></pre>
-</doc-codeblock></div>
-<hr>
-<doc-anchor-target id="manual-instrumentation">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#manual-instrumentation">#</doc-anchor-trigger>
-        <span>Manual Instrumentation</span>
-    </h2>
-</doc-anchor-target>
-<p>To manually instrument your Node.js AWS Lambda functions, you can use the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> independently from connecting your AWS Account to Baselime.</p>
-<doc-anchor-target id="step-1-install-the-sdk">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-1-install-the-sdk">#</doc-anchor-trigger>
-        <span>Step 1: Install the SDK</span>
-    </h3>
-</doc-anchor-target>
-<p>Install the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a>.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">npm install @baselime/lambda-node-opentelemetry</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="step-2-manually-wrap-your-function-handlers-with-the-sdk">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-2-manually-wrap-your-function-handlers-with-the-sdk">#</doc-anchor-trigger>
-        <span>Step 2: Manually wrap your function handlers with the SDK</span>
-    </h3>
-</doc-anchor-target>
-<p>Wrap the handlers of your AWS Lambda functions with the <code v-pre>wrap(handler)</code> method.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-javascript"><code v-pre class="language-javascript">import { wrap } from '@baselime/lambda-node-opentelemetry'
-
-async function main(event, context) {
-   // your handler logic
-}
-
-export const handler = wrap(main);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="step-3-set-the-baselime-environment-variables">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-3-set-the-baselime-environment-variables">#</doc-anchor-trigger>
-        <span>Step 3: Set the Baselime environment variables</span>
-    </h3>
-</doc-anchor-target>
-<p>Set the environment variables of your AWS Lambda functions to include the Baselime API Key and set the NODE_OPTIONS enviroment variable to preload the OpenTelemetry SDK into your AWS Lambda bundle.</p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BASELIME_KEY</td>
-<td><code v-pre>your-api-key</code></td>
-<td>Get this key from the <a href="https://console.baselime.io">Baselime console</a> or the <a href="https://github.com/Baselime/cli">Baselime CLI</a> running <code v-pre>baselime iam</code></td>
-</tr>
-<tr>
-<td>NODE_OPTIONS</td>
-<td><code v-pre>--require @baselime/lambda-node-opentelemetry/lambda-wrapper</code></td>
-<td>Preloads the OpenTelemetry SDK at startup</td>
-</tr>
-</tbody>
-</table>
-</div>
-<doc-anchor-target id="step-4-bundle-the-opentelemetry-sdk-with-your-code">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-4-bundle-the-opentelemetry-sdk-with-your-code">#</doc-anchor-trigger>
-        <span>Step 4: Bundle the OpenTelemetry SDK with your code</span>
-    </h3>
-</doc-anchor-target>
-<p>Ensure that the OpenTelemetry SDK is included in the <code v-pre>.zip</code> file that is uploaded to AWS Lambda during your deployment. The step depends on your deployment framework.</p>
-<doc-tabs>
-<doc-tab v-cloak id="aws-cdk-sst">
-<template #title>AWS CDK / SST</template>
-<p>Set the default function props of your service to include the wrapper in the bundle and add the environment variables</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-typescript"><code v-pre class="language-typescript">app.setDefaultFunctionProps({
-      runtime: &quot;nodejs18.x&quot;,
-      environment: {
-        NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry/lambda-wrapper.cjs',
-        BASELIME_KEY: &quot;your-api-key-here&quot;,
-      },
-      copyFiles: [{ from: &quot;node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.cjs&quot; }],
-});</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-<doc-tab v-cloak id="serverless-framework">
-<template #title>Serverless Framework</template>
-<p>By default the Serverless Framework includes the entire <code v-pre>node_module</code> folder in the <code v-pre>.zip</code> bundle of your AWS Lambda functions. If you are using the <code v-pre>serverless-esbuild</code> plugin or any other plugin to prevent this, it is necessary to edit the configuration of your project.</p>
-<p>Add the following line to the <code v-pre>package.patterns</code> block of your <code v-pre>serverless.yml</code> file.</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-yaml"><code v-pre class="language-yaml">package:
-  patterns:
-    - 'node_modules/@baselime/lambda-node-opentelemetry'</code></pre>
-</doc-codeblock></div>
-<p>Add the following environment variables</p>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-yaml"><code v-pre class="language-yaml">    BASELIME_KEY: ${env:BASELIME_KEY}
-    NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry/lambda-wrapper'</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-<doc-tab v-cloak id="architect">
-<template #title>Architect</template>
-<p>Copy the <code v-pre>lambda-wrapper.js</code> file from the <code v-pre>node_modules</code> folder in the shared folder of your Architect project, it will be automatically included in all of your AWS Lambda <code v-pre>.zip</code> bundles.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">cp node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js src/shared/</code></pre>
-</doc-codeblock></div>
-<p>Add the environment variables to your architect project</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">arc env -e production --add BASELIME_KEY &lt;your-api-key&gt;
-arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-wrapper'</code></pre>
-</doc-codeblock></div>
-<blockquote>
-<p>Note the &#x27;--&#x27; in the NODE_OPTIONS command. This is required to escape options parsing.</p>
-</blockquote>
-</doc-tab>
-</doc-tabs>
-<p>This method will however send the traces to the Baselime backend during the invocation of your AWS Lambda functions, and will result in a degradation in the latency performace of your functions.</p>
-<p>In production we recommend additionally adding the Baselime AWS Lambda extension, as it will enable the OpenTelemetry tracer to send traces to the Baselime backend after the excecution of your AWS Lambda functions.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`</code></pre>
 </doc-codeblock></div>
 <hr>
 <doc-anchor-target id="sending-data-to-another-opentelemetry-backend">
