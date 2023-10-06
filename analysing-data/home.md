@@ -52,7 +52,7 @@ The menu inside the JSON event is available across Baselime, wherever an event i
 
 ## Events
 
-The events view displays all the events your service emitted during the selected timeframe. The events comprise all logs, spans, span events, wide-events and metrics sent to Baselime.
+The events view displays all the events captured your service during the selected timeframe. The events comprise all logs, spans, span events, wide-events and metrics sent to Baselime.
 
 You can search for events and filter events from this view. You can zoom in on the bar chart of the event volume.
 
@@ -62,7 +62,7 @@ You can search for events and filter events from this view. You can zoom in on t
 
 ## Traces
 
-The traces view displays the traces found in your service within the selected timeframe. It includes a trace scatter plot, where the y-axis is the duration of the traces and the x-axis is the timestamp. In addition to the scatter plot, the trace view displays a list of traces from your service in chronological order.
+The traces view displays the traces captured from your service within the selected timeframe. It includes a trace scatter plot, where the y-axis is the duration of the traces and the x-axis is the timestamp. In addition to the scatter plot, the trace view displays a list of traces from your service in chronological order.
 
 You can search and filter traces using the search bar and the filter button.
 
@@ -82,35 +82,3 @@ Once you're viewing a trace, you can click on any of the spans to view the the s
 ![](../assets/images/illustrations/analyzing-data/home/trace.png)
 ![](../assets/images/illustrations/analyzing-data/home/trace-timeline.png)
 ![](../assets/images/illustrations/analyzing-data/home/trace-logs.png)
-
----
-
-## Errors
-
-The error view displays a list of all errors that have occured in your service, alongside metadata about the error.
-
-You can search for, or filter errors that match a set of criteria.
-
-Once you've identified an error you want to investigate further, click on the "Investigate" button to quickly get the context around the error, for example the requests or traces the error occured in, or more metadata around the error.
-
-!!!
-Baselime automatically detects errors from your telemetry data.
-!!!
-
-![](../assets/images/illustrations/analyzing-data/home/errors.png)
-
----
-
-## Inventory
-
-The inventory view displays a set of lists of cloud-resources available in your service. Currently, the available resources are:
-
-- AWS Lambda Functions
-- Amazon ECS Services
-- Amazon DynamoDB Tables
-
-We're continiously adding more cloud services to the inventory view.
-
-![](../assets/images/illustrations/analyzing-data/home/inventory.png)
-
-From the inventory view, you can navigate to any individual cloud resource.
