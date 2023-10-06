@@ -68,7 +68,6 @@ Congratulations! Your first event should be available to query in Baselime. You 
 ## Reference
 
 - [Baselime CDK Reference Guide](./oac/cdk/quick-start.md): Learn about how to use Baselime with the AWS CDK to define your Observability as Code
-- [ORL Reference Guide](./oac/observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
 - [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
 
 ---
