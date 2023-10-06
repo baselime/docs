@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749832605896">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749872869481">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.5.0.749832605896" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.749872869481" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.749832605896" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.749872869481" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.749832605896" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.749832605896" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.749872869481" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.749872869481" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -283,7 +283,7 @@ Globals:
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>It is recommended to have at least 512mb of ram configured. If your memory usage is lower you may see additional latency when sending traces to the extension</p>
+<p>We recommended a miminum of 512mb of memory configured on AWS Lambda functions with the automatic OpenTelemetry instrumentation. AWS Lambda functions with less memory may experience higher latencies as the traces are being processed.</p>
         </div>
     </div>
 </div>
@@ -304,13 +304,18 @@ Globals:
         </div>
     </div>
 </div>
+<hr>
 <doc-anchor-target id="adding-custom-opentelemetry-spans">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#adding-custom-opentelemetry-spans">#</doc-anchor-trigger>
         <span>Adding custom OpenTelemetry spans</span>
     </h2>
 </doc-anchor-target>
-<p>To add custom spans to your OpenTelemetry traces, it is necessary to install the <code v-pre>@opentelemetry/api</code> package. It is left out of the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> to limit the impact on cold-starts, such that your can add it only to the AWS Lambda functions that require it.</p>
+<p>To add custom spans to your OpenTelemetry traces, install the <code v-pre>@opentelemetry/api</code> package.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npm i --save @opentelemetry/api</code></pre>
+</doc-codeblock></div>
+<p>And manually add spans to your traces.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-javascript"><code v-pre class="language-javascript">import { trace } from &quot;@opentelemetry/api&quot;;
 const tracer = trace.getTracer('your-custom-traces');
@@ -341,7 +346,7 @@ export async function handler(event) {
     </h2>
 </doc-anchor-target>
 <p>OpenTelemetry is an open standard, and you can use the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a> to send telemetry data to another backend of your choice.</p>
-<p>Add the environment variable <code v-pre>COLLECTOR_URL</code> to send the data somewhere else than the Baselime backend.</p>
+<p>Set environment variable <code v-pre>COLLECTOR_URL</code> to your observability backend.</p>
 <hr>
 <doc-anchor-target id="limitations">
     <h2>
