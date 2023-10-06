@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749873552656">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749874414526">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,11 +34,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.749873552656" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.749874414526" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.749873552656" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.749874414526" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.749873552656" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.749874414526" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -283,7 +283,7 @@
         <span>Events</span>
     </h2>
 </doc-anchor-target>
-<p>The events view displays all the events your service emitted during the selected timeframe. The events comprise all logs, spans, span events, wide-events and metrics sent to Baselime.</p>
+<p>The events view displays all the events captured your service during the selected timeframe. The events comprise all logs, spans, span events, wide-events and metrics sent to Baselime.</p>
 <p>You can search for events and filter events from this view. You can zoom in on the bar chart of the event volume.</p>
 <p><figure class="content-center">
     <img src="../../assets/images/illustrations/analyzing-data/home/events.png" alt="">
@@ -297,7 +297,7 @@
         <span>Traces</span>
     </h2>
 </doc-anchor-target>
-<p>The traces view displays the traces found in your service within the selected timeframe. It includes a trace scatter plot, where the y-axis is the duration of the traces and the x-axis is the timestamp. In addition to the scatter plot, the trace view displays a list of traces from your service in chronological order.</p>
+<p>The traces view displays the traces captured from your service within the selected timeframe. It includes a trace scatter plot, where the y-axis is the duration of the traces and the x-axis is the timestamp. In addition to the scatter plot, the trace view displays a list of traces from your service in chronological order.</p>
 <p>You can search and filter traces using the search bar and the filter button.</p>
 <p>The scatter plot is color-coded:</p>
 <ul>
@@ -325,58 +325,6 @@
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<hr>
-<doc-anchor-target id="errors">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#errors">#</doc-anchor-trigger>
-        <span>Errors</span>
-    </h2>
-</doc-anchor-target>
-<p>The error view displays a list of all errors that have occured in your service, alongside metadata about the error.</p>
-<p>You can search for, or filter errors that match a set of criteria.</p>
-<p>Once you&#x27;ve identified an error you want to investigate further, click on the &quot;Investigate&quot; button to quickly get the context around the error, for example the requests or traces the error occured in, or more metadata around the error.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>Baselime automatically detects errors from your telemetry data.</p>
-        </div>
-    </div>
-</div>
-<p><figure class="content-center">
-    <img src="../../assets/images/illustrations/analyzing-data/home/errors.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<hr>
-<doc-anchor-target id="inventory">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#inventory">#</doc-anchor-trigger>
-        <span>Inventory</span>
-    </h2>
-</doc-anchor-target>
-<p>The inventory view displays a set of lists of cloud-resources available in your service. Currently, the available resources are:</p>
-<ul>
-<li>AWS Lambda Functions</li>
-<li>Amazon ECS Services</li>
-<li>Amazon DynamoDB Tables</li>
-</ul>
-<p>We&#x27;re continiously adding more cloud services to the inventory view.</p>
-<p><figure class="content-center">
-    <img src="../../assets/images/illustrations/analyzing-data/home/inventory.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<p>From the inventory view, you can navigate to any individual cloud resource.</p>
 
                                 
                                 <!-- Required only on API pages -->
