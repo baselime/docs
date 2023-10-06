@@ -1,4 +1,4 @@
-# OpenTelemetry Traces
+# OpenTelemetry
 
 ---
 
@@ -8,11 +8,7 @@ Add the Baselime OpenTelemetry endpoint to your exporter:
 - Endpoint `https://otel.baselime.io/v1/`
 - Header: `x-api-key: <BASELIME_API_KEY>` 
 
-You can get your Baselime API key in the [Baselime console](https://console.baselime.io) from the [Baselime CLI](../../cli/install.md) with:
-
-```bash # :icon-terminal: terminal
-baselime iam
-```
+You can get your public Baselime API key in the [Baselime console](https://console.baselime.io) from the [Baselime CLI](../../cli/install.md).
 
 If you have not instrumented your codebase with OpenTelemetry yet, we are building OpenTelemetry SDKs to facilitate instrumenting your code.
 

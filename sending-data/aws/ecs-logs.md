@@ -22,13 +22,9 @@ Each of your ECS tasks can take a sidecar container running the FireLens log dri
 
 ### Step 1: Obtaining your Baselime API Key
 
-You can get your Baselime API key using the Baselime CLI. Ensure you have downloaded the Baselime CLI and logged in your environment. To get your Baselime API Key, run the following command
+You can get your public Baselime API key in the [Baselime console](https://console.baselime.io) from the [Baselime CLI](../../cli/install.md).
 
-```bash #
-baselime iam
-```
-
-Copy the Baselime API Key in the output of the command and keep it safe. In the following instructions we will use `<BASELIME_API_KEY>` to refer to your Baselime API key, make sure to replace it with the key you copied from the output of the command.
+In the following instructions we will use `<BASELIME_API_KEY>` to refer to your Baselime API key.
 
 ### Step 2: Adding the FireLens sidecar to your task definitions
 

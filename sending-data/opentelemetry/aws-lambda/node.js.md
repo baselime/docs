@@ -63,16 +63,24 @@ OpenTelemetry automatic instrumentation is available only once you have connecte
 !!!
 
 !!!
-It is recommended to have at least 512mb of ram configured. If your memory usage is lower you may see additional latency when sending traces to the extension
+We recommended a miminum of 512mb of memory configured on AWS Lambda functions with the automatic OpenTelemetry instrumentation. AWS Lambda functions with less memory may experience higher latencies as the traces are being processed.
 !!!
 
 !!! 
 To remove the OpenTelemetry instrumentation from your AWS Lambda functions, remove the `baselime:tracing=true` tag from the function and Baselime will revert the function to un-instrumentate state.
 !!!
 
+---
+
 ## Adding custom OpenTelemetry spans
 
-To add custom spans to your OpenTelemetry traces, it is necessary to install the `@opentelemetry/api` package. It is left out of the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) to limit the impact on cold-starts, such that your can add it only to the AWS Lambda functions that require it.
+To add custom spans to your OpenTelemetry traces, install the `@opentelemetry/api` package.
+
+```bash
+npm i --save @opentelemetry/api
+```
+
+And manually add spans to your traces.
 
 ```javascript #
 import { trace } from "@opentelemetry/api";
@@ -103,7 +111,7 @@ export async function handler(event) {
 
 OpenTelemetry is an open standard, and you can use the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) to send telemetry data to another backend of your choice.
 
-Add the environment variable `COLLECTOR_URL` to send the data somewhere else than the Baselime backend.
+Set environment variable `COLLECTOR_URL` to your observability backend.
 
 ---
 

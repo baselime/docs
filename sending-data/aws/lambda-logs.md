@@ -6,11 +6,13 @@ order: 0
 # AWS Lambda Logs
 
 
-Once you connect your AWS account to Baselime, Baselime automatically create [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html) to automatically ingest logs from your AWS Lambda functions.
+Once you connect your AWS account to Baselime, it automatically creates [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html) to ingest logs from your AWS Lambda functions.
 
-Baselime automatically captures logs for newly created AWS Lambda functions, and enables you to query and visualise logs across log groups and log streams.
+Baselime automatically captures logs for newly created AWS Lambda functions, and enables you to query and visualise logs across multiple log groups and log streams.
 
-
+!!!
+It is possible to send logs from AWS Lambda functions to Baselime directly using the Baselime AWS Lambda Extension, and bypass Amazon CloudWatch for cost considerations.
+!!!
 ---
 
 ## How it works
@@ -22,6 +24,73 @@ Once Baselime is connected to an AWS Account, it automatically creates Logs subs
 Moreover, Baselime automatically creates new subscription filters for newly deployed AWS Lambda functions. Baselime listens to new AWS Lambda events in Amazon CloudTrail and creates subscription filters for newly created AWS Lambda functions.
 
 ![AWS Lambda Logs in Baselime](../../assets/images/illustrations/sending-data/lambda-logs-illustration.png)
+
+---
+
+## Logs using the AWS Lambda Extension
+
+!!!
+This section is relevant only if you want to disable logs from Amazon CloudWatch and send logs from your AWS Lambda functions directly to Baselime.
+!!!
+
+For use-cases where you want to by-pass Amazon CloudWatch and send logs directly to Baselime from your AWS Lambda functions, use the Baselime AWS Lambda Extension.
+
+The Baselime AWS Lambda Extension listens to invocation events and collects telemetry data, such as logs and runtime metrics.
+
+### Instrumenting
+
+To instrument your AWS Lambda Functions with the Baselime AWS Lambda Extension, add the extension as an AWS Lambda Layer.
+
+It is required to add your public Baselime API key to your functions as an environment variable.
+
+```yaml #
+# serverless.yml
+service: myService
+ 
+provider:
+  name: aws
+  runtime: python3.8
+  environment:
+    BASELIME_KEY: <BASELIME_KEY>
+  layers:
+    - <BASELIME_LAMBDA_LAYER_ARN>
+ 
+functions:
+  hello:
+    handler: handler.hello
+```
+
+Where the `BASELIME_KEY` is your public Baselime API Key and the `BASELIME_LAMBDA_LAYER_ARN` is the ARN of the Baselime AWS Lambda extension in your region.
+
+```javascript
+`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:8`
+```
+
+The Baselime AWS Lambda Extension is language agnostic and is compressed as a single binary, to minimise its impact cold-starts and performance.
+
+![Using the Baselime Lambda Extension](../../assets/images/illustrations/sending-data/lambda-extension.png)
+
+All the logs and metrics from your AWS Lambda function is collected asynchronously from your invocation, and sent to the Baselime backend in a separate process from your invocation, with no impact on the latency your users experience.
+
+### Configuration
+
+When using the Baselime AWS Lambda Extension, it is not necessary to use Amazon CloudWatch for AWS Lambda logs. To disable Amazon Cloudwatch logs, add an explicit deny IAM policy that prevents the creation of log streams and log events for your function.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
 
 ---
 
