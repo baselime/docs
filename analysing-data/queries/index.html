@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.750203576563">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.750207419906">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Queries | Baselime - The cloud-native observability platform</title>
     <meta name="title" content="Queries | Baselime - The cloud-native observability platform">
-    <meta name="description" content="Queries are the primary way of interacting with your data in Baselime.">
+    <meta name="description" content="Queries are the building blocks of all interactions with your telemetry data on Baselime.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/analysing-data/queries/">
@@ -21,23 +21,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/analysing-data/queries/">
     <meta property="og:title" content="Queries | Baselime - The cloud-native observability platform">
-    <meta property="og:description" content="Queries are the primary way of interacting with your data in Baselime.">
+    <meta property="og:description" content="Queries are the building blocks of all interactions with your telemetry data on Baselime.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/analysing-data/queries/">
     <meta property="twitter:title" content="Queries | Baselime - The cloud-native observability platform">
-    <meta property="twitter:description" content="Queries are the primary way of interacting with your data in Baselime.">
+    <meta property="twitter:description" content="Queries are the building blocks of all interactions with your telemetry data on Baselime.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.750203576563" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.750207419906" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.750203576563" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.750207419906" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.750203576563" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.750203576563" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.750207419906" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.750207419906" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -204,20 +204,19 @@
         <span>Queries</span>
     </h1>
 </doc-anchor-target>
-<p>Queries are the primary way of interacting with your data in Baselime.</p>
+<p>Queries are the building blocks of all interactions with your telemetry data on Baselime. When you view a request or a trace, it&#x27;s the result of a query.</p>
+<p>You can run queries both in the <a href="https://console.baselime.io">Baselime console</a> and using the <a href="../../cli/install/">Baselime CLI</a>.</p>
 <doc-anchor-target id="queries-in-the-console">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#queries-in-the-console">#</doc-anchor-trigger>
         <span>Queries in the Console</span>
     </h2>
 </doc-anchor-target>
-<p>You can run queries in the <a href="https://console.baselime.io">Baselime console</a> by navigating to your service and clicking on the New Query button. This brings up the Visual Query Editor.</p>
-<p>To execute a query, click the Run Query button. The query results will be displayed in visually and in a table below the editor.</p>
-<p>
-<figure>
-    <div class="relative w-full mb-6 overflow-hidden pt-9/16">
-        <iframe class="w-full h-full border-0 absolute inset-0" src="https://www.youtube.com/embed/QuLT55XqJsE" allowfullscreen></iframe>
-    </div>
+<p>From anywhere in the <a href="https://console.baselime.io">Baselime console</a> you can start a new query by clicking on the &quot;New query&quot; button.</p>
+<p>You can use the query builder to construct queries to explore your data, investigate issues and resolve performace bottlenecks. The query builder is aware of your observability data and will recommend values such that you always query within the context of your data.</p>
+<p><figure class="content-center">
+    <img src="../../assets/images/illustrations/analyzing-data/queries/builder.png" alt="Sending AWS App Runner logs to Baselime">
+    <figcaption class="caption">Sending AWS App Runner logs to Baselime</figcaption>
 </figure>
 </p>
 <hr>
