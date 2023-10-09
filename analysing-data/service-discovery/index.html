@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.750173640275">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.750203576563">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Automatic Service Discovery | Baselime - The cloud-native observability platform</title>
     <meta name="title" content="Automatic Service Discovery | Baselime - The cloud-native observability platform">
-    <meta name="description" content="Baselime automatically discovers services in your cloud accounts, and organize logs, metrics, traces, and other telemetry data into services.">
+    <meta name="description" content="Baselime automatically discovers services in your cloud accounts and organises your observability data following services and teams boundaries.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/analysing-data/service-discovery/">
@@ -21,24 +21,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/analysing-data/service-discovery/">
     <meta property="og:title" content="Automatic Service Discovery | Baselime - The cloud-native observability platform">
-    <meta property="og:description" content="Baselime automatically discovers services in your cloud accounts, and organize logs, metrics, traces, and other telemetry data into services.">
-    <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/analyzing-data/service-list.png">
+    <meta property="og:description" content="Baselime automatically discovers services in your cloud accounts and organises your observability data following services and teams boundaries.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/analysing-data/service-discovery/">
     <meta property="twitter:title" content="Automatic Service Discovery | Baselime - The cloud-native observability platform">
-    <meta property="twitter:description" content="Baselime automatically discovers services in your cloud accounts, and organize logs, metrics, traces, and other telemetry data into services.">
-    <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/analyzing-data/service-list.png">
+    <meta property="twitter:description" content="Baselime automatically discovers services in your cloud accounts and organises your observability data following services and teams boundaries.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.750173640275" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.750203576563" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.750173640275" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.750203576563" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.750173640275" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.750203576563" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -205,8 +203,7 @@
         <span>Automatic Service Discovery</span>
     </h1>
 </doc-anchor-target>
-<p>Baselime automatically discovers services in your cloud accounts, and organize logs, metrics, traces, and other telemetry data into services.</p>
-<p>With automatic service discovery, Baselime organises your observability following services and teams boundaries, enabling you to quickly sift through the vast amounts of data your applications produce.</p>
+<p>Baselime automatically discovers services in your cloud accounts and organises your observability data following services and teams boundaries. This ebales you to quickly sift through the vast amounts of data your applications produce.</p>
 <hr>
 <doc-anchor-target id="discovering-services">
     <h2>
@@ -237,19 +234,12 @@
 <p>The name of the service is the name of the CloudFormation template</p>
 </doc-tab>
 </doc-tabs>
-<p>When ingesting data from your architecture, Baselime correlates the incoming data with the service name of the cloud resource the data originates from. For example, all the logs of an AWS Lambda function deployed with CloudFormation are correlated with the name of the CloudFormation stack.</p>
-<p>You can then view a list of services in the <a href="https://console.baselime.io">Baselime console</a>, with key health.</p>
-<p><figure class="content-center">
-    <img src="../../assets/images/illustrations/analyzing-data/service-list.png" alt="List of services in the Baselime console">
-    <figcaption class="caption">List of services in the Baselime console</figcaption>
-</figure>
-</p>
-<p>Organising telemetry data by service enables you to query only the data for a specific service when exploring telemetry data. For cases where there&#x27;s a defect that spans multiple services, Baselime enables you to run queries across all services through the <code v-pre>default</code> service.</p>
+<p>When ingesting data from your architecture, Baselime correlates the incoming data with the service name of the cloud resource the data originates from.</p>
 <hr>
-<doc-anchor-target id="overriding-the-service-discovery">
+<doc-anchor-target id="overriding-the-service-discovery-on-aws">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#overriding-the-service-discovery">#</doc-anchor-trigger>
-        <span>Overriding the service discovery</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#overriding-the-service-discovery-on-aws">#</doc-anchor-trigger>
+        <span>Overriding the service discovery on AWS</span>
     </h2>
 </doc-anchor-target>
 <p>To force the resources from a CloudFormation stack to belong to a service with a different name, set the value of the tag <code v-pre>baselime:service</code> to the desired service name on the CloudFormation template. All resources deployed with the CloudFormation template will be correlated with the desired service name.</p>
