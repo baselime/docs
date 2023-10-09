@@ -70,6 +70,10 @@ We recommended a miminum of 512mb of memory configured on AWS Lambda functions w
 To remove the OpenTelemetry instrumentation from your AWS Lambda functions, remove the `baselime:tracing=true` tag from the function and Baselime will revert the function to un-instrumentate state.
 !!!
 
+!!!warning
+Other observability tool layers and tags can adversely interact with the Baselime OpenTelemetry layer. We recommend to disable all other observability layers and tags before instrumenting your AWS Lambda functions with the Baselime OpenTelemetry layer. Failing to do so could result in down-time.  
+!!!
+
 ---
 
 ## Adding custom OpenTelemetry spans

@@ -1,6 +1,6 @@
 ---
 label: Vercel
-order: -6
+order: -2
 ---
 
 # Vercel
