@@ -50,6 +50,12 @@ When an error is marked as **Resolved**, you will get notified the first time it
 
 ---
 
+## Deleting Errors
+
+You can delete errors. When you delete an error, all its history is lost, and this action is irreversible. If the same error occurs again in the future, we will create a new Error for it and notify you as per your notification settings.
+
+---
+
 ## Assigning Errors
 
 You can assign an error to any of your member of your team to facilitate error triage.
