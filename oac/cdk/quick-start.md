@@ -4,7 +4,7 @@ order: 0
 ---
 
 Observability is a first class citizen of your infrastructure with Baselime. You
-can use the [AWS CDK](https://aws.amazon.com/cdk/) to define your observability
+can use the [AWS CDK](https://aws.amazon.com/cdk/) to define and automate your observability
 configurations in Baselime.
 
 ![](../../assets/images/logos/cdk.png)
@@ -41,6 +41,8 @@ pnpm i --save-dev @baselime/cdk
 ## Configuration
 
 Initialise the Baselime CDK with your Baselime API Key.
+
+Get your API Key from the [Baselime console](https://console.baselime.io). Make sure to select an `Admin` API Key. Admin API keys have the permissions to create resources in your Baselime account.
 
 ```typescript # :icon-code: index.ts
 import { Baselime } from "@baselime/cdk";

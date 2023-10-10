@@ -10,7 +10,7 @@ gain insights from your services.
 
 ---
 
-## Sample Query Spec
+## Query Specification
 
 Here’s a sample query in Baselime CDK that uses all of the supported settings
 for defining queries in Baselime. Use it to get started creating your own
