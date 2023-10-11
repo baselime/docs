@@ -1,6 +1,6 @@
 {
   "version": "3.1.0",
-  "created": "2023-10-05T11:47:21Z",
+  "created": "2023-10-11T13:43:39Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -185,7 +185,17 @@
       "path": "assets/images/illustrations/sending-data/apprunner.png"
     },
     {
+      "path": "assets/images/illustrations/sending-data/cloudflare-account-token.png",
+      "old": true
+    },
+    {
       "path": "assets/images/illustrations/sending-data/cloudtrail.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/create-cloudflare-token.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/create-new-env.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/ecs-illustration.png"
@@ -336,13 +346,15 @@
       "path": "cli/reference/console/index.html"
     },
     {
-      "path": "cli/reference/deploy/index.html"
+      "path": "cli/reference/deploy/index.html",
+      "old": true
     },
     {
       "path": "cli/reference/iam/index.html"
     },
     {
-      "path": "cli/reference/init/index.html"
+      "path": "cli/reference/init/index.html",
+      "old": true
     },
     {
       "path": "cli/reference/login/index.html"
@@ -354,7 +366,8 @@
       "path": "cli/reference/mark/index.html"
     },
     {
-      "path": "cli/reference/pull/index.html"
+      "path": "cli/reference/pull/index.html",
+      "old": true
     },
     {
       "path": "cli/reference/query/index.html"
@@ -372,7 +385,8 @@
       "path": "cli/reference/telemetry/index.html"
     },
     {
-      "path": "cli/reference/templates/index.html"
+      "path": "cli/reference/templates/index.html",
+      "old": true
     },
     {
       "path": "cli/reference/test/index.html"
@@ -381,7 +395,8 @@
       "path": "cli/reference/upgrade/index.html"
     },
     {
-      "path": "cli/reference/validate/index.html"
+      "path": "cli/reference/validate/index.html",
+      "old": true
     },
     {
       "path": "CNAME"
@@ -451,10 +466,11 @@
       "old": true
     },
     {
-      "path": "oac/terraform/overview/index.html"
+      "path": "oac/terraform/index.html"
     },
     {
-      "path": "oac/terraform/overview/index.html"
+      "path": "oac/terraform/overview/index.html",
+      "old": true
     },
     {
       "path": "quick-start/index.html"
@@ -538,6 +554,9 @@
     },
     {
       "path": "sending-data/aws/xray/index.html"
+    },
+    {
+      "path": "sending-data/cloudflare/index.html"
     },
     {
       "path": "sending-data/cloudtrail/index.html",
