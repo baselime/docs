@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.750347229561">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.750353735876">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.750347229561" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.750353735876" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.750347229561" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.750353735876" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.750347229561" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.750347229561" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.750353735876" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.750353735876" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -220,7 +220,11 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-            <h5>Requires Cloudflare Workers pro</h5>
+            <h5>Note</h5>
+<p>Requires Cloudflare Workers Pro</p>
+        </div>
+    </div>
+</div>
 <doc-anchor-target id="1-create-an-api-token">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#1-create-an-api-token">#</doc-anchor-trigger>
@@ -247,7 +251,11 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-            <h5>Learn more about api tokens in the Cloudflare docs <a href="https://developers.cloudflare.com/fundamentals/api/get-started/create-token/">https://developers.cloudflare.com/fundamentals/api/get-started/create-token/</a></h5>
+            <h5>Note</h5>
+<p>Learn more about api tokens in the <a href="https://developers.cloudflare.com/fundamentals/api/get-started/create-token/">Cloudflare Docs</a></p>
+        </div>
+    </div>
+</div>
 <p>Make sure to grant access to each Cloudflare account you want to connect to Baselime.
 <figure class="content-center">
     <img src="../../assets/images/illustrations/sending-data/create-cloudflare-token.png" alt="Cloudflare Token Creation">
@@ -275,17 +283,20 @@
     </h2>
 </doc-anchor-target>
 <p>To complete the setup, you&#x27;ll need to enable logpush on your Cloudflare workers. Follow the Cloudflare documentation to learn how to do this:</p>
+<p>Add <code v-pre>logpush = true</code> to the top level section of your Workers wrangler.toml file</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-toml"><code v-pre class="language-toml">logpush = true</code></pre>
+<pre class="language-toml"><code v-pre class="language-toml"># Top-level configuration
+
+name = &quot;my-worker&quot;
+main = &quot;src/index.js&quot;
+compatibility_date = &quot;2022-07-12&quot;
+
+workers_dev = false
+logpush = true
+route = { pattern = &quot;example.org/*&quot;, zone_name = &quot;example.org&quot; }</code></pre>
 </doc-codeblock></div>
 <p>Check out the <a href="https://developers.cloudflare.com/workers/observability/logpush/#enable-logging-on-your-worker">Cloudflare documentation</a> on enabling logpush for your Cloudflare workers.</p>
 <p>By following these steps, you&#x27;ll successfully connect your Cloudflare account to Baselime and enable the necessary logging for monitoring your Cloudflare workers effectively.</p>
-        </div>
-    </div>
-</div>
-        </div>
-    </div>
-</div>
 
                                 
                                 <!-- Required only on API pages -->
