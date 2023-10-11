@@ -5,15 +5,17 @@ order: 0
 
 # Queries
 
-Queries are the primary way of interacting with your data in Baselime.
+Queries are the building blocks of all interactions with your telemetry data on Baselime. When you view a request or a trace, it's the result of a query.
+
+You can run queries both in the [Baselime console](https://console.baselime.io) and using the [Baselime CLI](../cli/install.md).
 
 ## Queries in the Console
 
-You can run queries in the [Baselime console](https://console.baselime.io) by navigating to your service and clicking on the New Query button. This will bring up the Visual Query Editor. You can edit the query visually, but also switch to the embedded code editor to write your query using the [Observability Reference Language (ORL)](../oac/observability-reference-language/overview.md).
+From anywhere in the [Baselime console](https://console.baselime.io) you can start a new query by clicking on the "New query" button.
 
-To execute a query, click the Run Query button. The query results will be displayed in visually and in a table below the editor.
+You can use the query builder to construct queries to explore your data, investigate issues and resolve performace bottlenecks. The query builder is aware of your observability data and will recommend values such that you always query within the context of your data.
 
-[!embed](https://www.youtube.com/watch?v=QuLT55XqJsE)
+![Sending AWS App Runner logs to Baselime](../../assets/images/illustrations/analyzing-data/queries/builder.png)
 
 ---
 

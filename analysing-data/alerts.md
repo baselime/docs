@@ -44,7 +44,7 @@ baselime deploy
 
 ## Receiving alerts
 
-When an alert is triggered, you can choose to receive notifications through a variety of channels, such as email, Slack, or PagerDuty (coming soon).
+When an alert is triggered, you can choose to receive notifications through a variety of channels, such as email, Slack or webhook.
 
 ---
 

@@ -29,13 +29,21 @@ If you created an environment manually, execute this `cURL` command to send your
 Replace your `BASELIME_API_KEY` with the API key your got from step 2.
 
 ```bash # :icon-terminal: terminal
-curl -X 'POST' 'https://events.baselime.io/v1/lambda-logs/default/test-namespace' \
+curl -X 'POST' 'https://events.baselime.io/v1/logs/my-service/my-namespace' \
   -H 'x-api-key: $BASELIME_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '[
         {
           "message": "This is an example log event",
+          "error": "TypeError: Cannot read property 'something' of undefined",
+          "requestId": "6092d6f0-3bfa-4d62-9d0b-5bc7ae6518a1",
           "data": {"key1": "an example metadata"}
+        },
+        {
+          "message": "This is another example log event",
+          "requestId": "6092d6f0-3bfa-4d62-9d0b-5bc7ae6518a1",
+          "data": {"userId": "01HBRCB38K2K4V5SDR7YC1D0ZB"},
+          "duration": 127
         }
       ]'
 ```
@@ -60,7 +68,6 @@ Congratulations! Your first event should be available to query in Baselime. You 
 ## Reference
 
 - [Baselime CDK Reference Guide](./oac/cdk/quick-start.md): Learn about how to use Baselime with the AWS CDK to define your Observability as Code
-- [ORL Reference Guide](./oac/observability-reference-language/overview.md): Learn about the Baselime Observability Reference Language (ORL) and how to use it to define observability configurations
 - [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
 
 ---

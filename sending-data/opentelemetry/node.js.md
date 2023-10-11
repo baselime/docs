@@ -55,7 +55,7 @@ Set the environment variables of your comntainer service to include the Baselime
 
 | Key          | Value                                       | Description                                                                         |
 | ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------- |
-| BASELIME_KEY | `your-api-key`               | Get this key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) running `baselime iam` |
+| BASELIME_KEY | `your-api-key`               | Get this key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) |
 | NODE_OPTIONS | `-r ./src/tracing.cjs --experimental-loader=import-in-the-middle/hook.mjs` | Preloads the OpenTelemetry SDK at startup                                                 |
 
 Once these steps are completed, distributed traces from your Node.js container applications should be available in Baselime to query via the console or the Baselime CLI.
@@ -70,8 +70,8 @@ The `BaselimeSDK` class of the [Baselime Node.js OpenTelemetry SDK](https://gith
 
 | Field            | Type                    | Description                          |
 | ---------------- | ----------------------- | ------------------------------------ |
-| `instrumentations` | InstrumentationOption[] | An array of instrumentation options. |
-| `baselimeKey`      | string (optional)       | The Baselime API key.                    |
-| `collectorUrl`     | string (optional)       | The URL of the collector.            |
-| `service`          | string (optional)       | The service name.                    |
-| `namespace`        | string (optional)       | The namespace.                       |
+| `instrumentations` | `InstrumentationOption[]` | An array of instrumentation options |
+| `baselimeKey`      | `string` (optional)       | The Baselime API key                    |
+| `collectorUrl`     | `string` (optional)       | The URL of the collector            |
+| `service`          | `string` (optional)       | The service name                    |
+| `namespace`        | `string` (optional)       | The namespace                       |

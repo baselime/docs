@@ -5,7 +5,7 @@ Baselime has a size limit for events of `256kb`. This size limit helps ensure th
 --- 
 ## Sending Semi-Structured Logs to Baselime
 
-Semi-structured logs are logs that are not in the strict JSON format, but still contain structured data that can be extracted.These logs contain a mixture of structured and unstructured data, making them difficult to parse and analyze. Fortunately, Baselime has built-in mechanisms to parse and extract relevant data from semi-structured logs.
+Semi-structured logs are logs that are not in the strict JSON format, but still contain structured data that can be extracted. These logs contain a mixture of structured and unstructured data, making them difficult to parse and analyze. Baselime has built-in mechanisms to parse and extract relevant data from semi-structured logs.
 
 Baselime will automatically detect log events that contain JSON data, but are prepended or appended by a generic string. 
 

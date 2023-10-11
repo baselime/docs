@@ -11,7 +11,7 @@ Dashboards are a collection of queries and charts that you want to keep for futu
 
 --- 
 
-## Sample Dashboard Spec
+## Dashboard Specification
 
 Here’s a sample dashboard in Baselime CDK that uses all of the supported settings for defining dashboard in Baselime. Use it to get started creating your own dashboard.
 

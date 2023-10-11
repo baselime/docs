@@ -25,6 +25,9 @@
       "path": "analysing-data/home/index.html"
     },
     {
+      "path": "analysing-data/inventory/index.html"
+    },
+    {
       "path": "analysing-data/overview/index.html"
     },
     {
@@ -37,7 +40,8 @@
       "path": "analysing-data/service-discovery/index.html"
     },
     {
-      "path": "analysing-data/snapshots/index.html"
+      "path": "analysing-data/snapshots/index.html",
+      "old": true
     },
     {
       "path": "analysing-data/tail/index.html"
@@ -107,6 +111,9 @@
     },
     {
       "path": "assets/images/illustrations/analyzing-data/overview/trace.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/queries/builder.png"
     },
     {
       "path": "assets/images/illustrations/analyzing-data/service-list.png"
@@ -274,10 +281,28 @@
       "path": "assets/images/logos/logo_cloudwatch.png"
     },
     {
+      "path": "assets/images/logos/logo_docker_icon.png"
+    },
+    {
+      "path": "assets/images/logos/logo_docker_icon.svg"
+    },
+    {
       "path": "assets/images/logos/logo_ecs_logs.png"
     },
     {
+      "path": "assets/images/logos/logo_kubernetes_icon.png"
+    },
+    {
+      "path": "assets/images/logos/logo_kubernetes_icon.svg"
+    },
+    {
       "path": "assets/images/logos/logo_open_telemetry.png"
+    },
+    {
+      "path": "assets/images/logos/logo_react_icon.png"
+    },
+    {
+      "path": "assets/images/logos/logo_react_icon.svg"
     },
     {
       "path": "assets/images/logos/logo_xray.png"
@@ -406,19 +431,27 @@
       "path": "oac/cdk/reference/queries/index.html"
     },
     {
-      "path": "oac/observability-reference-language/overview/index.html"
+      "path": "oac/observability-reference-language/overview/index.html",
+      "old": true
     },
     {
-      "path": "oac/observability-reference-language/reference/alerts/index.html"
+      "path": "oac/observability-reference-language/reference/alerts/index.html",
+      "old": true
     },
     {
-      "path": "oac/observability-reference-language/reference/dashboards/index.html"
+      "path": "oac/observability-reference-language/reference/dashboards/index.html",
+      "old": true
     },
     {
-      "path": "oac/observability-reference-language/reference/queries/index.html"
+      "path": "oac/observability-reference-language/reference/queries/index.html",
+      "old": true
     },
     {
-      "path": "oac/observability-reference-language/reference/services/index.html"
+      "path": "oac/observability-reference-language/reference/services/index.html",
+      "old": true
+    },
+    {
+      "path": "oac/terraform/overview/index.html"
     },
     {
       "path": "oac/terraform/overview/index.html"
@@ -497,7 +530,8 @@
       "path": "sending-data/aws/index.html"
     },
     {
-      "path": "sending-data/aws/lambda-extension/index.html"
+      "path": "sending-data/aws/lambda-extension/index.html",
+      "old": true
     },
     {
       "path": "sending-data/aws/lambda-logs/index.html"

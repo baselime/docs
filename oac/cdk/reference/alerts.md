@@ -9,7 +9,7 @@ Alerts are used to run a query on a schedule and notify you if a threshold is cr
 
 ---
 
-## Sample Alert Spec
+## Alert Specification
 
 Here’s a sample alert in Baselime CDK that uses all of the supported settings for defining alert in Baselime. Use it to get started creating your own alert.
 
