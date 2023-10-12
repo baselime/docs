@@ -4,7 +4,7 @@ order: -3
 ---
 # Cloudflare Workers
 
-Cloudflare Workers are an edge plateform that enabled developers to build serverless applications and deploy instantly across the globe for exceptional performance, reliability, and scale.
+Cloudflare Workers are an edge platform that enabled developers to build serverless applications and deploy instantly across the globe for exceptional performance, reliability, and scale.
 
 Baselime offers advanced monitoring capabilities for applications running on Cloudflare Workers. This guide will help you connect your Cloudflare account to Baselime, enabling you to monitor your Cloudflare Workers effectively.
 
@@ -16,7 +16,7 @@ Baselime offers advanced monitoring capabilities for applications running on Clo
 Logpush is available only to accounts subscribed to Cloudflare Workers Pro
 !!!
 
-Baselime connects to your Cloudflare account and enables Logpush to stream your Worker Trave Event Logs to Baselime. You can connect your account in 3 steps:
+Baselime connects to your Cloudflare account and enables Logpush to stream your Worker Trace Event Logs to Baselime. You can connect your account in 3 steps:
 
 ### 1. Create an API Token
 
