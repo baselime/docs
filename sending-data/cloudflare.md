@@ -1,50 +1,59 @@
 ---
-label: Cloudflare
+label: Cloudflare Workers
 order: -3
 ---
-# Baselime Cloudflare Integration
+# Cloudflare Workers
 
-Baselime offers advanced monitoring capabilities for applications running on Cloudflare workers. This guide will help you connect your Cloudflare account to Baselime, enabling you to monitor your Cloudflare Workers effectively.
+Cloudflare Workers are an edge plateform that enabled developers to build serverless applications and deploy instantly across the globe for exceptional performance, reliability, and scale.
 
-!!! Note
-Requires Cloudflare Workers Pro
+Baselime offers advanced monitoring capabilities for applications running on Cloudflare Workers. This guide will help you connect your Cloudflare account to Baselime, enabling you to monitor your Cloudflare Workers effectively.
+
+---
+
+## Using Logpush
+
+!!!
+Logpush is available only to accounts subscribed to Cloudflare Workers Pro
 !!!
 
-## 1. Create an API Token
+Baselime connects to your Cloudflare account and enables Logpush to stream your Worker Trave Event Logs to Baselime. You can connect your account in 3 steps:
 
-To get started, you need to create an API token for your Cloudflare account. This token will allow Baselime to access the necessary data. Follow these steps:
+### 1. Create an API Token
 
-**Step 1:** Go to the Cloudflare [Dashboard API Tokens page](https://dash.cloudflare.com/profile/api-tokens).
+To get started, you need to create an API token for your Cloudflare account. This token will enable Baselime to access create the Logpush and add metadata to your events once they are ingested into Baselime.
 
-**Step 2:** Create a user API token with the following permissions:
+Go to the Cloudflare [Dashboard API Tokens page](https://dash.cloudflare.com/profile/api-tokens) and create a user API token with the following permissions:
 
 - **Logs - Edit:** This permission is required to set up logpush configurations to collect logs from Cloudflare.
 - **Account Settings - Read:** This permission is needed to list the accounts and add them to Baselime automatically.
 
-!!! Note
-Learn more about api tokens in the [Cloudflare Docs](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)
+Select all the Cloudflare accounts you want to observe in Baselime.
+![Cloudflare Token Creation](../assets/images/illustrations/sending-data/cloudflare/create-cloudflare-token.png)
+
+!!!
+Learn more about API tokens in the [Cloudflare Docs](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)
 !!!
 
-Make sure to grant access to each Cloudflare account you want to connect to Baselime.
-![Cloudflare Token Creation](../assets/images/illustrations/sending-data/create-cloudflare-token.png)
 
-## 2. Add Your Cloudflare Account to Baselime
+### 2. Connect Your Cloudflare Account to Baselime
 
-Once you have your API token, follow these steps to connect your Cloudflare account to Baselime:
+Use the API Token you created in the previous step to connect your Cloudflare account to Baselime in the [Baselime console](https://console.baselime.io).
 
-**Step 1:** In the Baselime platform, select "Connect Cloudflare Account."
+**Step 1:** Create a new environment
 
-![Add Environment](../assets/images/illustrations/sending-data/create-new-env.png)
+![Add Environment](../assets/images/illustrations/sending-data/cloudflare/create-new-env.png)
 
 **Step 2:** Add the API token you created in the previous step and connect your Cloudflare account.
 
-## 3. Enable Logpush on Your Cloudflare Workers
+![Add your API Token](../assets/images/illustrations/sending-data/cloudflare/cloudflare-token.png)
 
-To complete the setup, you'll need to enable logpush on your Cloudflare workers. Follow the Cloudflare documentation to learn how to do this:
+### 3. Enable Logpush on Your Cloudflare Workers
 
-Add `logpush = true` to the top level section of your Workers wrangler.toml file
+To complete the setup, it's necessary to enable Logpush on your Cloudflare workers.
 
-```toml
+Add `logpush = true` to the top level section of your Workers `wrangler.toml` file
+
+```toml # :icon-code: wrangler.toml
 # Top-level configuration
 
 name = "my-worker"
@@ -56,6 +65,10 @@ logpush = true
 route = { pattern = "example.org/*", zone_name = "example.org" }
 ```
 
-Check out the [Cloudflare documentation](https://developers.cloudflare.com/workers/observability/logpush/#enable-logging-on-your-worker) on enabling logpush for your Cloudflare workers.
+!!!
+Learn more about [enabling Logpush on your Cloudflare workers](https://developers.cloudflare.com/workers/observability/logpush/#enable-logging-on-your-worker).
+!!!
 
-By following these steps, you'll successfully connect your Cloudflare account to Baselime and enable the necessary logging for monitoring your Cloudflare workers effectively.
+### 4. Using the Cloudflare Workers Logpush integration
+
+Once you've connected your Cloudflare account to Baselime, all your Workers Trace Events will be available in Baselime. You can search, query or tail your logs from the console and the CLI. You can create alerts from derived metrics from your logs. You can use our dashboard templates to create dashboards based on your Cloudflare events, and modify them at will.

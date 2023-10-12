@@ -15,6 +15,9 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 ### Vercel
 [!ref icon="../assets/images/logos/vercel.png"](./vercel.md)
 
+### Cloudflare
+[!ref icon="../assets/images/logos/cloudflare.png"](./cloudflare.md)
+
 ### AWS
 [!ref icon="../assets/images/logos/logo_aws_lambda.png"](./aws/lambda-logs.md)
 [!ref icon="../assets/images/logos/logo_ecs_logs.png"](./aws/ecs-logs.md)
