@@ -32,7 +32,7 @@ Make sure to grant access to each Cloudflare account you want to connect to Base
 
 Once you have your API token, follow these steps to connect your Cloudflare account to Baselime:
 
-**Step 1:** In the Baselime platform, select "Connect Cloudflare Account."
+**Step 1:** In the Baselime, select "Connect Cloudflare Account."
 
 ![Add Environment](../assets/images/illustrations/sending-data/create-new-env.png)
 
@@ -40,7 +40,7 @@ Once you have your API token, follow these steps to connect your Cloudflare acco
 
 ## 3. Enable Logpush on Your Cloudflare Workers
 
-To complete the setup, you'll need to enable logpush on your Cloudflare workers. Follow the Cloudflare documentation to learn how to do this:
+To complete the setup, you'll need to enable logpush on your Cloudflare workers.
 
 Add `logpush = true` to the top level section of your Workers wrangler.toml file
 
