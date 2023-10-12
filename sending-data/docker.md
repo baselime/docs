@@ -61,7 +61,7 @@ $ docker run -d \
 ```yaml
 version: "3.7"
 services:
-  logger:
+  your_service:
     image: YOUR_IMAGE
     depends_on:
       - fluentd
