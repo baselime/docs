@@ -13,7 +13,7 @@ Observability is a first class citizen of your infrastructure with Baselime. You
 
 Use the [Baselime Terraform Provider](https://registry.terraform.io/providers/baselime/baselime/latest) to create and manage your observability resources on Baselime with Terraform.
 
-```terraform
+```terraform # :icon-code: baselime.ts
 terraform {
   required_providers {
     baselime = {
