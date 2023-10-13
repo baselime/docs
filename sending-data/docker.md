@@ -127,4 +127,4 @@ Using provided Fluentd configuration, Fluentd will match the incoming logs and s
 to Baselime over HTTPS. The API Key is used to authenticate the request and route 
 the logs to your workspace and environment.
 
-
+You can find example implementation in our [GitHub repository](https://github.com/baselime/examples/tree/main/docker-logs)
