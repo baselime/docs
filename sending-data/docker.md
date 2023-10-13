@@ -4,10 +4,9 @@ order: -8
 ---
 
 # Docker Logs
-
-![Sending Telemetry data to Baselime](../assets/images/illustrations/sending-data/docker-ingestion.png)
-
-Baselime enables you to stream your Docker logs by using Fluentd as your logging driver.
+Docker allows you to configure a [logging driver](https://docs.docker.com/config/containers/logging/configure/) for each container.
+By using Fluentd as your logging driver you'll be able to stream your logs to Baselime over
+HTTPS.
 
 ---
 
@@ -15,7 +14,7 @@ Baselime enables you to stream your Docker logs by using Fluentd as your logging
 [Fluentd](https://www.fluentd.org/) is an open source data collector for unified logging layer that is widely used
 by companies such as AWS, Google, Microsoft, and more.
 
-
+---
 ## How to use Fluentd with Baselime?
 
 First obtain the API key from the
@@ -45,6 +44,7 @@ Make sure to replace `YOUR_API_KEY` with the API key you obtained from the Basel
 Now you need to start the Fluentd container and mount the configuration file you created.
 ```shell
 $ docker run \
+    -d \
     -v ./conf:/fluentd/etc \
     -p 24224:24224 \
     fluentd:latest
@@ -63,11 +63,11 @@ $ docker run -d \
 
 Pay attention to the `labels` options. It is used to extract the `service` and `namespace` fields.
 
-
+---
 ## Using Docker Compose
 If manage your containers with Docker Compose, you can use the following configuration YAML.
 
-```yaml
+```yaml # :icon-code: docker-compose.yaml
 version: "3.7"
 services:
   your_service:
@@ -109,4 +109,23 @@ or
 }
 ```
 
-The labels `io.baselime.service` and `io.baselime.namespace` are used to extract the `service` and `namespace` fields.
+### Docker Labels
+Make sure to set these labels on your Docker containers:
+* `io.baselime.service` - used to extract service name used in Baselime console.
+* `io.baselime.namespace` - used to extract the namespace used in Baselime console.
+
+
+---
+## How it works
+![Sending Telemetry data to Baselime](../assets/images/illustrations/sending-data/docker-ingestion.png)
+
+By defining logging driver as Fluentd and providing docker with the Fluentd address,
+the Docker will send your logs over TCP to Fluentd. In the above example, we've provided
+as `localhost:24224` as the Fluentd address. This value needs to be adjusted
+accordingly to your environment and network configuration.
+
+Using provided Fluentd configuration, Fluentd will match the incoming logs and send them
+to Baselime over HTTPS. The API Key is used to authenticate the request and route 
+the logs to your workspace and environment.
+
+
