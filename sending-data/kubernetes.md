@@ -127,3 +127,5 @@ We expect the log messages to be in JSON format. For example:
 DaemonSet provided above creates an instance of FluentD pod on each node in your cluster.
 The FluentD pod reads the logs from the `/var/log/containers/*.log` and `/var/log/pods/*.log` directories
 and sends them to Baselime over HTTPS.
+
+You can find example implementation in our [GitHub repository](https://github.com/baselime/examples/tree/main/kubernetes-logs)

@@ -118,7 +118,7 @@ Make sure to set these labels on your Docker containers:
 ## How it works
 ![Sending Telemetry data to Baselime](../assets/images/illustrations/sending-data/docker-ingestion.png)
 
-By defining logging driver as Fluentd and providing docker with the Fluentd address,
+By defining logging driver as Fluentd and providing Docker with the Fluentd address,
 the Docker will send your logs over TCP to Fluentd. In the above example, we've provided
 as `localhost:24224` as the Fluentd address. This value needs to be adjusted
 accordingly to your environment and network configuration.
