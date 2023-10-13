@@ -34,9 +34,6 @@ Next, create the following configuration file for Fluentd.
   <format>
     @type json
   </format>
-  <buffer>
-    flush_interval 3s
-  </buffer>
 </match>
 ```
 !!! Note
