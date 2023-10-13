@@ -22,7 +22,6 @@ First obtain the API key from the
 
 
 Next, create the following configuration file for Fluentd.
-Make sure to replace `YOUR_API_KEY` with the API key you obtained from the Baselime console.
 
 ```apacheconf # :icon-code: fluent.conf
 # fluentd/conf/fluent.conf
@@ -40,6 +39,9 @@ Make sure to replace `YOUR_API_KEY` with the API key you obtained from the Basel
   </buffer>
 </match>
 ```
+!!! Note
+Make sure to replace `YOUR_API_KEY` with the API key you obtained from the Baselime console.
+!!!
 
 Now you need to start the Fluentd container and mount the configuration file you created.
 ```shell
@@ -86,8 +88,8 @@ services:
     environment:
       - FLUENTD_CONF=fluent.conf
     labels:
-      io.baselime.service: "service_name"
-      io.baselime.namespace: "namespace_name"
+      io.baselime.service: "my-service"
+      io.baselime.namespace: "my-namespace"
 ```
 
 ## Best practices
