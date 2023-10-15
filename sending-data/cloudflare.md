@@ -13,7 +13,7 @@ Baselime offers advanced monitoring capabilities for applications running on Clo
 ## Using Logpush
 
 !!!
-Logpush is available only to accounts subscribed to Cloudflare Workers Pro
+Logpush is available only to accounts subscribed to the Cloudflare Workers Paid Plan
 !!!
 
 Baselime connects to your Cloudflare account and enables Logpush to stream your Worker Trace Event Logs to Baselime. You can connect your account in 3 steps:
