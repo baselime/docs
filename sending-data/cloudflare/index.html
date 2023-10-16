@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.750703329433">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.750785748985">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.750703329433" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.750785748985" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.750703329433" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.750785748985" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.750703329433" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.750703329433" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.750785748985" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.750785748985" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -240,7 +240,7 @@
     </h3>
 </doc-anchor-target>
 <p>To get started, you need to create an API token for your Cloudflare account. This token will enable Baselime to access create the Logpush and add metadata to your events once they are ingested into Baselime.</p>
-<p><a href="https://dash.cloudflare.com/profile/api-tokens?permissionGroupKeys=%5B%7B%22key%22:%22logs%22,%22type%22:%22edit%22%7D,%7B%22key%22:%22account_settings%22,%22type%22:%22read%22%7D%5D&amp;name=Baselime">Create a user API token</a> with the following permissions from the Cloudflare Dashboard:</p>
+<p><a href="https://dash.cloudflare.com/profile/api-tokens?permissionGroupKeys=%5B%7B%22key%22:%22account_logs%22,%22type%22:%22edit%22%7D,%7B%22key%22:%22account_settings%22,%22type%22:%22read%22%7D%5D&amp;name=Baselime">Create a user API token</a> with the following permissions from the Cloudflare Dashboard:</p>
 <ul>
 <li><strong>Logs - Edit:</strong> This permission is required to set up logpush configurations to collect logs from Cloudflare.</li>
 <li><strong>Account Settings - Read:</strong> This permission is needed to list the accounts and add them to Baselime automatically.</li>
