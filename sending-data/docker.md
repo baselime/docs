@@ -28,7 +28,7 @@ Next, create the following configuration file for Fluentd.
 <match>
   @type http
   endpoint https://events.baselime.io/v1/docker-logs
-  headers {"x-api-key":"YOUR_API_KEY"}
+  headers {"x-api-key":"YOUR_API_KEY", "x-baselime-source": "fluentd"}
   open_timeout 2
   json_array true
   <format>
@@ -38,6 +38,10 @@ Next, create the following configuration file for Fluentd.
 ```
 !!! Note
 Make sure to replace `YOUR_API_KEY` with the API key you obtained from the Baselime console.
+!!!
+
+!!! Note
+`x-baselime-source` header is required to identify the source of the logs.
 !!!
 
 Now you need to start the Fluentd container and mount the configuration file you created.
