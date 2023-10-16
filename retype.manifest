@@ -1,6 +1,10 @@
 {
   "version": "3.1.0",
+<<<<<<< HEAD
   "created": "2023-10-11T15:50:34Z",
+=======
+  "created": "2023-10-13T16:31:38Z",
+>>>>>>> 341e0a7531f3121a5a2d38813b2e5c0e5586b63e
   "files": [
     {
       "path": ".nojekyll"
@@ -189,19 +193,36 @@
       "old": true
     },
     {
+      "path": "assets/images/illustrations/sending-data/cloudflare/cloudflare-token.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/cloudflare/create-cloudflare-token.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/cloudflare/create-new-env.png"
+    },
+    {
       "path": "assets/images/illustrations/sending-data/cloudtrail.png"
     },
     {
-      "path": "assets/images/illustrations/sending-data/create-cloudflare-token.png"
+      "path": "assets/images/illustrations/sending-data/create-cloudflare-token.png",
+      "old": true
     },
     {
-      "path": "assets/images/illustrations/sending-data/create-new-env.png"
+      "path": "assets/images/illustrations/sending-data/create-new-env.png",
+      "old": true
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/docker-ingestion.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/ecs-illustration.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/ecs.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/kubernetes-ingestion.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/lambda-extension.png"
@@ -271,6 +292,9 @@
     },
     {
       "path": "assets/images/logos/cdk.png"
+    },
+    {
+      "path": "assets/images/logos/cloudflare.png"
     },
     {
       "path": "assets/images/logos/http_flat3x.png"
@@ -567,6 +591,9 @@
       "old": true
     },
     {
+      "path": "sending-data/docker/index.html"
+    },
+    {
       "path": "sending-data/ecs-logs/index.html",
       "old": true
     },
@@ -575,6 +602,9 @@
     },
     {
       "path": "sending-data/index.html"
+    },
+    {
+      "path": "sending-data/kubernetes/index.html"
     },
     {
       "path": "sending-data/lambda-extension/index.html",
@@ -626,6 +656,9 @@
     },
     {
       "path": "sending-data/validation/index.html"
+    },
+    {
+      "path": "sending-data/vector/index.html"
     },
     {
       "path": "sending-data/vercel/index.html"
