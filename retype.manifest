@@ -1,0 +1,531 @@
+{
+  "version": "3.1.0",
+  "created": "2023-10-19T12:12:12Z",
+  "files": [
+    {
+      "path": ".nojekyll"
+    },
+    {
+      "path": "404.html"
+    },
+    {
+      "path": "analysing-data/alerts/index.html"
+    },
+    {
+      "path": "analysing-data/baselime-ai/index.html"
+    },
+    {
+      "path": "analysing-data/errors/index.html"
+    },
+    {
+      "path": "analysing-data/home/index.html"
+    },
+    {
+      "path": "analysing-data/inventory/index.html"
+    },
+    {
+      "path": "analysing-data/overview/index.html"
+    },
+    {
+      "path": "analysing-data/queries/index.html"
+    },
+    {
+      "path": "analysing-data/reports/index.html"
+    },
+    {
+      "path": "analysing-data/service-discovery/index.html"
+    },
+    {
+      "path": "analysing-data/tail/index.html"
+    },
+    {
+      "path": "assets/images/cli.svg"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/baselime-ai-architecture.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/baselime-ai.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/errors/details.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/errors/errors.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/errors.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/events.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/inventory.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/request-logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/requests-filters.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/requests.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/summary.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/trace-logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/trace-timeline.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/trace.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/home/traces.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/filter.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/query.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/search.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/trace-timeline.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/overview/trace.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/queries/builder.png"
+    },
+    {
+      "path": "assets/images/illustrations/analyzing-data/service-list.png"
+    },
+    {
+      "path": "assets/images/illustrations/api-key.png"
+    },
+    {
+      "path": "assets/images/illustrations/diagrams.png"
+    },
+    {
+      "path": "assets/images/illustrations/index.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/baselime.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/context.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/easy.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/ecosystem.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/event-driven.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/invocation.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/meme.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/metrics.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/microservices.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/o11y.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/serverless.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/trace.png"
+    },
+    {
+      "path": "assets/images/illustrations/o11y-for-serverless/waterfall.png"
+    },
+    {
+      "path": "assets/images/illustrations/quickstart/api-key.png"
+    },
+    {
+      "path": "assets/images/illustrations/quickstart/connect.png"
+    },
+    {
+      "path": "assets/images/illustrations/quickstart/lambda.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/apigateway.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/apprunner.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/cloudflare/cloudflare-token.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/cloudflare/create-cloudflare-token.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/cloudflare/create-new-env.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/cloudtrail.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/docker-ingestion.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/ecs-illustration.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/ecs.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/kubernetes-ingestion.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/lambda-extension.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/lambda-logs-illustration.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/lambda-logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/metrics.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/opentelemetry/extension.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/opentelemetry/trace.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/otel-extension.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/s3-rehydration.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/s3.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/vercel.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/xray-diagram.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/xray-waterfall.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/xray.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/alert.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/integration.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/queries.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/successful.png"
+    },
+    {
+      "path": "assets/images/illustrations/slack/welcome.png"
+    },
+    {
+      "path": "assets/images/logo-wide.svg"
+    },
+    {
+      "path": "assets/images/logo.svg"
+    },
+    {
+      "path": "assets/images/logos/apprunner_logo.png"
+    },
+    {
+      "path": "assets/images/logos/aws.svg"
+    },
+    {
+      "path": "assets/images/logos/cdk.png"
+    },
+    {
+      "path": "assets/images/logos/cloudflare.png"
+    },
+    {
+      "path": "assets/images/logos/http_flat3x.png"
+    },
+    {
+      "path": "assets/images/logos/logo_apprunner.svg"
+    },
+    {
+      "path": "assets/images/logos/logo_aws_apigateway.png"
+    },
+    {
+      "path": "assets/images/logos/logo_aws_lambda.png"
+    },
+    {
+      "path": "assets/images/logos/logo_cloudtrail.png"
+    },
+    {
+      "path": "assets/images/logos/logo_cloudwatch.png"
+    },
+    {
+      "path": "assets/images/logos/logo_docker_icon.png"
+    },
+    {
+      "path": "assets/images/logos/logo_docker_icon.svg"
+    },
+    {
+      "path": "assets/images/logos/logo_ecs_logs.png"
+    },
+    {
+      "path": "assets/images/logos/logo_kubernetes_icon.png"
+    },
+    {
+      "path": "assets/images/logos/logo_kubernetes_icon.svg"
+    },
+    {
+      "path": "assets/images/logos/logo_open_telemetry.png"
+    },
+    {
+      "path": "assets/images/logos/logo_react_icon.png"
+    },
+    {
+      "path": "assets/images/logos/logo_react_icon.svg"
+    },
+    {
+      "path": "assets/images/logos/logo_xray.png"
+    },
+    {
+      "path": "assets/images/logos/node.svg"
+    },
+    {
+      "path": "assets/images/logos/s3_flat3x.png"
+    },
+    {
+      "path": "assets/images/logos/vercel.png"
+    },
+    {
+      "path": "assets/templates/cf.yaml"
+    },
+    {
+      "path": "cli/anonymous-telemetry/index.html"
+    },
+    {
+      "path": "cli/install/index.html"
+    },
+    {
+      "path": "cli/reference/connect/index.html"
+    },
+    {
+      "path": "cli/reference/console/index.html"
+    },
+    {
+      "path": "cli/reference/iam/index.html"
+    },
+    {
+      "path": "cli/reference/login/index.html"
+    },
+    {
+      "path": "cli/reference/logout/index.html"
+    },
+    {
+      "path": "cli/reference/mark/index.html"
+    },
+    {
+      "path": "cli/reference/query/index.html"
+    },
+    {
+      "path": "cli/reference/rehydrate/index.html"
+    },
+    {
+      "path": "cli/reference/report/index.html"
+    },
+    {
+      "path": "cli/reference/tail/index.html"
+    },
+    {
+      "path": "cli/reference/telemetry/index.html"
+    },
+    {
+      "path": "cli/reference/test/index.html"
+    },
+    {
+      "path": "cli/reference/upgrade/index.html"
+    },
+    {
+      "path": "CNAME"
+    },
+    {
+      "path": "connectors/aws/index.html"
+    },
+    {
+      "path": "connectors/overview/index.html"
+    },
+    {
+      "path": "faq/index.html"
+    },
+    {
+      "path": "index.html"
+    },
+    {
+      "path": "oac/cdk/quick-start/index.html"
+    },
+    {
+      "path": "oac/cdk/reference/alerts/index.html"
+    },
+    {
+      "path": "oac/cdk/reference/dashboards/index.html"
+    },
+    {
+      "path": "oac/cdk/reference/queries/index.html"
+    },
+    {
+      "path": "oac/terraform/index.html"
+    },
+    {
+      "path": "quick-start/index.html"
+    },
+    {
+      "path": "resources/css/retype.css"
+    },
+    {
+      "path": "resources/fonts/Inter-italic-latin-var.woff2"
+    },
+    {
+      "path": "resources/fonts/Inter-roman-latin-var.woff2"
+    },
+    {
+      "path": "resources/js/config.js"
+    },
+    {
+      "path": "resources/js/lunr.js"
+    },
+    {
+      "path": "resources/js/prism.js"
+    },
+    {
+      "path": "resources/js/retype.js"
+    },
+    {
+      "path": "resources/js/search.json"
+    },
+    {
+      "path": "resources/lunr.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/mermaid.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/prism.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/retype.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/retype.LICENSE.txt"
+    },
+    {
+      "path": "robots.txt"
+    },
+    {
+      "path": "security/overview/index.html"
+    },
+    {
+      "path": "security/privacy/index.html"
+    },
+    {
+      "path": "sending-data/aws/apigateway-logs/index.html"
+    },
+    {
+      "path": "sending-data/aws/apprunner-logs/index.html"
+    },
+    {
+      "path": "sending-data/aws/cloudtrail/index.html"
+    },
+    {
+      "path": "sending-data/aws/cloudwatch-metrics/index.html"
+    },
+    {
+      "path": "sending-data/aws/ecs-logs/index.html"
+    },
+    {
+      "path": "sending-data/aws/index.html"
+    },
+    {
+      "path": "sending-data/aws/lambda-logs/index.html"
+    },
+    {
+      "path": "sending-data/aws/xray/index.html"
+    },
+    {
+      "path": "sending-data/cloudflare/index.html"
+    },
+    {
+      "path": "sending-data/docker/index.html"
+    },
+    {
+      "path": "sending-data/events-api/index.html"
+    },
+    {
+      "path": "sending-data/index.html"
+    },
+    {
+      "path": "sending-data/kubernetes/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/aws-lambda/node.js/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/next.js/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/node.js/index.html"
+    },
+    {
+      "path": "sending-data/s3-rehydration/index.html"
+    },
+    {
+      "path": "sending-data/validation/index.html"
+    },
+    {
+      "path": "sending-data/vector/index.html"
+    },
+    {
+      "path": "sending-data/vercel/index.html"
+    },
+    {
+      "path": "sitemap.xml.gz"
+    },
+    {
+      "path": "tutorials/cdk/index.html"
+    },
+    {
+      "path": "what-is-baselime/index.html"
+    }
+  ]
+}

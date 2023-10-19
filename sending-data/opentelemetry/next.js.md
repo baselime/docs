@@ -1,50 +1,29 @@
 ---
 order: 1
-label: Next.js and Vercel
+label: Next.js
 ---
 
-# Trace Next.js With Open Telemetry
+# OpenTelemetry for Next.js
 
 Learn how to use [OpenTelemetry](https://opentelemetry.io/) and Baselime to trace your [Next.js](https://nextjs.org/) application.
 
-### Install `@baselime/node-opentelemetry`
+## Instrumentation
+
+### Step 1: Install the `@baselime/node-opentelemetry`
 
 
 Inside your Next.js project install the Baselime Node OpenTelemetry SDK
 
-
-+++ NPM
 ```bash # :icon-terminal: terminal
 npm i @baselime/node-opentelemetry 
 ```
-+++ Yarn
-```bash # :icon-terminal: terminal
-yarn add @baselime/node-opentelemetry 
-```
-+++ PNPM
-```bash # :icon-terminal: terminal
-pnpm add @baselime/node-opentelemetry 
-```
-+++
 
-### Set environment keys
+### Step 2: Initialise the tracer
 
-Bellow is an example .env.local file. For production you will need to make this environment variable available to your [hosting provider](https://vercel.com/docs/projects/environment-variables)
+Next, create an `instrumentation.ts` file in the root of your project and add the following code to initialize and configure OpenTelemetry.
 
 !!!
-Create an API key in the [Baselime Console](https://console.baselime.io)
-!!!
-
-```env # :icon-key: .env.local
-BASELIME_KEY=409j49-40hk-5kh-r0kh
-```
-
-### Configure the BaselimeSDK
-
-Next, create an instrumentation.ts file in the root of your project and add the following code to initialize and configure OpenTelemetry.
-
-!!!
-If you have a src/ folder the instrumentation.ts file needs to go in there
+If you have a src/ folder the `instrumentation.ts` file needs to go in there
 !!!
 
 ```typescript # :icon-code: instrumentation.ts
@@ -69,11 +48,23 @@ export async function register() {
 }
 ```
 
-### Enable Next.js Auto Instrumentation
+### Step 3: Set the Baselime environment variables
 
-Next.js 13.4+ supports auto-instrumentation. To use this feature, add `experimental.instrumentationHook = true` to your [next.config.js](https://nextjs.org/docs/app/api-reference/next-config-js).
+Set the environment variables of your service to include the Baselime API Key
 
+| Key          | Value          | Description                                                                                                                  |
+| ------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| BASELIME_KEY | `your-api-key` | Get this key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) |  |
+
+
+
+### Step 4. Enable Next.js Auto Instrumentation
+
+Next.js 13.4+ supports auto-instrumentation. To use this feature, add `experimental.instrumentationHook = true` to your [`next.config.js`](https://nextjs.org/docs/app/api-reference/next-config-js).
+
+!!!
 For more information read the [Next.js OpenTelemetry Documentation](https://nextjs.org/docs/pages/building-your-application/optimizing/open-telemetry)
+!!!
 
 ```typescript # :icon-code: next.config.mjs
 await import("./src/env.mjs");
@@ -86,4 +77,52 @@ const config = {
 };
 
 export default config;
+```
+
+Once these steps are completed, distributed traces from your Node.js container applications should be available in Baselime to query via the console or the Baselime CLI.
+
+![Example Next.js Trace](../../assets/images/illustrations/sending-data/opentelemetry/next.js.png)
+
+---
+
+## Adding custom OpenTelemetry spans
+
+To add custom spans to your OpenTelemetry traces, install the `@opentelemetry/api` package.
+
+```bash # :icon-terminal: terminal
+npm i @opentelemetry/api
+```
+
+And manually add spans to your traces.
+```js # :icon-code: page.js
+import { trace } from "@opentelemetry/api";
+import { useSearchParams } from 'next/navigation'
+ 
+const tracer = trace.getTracer('your-custom-traces');
+
+export default async function Home({}) {
+    const searchParams = useSearchParams()
+ 
+  const search = searchParams.get('search')
+  const span = trace.getActiveSpan();
+  
+  span.setAttribute('search', search)
+
+  const result = await tracer.startActiveSpan(`business-logic`, async (span) => {
+    // your business logic
+    const input = { search }
+    span.setAttributes(input);
+    const result = await yourBusinessLogic(input)
+    span.setAttributes(result)
+    return result
+  });
+
+  return (
+    <main className="flex min-h-screen ...">
+      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+        ...
+        </div>
+    </main>
+  )
+}
 ```
