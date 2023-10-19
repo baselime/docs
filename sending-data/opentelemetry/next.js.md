@@ -19,7 +19,7 @@ If your deploy your Next.js applications on Vercel, install the [Vercel Baselime
 ### Step 1: Install the SDK
 
 
-Navigate to the root of your Next.js project install the Baselime Node OpenTelemetry SDK `@baselime/node-opentelemetry`.
+Install `@baselime/node-opentelemetry` in your project.
 
 ```bash # :icon-terminal: terminal
 npm i @baselime/node-opentelemetry 
@@ -29,9 +29,6 @@ npm i @baselime/node-opentelemetry
 
 Create a file `instrumentation.ts` in the root of your project and add the following code to configure and initialize OpenTelemetry.
 
-!!!
-If you use a `/src` folder your project, add the `instrumentation.ts` file in the `/src` folder instead of the root folder.
-!!!
 
 ```typescript # :icon-code: instrumentation.ts
 export async function register() {
@@ -55,23 +52,19 @@ export async function register() {
 }
 ```
 
+!!!
+If you use a `/src` folder your project, add the `instrumentation.ts` file in the `/src` folder instead of the root folder.
+!!!
+
 ### Step 3: Set the Baselime environment variables
 
-Set the environment variables of your service to include the Baselime API Key
-
-| Key          | Value          | Description                                                                                                                  |
-| ------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| BASELIME_KEY | `your-api-key` | Get your API key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) |  |
-
+Set the `BASELIME_KEY` environment variable to your Baselime public API Key. Get your pulic API key from the [Baselime console](https://console.baselime.io).
 
 
 ### Step 4. Enable Next.js Auto Instrumentation
 
 Next.js 13.4+ supports auto-instrumentation. Add `experimental.instrumentationHook = true` to your [`next.config.js`](https://nextjs.org/docs/app/api-reference/next-config-js) to enable auto-instrumentation of all the requests your app makes to external services.
 
-!!!
-For more information read the [Next.js OpenTelemetry Documentation](https://nextjs.org/docs/pages/building-your-application/optimizing/open-telemetry)
-!!!
 
 ```typescript # :icon-code: next.config.mjs
 await import("./src/env.mjs");
