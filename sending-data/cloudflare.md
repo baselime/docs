@@ -22,7 +22,7 @@ Baselime connects to your Cloudflare account and enables Logpush to stream your 
 
 To get started, you need to create an API token for your Cloudflare account. This token will enable Baselime to access create the Logpush and add metadata to your events once they are ingested into Baselime.
 
-[Create a user API token](https://dash.cloudflare.com/profile/api-tokens?permissionGroupKeys=[{"key":"logs","type":"edit"},{"key":"account_settings","type":"read"}]&name=Baselime) with the following permissions from the Cloudflare Dashboard:
+[Create a user API token](https://dash.cloudflare.com/profile/api-tokens?permissionGroupKeys=[{"key":"account_logs","type":"edit"},{"key":"account_settings","type":"read"}]&name=Baselime) with the following permissions from the Cloudflare Dashboard:
 
 - **Logs - Edit:** This permission is required to set up logpush configurations to collect logs from Cloudflare.
 - **Account Settings - Read:** This permission is needed to list the accounts and add them to Baselime automatically.
