@@ -9,7 +9,7 @@ Learn how to use [OpenTelemetry](https://opentelemetry.io/) and Baselime to trac
 
 
 !!!
-If you use vercel for deployment, add our the Baselime Integration [here](https://vercel.com/integrations/baselime).
+If your deploy your Next.js on Vercel, install the [Baselime Integration](https://vercel.com/integrations/baselime) to enable logs in addition to distributed tracing.
 !!!
 
 ## Instrumentation

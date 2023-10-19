@@ -1,6 +1,6 @@
 {
   "version": "3.1.0",
-  "created": "2023-10-19T13:10:36Z",
+  "created": "2023-10-19T15:00:29Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -319,6 +319,9 @@
     },
     {
       "path": "assets/images/logos/logo_xray.png"
+    },
+    {
+      "path": "assets/images/logos/next.js.svg"
     },
     {
       "path": "assets/images/logos/node.svg"
