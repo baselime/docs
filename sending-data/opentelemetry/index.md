@@ -17,7 +17,7 @@ If you have not instrumented your codebase with OpenTelemetry yet, we are buildi
 ## OpenTelemetry SDKs
 
 [!ref icon="../../assets/images/logos/node.svg"](./node.js.md)
-[!ref icon="../../assets/images/logos/next.js.svg"](./next.js.md)
+[!ref icon="../../assets/images/logos/next-js-dark.png"](./next.js.md)
 
 ---
 
