@@ -7,6 +7,11 @@ label: Next.js
 
 Learn how to use [OpenTelemetry](https://opentelemetry.io/) and Baselime to trace your [Next.js](https://nextjs.org/) application.
 
+
+!!!
+If you use vercel for deployment, add our the Baselime Integration [here](https://vercel.com/integrations/baselime).
+!!!
+
 ## Instrumentation
 
 ### Step 1: Install the `@baselime/node-opentelemetry`
@@ -85,6 +90,21 @@ Once these steps are completed, distributed traces from your Node.js container a
 
 ---
 
+## Trace your favorite libraries
+
+Getting a great experience from OpenTelemetry requires you to install the right instrumentations for your project. Here are some of the instrumentations supported by Baselime.
+
+<!-- A markdown table -->
+
+| Instrumentation | Icons in the Baselime Console |
+| --------------- | --- |
+| [Prisma](https://www.prisma.io/docs/concepts/components/prisma-client/opentelemetry-tracing) | ✅ |
+| [TRPC](https://github.com/baselime/node-opentelemetry/blob/main/TRPC.md) | ✅ |
+| [AWS SDK](https://www.npmjs.com/package/@opentelemetry/instrumentation-aws-sdk) | ✅ |
+
+If your favorite library is not in this list get in touch we would love to add it.
+
+
 ## Adding custom OpenTelemetry spans
 
 To add custom spans to your OpenTelemetry traces, install the `@opentelemetry/api` package.
@@ -94,6 +114,7 @@ npm i @opentelemetry/api
 ```
 
 And manually add spans to your traces.
+
 ```js # :icon-code: page.js
 import { trace } from "@opentelemetry/api";
 import { useSearchParams } from 'next/navigation'
