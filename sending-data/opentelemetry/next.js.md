@@ -96,7 +96,7 @@ Getting a great experience from OpenTelemetry requires you to install the right 
 
 <!-- A markdown table -->
 
-| Instrumentation | Icons in the Baselime Console |
+| Instrumentation | Supported |
 | --------------- | --- |
 | [Prisma](https://www.prisma.io/docs/concepts/components/prisma-client/opentelemetry-tracing) | ✅ |
 | [TRPC](https://github.com/baselime/node-opentelemetry/blob/main/TRPC.md) | ✅ |
@@ -104,6 +104,7 @@ Getting a great experience from OpenTelemetry requires you to install the right 
 
 If your favorite library is not in this list get in touch we would love to add it.
 
+---
 
 ## Adding custom OpenTelemetry spans
 
@@ -147,3 +148,4 @@ export default async function Home({}) {
   )
 }
 ```
+---
