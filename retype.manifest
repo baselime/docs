@@ -1,20 +1,12 @@
 {
   "version": "3.1.0",
-<<<<<<< HEAD
-  "created": "2023-10-11T15:50:34Z",
-=======
-  "created": "2023-10-13T16:31:38Z",
->>>>>>> 341e0a7531f3121a5a2d38813b2e5c0e5586b63e
+  "created": "2023-10-16T15:35:32Z",
   "files": [
     {
       "path": ".nojekyll"
     },
     {
       "path": "404.html"
-    },
-    {
-      "path": "advanced/materialized-keys/index.html",
-      "old": true
     },
     {
       "path": "analysing-data/alerts/index.html"
@@ -42,10 +34,6 @@
     },
     {
       "path": "analysing-data/service-discovery/index.html"
-    },
-    {
-      "path": "analysing-data/snapshots/index.html",
-      "old": true
     },
     {
       "path": "analysing-data/tail/index.html"
@@ -189,10 +177,6 @@
       "path": "assets/images/illustrations/sending-data/apprunner.png"
     },
     {
-      "path": "assets/images/illustrations/sending-data/cloudflare-account-token.png",
-      "old": true
-    },
-    {
       "path": "assets/images/illustrations/sending-data/cloudflare/cloudflare-token.png"
     },
     {
@@ -203,14 +187,6 @@
     },
     {
       "path": "assets/images/illustrations/sending-data/cloudtrail.png"
-    },
-    {
-      "path": "assets/images/illustrations/sending-data/create-cloudflare-token.png",
-      "old": true
-    },
-    {
-      "path": "assets/images/illustrations/sending-data/create-new-env.png",
-      "old": true
     },
     {
       "path": "assets/images/illustrations/sending-data/docker-ingestion.png"
@@ -357,10 +333,6 @@
       "path": "cli/anonymous-telemetry/index.html"
     },
     {
-      "path": "cli/getting-started/index.html",
-      "old": true
-    },
-    {
       "path": "cli/install/index.html"
     },
     {
@@ -370,15 +342,7 @@
       "path": "cli/reference/console/index.html"
     },
     {
-      "path": "cli/reference/deploy/index.html",
-      "old": true
-    },
-    {
       "path": "cli/reference/iam/index.html"
-    },
-    {
-      "path": "cli/reference/init/index.html",
-      "old": true
     },
     {
       "path": "cli/reference/login/index.html"
@@ -388,10 +352,6 @@
     },
     {
       "path": "cli/reference/mark/index.html"
-    },
-    {
-      "path": "cli/reference/pull/index.html",
-      "old": true
     },
     {
       "path": "cli/reference/query/index.html"
@@ -409,18 +369,10 @@
       "path": "cli/reference/telemetry/index.html"
     },
     {
-      "path": "cli/reference/templates/index.html",
-      "old": true
-    },
-    {
       "path": "cli/reference/test/index.html"
     },
     {
       "path": "cli/reference/upgrade/index.html"
-    },
-    {
-      "path": "cli/reference/validate/index.html",
-      "old": true
     },
     {
       "path": "CNAME"
@@ -438,26 +390,6 @@
       "path": "index.html"
     },
     {
-      "path": "integrations/slack/alerts/index.html",
-      "old": true
-    },
-    {
-      "path": "integrations/slack/authentication/index.html",
-      "old": true
-    },
-    {
-      "path": "integrations/slack/commands/index.html",
-      "old": true
-    },
-    {
-      "path": "integrations/slack/overview/index.html",
-      "old": true
-    },
-    {
-      "path": "integrations/webhooks/overview/index.html",
-      "old": true
-    },
-    {
       "path": "oac/cdk/quick-start/index.html"
     },
     {
@@ -470,31 +402,7 @@
       "path": "oac/cdk/reference/queries/index.html"
     },
     {
-      "path": "oac/observability-reference-language/overview/index.html",
-      "old": true
-    },
-    {
-      "path": "oac/observability-reference-language/reference/alerts/index.html",
-      "old": true
-    },
-    {
-      "path": "oac/observability-reference-language/reference/dashboards/index.html",
-      "old": true
-    },
-    {
-      "path": "oac/observability-reference-language/reference/queries/index.html",
-      "old": true
-    },
-    {
-      "path": "oac/observability-reference-language/reference/services/index.html",
-      "old": true
-    },
-    {
       "path": "oac/terraform/index.html"
-    },
-    {
-      "path": "oac/terraform/overview/index.html",
-      "old": true
     },
     {
       "path": "quick-start/index.html"
@@ -548,10 +456,6 @@
       "path": "security/privacy/index.html"
     },
     {
-      "path": "sending-data/apigateway-logs/index.html",
-      "old": true
-    },
-    {
       "path": "sending-data/aws/apigateway-logs/index.html"
     },
     {
@@ -570,10 +474,6 @@
       "path": "sending-data/aws/index.html"
     },
     {
-      "path": "sending-data/aws/lambda-extension/index.html",
-      "old": true
-    },
-    {
       "path": "sending-data/aws/lambda-logs/index.html"
     },
     {
@@ -583,19 +483,7 @@
       "path": "sending-data/cloudflare/index.html"
     },
     {
-      "path": "sending-data/cloudtrail/index.html",
-      "old": true
-    },
-    {
-      "path": "sending-data/cloudwatch-metrics/index.html",
-      "old": true
-    },
-    {
       "path": "sending-data/docker/index.html"
-    },
-    {
-      "path": "sending-data/ecs-logs/index.html",
-      "old": true
     },
     {
       "path": "sending-data/events-api/index.html"
@@ -607,49 +495,13 @@
       "path": "sending-data/kubernetes/index.html"
     },
     {
-      "path": "sending-data/lambda-extension/index.html",
-      "old": true
-    },
-    {
-      "path": "sending-data/lambda-logs/index.html",
-      "old": true
-    },
-    {
       "path": "sending-data/opentelemetry/aws-lambda/node.js/index.html"
-    },
-    {
-      "path": "sending-data/opentelemetry/containers/node.js/index.html",
-      "old": true
     },
     {
       "path": "sending-data/opentelemetry/index.html"
     },
     {
-      "path": "sending-data/opentelemetry/node.js/containers/index.html",
-      "old": true
-    },
-    {
-      "path": "sending-data/opentelemetry/node.js/events/index.html",
-      "old": true
-    },
-    {
       "path": "sending-data/opentelemetry/node.js/index.html"
-    },
-    {
-      "path": "sending-data/opentelemetry/node.js/lambda/events/index.html",
-      "old": true
-    },
-    {
-      "path": "sending-data/opentelemetry/node.js/lambda/index.html",
-      "old": true
-    },
-    {
-      "path": "sending-data/opentelemetry/nodejs/events/index.html",
-      "old": true
-    },
-    {
-      "path": "sending-data/opentelemetry/nodejs/index.html",
-      "old": true
     },
     {
       "path": "sending-data/s3-rehydration/index.html"
@@ -662,10 +514,6 @@
     },
     {
       "path": "sending-data/vercel/index.html"
-    },
-    {
-      "path": "sending-data/xray/index.html",
-      "old": true
     },
     {
       "path": "sitemap.xml.gz"
