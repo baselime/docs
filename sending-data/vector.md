@@ -36,6 +36,7 @@ sinks:
     request:
       headers:
         x-api-key: "YOUR_API_KEY"
+        baselime-data-source: "vector"
 ```
 !!! Note
 Make sure to use name of the Vector container under `exclude_containers` option.
@@ -59,6 +60,3 @@ $ docker run \
 Make sure to set these labels on your Docker containers:
 * `io.baselime.service` - used to extract service name used in Baselime console.
 * `io.baselime.namespace` - used to extract the namespace used in Baselime console.
-
-
-## How it works

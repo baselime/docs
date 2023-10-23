@@ -1,6 +1,6 @@
 {
   "version": "3.1.0",
-  "created": "2023-10-19T15:00:29Z",
+  "created": "2023-10-23T17:13:27Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -12,7 +12,8 @@
       "path": "analysing-data/alerts/index.html"
     },
     {
-      "path": "analysing-data/baselime-ai/index.html"
+      "path": "analysing-data/baselime-ai/index.html",
+      "old": true
     },
     {
       "path": "analysing-data/errors/index.html"
@@ -225,6 +226,18 @@
       "path": "assets/images/illustrations/sending-data/otel-extension.png"
     },
     {
+      "path": "assets/images/illustrations/sending-data/render/example_logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/render/step1.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/render/step2.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/render/step3.png"
+    },
+    {
       "path": "assets/images/illustrations/sending-data/s3-rehydration.png"
     },
     {
@@ -321,13 +334,25 @@
       "path": "assets/images/logos/logo_xray.png"
     },
     {
+      "path": "assets/images/logos/next-js-dark.png"
+    },
+    {
+      "path": "assets/images/logos/next-js.png"
+    },
+    {
       "path": "assets/images/logos/next.js.svg"
     },
     {
       "path": "assets/images/logos/node.svg"
     },
     {
+      "path": "assets/images/logos/render.png"
+    },
+    {
       "path": "assets/images/logos/s3_flat3x.png"
+    },
+    {
+      "path": "assets/images/logos/vector.png"
     },
     {
       "path": "assets/images/logos/vercel.png"
@@ -511,6 +536,9 @@
     },
     {
       "path": "sending-data/opentelemetry/node.js/index.html"
+    },
+    {
+      "path": "sending-data/render/index.html"
     },
     {
       "path": "sending-data/s3-rehydration/index.html"

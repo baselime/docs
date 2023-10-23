@@ -33,9 +33,9 @@ npm i --save \
 
 ### Step 2: Initialise the tracer
 
-Create a `tracing.cjs` file inside your application working directory.
+Create a `tracing.js` file
 
-``` javascript # :icon-code: src/tracing.cjs
+``` javascript # :icon-code: src/tracing.js
 const { BaselimeSDK } = require('@baselime/node-opentelemetry');
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
 
@@ -56,13 +56,33 @@ Set the environment variables of your comntainer service to include the Baselime
 | Key          | Value                                       | Description                                                                         |
 | ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------- |
 | BASELIME_KEY | `your-api-key`               | Get this key from the [Baselime console](https://console.baselime.io) or the [Baselime CLI](https://github.com/Baselime/cli) |
-| NODE_OPTIONS | `-r ./src/tracing.cjs --experimental-loader=import-in-the-middle/hook.mjs` | Preloads the OpenTelemetry SDK at startup                                                 |
+| NODE_OPTIONS | `-r ./src/tracing.js` | Preloads the OpenTelemetry SDK at startup                                                 |
 
 Once these steps are completed, distributed traces from your Node.js container applications should be available in Baselime to query via the console or the Baselime CLI.
 
 ![Example OpenTelemetry Trace](../../assets/images/illustrations/sending-data/opentelemetry/trace.png)
 
 ---
+
+## Instrumentation
+
+### Logging
+
+You can correlate your logs and traces in Baselime by Including the requestId in your trace and by including the traceId and spanId in your logs.
+
+OpenTelemetry has support for [winston](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-winston/README.md), and [pino](https://github.com/open-telemetry/opentelemetry-js-contrib/blob/main/plugins/node/opentelemetry-instrumentation-pino/README.md).
+
+Or you can implement a custom logger
+
+```
+import { contenxt } as api from '@opentelemetry/api';
+
+
+
+const { traceId, spanId } = context.active();
+console.info(JSON.stringify({ traceId, spanId, msg: "Hello", data }))
+```
+
 
 ## Configuration
 
