@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751451128443">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751488553203">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.5.0.751451128443" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.751488553203" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.751451128443" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.751488553203" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.751451128443" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.751488553203" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -203,8 +203,7 @@
         <span>Sending Data to Baselime</span>
     </h1>
 </doc-anchor-target>
-<hr>
-<p>Baselime supports a variety of data sources, including logs, metrics, traces, and wide events. You can start sending your data to Baselime and gain valuable insights into the performance and reliability of your microservices with a few steps.</p>
+<p>Baselime supports a variety of data sources, including logs, metrics, traces, and wide events. You can start sending telemetry data to Baselime and improving the performance and reliability of your services with a few steps.</p>
 <hr>
 <doc-anchor-target id="data-sources">
     <h2>
@@ -232,13 +231,25 @@
     <a href="opentelemetry/" class="absolute block inset-0"></a>
 </div>
 </p>
-<doc-anchor-target id="vercel">
+<doc-anchor-target id="cloud-providers">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#vercel">#</doc-anchor-trigger>
-        <span>Vercel</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#cloud-providers">#</doc-anchor-trigger>
+        <span>Cloud Providers</span>
     </h3>
 </doc-anchor-target>
 <p>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <img width="20" src="../assets/images/logos/aws.svg">
+        </span>
+        <span class="inline-block font-medium ml-2">AWS</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>aws/</span>
+    </div>
+    <a href="aws/" class="absolute block inset-0"></a>
+</div>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
@@ -251,14 +262,6 @@
     </div>
     <a href="vercel/" class="absolute block inset-0"></a>
 </div>
-</p>
-<doc-anchor-target id="cloudflare">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#cloudflare">#</doc-anchor-trigger>
-        <span>Cloudflare</span>
-    </h3>
-</doc-anchor-target>
-<p>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
@@ -271,97 +274,61 @@
     </div>
     <a href="cloudflare/" class="absolute block inset-0"></a>
 </div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <img width="20" src="../assets/images/logos/render.png">
+        </span>
+        <span class="inline-block font-medium ml-2">Render</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>render/</span>
+    </div>
+    <a href="render/" class="absolute block inset-0"></a>
+</div>
 </p>
-<doc-anchor-target id="aws">
+<doc-anchor-target id="containers">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#aws">#</doc-anchor-trigger>
-        <span>AWS</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#containers">#</doc-anchor-trigger>
+        <span>Containers</span>
     </h3>
 </doc-anchor-target>
 <p>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/logo_aws_lambda.png">
+            <img width="20" src="../assets/images/logos/logo_docker_icon.png">
         </span>
-        <span class="inline-block font-medium ml-2">AWS Lambda Logs</span>
+        <span class="inline-block font-medium ml-2">Docker</span>
     </div>
     <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>aws/lambda-logs/</span>
+        <span>docker/</span>
     </div>
-    <a href="aws/lambda-logs/" class="absolute block inset-0"></a>
+    <a href="docker/" class="absolute block inset-0"></a>
 </div>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/logo_ecs_logs.png">
+            <img width="20" src="../assets/images/logos/vector.png">
         </span>
-        <span class="inline-block font-medium ml-2">Amazon ECS Container Logs</span>
+        <span class="inline-block font-medium ml-2">Vector</span>
     </div>
     <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>aws/ecs-logs/</span>
+        <span>vector/</span>
     </div>
-    <a href="aws/ecs-logs/" class="absolute block inset-0"></a>
+    <a href="vector/" class="absolute block inset-0"></a>
 </div>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/logo_xray.png">
+            <img width="20" src="../assets/images/logos/logo_kubernetes_icon.png">
         </span>
-        <span class="inline-block font-medium ml-2">AWS X-Ray Traces</span>
+        <span class="inline-block font-medium ml-2">Kubernetes</span>
     </div>
     <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>aws/xray/</span>
+        <span>kubernetes/</span>
     </div>
-    <a href="aws/xray/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/apprunner_logo.png">
-        </span>
-        <span class="inline-block font-medium ml-2">AWS App Runner Logs</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>aws/apprunner-logs/</span>
-    </div>
-    <a href="aws/apprunner-logs/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/logo_aws_apigateway.png">
-        </span>
-        <span class="inline-block font-medium ml-2">Amazon API Gateway Logs</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>aws/apigateway-logs/</span>
-    </div>
-    <a href="aws/apigateway-logs/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/logo_cloudtrail.png">
-        </span>
-        <span class="inline-block font-medium ml-2">Amazon CloudTrail</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>aws/cloudtrail/</span>
-    </div>
-    <a href="aws/cloudtrail/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/logo_cloudwatch.png">
-        </span>
-        <span class="inline-block font-medium ml-2">Amazon CloudWatch Metrics</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>aws/cloudwatch-metrics/</span>
-    </div>
-    <a href="aws/cloudwatch-metrics/" class="absolute block inset-0"></a>
+    <a href="kubernetes/" class="absolute block inset-0"></a>
 </div>
 </p>
 <doc-anchor-target id="other-sources">
@@ -394,54 +361,6 @@
         <span>s3-rehydration/</span>
     </div>
     <a href="s3-rehydration/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/logo_docker_icon.png">
-        </span>
-        <span class="inline-block font-medium ml-2">Docker</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>docker/</span>
-    </div>
-    <a href="docker/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/logo_kubernetes_icon.png">
-        </span>
-        <span class="inline-block font-medium ml-2">Kubernetes</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>kubernetes/</span>
-    </div>
-    <a href="kubernetes/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/vector.png">
-        </span>
-        <span class="inline-block font-medium ml-2">Vector</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>vector/</span>
-    </div>
-    <a href="vector/" class="absolute block inset-0"></a>
-</div>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <img width="20" src="../assets/images/logos/render.png">
-        </span>
-        <span class="inline-block font-medium ml-2">Render</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>render/</span>
-    </div>
-    <a href="render/" class="absolute block inset-0"></a>
 </div>
 </p>
 

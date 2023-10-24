@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751451128443">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751488553203">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Amazon ECS Container Logs | Baselime - The cloud-native observability platform</title>
     <meta name="title" content="Amazon ECS Container Logs | Baselime - The cloud-native observability platform">
-    <meta name="description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS ECS using AWS FireLens.">
+    <meta name="description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS ECS.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/aws/ecs-logs/">
@@ -21,25 +21,25 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/aws/ecs-logs/">
     <meta property="og:title" content="Amazon ECS Container Logs | Baselime - The cloud-native observability platform">
-    <meta property="og:description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS ECS using AWS FireLens.">
+    <meta property="og:description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS ECS.">
     <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/ecs.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/aws/ecs-logs/">
     <meta property="twitter:title" content="Amazon ECS Container Logs | Baselime - The cloud-native observability platform">
-    <meta property="twitter:description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS ECS using AWS FireLens.">
+    <meta property="twitter:description" content="This page describes how to collect application container logs from Amazon ECS clusters launched with AWS ECS.">
     <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/ecs.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../resources/css/retype.css?v=3.5.0.751451128443" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.751488553203" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.751451128443" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.751488553203" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.751451128443" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.751451128443" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.751488553203" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.751488553203" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -206,13 +206,33 @@
         <span>Amazon ECS Container Logs</span>
     </h1>
 </doc-anchor-target>
-<p>This page describes how to collect application container logs from <a href="https://aws.amazon.com/ecs/">Amazon ECS</a> clusters launched with AWS ECS using AWS FireLens. This method can also be used to collect ECS clusters with EC2 containers.</p>
+<p>This page describes how to collect application container logs from <a href="https://aws.amazon.com/ecs/">Amazon ECS</a> clusters launched with AWS ECS. Baselime supports to ways to get Amazon ECS logs:</p>
+<ul>
+<li>using Amazon CloudWatch logs</li>
+<li>using AWS FireLens.</li>
+</ul>
 <hr>
-<doc-anchor-target id="how-it-works">
+<doc-anchor-target id="using-amazon-cloudwatch-logs">
     <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-amazon-cloudwatch-logs">#</doc-anchor-trigger>
+        <span>Using Amazon CloudWatch logs</span>
+    </h2>
+</doc-anchor-target>
+<p>If your ECS containers already publish logs to Amazon CloudWatch logs, Baselime automatically captures those logs using log subscription filters. There is no additional setup required.</p>
+<p>Baselime also listens to newly deployed Amazon ECS containers and creates log subscription filters for those as soon as they are created.</p>
+<hr>
+<doc-anchor-target id="using-aws-firelens">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-aws-firelens">#</doc-anchor-trigger>
+        <span>Using AWS Firelens</span>
+    </h2>
+</doc-anchor-target>
+<p>If you ECS containers don&#x27;t publish logs to Amazon CloudWatch logs, you can send logs from your containers directly to Baselime using Firelens.</p>
+<doc-anchor-target id="how-it-works">
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
         <span>How it works</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <p><a href="https://aws.amazon.com/about-aws/whats-new/2019/11/aws-launches-firelens-log-router-for-amazon-ecs-and-aws-fargate/">FireLens</a> is an Amazon ECS native log router that enables you to send logs from your containerized applications to different destinations, including Baselime. By adding the FireLens sidecar to your task definitions, you can configure and route your container logs to different destinations without modifying your application code.</p>
 <p><figure class="content-center">
@@ -223,24 +243,24 @@
 <p>Each of your ECS tasks can take a sidecar container running the FireLens log driver that will forward all the logs from the containers to Baselime.</p>
 <hr>
 <doc-anchor-target id="configuring-your-ecs-tasks">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#configuring-your-ecs-tasks">#</doc-anchor-trigger>
         <span>Configuring your ECS Tasks</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <doc-anchor-target id="step-1-obtaining-your-baselime-api-key">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#step-1-obtaining-your-baselime-api-key">#</doc-anchor-trigger>
         <span>Step 1: Obtaining your Baselime API Key</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <p>You can get your public Baselime API key in the <a href="https://console.baselime.io">Baselime console</a> from the <a href="../../../cli/install/">Baselime CLI</a>.</p>
 <p>In the following instructions we will use <code v-pre>&lt;BASELIME_API_KEY&gt;</code> to refer to your Baselime API key.</p>
 <doc-anchor-target id="step-2-adding-the-firelens-sidecar-to-your-task-definitions">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#step-2-adding-the-firelens-sidecar-to-your-task-definitions">#</doc-anchor-trigger>
         <span>Step 2: Adding the FireLens sidecar to your task definitions</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <p>Adding the FireLens sidecar to your task definitions is a straightforward process that can be accomplished using various Infrastructure as Code solutions or manually in the console.</p>
 <p>Add the Baselime ECS endpoint to your FireLens configuration:</p>
