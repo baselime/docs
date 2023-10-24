@@ -18,13 +18,15 @@ You can securely stream your [Render.com](https://render.com/) services logs usi
 ![Account Settings](../assets/images/illustrations/sending-data/render/step1.png)
 4. Select **Log Streams** from the left menu.
 ![Log Streams](../assets/images/illustrations/sending-data/render/step2.png)
-5. Click on **Add Log Stream** button.
-* As **Log Endpoint** set `syslog.baselime.io:514`
-* As Token set `render:YOUR_API_KEY`
+5. Click on **Add Log Stream** button. 
+   1. Set **Log Endpoint** to `syslog.baselime.io:514`
+   2. Set **Token** to `render:YOUR_API_KEY`
+
 ![Add Log Stream](../assets/images/illustrations/sending-data/render/step3.png)
 
 !!! Note
-Replace `YOUR_API_TOKEN` with token obtained from the Baselime console.
+Replace `YOUR_API_TOKEN` with token obtained from the Baselime console. But make sure
+the token starts with `render:`!
 !!!
 
 6. Click on **Add Log Stream** button.
