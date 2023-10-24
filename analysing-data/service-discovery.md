@@ -6,7 +6,7 @@ order: 2
 # Automatic Service Discovery
 
 
-Baselime automatically discovers services in your cloud accounts and organises your observability data following services and teams boundaries. This ebales you to quickly sift through the vast amounts of data your applications produce.
+Baselime automatically discovers services in your cloud accounts and organises your observability data following services and teams boundaries. This enables you to quickly sift through the vast amounts of data your applications produce.
 
 ---
 
