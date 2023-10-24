@@ -7,7 +7,7 @@
     "dev": "retype watch",
     "build": "retype build",
     "predeploy": "npm run build",
-    "deploy": "sst deploy --stage prod && aws cloudfront create-invalidation --distribution-id E2YZTH2B84IH7Y --paths \"/*\""
+    "deploy": "sst deploy --stage prod && aws cloudfront create-invalidation --distribution-id EWT2GTT9EENWT --paths \"/*\""
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.4",
