@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751397498946">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751451128443">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,11 +34,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.751397498946" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.751451128443" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.751397498946" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.751451128443" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.751397498946" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.751451128443" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -233,17 +233,17 @@
 </p>
 </li>
 <li><p>Click on <strong>Add Log Stream</strong> button.</p>
+<ol>
+<li>Set <strong>Log Endpoint</strong> to <code v-pre>syslog.baselime.io:514</code></li>
+<li>Set <strong>Token</strong> to <code v-pre>render:YOUR_API_KEY</code></li>
+</ol>
 </li>
 </ol>
-<ul>
-<li>As <strong>Log Endpoint</strong> set <code v-pre>syslog.baselime.io:514</code></li>
-<li>As Token set <code v-pre>render:YOUR_API_KEY</code>
-<figure class="content-center">
+<p><figure class="content-center">
     <img src="../../assets/images/illustrations/sending-data/render/step3.png" alt="Add Log Stream">
     <figcaption class="caption">Add Log Stream</figcaption>
 </figure>
-</li>
-</ul>
+</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -258,7 +258,8 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Note</h5>
-<p>Replace <code v-pre>YOUR_API_TOKEN</code> with token obtained from the Baselime console.</p>
+<p>Replace <code v-pre>YOUR_API_TOKEN</code> with token obtained from the Baselime console. But make sure
+the token starts with <code v-pre>render:</code>!</p>
         </div>
     </div>
 </div>
