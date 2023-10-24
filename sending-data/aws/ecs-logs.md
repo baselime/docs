@@ -5,11 +5,26 @@ order: -1
 
 # Amazon ECS Container Logs
 
-This page describes how to collect application container logs from [Amazon ECS](https://aws.amazon.com/ecs/) clusters launched with AWS ECS using AWS FireLens. This method can also be used to collect ECS clusters with EC2 containers.
+This page describes how to collect application container logs from [Amazon ECS](https://aws.amazon.com/ecs/) clusters launched with AWS ECS. Baselime supports to ways to get Amazon ECS logs:
+
+- using Amazon CloudWatch logs
+- using AWS FireLens.
 
 ---
 
-## How it works
+## Using Amazon CloudWatch logs
+
+If your ECS containers already publish logs to Amazon CloudWatch logs, Baselime automatically captures those logs using log subscription filters. There is no additional setup required.
+
+Baselime also listens to newly deployed Amazon ECS containers and creates log subscription filters for those as soon as they are created.
+
+---
+
+## Using AWS Firelens
+
+If you ECS containers don't publish logs to Amazon CloudWatch logs, you can send logs from your containers directly to Baselime using Firelens.
+
+### How it works
 
 [FireLens](https://aws.amazon.com/about-aws/whats-new/2019/11/aws-launches-firelens-log-router-for-amazon-ecs-and-aws-fargate/) is an Amazon ECS native log router that enables you to send logs from your containerized applications to different destinations, including Baselime. By adding the FireLens sidecar to your task definitions, you can configure and route your container logs to different destinations without modifying your application code.
 
@@ -18,15 +33,15 @@ This page describes how to collect application container logs from [Amazon ECS](
 Each of your ECS tasks can take a sidecar container running the FireLens log driver that will forward all the logs from the containers to Baselime.
 
 ---
-## Configuring your ECS Tasks
+### Configuring your ECS Tasks
 
-### Step 1: Obtaining your Baselime API Key
+#### Step 1: Obtaining your Baselime API Key
 
 You can get your public Baselime API key in the [Baselime console](https://console.baselime.io) from the [Baselime CLI](../../cli/install.md).
 
 In the following instructions we will use `<BASELIME_API_KEY>` to refer to your Baselime API key.
 
-### Step 2: Adding the FireLens sidecar to your task definitions
+#### Step 2: Adding the FireLens sidecar to your task definitions
 
 Adding the FireLens sidecar to your task definitions is a straightforward process that can be accomplished using various Infrastructure as Code solutions or manually in the console.
 

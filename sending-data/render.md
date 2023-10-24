@@ -1,35 +1,52 @@
 ---
 label: Render
-order: -8
+order: -4
 ---
 
-# Render Logs
+# Render
 
-You can securely stream your [Render.com](https://render.com/) services logs using SysLog protocol over TLS.
+Render is a cloud platform for hosting and deploying web applications and websites. It provides a way to securely stream logs from your services deployed on Render to Baselime using the [Syslog protocol](https://en.wikipedia.org/wiki/Syslog) over [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 
-## How to use Render with Baselime?
+---
 
-1. Obtain the API key from the
-[Baselime console](https://console.baselime.io).
+## Baselime integration
 
-2. Navigate to [Render.com](https://render.com/)
+Baselime provides advance logging capabilities for servoces deployed on Render. You can start streaming your logs from Render in a few steps:
 
-3. Click on your username in the top right corner and select **Account Settings**.
-![Account Settings](../assets/images/illustrations/sending-data/render/step1.png)
-4. Select **Log Streams** from the left menu.
+### Step 1. Create an environment on Baselime
+
+Navigate to the [Baselime console](https://console.baselime.io), create and environment and select "Connect Render account".
+
+Once the environment is created, copy the `BASELIME_API_KEY`.
+
+![BASELIME_API_KEY](../assets/images/illustrations/sending-data/render/modal.png)
+
+### Step 2. Create the Log Stream in Render
+
+Navigate to your [Render dashboard](https://dashboard.render.com/u/usr-0/settings), select Log Streams, and Add Log Stream.
+
+
 ![Log Streams](../assets/images/illustrations/sending-data/render/step2.png)
-5. Click on **Add Log Stream** button. 
-   1. Set **Log Endpoint** to `syslog.baselime.io:514`
-   2. Set **Token** to `render:YOUR_API_KEY`
+
+### Step 3. Configure the Log Stream
+
+- Set `Log Endpoint` to `syslog.baselime.io:514`
+- Set `Token` to `render:BASELIME_API_KEY`
+- Add the Log Stream
+
+!!!
+Replace `BASELIME_API_KEY` with the API key from the Baselime console is Step 1.
+!!!
+
+!!!
+Make sure to prefix the `Token` with `render:`. This enables Baselime to adequately parse logs from Render and enable you to run complex queries on them.
+!!!
 
 ![Add Log Stream](../assets/images/illustrations/sending-data/render/step3.png)
 
-!!! Note
-Replace `YOUR_API_TOKEN` with token obtained from the Baselime console. But make sure
-the token starts with `render:`!
-!!!
 
-6. Click on **Add Log Stream** button.
-7. You should start to see your logs in Baselime console.
-![Render logs in Baselime console](../assets/images/illustrations/sending-data/render/example_logs.png)
+### Step 4. Use your logs from Render
+
+Once the Log Stream is created, all your logs from Render will be available in Baselime for searching, queries, dashboard and alerts.
+
 

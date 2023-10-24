@@ -1,19 +1,26 @@
 ---
 label: Vector
-order: -9
+order: -6
 ---
 
-# Vector Logs
-[Vector](https://vector.dev/) is a high-performance, open-source, observability data router.
-It can be configured to stream your logs to Baselime over HTTPS.
+# Vector
 
-## How to use Vector with Baselime?
+[Vector](https://vector.dev/) is a high-performance, open-source, observability data router. It can be configured to stream your logs to Baselime over HTTPS.
 
-First obtain the API key from the
-[Baselime console](https://console.baselime.io).
+!!!
+The steps in this guide are implemented in this [example project](https://github.com/baselime/examples/tree/main/vector).
+!!!
 
 
-Next, create Vector configuration file `vector.yaml` with the following content:
+---
+
+## Setup with Docker
+
+**Step 1:** Get your `BASELIME_API_KEY` from the [Baselime console](https://console.baselime.io).
+
+
+**Step 2:** Create a `vector.yaml` configuration file:
+
 ```yaml # :icon-code: vector.yaml
 # Set global options
 data_dir: "/var/lib/vector"
@@ -30,25 +37,28 @@ sinks:
     inputs:
       - "your_input"
     type: "http"
-    uri: "https://events.baselime.io/v1/vector-logs"
+    uri: "https://events.baselime.io/v1/logs"
     encoding:
       codec: "json"
     request:
       headers:
-        x-api-key: "YOUR_API_KEY"
+        x-api-key: "BASELIME_API_KEY"
         baselime-data-source: "vector"
 ```
 !!! Note
-Make sure to use name of the Vector container under `exclude_containers` option.
-This will prevent Vector from sending its own logs to Baselime.
+Make sure to use name of the Vector container under `exclude_containers` option. This will prevent Vector from sending its own logs to Baselime.
 !!!
 
-!!! Note
-Replace `YOUR_API_KEY` with the API key you obtained from the Baselime console.
+!!!
+Make sure to replace `BASELIME_API_KEY` with your Baselime API key from Step 1.
+!!!
+
+!!!
+You can send the logs to a different dataset by replacing `logs` in the URL `https://events.baselime.io/v1/logs` with a different dataset name.
 !!!
 
 
-Finally, start Vector container and mount the configuration file you created.
+**Step 3:** Start the Vector container and mount the configuration file.
 ```shell
 $ docker run \
   -v ./vector.yaml:/etc/vector/vector.yaml:ro \
@@ -56,7 +66,12 @@ $ docker run \
   timberio/vector:0.33.0-alpine
 ```
 
-### Docker Labels
-Make sure to set these labels on your Docker containers:
+Once these steps are completed, logs from all containers mounted with Vector will be streamed to Baselime, and available for search, queries, alerts and dashboards.
+
+---
+
+## Docker Labels
+
+Baselime uses [Docker labels](https://docs.docker.com/config/labels-custom-metadata/)  for service names. Add the relevant label to all your containers to ensure they are appropriately tagged.
+
 * `io.baselime.service` - used to extract service name used in Baselime console.
-* `io.baselime.namespace` - used to extract the namespace used in Baselime console.

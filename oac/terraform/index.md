@@ -24,7 +24,7 @@ terraform {
 }
 
 provider "baselime" {
-  api_key = "your_api_key"
+  api_key = "baselime_api_key"
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
 label: Kubernetes
-order: -8
+order: -7
 ---
 
 # Kubernetes Logs
@@ -40,8 +40,8 @@ data:
     </source>
     <match>
       @type http
-      endpoint https://events.baselime.io/v1/kubernetes-logs
-      headers {"x-api-key":"YOUR_API_KEY", "baselime-data-source": "fluentd/k8s"}
+      endpoint https://events.baselime.io/v1/logs
+      headers {"x-api-key":"BASELIME_API_KEY", "baselime-data-source": "fluentd/k8s"}
       open_timeout 2
       json_array true
       <format>
@@ -50,7 +50,7 @@ data:
     </match>
 ```
 !!! Note
-Make sure to replace `YOUR_API_KEY` with the API key you obtained from the Baselime console.
+Make sure to replace `BASELIME_API_KEY` with the API key you obtained from the Baselime console.
 !!!
 
 Next, we need to create a DaemonSet that will run Fluentd on each node in your cluster.
