@@ -1,16 +1,11 @@
 ---
-label: Cloudflare Workers
-order: -3
----
-# Cloudflare Workers
-
-Cloudflare Workers are an edge platform that enabled developers to build serverless applications and deploy instantly across the globe for exceptional performance, reliability, and scale.
-
-Baselime offers advanced monitoring capabilities for applications running on Cloudflare Workers. This guide will help you connect your Cloudflare account to Baselime, enabling you to monitor your Cloudflare Workers effectively.
-
+order: 0
 ---
 
-## Using Logpush
+# Using Logpush
+!!!
+Logpush is not available to functions in a cloudflare pages project
+!!!
 
 !!!
 Logpush is available only to accounts subscribed to the Cloudflare Workers Paid Plan
