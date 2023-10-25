@@ -22,20 +22,11 @@ The steps in this guide are implemented in this [example project](https://github
 **Step 2:** Create a `vector.yaml` configuration file:
 
 ```yaml # :icon-code: vector.yaml
-# Set global options
-data_dir: "/var/lib/vector"
-
-sources:
-  fluent:
-    type: "docker_logs"
-    exclude_containers:
-      - "vector-x"
-
 # Send structured data to Baselime
 sinks:
   baselime:
     inputs:
-      - "your_input"
+      - "*"
     type: "http"
     uri: "https://events.baselime.io/v1/logs"
     encoding:
@@ -45,9 +36,6 @@ sinks:
         x-api-key: "BASELIME_API_KEY"
         baselime-data-source: "vector"
 ```
-!!! Note
-Make sure to use name of the Vector container under `exclude_containers` option. This will prevent Vector from sending its own logs to Baselime.
-!!!
 
 !!!
 Make sure to replace `BASELIME_API_KEY` with your Baselime API key from Step 1.
@@ -62,7 +50,7 @@ You can send the logs to a different dataset by replacing `logs` in the URL `htt
 ```shell
 $ docker run \
   -v ./vector.yaml:/etc/vector/vector.yaml:ro \
-  --name vector-x \
+  --name vector \
   timberio/vector:0.33.0-alpine
 ```
 
