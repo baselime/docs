@@ -1,10 +1,6 @@
 {
   "version": "3.1.0",
-<<<<<<< HEAD
-  "created": "2023-10-23T14:21:20Z",
-=======
-  "created": "2023-10-23T17:13:27Z",
->>>>>>> 6789d81c380f24095675d073038514d173fb69bc
+  "created": "2023-10-25T20:09:11Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -16,17 +12,10 @@
       "path": "analysing-data/alerts/index.html"
     },
     {
-      "path": "analysing-data/baselime-ai/index.html",
-      "old": true
-    },
-    {
       "path": "analysing-data/errors/index.html"
     },
     {
       "path": "analysing-data/home/index.html"
-    },
-    {
-      "path": "analysing-data/inventory/index.html"
     },
     {
       "path": "analysing-data/overview/index.html"
@@ -221,6 +210,9 @@
       "path": "assets/images/illustrations/sending-data/opentelemetry/extension.png"
     },
     {
+      "path": "assets/images/illustrations/sending-data/opentelemetry/logs.png"
+    },
+    {
       "path": "assets/images/illustrations/sending-data/opentelemetry/next.js.png"
     },
     {
@@ -231,6 +223,9 @@
     },
     {
       "path": "assets/images/illustrations/sending-data/render/example_logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/render/modal.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/render/step1.png"
@@ -515,7 +510,13 @@
       "path": "sending-data/aws/xray/index.html"
     },
     {
+      "path": "sending-data/cloudflare/edge-logger/index.html"
+    },
+    {
       "path": "sending-data/cloudflare/index.html"
+    },
+    {
+      "path": "sending-data/cloudflare/logpush/index.html"
     },
     {
       "path": "sending-data/docker/index.html"
@@ -530,10 +531,16 @@
       "path": "sending-data/kubernetes/index.html"
     },
     {
+      "path": "sending-data/logs-enrichment/index.html"
+    },
+    {
       "path": "sending-data/opentelemetry/aws-lambda/node.js/index.html"
     },
     {
       "path": "sending-data/opentelemetry/index.html"
+    },
+    {
+      "path": "sending-data/opentelemetry/logs-correlation/index.html"
     },
     {
       "path": "sending-data/opentelemetry/next.js/index.html"
@@ -558,9 +565,6 @@
     },
     {
       "path": "sitemap.xml.gz"
-    },
-    {
-      "path": "tutorials/cdk/index.html"
     },
     {
       "path": "what-is-baselime/index.html"
