@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751581774030">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751585169801">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Baselime Cloudflare Logging | Baselime - The cloud-native observability platform</title>
-    <meta name="title" content="Baselime Cloudflare Logging | Baselime - The cloud-native observability platform">
-    <meta name="description" content="Works on the cloudflare Worker free plan">
+    <title>Edge Logger | Baselime - The cloud-native observability platform</title>
+    <meta name="title" content="Edge Logger | Baselime - The cloud-native observability platform">
+    <meta name="description" content="Cloudflare Logpush is not available in all Cloudflare edge environments. In those environments, it's necessary to emit logs from within the process.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/cloudflare/edge-logger/">
@@ -20,24 +20,24 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/cloudflare/edge-logger/">
-    <meta property="og:title" content="Baselime Cloudflare Logging | Baselime - The cloud-native observability platform">
-    <meta property="og:description" content="Works on the cloudflare Worker free plan">
+    <meta property="og:title" content="Edge Logger | Baselime - The cloud-native observability platform">
+    <meta property="og:description" content="Cloudflare Logpush is not available in all Cloudflare edge environments. In those environments, it's necessary to emit logs from within the process.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/cloudflare/edge-logger/">
-    <meta property="twitter:title" content="Baselime Cloudflare Logging | Baselime - The cloud-native observability platform">
-    <meta property="twitter:description" content="Works on the cloudflare Worker free plan">
+    <meta property="twitter:title" content="Edge Logger | Baselime - The cloud-native observability platform">
+    <meta property="twitter:description" content="Cloudflare Logpush is not available in all Cloudflare edge environments. In those environments, it's necessary to emit logs from within the process.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../resources/css/retype.css?v=3.5.0.751581774030" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.751585169801" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.751581774030" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.751585169801" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.751581774030" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.751581774030" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.751585169801" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.751585169801" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -198,59 +198,37 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="baselime-cloudflare-logging" class="break-words">
+<doc-anchor-target id="edge-logger" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-cloudflare-logging">#</doc-anchor-trigger>
-        <span>Baselime Cloudflare Logging</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#edge-logger">#</doc-anchor-trigger>
+        <span>Edge Logger</span>
     </h1>
 </doc-anchor-target>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>Works on the cloudflare Worker free plan</p>
-        </div>
-    </div>
-</div>
-<p>Use the <code v-pre>@baselime/edge-logger</code> when you overcome the limitations of logpush and have complete control over your cloudflare logging.</p>
-<p>Collect logs from</p>
+<p>Cloudflare Logpush is not available in all Cloudflare edge environments. In those environments, it&#x27;s necessary to emit logs from within the process. The <a href="https://github.com/baselime/edge-logger">Baselime Edge Logger</a> enables you to send logs from your Cloudflare edge environments to Baselime regardless of the platform.</p>
+<p>It enables logging from:</p>
 <ul>
 <li><a href="https://developers.cloudflare.com/workers">Cloudlare Workers</a></li>
 <li><a href="https://developers.cloudflare.com/pages/platform/functions/">Cloudflare Pages Functions</a></li>
 <li><a href="https://developers.cloudflare.com/pages/platform/functions/">Cloudflare Pages Middleware</a></li>
 </ul>
+<hr>
 <doc-anchor-target id="usage">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#usage">#</doc-anchor-trigger>
         <span>Usage</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="step-1-install-baselimeedge-logger">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-1-install-baselimeedge-logger">#</doc-anchor-trigger>
-        <span>Step 1: Install @baselime/edge-logger</span>
-    </h3>
-</doc-anchor-target>
-<p>Install the <a href="https://github.com/baselime/edge-logger">Baselime Edge Logger</a>.</p>
+<p><strong>Step 1:</strong> Install the <a href="https://github.com/baselime/edge-logger">@baselime/edge-logger</a> package.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.25 12a.75.75 0 0 1-.22.53l-2.75 2.75a.75.75 0 0 1-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 1 1 1.06-1.06l2.75 2.75c.141.14.22.331.22.53Zm2 2a.75.75 0 0 0 0 1.5h5a.75.75 0 0 0 0-1.5h-5Z"/><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/></g></g></svg> terminal</div>
 <pre class="language-bash"><code v-pre class="language-bash">npm i @baselime/edge-logger</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="step-2-configure-the-logger">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-2-configure-the-logger">#</doc-anchor-trigger>
-        <span>Step 2: Configure the Logger</span>
-    </h3>
-</doc-anchor-target>
+<p><strong>Step 2:</strong> Add the <code v-pre>BASELIME_API_KEY</code> to your your environment variables</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> wrangler.toml</div>
+<pre class="language-none"><code v-pre class="language-none">[vars]
+BASELIME_API_KEY = &quot;BASELIME_API_KEY&quot;</code></pre>
+</doc-codeblock></div>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -264,51 +242,82 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p><code v-pre>ctx.waitUntil(logger.flush());</code> You must flush at the end of your invocation.</p>
+<p>Get your public <code v-pre>BASELIME_API_KEY</code> from the <a href="https://console.baselime.io">Baselime console</a></p>
         </div>
     </div>
 </div>
+<p><strong>Step 3:</strong> Use the logger</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> src/index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">import { BaselimeLogger } from '@baselime/edge-logger'
 
 export interface Env {
-	BASELIME_KEY: string
-	IS_LOCAL_DEV?: string
+  BASELIME_API_KEY: string
 }
 
 export default {
-	async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise&lt;Response&gt; {
-		const logger = new BaselimeLogger({
-			ctx,
-			apiKey: env.BASELIME_KEY,
-			service: 'my-worker',
-			dataset: 'cloudflare',
-			namespace: 'fetch',
-			requestId: crypto.randomUUID(),
-			isLocalDev: env.IS_LOCAL_DEV
-		})
+  async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise&lt;Response&gt; {
+    const logger = new BaselimeLogger({
+      ctx,
+      apiKey: env.BASELIME_API_KEY,
+      service: 'my-service',
+      dataset: 'cloudflare',
+      namespace: 'my-worker-name',
+      requestId: crypto.randomUUID(),
+    })
 
-		logger.info('Hello world', { cfRay: req.headers.get('cf-ray'), foo: 'bar' })
+    // Use the Baselime Edge logger to log
+    logger.info('Hello, World!', { foo: 'bar' })
 
-		ctx.waitUntil(logger.flush());
-		return new Response('Hello world!');
-	}
+    // Make sure to add this to flush the logs to Baselime before the return statement
+    ctx.waitUntil(logger.flush());
+    return new Response('Request Completed');
+  }
 }</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="step-3-add-the-baselime-api-key-to-your-wranglertoml-file">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-3-add-the-baselime-api-key-to-your-wranglertoml-file">#</doc-anchor-trigger>
-        <span>Step 3: Add the Baselime API Key to your wrangler.toml file</span>
-    </h3>
+<hr>
+<doc-anchor-target id="supported-methods">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#supported-methods">#</doc-anchor-trigger>
+        <span>Supported methods</span>
+    </h2>
 </doc-anchor-target>
-<p>Set the <code v-pre>BASELIME_KEY</code> environment variable to your Baselime public API Key. Get your pulic API key from the <a href="https://console.baselime.io">Baselime console</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> wrangler.toml</div>
-<pre class="language-toml"><code v-pre class="language-toml">[vars]
-BASELIME_KEY = &quot;your baselime key&quot;
-</code></pre>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> src/index.ts</div>
+<pre class="language-typescript"><code v-pre class="language-typescript">logger.info(&quot;This is an informational message&quot;, { payload: { foo: &quot;bar&quot; } });
+logger.warn(&quot;This is a warning message&quot;, { payload: { foo: &quot;bar&quot; } });
+logger.error(&quot;This is an error message&quot;, { payload: { foo: &quot;bar&quot; } });</code></pre>
 </doc-codeblock></div>
+<hr>
+<doc-anchor-target id="local-development">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#local-development">#</doc-anchor-trigger>
+        <span>Local Development</span>
+    </h2>
+</doc-anchor-target>
+<p>To get logs appropriately formatted in your local development environment using wrangler, add the <code v-pre>IS_LOCAL_MODE</code> environment variable to your <code v-pre>.dev.var</code> file.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> .dev.var</div>
+<pre class="language-bash"><code v-pre class="language-bash">IS_LOCAL_MODE=1</code></pre>
+</doc-codeblock></div>
+<p>And use it when configurting the <code v-pre>BaselimeLogger</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> src/index.ts</div>
+<pre class="language-typescript"><code v-pre class="language-typescript">export default {
+  async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise&lt;Response&gt; {
+    const logger = new BaselimeLogger({
+      ctx,
+      apiKey: env.BASELIME_KEY,
+      isLocalDev: env.IS_LOCAL_DEV
+    })
+
+    logger.info(&quot;Pretty Formatted Logs&quot;, { foo: &quot;bar&quot; });
+
+    ctx.waitUntill(logger.flush())
+  }
+}</code></pre>
+</doc-codeblock></div>
+<p>Local development mode is disabled by default to improve performance.</p>
 <hr>
 <doc-anchor-target id="configuration">
     <h2>
@@ -339,88 +348,42 @@ BASELIME_KEY = &quot;your baselime key&quot;
 </tr>
 <tr>
 <td><code v-pre>dataset</code></td>
-<td><code v-pre>string</code></td>
-<td>Optional dataset name</td>
+<td><code v-pre>string</code> (optional)</td>
+<td>Dataset name</td>
 </tr>
 <tr>
 <td><code v-pre>service</code></td>
-<td><code v-pre>string</code></td>
-<td>Optional service name</td>
+<td><code v-pre>string</code> (optional)</td>
+<td>Service name</td>
 </tr>
 <tr>
 <td><code v-pre>namespace</code></td>
-<td><code v-pre>string</code></td>
-<td>Optional namespace</td>
-</tr>
-<tr>
-<td><code v-pre>baselimeUrl</code></td>
-<td><code v-pre>string</code></td>
-<td>Optional base URL</td>
+<td><code v-pre>string</code> (optional)</td>
+<td>Namespace</td>
 </tr>
 <tr>
 <td><code v-pre>flushAfterMs</code></td>
-<td><code v-pre>number</code></td>
-<td>Flush after milliseconds</td>
+<td><code v-pre>number</code> (optional)</td>
+<td>Wait time to flush the logs to Baselime</td>
 </tr>
 <tr>
 <td><code v-pre>flushAfterLogs</code></td>
-<td><code v-pre>number</code></td>
-<td>Flush after a number of logs</td>
+<td><code v-pre>number</code> (optional)</td>
+<td>Threshold number of logs to flush</td>
 </tr>
 <tr>
 <td><code v-pre>requestId</code></td>
-<td><code v-pre>string</code></td>
+<td><code v-pre>string</code> (optional)</td>
 <td>Request ID</td>
 </tr>
 <tr>
 <td><code v-pre>isLocalDev</code></td>
-<td><code v-pre>boolean</code></td>
+<td><code v-pre>boolean</code> (optional)</td>
 <td>Indicates if it&#x27;s for local development</td>
 </tr>
 </tbody>
 </table>
 </div>
-<doc-anchor-target id="local-development">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#local-development">#</doc-anchor-trigger>
-        <span>Local Development</span>
-    </h2>
-</doc-anchor-target>
-<p>For pretty formatted logs in wrangler add a <code v-pre>.dev.var</code> file to your wrangler project</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">IS_LOCAL_MODE=1</code></pre>
-</doc-codeblock></div>
-<p>and add the isLocalDev property when configuring the logger</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">export default {
-	async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise&lt;Response&gt; {
-		const logger = new BaselimeLogger({
-			ctx,
-			apiKey: env.BASELIME_KEY,
-			isLocalDev: env.IS_LOCAL_DEV
-		})
-
-
-        logger.info(&quot;Pretty Formatted Logs&quot;, {
-            &quot;foo&quot;: &quot;bar&quot;
-        });
-
-        ctx.waitUntill(logger.flush())
-    }
-}</code></pre>
-</doc-codeblock></div>
-<hr>
-<doc-anchor-target id="supported-methods">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#supported-methods">#</doc-anchor-trigger>
-        <span>Supported methods</span>
-    </h2>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">logger.info(&quot;This is an informational message&quot;, { payload: { foo: &quot;bar&quot; } });
-logger.warn(&quot;This is a warning message&quot;, { payload: { foo: &quot;bar&quot; } });
-logger.error(&quot;This is an error message&quot;, { payload: { foo: &quot;bar&quot; } });</code></pre>
-</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -440,7 +403,7 @@ logger.error(&quot;This is an error message&quot;, { payload: { foo: &quot;bar&q
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Using Logpush</span>
+                                                <span class="block mt-1">Cloudflare Logpush</span>
                                             </span>
                                         </a>
                                     </div>
@@ -493,7 +456,7 @@ logger.error(&quot;This is an error message&quot;, { payload: { foo: &quot;bar&q
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Baselime Cloudflare Logging", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Edge Logger", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
     <script data-cfasync="false">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
