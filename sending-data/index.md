@@ -21,8 +21,13 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 [!ref icon="../assets/images/logos/vector.png"](./vector.md)
 [!ref icon="../assets/images/logos/logo_kubernetes_icon.png"](./kubernetes.md)
 
-
 ### Other Sources
 [!ref icon="../assets/images/logos/http_flat@3x.png"](./events-api.md)
 [!ref icon="../assets/images/logos/s3_flat@3x.png"](./s3-rehydration.md)
 
+---
+
+## Best Practices
+
+[!ref Enriching Logs for faster debugging](./logs-enrichment.md)
+[!ref Data Validation](./validation/index.md)

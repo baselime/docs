@@ -1,0 +1,108 @@
+---
+label: Enriching Logs
+order: -10
+---
+
+# Enriching Logs in Baselime
+
+---
+
+Baselime enables you to enrich your logs with special fields to enable deeper insights into your application's performance and traceability.
+
+The available fields are:
+- `requestId`
+- `duration`
+- `traceId`
+
+You can add those fields to your logs to enable the [Requests](../analysing-data/overview.md) view in Baselime.
+
+!!!
+Baselime automatically adds those fields to logs coming from cloud services with deep integrations such as [AWS Lambda](./aws/lambda-logs.md) and [Vercel](./vercel.md).
+!!!
+
+---
+
+## Grouping your logs by request
+
+Baselime enables you to group your logs by request by adding a `requestId` field to all the logs and events within the same request.
+
+In an Express.js server:
+
+```javascript #
+const express = require('express');
+const crypto = require('crypto');
+const app = express();
+
+app.use((req, res, next) => {
+  // Generate a unique request ID
+  const requestId = crypto.randomUUID();
+
+  // Attach the requestId to the request object
+  req.requestId = requestId;
+
+  // Continue to the next middleware or route
+  next();
+});
+
+app.get('/example', (req, res) => {
+  // Access the requestId from the request object
+  const requestId = req.requestId;
+
+  // Add the requestId to the log
+  console.log(JSON.stringify({ message: `Hello, World!`, requestId }));
+
+  // Continue your route logic
+});
+```
+
+!!!
+You can leverage your favourite logger to automatically add the `requestId` field to all the logs within a single request.
+!!!
+
+!!!
+In addition to HTTP requests, you can use the `requestId` field to group logs for any task, such as background jobs or build processes.
+!!!
+
+---
+
+## Measuring Request Duration
+
+Add the `duration` field to at least one log or event from a request to measure its duration and enable analytics on request durations in Baselime.
+
+For example, in an Express.js server:
+
+```javascript #
+const express = require('express');
+const crypto = require('crypto');
+const app = express();
+
+app.use((req, res, next) => {
+  const requestId = crypto.randomUUID();
+  req.requestId = requestId;
+  next();
+});
+
+app.get('/example', (req, res) => {
+  const startTime = Date.now();
+
+  // Your route logic here
+  
+  const requestId = req.requestId;
+  const duration = Date.now() - startTime;
+  console.log(JSON.stringify({ message: `End of the request`, requestId, duration }));
+
+});
+```
+---
+
+## Correlating logs and traces
+
+Refer to the [Correlate Logs with Traces](./opentelemetry/logs-correlation.md) section.
+
+---
+
+## Usage
+
+Once you have enriched your logs with the additional fields, your data will show in Baselime in the [Requests](../analysing-data/overview.md) view.
+
+![Enriched logs in Baselime](../../assets/images/illustrations/sending-data/enriching-logs.png)
