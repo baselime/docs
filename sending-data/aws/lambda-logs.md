@@ -11,7 +11,7 @@ Once you connect your AWS account to Baselime, it automatically creates [CloudWa
 Baselime automatically captures logs for newly created AWS Lambda functions, and enables you to query and visualise logs across multiple log groups and log streams.
 
 !!!
-It is possible to send logs from AWS Lambda functions to Baselime directly using the Baselime AWS Lambda Extension, and bypass Amazon CloudWatch for cost considerations.
+It is possible to send logs from AWS Lambda functions to Baselime directly using the [Baselime AWS Lambda Extension](./lambda-logs.md/#logs-using-the-aws-lambda-extension), and bypass Amazon CloudWatch for cost considerations.
 !!!
 ---
 

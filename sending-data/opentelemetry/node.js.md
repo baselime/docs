@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 1
 label: Node.js
 ---
 
@@ -63,26 +63,6 @@ Once these steps are completed, distributed traces from your Node.js container a
 ![Example OpenTelemetry Trace](../../assets/images/illustrations/sending-data/opentelemetry/trace.png)
 
 ---
-
-## Instrumentation
-
-### Logging
-
-You can correlate your logs and traces in Baselime by Including the requestId in your trace and by including the traceId and spanId in your logs.
-
-OpenTelemetry has support for [winston](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-winston/README.md), and [pino](https://github.com/open-telemetry/opentelemetry-js-contrib/blob/main/plugins/node/opentelemetry-instrumentation-pino/README.md).
-
-Or you can implement a custom logger
-
-```
-import { contenxt } as api from '@opentelemetry/api';
-
-
-
-const { traceId, spanId } = context.active();
-console.info(JSON.stringify({ traceId, spanId, msg: "Hello", data }))
-```
-
 
 ## Configuration
 

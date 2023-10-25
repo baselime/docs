@@ -8,7 +8,7 @@ Add the Baselime OpenTelemetry endpoint to your exporter:
 - Endpoint `https://otel.baselime.io/v1/`
 - Header: `x-api-key: <BASELIME_API_KEY>` 
 
-You can get your public Baselime API key in the [Baselime console](https://console.baselime.io) from the [Baselime CLI](../../cli/install.md).
+You can get your public Baselime API key in the [Baselime console](https://console.baselime.io).
 
 If you have not instrumented your codebase with OpenTelemetry yet, we are building OpenTelemetry SDKs to facilitate instrumenting your code.
 
@@ -17,10 +17,16 @@ If you have not instrumented your codebase with OpenTelemetry yet, we are buildi
 ## OpenTelemetry SDKs
 
 [!ref icon="../../assets/images/logos/node.svg"](./node.js.md)
-[!ref icon="../../assets/images/logos/next.js.svg"](./next.js.md)
+[!ref icon="../../assets/images/logos/next-js-dark.png"](./next.js.md)
 
 ---
 
 ## OpenTelemetry on AWS Lambda
 [!ref icon="../../assets/images/logos/logo_aws_lambda.png"](./aws-lambda/node.js.md)
+
+---
+
+## Correlating Logs with Traces
+
+Learn how to [correlate logs with OpenTelemetry traces](./logs-correlation.md).
 

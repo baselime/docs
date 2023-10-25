@@ -1,6 +1,10 @@
 {
   "version": "3.1.0",
+<<<<<<< HEAD
   "created": "2023-10-23T14:21:20Z",
+=======
+  "created": "2023-10-23T17:13:27Z",
+>>>>>>> 6789d81c380f24095675d073038514d173fb69bc
   "files": [
     {
       "path": ".nojekyll"
@@ -224,6 +228,18 @@
     },
     {
       "path": "assets/images/illustrations/sending-data/otel-extension.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/render/example_logs.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/render/step1.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/render/step2.png"
+    },
+    {
+      "path": "assets/images/illustrations/sending-data/render/step3.png"
     },
     {
       "path": "assets/images/illustrations/sending-data/s3-rehydration.png"
@@ -524,6 +540,9 @@
     },
     {
       "path": "sending-data/opentelemetry/node.js/index.html"
+    },
+    {
+      "path": "sending-data/render/index.html"
     },
     {
       "path": "sending-data/s3-rehydration/index.html"

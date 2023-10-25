@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 0
 label: Next.js
 ---
 
@@ -8,7 +8,7 @@ label: Next.js
 Instrument your [Next.js](https://nextjs.org/) applications with [OpenTelemetry](https://opentelemetry.io/) using the the [Baselime Node.js OpenTelemetry SDK](https://github.com/baselime/node-opentelemetry).
 
 !!!
-If your deploy your Next.js applications on Vercel, install the [Vercel Baselime Integration](https://vercel.com/integrations/baselime) to enable logs in addition to distributed tracing.
+If you deploy your Next.js applications on Vercel, install the [Vercel Baselime Integration](https://vercel.com/integrations/baselime) to enable logs in addition to distributed tracing.
 !!!
 
 ---

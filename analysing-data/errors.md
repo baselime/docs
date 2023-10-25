@@ -42,7 +42,7 @@ This is the default status of all errors when they are detected. When an error i
 
 ### Ignored errors
 
-When an error in **Ignored** state occurs, you will not get ever. This is useful for expected errors, where they occur in your applications, but no action is required.
+When an error in **Ignored** state occurs, you will not get notified ever. This is useful for expected errors, where they occur in your applications, but no action is required.
 
 ### Resolved errors
 
