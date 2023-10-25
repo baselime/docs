@@ -13,7 +13,7 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 ### Cloud Providers
 [!ref icon="../assets/images/logos/aws.svg"](./aws/index.md)
 [!ref icon="../assets/images/logos/vercel.png"](./vercel.md)
-[!ref icon="../assets/images/logos/cloudflare.png"](./cloudflare.md)
+[!ref icon="../assets/images/logos/cloudflare.png"](./cloudflare/index.md)
 [!ref icon="../assets/images/logos/render.png"](./render.md)
 
 ### Containers
@@ -22,7 +22,7 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 [!ref icon="../assets/images/logos/logo_kubernetes_icon.png"](./kubernetes.md)
 
 ### Other Sources
-[!ref icon="../assets/images/logos/http_flat@3x.png"](./events-api.md)
+[!ref icon="../assets/images/logo.svg"](./events-api.md)
 [!ref icon="../assets/images/logos/s3_flat@3x.png"](./s3-rehydration.md)
 
 ---

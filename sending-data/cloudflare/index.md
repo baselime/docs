@@ -4,7 +4,11 @@ Cloudflare is an edge platform that enabled developers to build serverless appli
 
 Baselime offers advanced monitoring capabilities for applications running on Cloudflare. This guide will help you connect your Cloudflare account to Baselime, enabling you to monitor your Cloudflare Workers effectively.
 
-## Sending Data
+---
+
+## Data sources
+
+Depending on your use of Cloudflare services, you can send data to Baselime from multiple sources.
 
 [!ref icon="../../assets/images/logos/cloudflare.png"](./logpush.md)
-[!ref icon="../../assets/images/logos/http_flat@3x.png"](./edge-logger.md)
+[!ref icon="../../assets/images/logo.svg"](./edge-logger.md)

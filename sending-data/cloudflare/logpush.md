@@ -1,17 +1,25 @@
 ---
+label: Cloudflare Logpush 
 order: 0
 ---
 
-# Using Logpush
+# Using Cloudflare Logpush
+
+[Cloudflare Logpush](https://developers.cloudflare.com/logs/about/) is a service provided by Cloudflare that enables you to stream your Cloudflare Worker Trace Event Logs to Baselime.
+
 !!!
-Logpush is not available to functions in a cloudflare pages project
+Cloudflare Logpush is available only to accounts subscribed to the Cloudflare Workers Paid Plan
 !!!
 
 !!!
-Logpush is available only to accounts subscribed to the Cloudflare Workers Paid Plan
+Cloudflare Logpush is not available for Cloudflare Pages. For Cloudflare pages, please refer to the [Baselime Edge Logger](./edge-logger.md) section.
 !!!
 
-Baselime connects to your Cloudflare account and enables Logpush to stream your Worker Trace Event Logs to Baselime. You can connect your account in a few steps:
+---
+
+## Usage
+
+Baselime connects to your Cloudflare account and enables Logpush in a few steps:
 
 ### 1. Create an API Token
 
