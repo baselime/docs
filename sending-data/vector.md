@@ -18,8 +18,9 @@ The steps in this guide are implemented in this [example project](https://github
 
 **Step 1:** Get your `BASELIME_API_KEY` from the [Baselime console](https://console.baselime.io).
 
+**Step 2:** Setup sources in the `vector.yaml` file following the [Vector documentation](https://vector.dev/docs/reference/configuration/sources/).
 
-**Step 2:** Create a `vector.yaml` configuration file:
+**Step 3:** Add the Baselime sink to the `vector.yaml` configuration file:
 
 ```yaml # :icon-code: vector.yaml
 # Send structured data to Baselime
@@ -46,7 +47,7 @@ You can send the logs to a different dataset by replacing `logs` in the URL `htt
 !!!
 
 
-**Step 3:** Start the Vector container and mount the configuration file.
+**Step 4:** Start the Vector container and mount the configuration file.
 ```shell
 $ docker run \
   -v ./vector.yaml:/etc/vector/vector.yaml:ro \
