@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751540588559">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751572974168">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.751540588559" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.751572974168" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.751540588559" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.751572974168" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.751540588559" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.751540588559" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.751572974168" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.751572974168" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -318,220 +318,6 @@
 </doc-codeblock></div>
     </div>
 </div>
-<doc-anchor-target id="syslog">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#syslog">#</doc-anchor-trigger>
-        <span>Syslog</span>
-    </h4>
-</doc-anchor-target>
-<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(1, minmax(0, 1fr));">
-    <div class="flex items-center px-5 py-3 font-mono leading-snug text-white docs-columns-code-title">
-        <span>Raw event</span>
-    </div>
-    <div class="docs-columns-code docs-columns-content">
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">render:token &lt;6&gt;1 2023-10-23T13:34:18.011041Z test-service-7af1 web-x4dv4 1 web-x4dv4 - {&quot;level&quot;:&quot;info&quot;,&quot;ts&quot;:1698068058.010938,&quot;caller&quot;:&quot;app/main.go:15&quot;,&quot;msg&quot;:&quot;Hello world!&quot;,&quot;time&quot;:&quot;2023-10-23T13:34:18Z&quot;}</code></pre>
-</doc-codeblock></div>
-    </div>
-</div>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">{
-  &quot;facility&quot;: &quot;6&quot;,
-  &quot;level&quot;: &quot;info&quot;,
-  &quot;hostname&quot;: &quot;test-service-7af1&quot;,
-  &quot;appName&quot;: &quot;web-8n8mp&quot;,
-  &quot;processId&quot;: &quot;1&quot;,
-  &quot;messageId&quot;: &quot;web-8n8mp&quot;,
-  &quot;structuredData&quot;: &quot;-&quot;,
-  &quot;message&quot;: &quot;Hello world!&quot;,
-  &quot;LogLevel&quot;: &quot;INFO&quot;,
-  &quot;@message&quot;: &quot;Hello world!&quot;,
-  &quot;timestamp&quot;: 1698070616172,
-  &quot;$baselime&quot;: {
-    &quot;namespace&quot;: &quot;test-service-7af1&quot;,
-    &quot;service&quot;: &quot;test-service-7af1&quot;,
-    &quot;dataset&quot;: &quot;render&quot;,
-    &quot;baselimeId&quot;: &quot;01HDEEAWVWMHJEHYGDWM9KQBRW&quot;,
-    &quot;type&quot;: &quot;container&quot;
-  }
-}</code></pre>
-</doc-codeblock></div>
-<p>|||</p>
-<doc-anchor-target id="vector">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#vector">#</doc-anchor-trigger>
-        <span>Vector</span>
-    </h4>
-</doc-anchor-target>
-<p>|||</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">[
-  {
-    timestamp: &quot;2023-10-21T07:03:45.123634719Z&quot;,
-    stream: &quot;stderr&quot;,
-    source_type: &quot;docker_logs&quot;,
-    message: &quot;{\&quot;level\&quot;:\&quot;info\&quot;,\&quot;ts\&quot;:1697876893.1233506,\&quot;msg\&quot;:\&quot;Hello world!\&quot;}&quot;,
-    container_name: &quot;xenodochial_cohen&quot;,
-    image: &quot;baselime/baselime&quot;,
-    container_created_at: &quot;2023-10-21T07:03:44.455497291Z&quot;,
-    container_id: &quot;8f250bcb689f09f55015be1b31cfe73acff96794b956b2cd774caa1d0c302b73&quot;,
-    host: &quot;35f0b99e69bc&quot;
-  }
-]</code></pre>
-</doc-codeblock></div>
-<p>|||</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">{
-  &quot;container_created_at&quot;: &quot;2023-10-21T07:03:44.455497291Z&quot;,
-  &quot;container_id&quot;: &quot;8f250bcb689f09f55015be1b31cfe73acff96794b956b2cd774caa1d0c302b73&quot;,
-  &quot;container_name&quot;: &quot;xenodochial_cohen&quot;,
-  &quot;host&quot;: &quot;a44cb26a91de&quot;,
-  &quot;image&quot;: &quot;baselime/baselime&quot;,
-  &quot;message&quot;: &quot;Hello world!&quot;,
-  &quot;source_type&quot;: &quot;docker_logs&quot;,
-  &quot;stream&quot;: &quot;stderr&quot;,
-  &quot;level&quot;: &quot;info&quot;,
-  &quot;namespace&quot;: &quot;default&quot;,
-  &quot;service&quot;: &quot;default&quot;,
-  &quot;LogLevel&quot;: &quot;INFO&quot;,
-  &quot;@message&quot;: &quot;Hello world!&quot;,
-  &quot;timestamp&quot;: 1697876893581,
-  &quot;$baselime&quot;: {
-    &quot;namespace&quot;: &quot;default&quot;,
-    &quot;service&quot;: &quot;default&quot;,
-    &quot;dataset&quot;: &quot;vector-logs&quot;,
-    &quot;baselimeId&quot;: &quot;01HD8NJQ4136ZACPZMAX4Q36ZAV0KW&quot;,
-    &quot;type&quot;: &quot;container&quot;
-  }
-}</code></pre>
-</doc-codeblock></div>
-<p>|||</p>
-<doc-anchor-target id="docker-through-fluentd">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#docker-through-fluentd">#</doc-anchor-trigger>
-        <span>Docker through Fluentd</span>
-    </h3>
-</doc-anchor-target>
-<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-    <div class="flex items-center px-5 py-3 font-mono leading-snug text-white docs-columns-code-title border-r">
-        <span>Raw event</span>
-    </div>
-    <div class="flex items-center px-5 py-3 font-mono leading-snug text-white docs-columns-code-title">
-        <span>Parsed data</span>
-    </div>
-    <div class="docs-columns-code docs-columns-content border-r border-gray-200 dark:border-dark-650">
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">[
-  {
-    &quot;container_id&quot;: &quot;e83a1c74f382b313d9754ec678af9808f20478a5d8e7b839857b9f431832c3fa&quot;,
-    &quot;container_name&quot;: &quot;/compose-logger-1&quot;,
-    &quot;source&quot;: &quot;stderr&quot;,
-    &quot;log&quot;: &quot;{\&quot;level\&quot;:\&quot;info\&quot;,\&quot;ts\&quot;:1697812276.9344978,\&quot;msg\&quot;:\&quot;Hello world\&quot;,\&quot;time\&quot;:\&quot;2023-10-20T14:31:16Z\&quot;}&quot;,
-    &quot;io.baselime.service&quot;: &quot;from_label&quot;,
-    &quot;io.baselime.namespace&quot;: &quot;default&quot;
-  }
-]</code></pre>
-</doc-codeblock></div>
-    </div>
-    <div class="docs-columns-code docs-columns-content">
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">{
-  &quot;message&quot;: &quot;Hello world&quot;,
-  &quot;level&quot;: &quot;info&quot;,
-  &quot;namespace&quot;: &quot;default&quot;,
-  &quot;service&quot;: &quot;default&quot;,
-  &quot;LogLevel&quot;: &quot;INFO&quot;,
-  &quot;@message&quot;: &quot;Hello world&quot;,
-  &quot;timestamp&quot;: 1697812276000,
-  &quot;$baselime&quot;: {
-    &quot;namespace&quot;: &quot;default&quot;,
-    &quot;service&quot;: &quot;from_label&quot;,
-    &quot;dataset&quot;: &quot;docker-logs&quot;,
-    &quot;baselimeId&quot;: &quot;01HD71079VX9M76ZWHRS8YMAA6&quot;,
-    &quot;type&quot;: &quot;container&quot;
-  }
-}</code></pre>
-</doc-codeblock></div>
-    </div>
-</div>
-<doc-anchor-target id="kubernetes-through-fluentd">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#kubernetes-through-fluentd">#</doc-anchor-trigger>
-        <span>Kubernetes through Fluentd</span>
-    </h4>
-</doc-anchor-target>
-<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
-    <div class="flex items-center px-5 py-3 font-mono leading-snug text-white docs-columns-code-title border-r">
-        <span>Raw event</span>
-    </div>
-    <div class="flex items-center px-5 py-3 font-mono leading-snug text-white docs-columns-code-title border-r">
-        <span>Parsed data</span>
-    </div>
-    <div class="flex items-center px-5 py-3 font-mono leading-snug text-white docs-columns-code-title border-r">
-        <span>Raw Message</span>
-    </div>
-    <div class="flex items-center px-5 py-3 font-mono leading-snug text-white docs-columns-code-title">
-        <span>Parsed data</span>
-    </div>
-    <div class="docs-columns-code docs-columns-content border-r border-gray-200 dark:border-dark-650">
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">[
-    {&quot;log&quot;: &quot;2023-10-21T08:31:09.761551105Z stderr F finished scheduled compaction&quot;}
-]</code></pre>
-</doc-codeblock></div>
-    </div>
-    <div class="docs-columns-code docs-columns-content border-r border-gray-200 dark:border-dark-650">
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">[
-  {
-    &quot;message&quot;: &quot;finished scheduled compaction&quot;,
-    &quot;level&quot;: &quot;info&quot;,
-    &quot;namespace&quot;: &quot;default&quot;,
-    &quot;service&quot;: &quot;default&quot;,
-    &quot;LogLevel&quot;: &quot;INFO&quot;,
-    &quot;@message&quot;: &quot;finished scheduled compaction&quot;,
-    &quot;timestamp&quot;: 1697877069761,
-    &quot;$baselime&quot;: {
-      &quot;namespace&quot;: &quot;default&quot;,
-      &quot;service&quot;: &quot;default&quot;,
-      &quot;dataset&quot;: &quot;kubernetes-logs&quot;,
-      &quot;baselimeId&quot;: &quot;01HD8NR5JK1SG4NT31JDDS1F4S&quot;,
-      &quot;type&quot;: &quot;container&quot;
-    }
-  }
-]</code></pre>
-</doc-codeblock></div>
-    </div>
-    <div class="docs-columns-code docs-columns-content border-r border-gray-200 dark:border-dark-650">
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">[
-  {&quot;log&quot;: &quot;2023-10-20T17:51:04.931672152Z stderr F {\&quot;level\&quot;:\&quot;info\&quot;,\&quot;ts\&quot;:1697824264.93158,\&quot;msg\&quot;:\&quot;Hello world!\&quot;}&quot;}
-]</code></pre>
-</doc-codeblock></div>
-    </div>
-    <div class="docs-columns-code docs-columns-content">
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">[
-  {
-    &quot;message&quot;: &quot;Hello world!&quot;,
-    &quot;level&quot;: &quot;info&quot;,
-    &quot;namespace&quot;: &quot;default&quot;,
-    &quot;service&quot;: &quot;default&quot;,
-    &quot;LogLevel&quot;: &quot;INFO&quot;,
-    &quot;@message&quot;: &quot;Hello world!&quot;,
-    &quot;timestamp&quot;: 1697876973995,
-    &quot;$baselime&quot;: {
-      &quot;namespace&quot;: &quot;default&quot;,
-      &quot;service&quot;: &quot;default&quot;,
-      &quot;dataset&quot;: &quot;kubernetes-logs&quot;,
-      &quot;baselimeId&quot;: &quot;01HD8NNB4A42YF1XZC6DEKH6A2&quot;,
-      &quot;type&quot;: &quot;container&quot;
-    }
-  }
-]</code></pre>
-</doc-codeblock></div>
-    </div>
-</div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -547,11 +333,11 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/s3-rehydration/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../sending-data/logs-enrichment/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Rehydration from Amazon S​3</span>
+                                                <span class="block mt-1">Enriching Logs</span>
                                             </span>
                                         </a>
                                     </div>
