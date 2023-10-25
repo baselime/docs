@@ -15,6 +15,10 @@ Baselime provides advanced observability capabilities for applications running o
 
 Install the integration for free on the [Vercel marketplace](https://vercel.com/integrations/baselime) and start observing your Vercel apps in minutes.
 
+!!!
+If you deploy Next.js applications on Vercel, instrument your applications with [OpenTelemetry for Next.js](./opentelemetry/next.js.md) to enable distributed tracing in addition to logs.
+!!!
+
 
 ### How it works
 
