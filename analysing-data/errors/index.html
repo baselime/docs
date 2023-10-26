@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751585169801">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751622636863">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,11 +34,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.751585169801" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.751622636863" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.751585169801" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.751622636863" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.751585169801" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.751622636863" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -225,8 +225,18 @@
 <li>The status of the span: every span with an error (from both OpenTelemetry and AWS X-Ray)</li>
 <li>If the event has a root level property <code v-pre>level</code> set to <code v-pre>error</code> or <code v-pre>critical</code>.</li>
 </ul>
-<p>Baselime then computes the fingerpring of the error. The fingerprit is based on multiple variables, such as the service name, the environment, the route, the error message or cause, the serverless function name or the container id. Errors are uniquely represented and grouped by their fingerprint. If a similar error with the same fingerpring occurs, you will not get notified, the occurences counter will increase instead.</p>
-<p>The occurences counter is refreshed after 30 days since the first occurence of the error, and you and your team will be notified again.</p>
+<p>Baselime then computes the fingerpring of the error. The fingerprit is based on multiple variables:</p>
+<ul>
+<li><code v-pre>dataset</code></li>
+<li><code v-pre>service</code></li>
+<li><code v-pre>namespace</code></li>
+<li><code v-pre>account</code></li>
+<li><code v-pre>region</code></li>
+<li><code v-pre>level</code></li>
+<li><code v-pre>errorString</code></li>
+</ul>
+<p>Errors are uniquely represented by their fingerprint. Errors with a different set of the variables above are distinct errors. If a similar error with the same fingerpring occurs, you will not get notified, the occurences counter will increase instead.</p>
+<p>The occurences counter is refreshed after 30 days since the first occurence of the error. If the error is not resolved or ignored within 30 days and occurs once more, you&#x27;ll be notified.</p>
 <hr>
 <doc-anchor-target id="error-status">
     <h2>
@@ -262,6 +272,14 @@
     </h3>
 </doc-anchor-target>
 <p>When an error is marked as <strong>Resolved</strong>, you will get notified the first time it happens again, and it will be automatically marked as <strong>Active</strong>. This is helpful for when you have resolved an error in your applications, but it happens again for a set of edge-cases. You will know about it as soon as it happens again.</p>
+<hr>
+<doc-anchor-target id="merging-errors">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#merging-errors">#</doc-anchor-trigger>
+        <span>Merging Errors</span>
+    </h2>
+</doc-anchor-target>
+<p>Baselime enables merging similar errors that have not automatically been grouped together. In the <a href="https://console.baselime.io">Baselime console</a> you can merge multiple errors into a single one. Merged errors are not shown in the main list of errors and are available from within the error they are merged into.</p>
 <hr>
 <doc-anchor-target id="deleting-errors">
     <h2>
