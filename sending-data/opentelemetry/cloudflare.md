@@ -5,7 +5,7 @@ label: Cloudflare
 
 # OpenTelemetry for Cloudflare Workers
 
-Instrument your [Cloudflare Worker](https://developers.cloudflare.com/workers/) applications with [OpenTelemetry](https://opentelemetry.io/) using the the [otel-cf-workers](https://github.com/evanderkoogh/otel-cf-workers).
+Instrument your [Cloudflare Worker](https://developers.cloudflare.com/workers/) applications with [OpenTelemetry](https://opentelemetry.io/) using the the [otel-cf-workers](https://github.com/evanderkoogh/otel-cf-workers) SDK.
 
 ---
 
@@ -23,14 +23,13 @@ npm i @microlabs/otel-cf-workers
 
 ### Step 2: Configure the tracer
 
-Create a file `instrumentation.ts` in the root of your project and add the following code to configure and initialize OpenTelemetry.
+In your Cloudflare worker file, add the following configuration code to configure OpenTelemetry.
 
-
-```typescript # :icon-code: index.ts
+```typescript #3-6,14-24 :icon-code: index.ts
 import { instrument, ResolveConfigFn } from '@microlabs/otel-cf-workers'
 
 export interface Env {
-	BASELIME_KEY: string
+	BASELIME_API_KEY: string
     SERVICE_NAME: string
 }
 
@@ -43,8 +42,8 @@ const handler = {
 const config: ResolveConfigFn = (env: Env, _trigger) => {
 	return {
 		exporter: {
-			url: 'https://otel.baselime.io/v1,
-			headers: { 'x-honeycomb-team': env.BASELIME_KEY },
+			url: 'https://otel.baselime.io/v1',
+			headers: { 'x-api-key': env.BASELIME_API_KEY },
 		},
 		service: { name: env.SERVICE_NAME },
 	}
@@ -55,22 +54,22 @@ export default instrument(handler, config)
 
 ### Step 3: Set the Baselime environment variables
 
-In your `wrangler.toml` file set the `BASELIME_KEY` and `SERVICE_NAME` variables
+In your `wrangler.toml` file set the `BASELIME_API_KEY` and `SERVICE_NAME` variables
 
 !!!
-Get your pulic BASELIME_KEY from the [Baselime console](https://console.baselime.io).
+Get your pulic BASELIME_API_KEY from the [Baselime console](https://console.baselime.io).
 !!!
 
-```toml # :icon-code: wrangler.toml
+```txt # :icon-code: wrangler.toml
 [vars]
 
-BASELIME_KEY = "your api key"
-SERVICE_NAME = "pokedex"
+BASELIME_API_KEY = "my-api-key"
+SERVICE_NAME = "my-service-name"
 ```
 
 Once these steps are completed, distributed traces from your Next.js applications should be available in Baselime to query via the console or the Baselime CLI.
 
-![Example Cloudflare Trace](../../assets/images/illustrations/sending-data/opentelemetry/cf-tracing.png)
+![Example Cloudflare Worker Trace](../../assets/images/illustrations/sending-data/opentelemetry/cf-tracing.png)
 
 ---
 
@@ -84,7 +83,7 @@ npm i @opentelemetry/api
 
 And manually add spans to your traces.
 
-```typescript # :icon-code: page.js
+```typescript # :icon-code: index.ts
 import { trace } from "@opentelemetry/api";
  
 const tracer = trace.getTracer('your-custom-traces');
