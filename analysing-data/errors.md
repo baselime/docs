@@ -21,9 +21,19 @@ When you connect your cloud account to Baselime, your applications send logs, me
 - The status of the span: every span with an error (from both OpenTelemetry and AWS X-Ray)
 - If the event has a root level property `level` set to `error` or `critical`.
 
-Baselime then computes the fingerpring of the error. The fingerprit is based on multiple variables, such as the service name, the environment, the route, the error message or cause, the serverless function name or the container id. Errors are uniquely represented and grouped by their fingerprint. If a similar error with the same fingerpring occurs, you will not get notified, the occurences counter will increase instead.
+Baselime then computes the fingerpring of the error. The fingerprit is based on multiple variables:
 
-The occurences counter is refreshed after 30 days since the first occurence of the error, and you and your team will be notified again.
+- `dataset`
+- `service`
+- `namespace`
+- `account`
+- `region`
+- `level`
+- `errorString`
+
+Errors are uniquely represented by their fingerprint. Errors with a different set of the variables above are distinct errors. If a similar error with the same fingerpring occurs, you will not get notified, the occurences counter will increase instead.
+
+The occurences counter is refreshed after 30 days since the first occurence of the error. If the error is not resolved or ignored within 30 days and occurs once more, you'll be notified.
 
 ---
 
@@ -47,6 +57,12 @@ When an error in **Ignored** state occurs, you will not get notified ever. This 
 ### Resolved errors
 
 When an error is marked as **Resolved**, you will get notified the first time it happens again, and it will be automatically marked as **Active**. This is helpful for when you have resolved an error in your applications, but it happens again for a set of edge-cases. You will know about it as soon as it happens again.
+
+---
+
+## Merging Errors
+
+Baselime enables merging similar errors that have not automatically been grouped together. In the [Baselime console](https://console.baselime.io) you can merge multiple errors into a single one. Merged errors are not shown in the main list of errors and are available from within the error they are merged into.
 
 ---
 
