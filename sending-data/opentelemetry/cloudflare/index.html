@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751647725914">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751655056718">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>OpenTelemetry for Cloudflare Workers | Baselime - The cloud-native observability platform</title>
     <meta name="title" content="OpenTelemetry for Cloudflare Workers | Baselime - The cloud-native observability platform">
-    <meta name="description" content="Instrument your Cloudflare Worker applications with OpenTelemetry using the the otel-cf-workers.">
+    <meta name="description" content="Instrument your Cloudflare Worker applications with OpenTelemetry using the the otel-cf-workers SDK.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/opentelemetry/cloudflare/">
@@ -21,25 +21,25 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/opentelemetry/cloudflare/">
     <meta property="og:title" content="OpenTelemetry for Cloudflare Workers | Baselime - The cloud-native observability platform">
-    <meta property="og:description" content="Instrument your Cloudflare Worker applications with OpenTelemetry using the the otel-cf-workers.">
+    <meta property="og:description" content="Instrument your Cloudflare Worker applications with OpenTelemetry using the the otel-cf-workers SDK.">
     <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/opentelemetry/cf-tracing.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/opentelemetry/cloudflare/">
     <meta property="twitter:title" content="OpenTelemetry for Cloudflare Workers | Baselime - The cloud-native observability platform">
-    <meta property="twitter:description" content="Instrument your Cloudflare Worker applications with OpenTelemetry using the the otel-cf-workers.">
+    <meta property="twitter:description" content="Instrument your Cloudflare Worker applications with OpenTelemetry using the the otel-cf-workers SDK.">
     <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/opentelemetry/cf-tracing.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../resources/css/retype.css?v=3.5.0.751647725914" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.751655056718" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.751647725914" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.751655056718" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.751647725914" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.751647725914" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.751655056718" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.751655056718" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -206,7 +206,7 @@
         <span>OpenTelemetry for Cloudflare Workers</span>
     </h1>
 </doc-anchor-target>
-<p>Instrument your <a href="https://developers.cloudflare.com/workers/">Cloudflare Worker</a> applications with <a href="https://opentelemetry.io/">OpenTelemetry</a> using the the <a href="https://github.com/evanderkoogh/otel-cf-workers">otel-cf-workers</a>.</p>
+<p>Instrument your <a href="https://developers.cloudflare.com/workers/">Cloudflare Worker</a> applications with <a href="https://opentelemetry.io/">OpenTelemetry</a> using the the <a href="https://github.com/evanderkoogh/otel-cf-workers">otel-cf-workers</a> SDK.</p>
 <hr>
 <doc-anchor-target id="instrumentation">
     <h2>
@@ -231,13 +231,13 @@
         <span>Step 2: Configure the tracer</span>
     </h3>
 </doc-anchor-target>
-<p>Create a file <code v-pre>instrumentation.ts</code> in the root of your project and add the following code to configure and initialize OpenTelemetry.</p>
+<p>In your Cloudflare worker file, add the following configuration code to configure OpenTelemetry.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> index.ts</div>
-<pre class="language-typescript"><code v-pre class="language-typescript">import { instrument, ResolveConfigFn } from '@microlabs/otel-cf-workers'
+<pre class="language-typescript" data-line="3-6,14-24"><code v-pre class="language-typescript">import { instrument, ResolveConfigFn } from '@microlabs/otel-cf-workers'
 
 export interface Env {
-	BASELIME_KEY: string
+	BASELIME_API_KEY: string
     SERVICE_NAME: string
 }
 
@@ -250,8 +250,8 @@ const handler = {
 const config: ResolveConfigFn = (env: Env, _trigger) =&gt; {
 	return {
 		exporter: {
-			url: 'https://otel.baselime.io/v1,
-			headers: { 'x-honeycomb-team': env.BASELIME_KEY },
+			url: 'https://otel.baselime.io/v1',
+			headers: { 'x-api-key': env.BASELIME_API_KEY },
 		},
 		service: { name: env.SERVICE_NAME },
 	}
@@ -265,7 +265,7 @@ export default instrument(handler, config)</code></pre>
         <span>Step 3: Set the Baselime environment variables</span>
     </h3>
 </doc-anchor-target>
-<p>In your <code v-pre>wrangler.toml</code> file set the <code v-pre>BASELIME_KEY</code> and <code v-pre>SERVICE_NAME</code> variables</p>
+<p>In your <code v-pre>wrangler.toml</code> file set the <code v-pre>BASELIME_API_KEY</code> and <code v-pre>SERVICE_NAME</code> variables</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -279,21 +279,21 @@ export default instrument(handler, config)</code></pre>
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Get your pulic BASELIME_KEY from the <a href="https://console.baselime.io">Baselime console</a>.</p>
+<p>Get your pulic BASELIME_API_KEY from the <a href="https://console.baselime.io">Baselime console</a>.</p>
         </div>
     </div>
 </div>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> wrangler.toml</div>
-<pre class="language-toml"><code v-pre class="language-toml">[vars]
+<pre class="language-none"><code v-pre class="language-none">[vars]
 
-BASELIME_KEY = &quot;your api key&quot;
-SERVICE_NAME = &quot;pokedex&quot;</code></pre>
+BASELIME_API_KEY = &quot;my-api-key&quot;
+SERVICE_NAME = &quot;my-service-name&quot;</code></pre>
 </doc-codeblock></div>
 <p>Once these steps are completed, distributed traces from your Next.js applications should be available in Baselime to query via the console or the Baselime CLI.</p>
 <p><figure class="content-center">
-    <img src="../../../assets/images/illustrations/sending-data/opentelemetry/cf-tracing.png" alt="Example Cloudflare Trace">
-    <figcaption class="caption">Example Cloudflare Trace</figcaption>
+    <img src="../../../assets/images/illustrations/sending-data/opentelemetry/cf-tracing.png" alt="Example Cloudflare Worker Trace">
+    <figcaption class="caption">Example Cloudflare Worker Trace</figcaption>
 </figure>
 </p>
 <hr>
@@ -310,7 +310,7 @@ SERVICE_NAME = &quot;pokedex&quot;</code></pre>
 </doc-codeblock></div>
 <p>And manually add spans to your traces.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> page.js</div>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> index.ts</div>
 <pre class="language-typescript"><code v-pre class="language-typescript">import { trace } from &quot;@opentelemetry/api&quot;;
  
 const tracer = trace.getTracer('your-custom-traces');
