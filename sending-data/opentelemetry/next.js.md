@@ -16,6 +16,10 @@ If you deploy your Next.js applications on Vercel, install the [Vercel Baselime 
 
 ## Instrumentation
 
+!!!
+Check out a complete example including Prisma and tRPC in our [GitHub Examples Repo](https://github.com/baselime/examples/tree/main/t3-app).
+!!!
+
 ### Step 1: Install the SDK
 
 
@@ -41,7 +45,8 @@ export async function register() {
       instrumentations: [
         new BetterHttpInstrumentation({ 
           plugins: [
-            new VercelPlugin() // Add the Vercel plugin to enable correlation between your logs and traces for projects deployed on Vercel
+            // Add the Vercel plugin to enable correlation between your logs and traces for projects deployed on Vercel
+            new VercelPlugin()
           ]
         }),
       ]
