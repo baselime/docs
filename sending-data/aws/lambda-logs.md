@@ -297,7 +297,7 @@ For Node.js environments, AWS Lambda uses a modified version of `console.log` (a
 - `@timestamp`: the timestamp at the moment the log message was written
 - `@requestId`: the request ID of the Lambda invocation
 - `LogLevel`: the log level (`INFO`, `DEBUG`, `WARN`, `ERROR`)
-- `@message`: the message.
+- `message`: the log string
 
 !!!
 If the message in `@message` is a valid JSON object, Baselime will parse it, otherwise it will be considered a `string`.
