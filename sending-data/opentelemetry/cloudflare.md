@@ -67,7 +67,7 @@ BASELIME_API_KEY = "my-api-key"
 SERVICE_NAME = "my-service-name"
 ```
 
-Once these steps are completed, distributed traces from your Next.js applications should be available in Baselime to query via the console or the Baselime CLI.
+Once these steps are completed, distributed traces from your Cloudflare workers application should be available in Baselime to query via the console or the Baselime CLI.
 
 ![Example Cloudflare Worker Trace](../../assets/images/illustrations/sending-data/opentelemetry/cf-tracing.png)
 
