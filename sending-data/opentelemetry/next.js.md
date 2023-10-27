@@ -84,7 +84,7 @@ const config = {
 export default config;
 ```
 
-Once these steps are completed, distributed traces from your Next.js applications should be available in Baselime to query via the console or the Baselime CLI.
+Once these steps are completed, distributed traces from your Next.js application should be available in Baselime to query via the console or the Baselime CLI.
 
 ![Example Next.js Trace](../../assets/images/illustrations/sending-data/opentelemetry/next.js.png)
 
