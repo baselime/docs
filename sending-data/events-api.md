@@ -10,15 +10,16 @@ Baselime provides an Events API which enables you to send data to Baselime by ma
 
 
 ```bash # :icon-terminal: terminal
-curl -X 'POST' 'https://events.baselime.io/v1/<dataset>/<service>/<namespace>' \
+curl -X 'POST' 'https://events.baselime.io/v1/logs' \
   -H 'x-api-key: $BASELIME_API_KEY' \
   -H 'Content-Type: application/json' \
+  -H 'x-service: my-service' \
   -d '[
         {
           "message": "This is an example log event",
-          "error": "TypeError: Cannot read property something of undefined",
+          "error": "TypeError: Cannot read property 'something' of undefined",
           "requestId": "6092d6f0-3bfa-4d62-9d0b-5bc7ae6518a1",
-          "data": {"key1": "an example metadata"}
+          "namespace": "https://api.domain.com/resource/{id}"
         },
         {
           "message": "This is another example log event",
@@ -45,17 +46,25 @@ Each request ingests a batch of events into Baselime. Events are part of the req
 The request body must be an array of JSON objects. Any element of the array that cannot be parsed as valid JSON will be rejected.
 
 
-Requests must be made to the `/<dataset>/<service>/<namespace>` route:
+Requests must be made to the `/<dataset>` route. `<dataset>` is the name of the dataset you want events to be stored in.
 
-- `<dataset>` is the name of the dataset that the events should be ingested into.
-- `<service>` is the service that the events belong to.
-- `<namespace>` is the namespace within the dataset that the events should be ingested into.
 
 ---
 
 ## Authentication
 
 Add a public Baselime API key in the `x-api-key` header to all requests made to the Events API. You can get your API key from the [Baselime console](https://console.baselime.io).
+
+---
+
+## Request Headers
+
+Optionally, you can send the `service` and/or `namespace` properties in the request headers
+
+| Header | Value { class="compact"}                    |
+|-------------|---------------------------------------|
+| `x-service`         | The name of the service the events originates from |
+| `x-namespace`         | The name of the namespace the events originates from |
 
 ---
 
@@ -88,7 +97,7 @@ We welcome feedback on API responses and error messages. Reach out to us in our 
 |-------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 405         | ```{"message": "Method Not Allowed"}``` | The HTTP method is not allowed                                                                                                                                                                                                                                                                               |
 | 401         | ```{"message": "Unauthorised"}``` | Missing or invalid API Key                                                                                                                                                                                                                                                                                   |
-| 400        | ```{"message": "Bad Request"}``` | - Missing or invalid path parameters (`v1`, `<dataset>`, `<service>` or `<namespace>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `256kb` size limit <br /> - At least one of the events could not be parsed as valid JSON |
+| 400        | ```{"message": "Bad Request"}``` | - Missing or invalid path parameters (`v1` or `<dataset>`) <br/> - Unable to parse the request body as valid JSON<br/>- Empty request body <br/>- At least one of the events exceed the `256kb` size limit <br /> - At least one of the events could not be parsed as valid JSON |
 | 500         | ```{"message": "Internal Error"}``` | An unexpected error occurred                                                                                                                                                                                                                                                                                 |
 
 
