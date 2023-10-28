@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751727301651">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751815954041">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.5.0.751727301651" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.751815954041" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.751727301651" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.751815954041" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.751727301651" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.751815954041" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -228,20 +228,6 @@
 </doc-anchor-target>
 <p>Baselime counts the number of events daily and updates your dashboard accordingly. Baselime does not count Amazon CloudWatch metrics or Amazon CloudTrail logs as part of the monthly event cap. All other events are counted, include the <code v-pre>START</code>, <code v-pre>END</code> and <code v-pre>REPORT</code> log lines from serverless functions.</p>
 <hr>
-<doc-anchor-target id="does-baselime-support-containers">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#does-baselime-support-containers">#</doc-anchor-trigger>
-        <span>Does Baselime support containers?</span>
-    </h2>
-</doc-anchor-target>
-<p>Baselime works with any environment where OpenTelemetry is available. Moreover, Baselime provides an HTTP API where you can send events individually from environments where OpenTelemetry is not available.</p>
-<p>Baselime has a native integration with container platforms on AWS:</p>
-<ul>
-<li>Amazon ECS (Fargate and EC2)</li>
-<li>Amazon AppRunner</li>
-</ul>
-<p>These integration enable logs, metrics and traces generated without OpenTelemetry to be automatically ingested into Baselime.</p>
-<hr>
 <doc-anchor-target id="does-baselime-support-multi-accounts-and-multi-regions">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#does-baselime-support-multi-accounts-and-multi-regions">#</doc-anchor-trigger>
@@ -249,73 +235,6 @@
     </h2>
 </doc-anchor-target>
 <p>Yes, Baselime supports for multi-account and multi-region setups. When you connect your first cloud account to Baselime, Baselime creats a Baselime environment. You can subsequently add as many new cloud accounts or regions to the Baselime environment. All your telemetry data from those separate accounts and regions will be unified in the Baselime environment.</p>
-<hr>
-<doc-anchor-target id="how-easy-is-it-to-instrument-my-aws-applications">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-easy-is-it-to-instrument-my-aws-applications">#</doc-anchor-trigger>
-        <span>How easy is it to instrument my AWS applications?</span>
-    </h2>
-</doc-anchor-target>
-<p>When you connect your AWS account to Baselime, logs from your AWS Lambda functions, API Gateways and AppRunner services, and metrics from your entire AWS account are automatically ingested into Baselime. No further setup is required.</p>
-<p>When you connect your Vercel account to Baselime, all your Vercel application logs, edge function logs and build logs are ingested into Baselime. No further setup is required.</p>
-<p>Moreover, if you have Amazon X-Ray enabled on your services (both serverless functions and containers), these traces are automatically ingested into Baselime.</p>
-<p>To use OpenTelemetry distributed tracing, add the <code v-pre>baselime:tracing</code> tag to your AWS Lambda functions using the Node.js runtime and these will be automatically instrumented. We&#x27;re currently working on more runtimes.</p>
-<p>For any other runtimes or environments, instrument your applications with OpenTelemetry or send your logs via the HTTP API.</p>
-<hr>
-<doc-anchor-target id="how-easy-is-it-to-instrument-my-vercel-applications">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-easy-is-it-to-instrument-my-vercel-applications">#</doc-anchor-trigger>
-        <span>How easy is it to instrument my Vercel applications?</span>
-    </h2>
-</doc-anchor-target>
-<p>When you connect your Vercel account to Baselime, all your Vercel application logs, edge function logs and build logs are ingested into Baselime. No further setup is required.</p>
-<hr>
-<doc-anchor-target id="how-do-i-get-distributed-tracing">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-do-i-get-distributed-tracing">#</doc-anchor-trigger>
-        <span>How do I get distributed tracing?</span>
-    </h2>
-</doc-anchor-target>
-<p>Baselime supports both OpenTelemetry and AWS X-Ray for distributed tracing. If you application is already instrumented with OpenTelemetry, change the destination of your instrumetation to the Baselime endpoint:</p>
-<ul>
-<li>URL: <a href="https://otel.baselime.io/v1">https://otel.baselime.io/v1</a></li>
-<li>Header: <code v-pre>x-api-key: &lt;BASELIME_API_KEY&gt;</code></li>
-</ul>
-<p>Alternatively, you can instrument your AWS Lambda function with the Baselime OpenTelemetry tracer. Add the <code v-pre>baselime:tracing</code> tag to your AWS Lambda functions, and set it to <code v-pre>true</code>.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>The automatic OpenTelemetry tracing with the tag is available for Node.js AWS Lambda functions, we&#x27;re currently working on enabling this for other runtimes.</p>
-        </div>
-    </div>
-</div>
-<p>If you use AWS X-Ray, Baselime automatically capture traces from X-Ray when your AWS Account is connected.</p>
-<hr>
-<doc-anchor-target id="how-hard-is-it-to-remove-baselime-from-my-aws-account">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-hard-is-it-to-remove-baselime-from-my-aws-account">#</doc-anchor-trigger>
-        <span>How hard is it to remove Baselime from my AWS account?</span>
-    </h2>
-</doc-anchor-target>
-<p>If you decide to remove Baselime from your AWS account, delete the CloudFormation template Baselime creates on your AWS account. That&#x27;s all, all resources Baselime created, including the instrumentation layers, will be removed.</p>
-<hr>
-<doc-anchor-target id="does-baselime-automatically-recognise-new-functions-and-services">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#does-baselime-automatically-recognise-new-functions-and-services">#</doc-anchor-trigger>
-        <span>Does Baselime automatically recognise new functions and services?</span>
-    </h2>
-</doc-anchor-target>
-<p>Yes, when you deploy new serverless functions and services to your cloud infrastructure, Baselime automatically detects them and starts ingesting logs, metrics and traces from those function. To add OpenTelemetry tracing, add the <code v-pre>baselime:tracing</code> tag to your new functions and set it to <code v-pre>true</code>.</p>
 <hr>
 <doc-anchor-target id="where-is-my-data-stored">
     <h2>
@@ -362,28 +281,6 @@
 </doc-anchor-target>
 <p>Once you sign up to Baselime with your organisation domain email, you can configure Baselime such that anyone with the same email domain can join your workspace.</p>
 <p>Moreover, you can invite your teammates individurally. Additionally, every query result, dashboards, an alerts have a unique permalink in Baselime that you can share with your team.</p>
-<hr>
-<doc-anchor-target id="does-baselime-have-an-impact-on-my-aws-bill">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#does-baselime-have-an-impact-on-my-aws-bill">#</doc-anchor-trigger>
-        <span>Does Baselime have an impact on my AWS bill?</span>
-    </h2>
-</doc-anchor-target>
-<p>Baselime relies on a few AWS resources in your AWS account, most notably:</p>
-<ul>
-<li>Amazon CloudWatch metrics stream: to enable CloudWatch metrics to be queried using the Baselime query engine</li>
-<li>Amazon CloudTrail: to enable CloudTrail events, and also register new subscription filters as soon as new serverless functions or services are created</li>
-<li>Amazon Kinesis Data Firehose: To store telemetry data in cold storage in your AWS account</li>
-</ul>
-<p>These services may add a minimal cost on your AWS monthly bill. Please refer to the <a href="https://calculator.aws/">AWS princing calculator</a> for estimates based on your usage.</p>
-<hr>
-<doc-anchor-target id="does-baselime-have-an-impact-on-my-vercel-bill">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#does-baselime-have-an-impact-on-my-vercel-bill">#</doc-anchor-trigger>
-        <span>Does Baselime have an impact on my Vercel bill?</span>
-    </h2>
-</doc-anchor-target>
-<p>No, Baselime doesn&#x27;t have any impact on your Vercel bill.</p>
 
                                 
                                 <!-- Required only on API pages -->
