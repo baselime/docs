@@ -21,7 +21,14 @@ Install `@microlabs/otel-cf-workers` in your project.
 npm i @microlabs/otel-cf-workers 
 ```
 
-### Step 2: Configure the tracer
+### Step 2: Add NodeJS Compatibility Flags
+
+OpenTelemetry requires the NodeJS Compatibility flag is enabled at the top level of your wrangler.toml
+
+```toml # :icon-code: wrangler.toml
+compatibility_flags = [ "nodejs_compat" ]
+```
+### Step 3: Configure the tracer
 
 In your Cloudflare worker file, add the following configuration code to configure OpenTelemetry.
 
@@ -52,7 +59,7 @@ const config: ResolveConfigFn = (env: Env, _trigger) => {
 export default instrument(handler, config)
 ```
 
-### Step 3: Set the Baselime environment variables
+### Step 4: Set the Baselime environment variables
 
 In your `wrangler.toml` file set the `BASELIME_API_KEY` and `SERVICE_NAME` variables
 
