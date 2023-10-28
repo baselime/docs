@@ -9,7 +9,7 @@ order: 0
 
 ## Step 1: Sign up for Baselime
 
-You can sign up for a free Baselime account [here](https://console.baselime.io).
+Sign up for a free Baselime account in the [Baselime console](https://console.baselime.io).
 
 ---
 
@@ -17,27 +17,32 @@ You can sign up for a free Baselime account [here](https://console.baselime.io).
 
 You can add an environment by connecting your cloud account, or by creating an environment manually to send data manually to Baselime.
 
+Select "Send data manually" for this quick start.
+
 ![Add an Environment](./assets/images/illustrations/quickstart/connect.png)
 
 
 ---
 
-## Step 3: Send a log event (optional)
+## Step 3: Send log events
 
-If you created an environment manually, execute this `cURL` command to send your first log event to Baselime.
+Execute this `cURL` command to send your first log event to Baselime.
 
-Replace your `BASELIME_API_KEY` with the API key your got from step 2.
+!!!
+Replace `BASELIME_API_KEY` with the API key your got from step 2.
+!!!
 
 ```bash # :icon-terminal: terminal
-curl -X 'POST' 'https://events.baselime.io/v1/logs/my-service/my-namespace' \
+curl -X 'POST' 'https://events.baselime.io/v1/logs' \
   -H 'x-api-key: $BASELIME_API_KEY' \
   -H 'Content-Type: application/json' \
+  -H 'x-service: my-service' \
   -d '[
         {
           "message": "This is an example log event",
           "error": "TypeError: Cannot read property 'something' of undefined",
           "requestId": "6092d6f0-3bfa-4d62-9d0b-5bc7ae6518a1",
-          "data": {"key1": "an example metadata"}
+          "namespace": "https://api.domain.com/resource/{id}"
         },
         {
           "message": "This is another example log event",
@@ -52,23 +57,18 @@ curl -X 'POST' 'https://events.baselime.io/v1/logs/my-service/my-namespace' \
 
 ## Step 4: Explore your data
 
-Congratulations! Your first event should be available to query in Baselime. You can start exploring your data using the [Baselime console](https://console.baselime.io), the [Baselime CLI](./cli/install.md) or any other of our clients.
+Congratulations! Your first event should be available to query in Baselime. You can start exploring your data using the [Baselime console](https://console.baselime.io) or the [Baselime CLI](./cli/install.md).
 
-![View of an AWS Lambda function in Baselime](./assets/images/illustrations/quickstart/lambda.png)
+Explore how to [connect various data sources](./sending-data/) to Baselime and get full-stack observability across your applications.
+
+![Your data in Baselime](./assets/images/illustrations/quickstart/lambda.png)
 
 ---
 
 ## Guides
 
-- [Sending Data](./sending-data/): Learn how to ingest telemetry data from your cloud-native applications
+- [Sending Data](./sending-data/): Learn how to ingest telemetry data from your applications
 - [Analyzing Data](./analysing-data/overview.md): Discover how to use the various interfaces provided by Baselime to analyze and understand your data
-
-
----
-## Reference
-
-- [Baselime CDK Reference Guide](./oac/cdk/quick-start.md): Learn about how to use Baselime with the AWS CDK to define your Observability as Code
-- [CLI Reference](./cli/install.md): Complete reference for the Baselime command-line interface
 
 ---
 ## Community
