@@ -21,13 +21,14 @@ Install `@microlabs/otel-cf-workers` in your project.
 npm i @microlabs/otel-cf-workers 
 ```
 
-### Step 2: Add NodeJS Compatibility Flags
+### Step 2: Add Node.js Compatibility Flags
 
-OpenTelemetry requires the NodeJS Compatibility flag is enabled at the top level of your wrangler.toml
+OpenTelemetry requires the Node.js Compatibility flag is enabled at the top level of your wrangler.toml
 
 ```toml # :icon-code: wrangler.toml
 compatibility_flags = [ "nodejs_compat" ]
 ```
+
 ### Step 3: Configure the tracer
 
 In your Cloudflare worker file, add the following configuration code to configure OpenTelemetry.
