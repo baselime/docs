@@ -62,12 +62,12 @@ export default instrument(handler, config)
 
 ### Step 4: Set the Baselime environment variables
 
-In your [Cloudflare Workers Secret Configuration](https://developers.cloudflare.com/workers/configuration/secrets/) add your `BASELIME_API_KEY`. 
+In your [Cloudflare Workers Secret Configuration](https://developers.cloudflare.com/workers/configuration/secrets/) add the `BASELIME_API_KEY`. 
 
 To enable tracing for local dev add your `BASELIME_API_KEY` to your `.dev.vars` file
 
 ```env # :icon-code: .dev.vars
-BASELIME_API_KEY
+BASELIME_API_KEY=j93h0h390jj
 ```
 
 In your `wrangler.toml` file set the `SERVICE_NAME` variable
