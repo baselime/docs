@@ -47,6 +47,6 @@ Make sure to prefix the `Token` with `render:`. This enables Baselime to adequat
 
 ### Step 4. Use your logs from Render
 
-Once the Log Stream is created, all your logs from Render will be available in Baselime for searching, queries, dashboard and alerts.
+Once the Log Stream is created, all your logs from Render will be available in Baselime for searching, queries, dashboard and alerts. No further code changes are required in your code base.
 
 
