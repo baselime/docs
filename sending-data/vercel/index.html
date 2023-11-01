@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752080349499">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752152249088">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.752080349499" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752152249088" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752080349499" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752152249088" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752080349499" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752152249088" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -203,16 +203,7 @@
         <span>Vercel</span>
     </h1>
 </doc-anchor-target>
-<hr>
 <p>Vercel is a cloud platform for hosting and deploying web applications and websites. It is designed to make the process of deploying, scaling, and managing web apps as simple and efficient as possible. Vercel offers a variety of features and tools for web developers.</p>
-<doc-anchor-target id="baselime-integration">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-integration">#</doc-anchor-trigger>
-        <span>Baselime Integration</span>
-    </h2>
-</doc-anchor-target>
-<p>Baselime provides advanced observability capabilities for applications running on Vercel.</p>
-<p>Install the integration for free on the <a href="https://vercel.com/integrations/baselime">Vercel marketplace</a> and start observing your Vercel apps in minutes.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -226,10 +217,19 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>If you deploy Next.js applications on Vercel, we recommened also instrumenting your applications with <a href="../opentelemetry/next.js/">OpenTelemetry for Next.js</a> to enable distributed tracing in addition to logs.</p>
+<p>For distributed tracing on Vercel, check out <a href="../opentelemetry/next.js/">OpenTelemetry for Next.js</a>.</p>
         </div>
     </div>
 </div>
+<hr>
+<doc-anchor-target id="baselime-integration">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#baselime-integration">#</doc-anchor-trigger>
+        <span>Baselime Integration</span>
+    </h2>
+</doc-anchor-target>
+<p>Baselime provides advanced observability capabilities for applications running on Vercel.</p>
+<p>Install the integration for free on the <a href="https://vercel.com/integrations/baselime">Vercel marketplace</a> and start observing your Vercel apps in minutes.</p>
 <doc-anchor-target id="how-it-works">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
@@ -242,7 +242,6 @@
 <li><code v-pre>vercel-build</code>: logs from your Vercel build steps</li>
 <li><code v-pre>vercel-edge</code>: logs from Vercel Edge functions</li>
 <li><code v-pre>vercel-functions</code>: logs from Vercel functions such as API routes</li>
-<li><code v-pre>vercel-static</code>: logs from requests to static assets on Vercel such as HTML and CSS files</li>
 </ul>
 <p>The logs are separated in multiple datasets to give you a complete view of your Vercel applications.</p>
 <doc-anchor-target id="using-the-vercel-integration">
