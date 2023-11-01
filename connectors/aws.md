@@ -66,13 +66,13 @@ The CloudFormation template is open-source and available here.
 ## Your data
 
 Once connected, Baselime will automatically ingest data from your AWS environment. This includes:
-* Lambda Logs
-* API Gateway Logs
-* Cloudtrail Logs
-* Cloudwatch Metrics
-* ECS Logs (through fluentd)
+* AWS Lambda Logs
+* Amazon API Gateway Logs
+* Amazon Cloudtrail Logs
+* Amazon Cloudwatch Metrics
+* Amazon ECS Logs (through fluentd)
 * Open Telemetry Metrics
-* X-Ray Traces
+* AWS X-Ray Traces
 
 Once ingested, the telemetry data is streamed through a Kinesis Firehose to an Amazon S3 bucket in your AWS account for cold storage. There you can access the raw data and use it for your own purposes.
 

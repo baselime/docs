@@ -5,8 +5,6 @@ order: -2
 
 # Correlate Logs with Traces
 
----
-
 Baselime enables you to correlate your logs with your distributed traces. For platforms with direct deep integrations such as AWS Lambda or Vercel, this is done automatically.
 
 If you send your logs and traces to Baselime manually, adding a `traceId` field to your logs will enable logs and traces correlation.
