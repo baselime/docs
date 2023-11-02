@@ -5,20 +5,20 @@ order: -2
 
 # Vercel
 
----
 
 Vercel is a cloud platform for hosting and deploying web applications and websites. It is designed to make the process of deploying, scaling, and managing web apps as simple and efficient as possible. Vercel offers a variety of features and tools for web developers.
+
+!!!
+For distributed tracing on Vercel, check out [OpenTelemetry for Next.js](./opentelemetry/next.js.md).
+!!!
+
+---
 
 ## Baselime Integration
 
 Baselime provides advanced observability capabilities for applications running on Vercel. 
 
 Install the integration for free on the [Vercel marketplace](https://vercel.com/integrations/baselime) and start observing your Vercel apps in minutes.
-
-!!!
-If you deploy Next.js applications on Vercel, we recommened also instrumenting your applications with [OpenTelemetry for Next.js](./opentelemetry/next.js.md) to enable distributed tracing in addition to logs.
-!!!
-
 
 ### How it works
 
@@ -28,7 +28,6 @@ Once Baselime receives your data, we automatically discover all your Vercel apps
 - `vercel-build`: logs from your Vercel build steps
 - `vercel-edge`: logs from Vercel Edge functions
 - `vercel-functions`: logs from Vercel functions such as API routes
-- `vercel-static`: logs from requests to static assets on Vercel such as HTML and CSS files
 
 The logs are separated in multiple datasets to give you a complete view of your Vercel applications.
 
