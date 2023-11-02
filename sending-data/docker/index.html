@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752255129338">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752259293080">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.752255129338" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752259293080" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752255129338" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752259293080" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752255129338" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.752255129338" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752259293080" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.752259293080" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -205,7 +205,10 @@
     </h1>
 </doc-anchor-target>
 <p><a href="https://docker.com">Docker</a> is an open platform for developing, shipping, and running applications and services.</p>
-<p>Docker enables you to configure a <a href="https://docs.docker.com/config/containers/logging/configure/">logging driver</a> for each container. You can use <a href="https://www.fluentd.org/">Fluentd</a> as your logging driver to stream logs from your Docker containers directly to Baselime over HTTPS.</p>
+<p>You can stream your Docker container logs to Baselime over HTTPS
+by configuring a <a href="https://docs.docker.com/config/containers/logging/configure/">logging driver</a> for each container.
+In this guide we&#x27;ll show you how to configure the <a href="https://docs.docker.com/config/containers/logging/fluentd/">Fluentd</a>
+and <a href="https://docs.docker.com/config/containers/logging/fluentd/">Fluent Bit</a> logging drivers to stream your logs to Baselime.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -223,15 +226,19 @@
         </div>
     </div>
 </div>
-<hr>
-<doc-anchor-target id="single-container">
+<doc-anchor-target id="driver-configuration">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#single-container">#</doc-anchor-trigger>
-        <span>Single container</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#driver-configuration">#</doc-anchor-trigger>
+        <span>Driver configuration</span>
     </h2>
 </doc-anchor-target>
-<p><strong>Step 1:</strong> Get your <code v-pre>BASELIME_API_KEY</code> in the <a href="https://console.baselime.io">Baselime console</a>.</p>
-<p><strong>Step 2:</strong> Create the Fluentd configuration file.</p>
+<p>Fluentd and Fluent Bit allow you to specify sources (inputs) and sinks (outputs) and processors (filters) in a configuration file.</p>
+<p>Below, you can find a configuration file for each of the drivers,
+which matches all inputs and sends them to Baselime.</p>
+<doc-tabs>
+<doc-tab v-cloak id="fluentd">
+<template #title>FluentD</template>
+<p>FluentD listens on port <code v-pre>24224</code> by default, so no additional configuration is required.</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> fluent.conf</div>
 <pre class="language-apacheconf"><code v-pre class="language-apacheconf"># fluentd/conf/fluent.conf
@@ -246,6 +253,33 @@
   &lt;/format&gt;
 &lt;/match&gt;</code></pre>
 </doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="fluentbit">
+<template #title>FluentBit</template>
+<p>FluentBit does not listen on any port by default, so you need to configure it to listen on port <code v-pre>24224</code>
+and forward the traffic.
+This way Docker can send the logs to Fluent Bit.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> fluent-bit.conf</div>
+<pre class="language-apacheconf"><code v-pre class="language-apacheconf"># /fluent-bit/etc/fluent-bit.conf
+[INPUT]
+    Name        forward
+    Listen      0.0.0.0
+    Port        24224
+
+[OUTPUT]
+    Name http
+    Host events.baselime.io/v1/logs
+    TLS On
+    Port 443
+    Uri /v1/docker-logs
+    Match *
+    Format json
+    Header x-api-key BASELIME_API_KEY
+    Header baselime-data-source fluentbit/docker</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -259,7 +293,8 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Make sure to replace <code v-pre>BASELIME_API_KEY</code> with your Baselime API key from Step 1.</p>
+<p>Make sure to replace <code v-pre>BASELIME_API_KEY</code> in configuration file
+with your Baselime API key from <a href="https://console.baselime.io">Baselime console</a>.</p>
         </div>
     </div>
 </div>
@@ -280,7 +315,18 @@
         </div>
     </div>
 </div>
-<p><strong>Step 3:</strong> Start the Fluentd container and mount the configuration</p>
+<hr>
+<doc-anchor-target id="single-container">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#single-container">#</doc-anchor-trigger>
+        <span>Single container</span>
+    </h2>
+</doc-anchor-target>
+<p><strong>Step 1:</strong> Create the configuration file for your logging driver and replace <code v-pre>BASELIME_API_KEY</code>.</p>
+<p><strong>Step 2:</strong> Start your logging driver with configuration file mounted as a volume.</p>
+<doc-tabs>
+<doc-tab v-cloak id="fluentd">
+<template #title>Fluentd</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">$ docker run \
     -d \
@@ -288,7 +334,20 @@
     -p 24224:24224 \
     fluentd:latest</code></pre>
 </doc-codeblock></div>
-<p><strong>Step 4:</strong> Configure your Docker container to use Fluentd as the logging driver.</p>
+</doc-tab>
+<doc-tab v-cloak id="fluentbit">
+<template #title>FluentBit</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ docker run \
+    -d \
+    -v ./conf:/fluent-bit/etc \
+    -p 24224:24224 \
+    fluent/fluent-bit:latest</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<p><strong>Step 3:</strong> Start your Docker container and specify a logging driver as with options
+<code v-pre>--log-driver</code> and <code v-pre>--log-opt</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">$ docker run -d \
     --log-driver=fluentd \
@@ -310,11 +369,30 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Baselime uses <a href="https://docs.docker.com/config/labels-custom-metadata/">Docker labels</a> for service name.</p>
+<p>Baselime uses <a href="https://docs.docker.com/config/labels-custom-metadata/">Docker labels</a> <code v-pre>io.baselime.service</code>
+and <code v-pre>io.baselime.namespace</code> for service name and the namespace.</p>
         </div>
     </div>
 </div>
-<p>Once these steps are completed, logs from your Docker container will be available to search and query in the <a href="https://console.baselime.io">Baselime console</a>.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>If your logging driver exists in a different network, or you&#x27;ve specified a different
+port, make sure to update the <code v-pre>localhost:24224</code> accordingly.</p>
+        </div>
+    </div>
+</div>
+<p><strong>Step 4:</strong> View your logs in the <a href="https://console.baselime.io">Baselime console</a>.</p>
 <hr>
 <doc-anchor-target id="using-docker-compose">
     <h2>
@@ -323,11 +401,14 @@
     </h2>
 </doc-anchor-target>
 <p>If your containers are orchestrated using <a href="https://docs.docker.com/compose/">Docker Compose</a>, you can stream logs from multiple containers to Baselime using the following <code v-pre>docker-compose.yaml</code> file.</p>
+<doc-tabs>
+<doc-tab v-cloak id="fluentd">
+<template #title>Fluentd</template>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> docker-compose.yaml</div>
 <pre class="language-yaml"><code v-pre class="language-yaml">version: &quot;3.7&quot;
 services:
-  your_service:
+  your_awesome_service:
     image: YOUR_IMAGE
     depends_on:
       - fluentd
@@ -336,15 +417,40 @@ services:
       options:
         fluentd-address: localhost:24224
         labels: &quot;io.baselime.service&quot;
+    labels:
+      io.baselime.service: &quot;my-service&quot;
   fluentd:
     image: fluentd:latest
     volumes:
       - ./conf:/fluentd/etc
     environment:
-      - FLUENTD_CONF=fluent.conf
-    labels:
-      io.baselime.service: &quot;my-service&quot;</code></pre>
+      - FLUENTD_CONF=fluent.conf</code></pre>
 </doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="fluentbit">
+<template #title>FluentBit</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<div class="codeblock-title"><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.22 4.97a.75.75 0 0 1 1.06 0l6.5 6.5a.75.75 0 0 1 0 1.06l-6.5 6.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L21.19 12l-5.97-5.97a.75.75 0 0 1 0-1.06Zm-6.44 0a.75.75 0 0 1 0 1.06L2.81 12l5.97 5.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.5-6.5a.75.75 0 0 1 0-1.06l6.5-6.5a.75.75 0 0 1 1.06 0Z"/></g></g></svg> docker-compose.yaml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">version: &quot;3.7&quot;
+services:
+  your_awesome_service:
+    image: YOUR_IMAGE
+    depends_on:
+      - fluentbit
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        labels: &quot;io.baselime.service&quot;
+    labels:
+      io.baselime.service: &quot;my-service&quot;
+  fluentbit:
+    image: fluent/fluent-bit:latest
+    volumes:
+      - ./conf:/fluent-bit/etc</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
 <hr>
 <doc-anchor-target id="best-practices">
     <h2>
