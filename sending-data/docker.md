@@ -52,8 +52,8 @@ This way Docker can send the logs to Fluent Bit.
 
 [OUTPUT]
     Name http
-    Host events.baselime.io/v1/logs
-    TLS On
+    Host events.baselime.io
+    Tls On
     Port 443
     Uri /v1/docker-logs
     Match *
