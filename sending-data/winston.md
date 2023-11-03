@@ -55,6 +55,6 @@ The `@baselime/winston-transport` takes the following options
 | Field            | Type                    | Description                          |
 | ---------------- | ----------------------- | ------------------------------------ |
 | `baselimeApiKey`      | `string`       | The Baselime API key                    |
-| `dataset`     | `string` (optional)       | The dataset name - defaults to pino-logs  |
+| `dataset`     | `string` (optional)       | The dataset name - defaults to winston-logs  |
 | `service`          | `string` (optional)       | The service name                    |
 | `namespace`        | `string` (optional)       | The namespace                       |
