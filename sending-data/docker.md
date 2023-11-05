@@ -7,19 +7,23 @@ order: -5
 
 [Docker](https://docker.com) is an open platform for developing, shipping, and running applications and services.
 
-Docker enables you to configure a [logging driver](https://docs.docker.com/config/containers/logging/configure/) for each container. You can use [Fluentd](https://www.fluentd.org/) as your logging driver to stream logs from your Docker containers directly to Baselime over HTTPS.
+You can stream your Docker container logs to Baselime over HTTPS
+by configuring a [logging driver](https://docs.docker.com/config/containers/logging/configure/) for each container.
+In this guide we'll show you how to configure the [Fluentd](https://docs.docker.com/config/containers/logging/fluentd/)
+and [Fluent Bit](https://docs.docker.com/config/containers/logging/fluentd/) logging drivers to stream your logs to Baselime.
 
 !!!
 The steps in this guide are implemented in this [example project](https://github.com/baselime/examples/tree/main/docker-logs).
 !!!
 
----
+## Driver configuration
+Fluentd and Fluent Bit allow you to specify sources (inputs) and sinks (outputs) and processors (filters) in a configuration file.
 
-## Single container
+Below, you can find a configuration file for each of the drivers,
+which matches all inputs and sends them to Baselime.
 
-**Step 1:** Get your `BASELIME_API_KEY` in the [Baselime console](https://console.baselime.io).
-
-**Step 2:** Create the Fluentd configuration file.
++++FluentD
+FluentD listens on port `24224` by default, so no additional configuration is required.
 
 ```apacheconf # :icon-code: fluent.conf
 # fluentd/conf/fluent.conf
@@ -34,15 +38,47 @@ The steps in this guide are implemented in this [example project](https://github
   </format>
 </match>
 ```
-!!!
-Make sure to replace `BASELIME_API_KEY` with your Baselime API key from Step 1.
-!!!
++++ FluentBit
+FluentBit does not listen on any port by default, so you need to configure it to listen on port `24224`
+and forward the traffic.
+This way Docker can send the logs to Fluent Bit.
 
+```apacheconf # :icon-code: fluent-bit.conf
+# /fluent-bit/etc/fluent-bit.conf
+[INPUT]
+    Name        forward
+    Listen      0.0.0.0
+    Port        24224
+
+[OUTPUT]
+    Name http
+    Host events.baselime.io
+    Tls On
+    Port 443
+    Uri /v1/docker-logs
+    Match *
+    Format json
+    Header x-api-key BASELIME_API_KEY
+    Header baselime-data-source fluentbit/docker
+```
++++
+!!!
+Make sure to replace `BASELIME_API_KEY` in configuration file
+with your Baselime API key from [Baselime console](https://console.baselime.io).
+!!!
 !!!
 You can send the logs to a different dataset by replacing `logs` in the URL `https://events.baselime.io/v1/logs` with a different dataset name.
 !!!
 
-**Step 3:** Start the Fluentd container and mount the configuration
+
+---
+
+## Single container
+
+**Step 1:** Create the configuration file for your logging driver and replace `BASELIME_API_KEY`.
+
+**Step 2:** Start your logging driver with configuration file mounted as a volume.
++++ Fluentd
 
 ```shell
 $ docker run \
@@ -51,8 +87,19 @@ $ docker run \
     -p 24224:24224 \
     fluentd:latest
 ```
++++ FluentBit
+```shell
+$ docker run \
+    -d \
+    -v ./conf:/fluent-bit/etc \
+    -p 24224:24224 \
+    fluent/fluent-bit:latest
+```
++++
 
-**Step 4:** Configure your Docker container to use Fluentd as the logging driver.
+**Step 3:** Start your Docker container and specify a logging driver as with options
+`--log-driver` and `--log-opt`.
+
 ```shell :icon-terminal: terminal
 $ docker run -d \
     --log-driver=fluentd \
@@ -62,20 +109,25 @@ $ docker run -d \
     YOUR_DOCKER_IMAGE
 ```
 !!!
-Baselime uses [Docker labels](https://docs.docker.com/config/labels-custom-metadata/) for service name.
+Baselime uses [Docker labels](https://docs.docker.com/config/labels-custom-metadata/) `io.baselime.service`
+and `io.baselime.namespace` for service name and the namespace.
 !!!
-
-Once these steps are completed, logs from your Docker container will be available to search and query in the [Baselime console](https://console.baselime.io).
+!!!
+If your logging driver exists in a different network, or you've specified a different
+port, make sure to update the `localhost:24224` accordingly.
+!!!
+**Step 4:** View your logs in the [Baselime console](https://console.baselime.io).
 
 ---
 ## Using Docker Compose
 
 If your containers are orchestrated using [Docker Compose](https://docs.docker.com/compose/), you can stream logs from multiple containers to Baselime using the following `docker-compose.yaml` file.
 
++++Fluentd
 ```yaml # :icon-code: docker-compose.yaml
 version: "3.7"
 services:
-  your_service:
+  your_awesome_service:
     image: YOUR_IMAGE
     depends_on:
       - fluentd
@@ -84,16 +136,36 @@ services:
       options:
         fluentd-address: localhost:24224
         labels: "io.baselime.service"
+    labels:
+      io.baselime.service: "my-service"
   fluentd:
     image: fluentd:latest
     volumes:
       - ./conf:/fluentd/etc
     environment:
       - FLUENTD_CONF=fluent.conf
+```
++++FluentBit
+```yaml # :icon-code: docker-compose.yaml
+version: "3.7"
+services:
+  your_awesome_service:
+    image: YOUR_IMAGE
+    depends_on:
+      - fluentbit
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        labels: "io.baselime.service"
     labels:
       io.baselime.service: "my-service"
+  fluentbit:
+    image: fluent/fluent-bit:latest
+    volumes:
+      - ./conf:/fluent-bit/etc
 ```
-
++++
 ---
 
 ## Best practices

@@ -67,7 +67,7 @@ In your [Cloudflare Workers Secret Configuration](https://developers.cloudflare.
 To enable tracing for local dev add your `BASELIME_API_KEY` to your `.dev.vars` file
 
 ```env # :icon-code: .dev.vars
-BASELIME_API_KEY=j93h0h390jj
+BASELIME_API_KEY=$YOUR_BASELIME_API_KEY
 ```
 
 In your `wrangler.toml` file set the `SERVICE_NAME` variable
