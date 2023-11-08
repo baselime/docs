@@ -14,3 +14,4 @@ Depending on your use of Cloudflare services, you can send events and logs to Ba
 
 [!ref icon="../../assets/images/logos/cloudflare.png"](./logpush.md)
 [!ref icon="../../assets/images/logo.svg"](./edge-logger.md)
+[!ref icon="../../assets/images/logos/cloudflare-pages.png"](./pages.md)
