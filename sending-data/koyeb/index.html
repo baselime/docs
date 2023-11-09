@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752783430411">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.752876906814">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Koyeb Logs | Baselime - The cloud-native observability platform</title>
     <meta name="title" content="Koyeb Logs | Baselime - The cloud-native observability platform">
-    <meta name="description" content="Koyeb is a serverless platform that allows you to run applications without having to manage servers and infrastructure.">
+    <meta name="description" content="Koyeb is a serverless platform that enables you to run applications without having to manage servers and infrastructure.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/koyeb/">
@@ -21,24 +21,24 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/koyeb/">
     <meta property="og:title" content="Koyeb Logs | Baselime - The cloud-native observability platform">
-    <meta property="og:description" content="Koyeb is a serverless platform that allows you to run applications without having to manage servers and infrastructure.">
+    <meta property="og:description" content="Koyeb is a serverless platform that enables you to run applications without having to manage servers and infrastructure.">
     <meta property="og:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/koyeb/step1234.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/koyeb/">
     <meta property="twitter:title" content="Koyeb Logs | Baselime - The cloud-native observability platform">
-    <meta property="twitter:description" content="Koyeb is a serverless platform that allows you to run applications without having to manage servers and infrastructure.">
+    <meta property="twitter:description" content="Koyeb is a serverless platform that enables you to run applications without having to manage servers and infrastructure.">
     <meta property="twitter:image" content="https://baselime.io/docs/assets/images/illustrations/sending-data/koyeb/step1234.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.752783430411" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.752876906814" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752783430411" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.752876906814" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752783430411" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.752876906814" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -205,16 +205,16 @@
         <span>Koyeb Logs</span>
     </h1>
 </doc-anchor-target>
-<p>Koyeb is a serverless platform that allows you to run applications without having to manage servers and infrastructure.
-You can stream your Koyeb services logs using their log exporter.</p>
-<doc-anchor-target id="generating-koyeb-api-key">
+<p><a href="https://koyeb.com">Koyeb</a> is a serverless platform that enables you to run applications without having to manage servers and infrastructure. You can stream your Koyeb services logs to Baselime using their log exporter.</p>
+<hr>
+<p>Streaming logs from Koyeb to Baselime required a Koyeb API Key and a Koyeb Logger service.</p>
+<doc-anchor-target id="generate-your-koyeb-api-key">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#generating-koyeb-api-key">#</doc-anchor-trigger>
-        <span>Generating Koyeb API Key</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#generate-your-koyeb-api-key">#</doc-anchor-trigger>
+        <span>Generate your Koyeb API Key</span>
     </h2>
 </doc-anchor-target>
-<p>This key is necessary for Koyeb logger to have access to your services.
-Follow these steps to generate an API key:</p>
+<p>Generate your Koyeb API Key in 4 steps:</p>
 <ol>
 <li>Select the organisation you want to add logging to.</li>
 <li>Navigate to &quot;Organization Settings&quot;</li>
@@ -222,41 +222,29 @@ Follow these steps to generate an API key:</p>
 <li>Create new API key and copy it for later</li>
 </ol>
 <p><figure class="content-center">
-    <img src="../../assets/images/illustrations/sending-data/koyeb/step1234.png" alt="KOYEB_TOKEN">
-    <figcaption class="caption">KOYEB_TOKEN</figcaption>
+    <img src="../../assets/images/illustrations/sending-data/koyeb/step1234.png" alt="">
+    <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<doc-anchor-target id="creating-logger-service">
+<hr>
+<doc-anchor-target id="create-logger-service">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#creating-logger-service">#</doc-anchor-trigger>
-        <span>Creating Logger service</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#create-logger-service">#</doc-anchor-trigger>
+        <span>Create Logger service</span>
     </h2>
 </doc-anchor-target>
-<p>In our example we have set up an app called <strong>app-name</strong> and within that app
-we&#x27;ve created a service called <strong>service-name</strong>. We want to observe logs from
-that service in Baselime console. In order to do that we now need to create a
-logger service which will be responsible for sending logs to Baselime.</p>
-<p>To do that follow these steps:</p>
+<p>Create a Logger service in Koyeb. This service will stream logs from your Koyeb services in real-time to Baselime.</p>
 <ol>
-<li><p>Navigate to &quot;Overview&quot; tab in your organisation</p>
-</li>
-<li><p>Click &quot;Create App+&quot; button</p>
-</li>
-<li><p>Select &quot;Docker&quot;</p>
-</li>
-<li><p>As &quot;Image&quot; enter <code v-pre>koyeb/log-exporter</code> and as &quot;Tag&quot; enter <code v-pre>v1.0.0-webhook</code>
-<figure class="content-center">
-    <img src="../../assets/images/illustrations/sending-data/koyeb/step4.png" alt="Logger Docker image">
-    <figcaption class="caption">Logger Docker image</figcaption>
+<li>Create a new Docker App in Koyeb</li>
+<li>Use the <code v-pre>koyeb/log-exporter</code> image with &quot;Tag&quot; <code v-pre>v1.0.0-webhook</code></li>
+</ol>
+<p><figure class="content-center">
+    <img src="../../assets/images/illustrations/sending-data/koyeb/step4.png" alt="">
+    <figcaption class="caption"></figcaption>
 </figure>
 </p>
-</li>
-<li><p>On the next page click button &quot;Advanced&quot; and then &quot;Environment Variables&quot;
-<figure class="content-center">
-    <img src="../../assets/images/illustrations/sending-data/koyeb/step5.png" alt="Environment variables">
-    <figcaption class="caption">Environment variables</figcaption>
-</figure>
-</p>
+<ol start="3">
+<li><p>Add environment variables to the new app</p>
 </li>
 <li><p>Add the following environment variables:</p>
 </li>
@@ -276,11 +264,11 @@ logger service which will be responsible for sending logs to Baselime.</p>
 </tr>
 <tr>
 <td><code v-pre>WEBHOOK_TOKEN</code></td>
-<td><code v-pre>your-baselime-api-key</code></td>
+<td><code v-pre>BASELIME_API_KEY</code></td>
 </tr>
 <tr>
 <td><code v-pre>KOYEB_TOKEN</code></td>
-<td><code v-pre>your-koyeb-token</code></td>
+<td><code v-pre>KOYEB_TOKEN</code></td>
 </tr>
 <tr>
 <td><code v-pre>KOYEB_SERVICE</code></td>
@@ -302,24 +290,36 @@ logger service which will be responsible for sending logs to Baselime.</p>
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
+<p>Replace</p>
 <ul>
-<li><code v-pre>WEBHOOK_URI</code> should be set to <code v-pre>https://events.baselime.io/v1/koyeb</code>, but you can replace <code v-pre>koyeb</code> part of path with dataset name you desire.</li>
-<li>Replace <code v-pre>your-baselime-api-key</code> with the API key you obtained from the Baselime console.</li>
-<li>Replace <code v-pre>your-koyeb-token</code> with the API key you obtained from the Koyeb console.</li>
-<li>Replace <code v-pre>app-name/service-name</code> with the name of your service.</li>
+<li><code v-pre>BASELIME_API_KEY</code> with your public <code v-pre>BASELIME_API_KEY</code></li>
+<li><code v-pre>KOYEB_TOKEN</code> with the Koyeb API Key generated in the first step</li>
+<li><code v-pre>app-name/service-name</code> with the name of your service</li>
 </ul>
         </div>
     </div>
 </div>
-<p><figure class="content-center">
-    <img src="../../assets/images/illustrations/sending-data/koyeb/step6.png" alt="App and service names">
-    <figcaption class="caption">App and service names</figcaption>
-</figure>
-</p>
-<ol start="8">
-<li>Click &quot;Deploy&quot; button at the bottom of the page.</li>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>Get your public <code v-pre>BASELIME_API_KEY</code> from the <a href="https://console.baselime.io">Baselime console</a></p>
+        </div>
+    </div>
+</div>
+<ol start="5">
+<li>Deploy the logger service.</li>
 </ol>
-<p>Once deployed you should now start seeing the logs from your Koyeb service in the Baselime console.</p>
+<p>Once the service is deployed logs from your Koyeb application will be available to query in the <a href="https://console.baselime.io">Baselime console</a>.</p>
 
                                 
                                 <!-- Required only on API pages -->
