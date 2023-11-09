@@ -1,6 +1,6 @@
 ---
 label: Rehydration from Amazon S3
-order: -8
+order: -10
 ---
 
 # Rehydrating telemetry data from Amazon S3

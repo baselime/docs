@@ -1,5 +1,5 @@
 ---
-label: Amazon ECS Container Logs
+label: Amazon ECS Container
 order: -1
 ---
 

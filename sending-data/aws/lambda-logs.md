@@ -1,5 +1,5 @@
 ---
-label: AWS Lambda Logs
+label: AWS Lambda
 order: 0
 ---
 

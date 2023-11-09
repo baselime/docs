@@ -1,5 +1,5 @@
 ---
-label: Amazon API Gateway Logs
+label: Amazon API Gateway
 order: -3
 ---
 

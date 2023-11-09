@@ -1,10 +1,10 @@
 ---
-order: 0
+order: -5
 label: React Real User Monitoring
 ---
 # React Real User Monitoring
 
-Instrument your [React.js](https://react.dev/) applications with [`@baselime/react-rum`](https://www.npmjs.com/package/@baselime/react-rum). 
+Instrument your [React](https://react.dev/) applications with [`@baselime/react-rum`](https://www.npmjs.com/package/@baselime/react-rum). 
 
 ---
 
@@ -12,21 +12,16 @@ Instrument your [React.js](https://react.dev/) applications with [`@baselime/rea
 ## Instrumentation
 
 !!!
-Check out a complete [example using Next.JS](https://github.com/baselime/react-rum/tree/main/example).
+Check out a complete [example using Next.js](https://github.com/baselime/react-rum/tree/main/example).
 !!!
 
-### Step 1: Install the SDK
-
-
-Install `@baselime/react-rum` in your project.
+**Step 1:** Install `@baselime/react-rum` in your project.
 
 ```bash # :icon-terminal: terminal
 npm i @baselime/react-rum
 ```
 
-### Step 2: Initialise Real User Monitoring
-
-Add the Baselime RUM component at the top level of your application.
+**Step 2:** Add the Baselime Real User Monitoring component at the top level of your application.
 
 +++ Next.js
 Add BaselimeRum to your Root layout.jsx file
@@ -63,9 +58,9 @@ import { ErrorPage } from '../your-error-page'
 const baselimeApiKey = import.meta.env.VITE_BASELIME_API_KEY
 const root = createRoot(document.getElementById('app'));
 root.render(
-    <BaselimeRum apiKey={baselimeApiKey}  fallback={<ErrorPage />}> 
-        <App />
-    </BaselimeRum>
+  <BaselimeRum apiKey={baselimeApiKey}  fallback={<ErrorPage />}> 
+    <App />
+  </BaselimeRum>
 );
 ```
 +++
@@ -82,9 +77,9 @@ Additionally, you can enable capturing [web vitals](https://web.dev/vitals/) fro
 - [First Input Delay (FID)](https://web.dev/fid/)
 - [Cumulative Layout Shift (CLS)](https://web.dev/cls/)
 
-```jsx !#1 :icon-code: index.jsx
+```jsx # :icon-code: index.jsx
 <BaselimeRum apiKey={baselimeApiKey} enableWebVitals fallback={<ErrorPage />}>
-   <App />
+  <App />
 </BaselimeRum>
 ```
 ---
@@ -96,17 +91,17 @@ To provide a better UX for end users, use React [Error Boundaries](https://legac
 
 The BaselimeErrorBoundary catches errors in any of its child components, reports the error to Baselime. It works in conjunction with the `<BaselimeRum />` Component so that all errors are correlated by Page Load, and User Session.
 
-```jsx #5 
+```jsx #
 import { BaselimeErrorBoundary } from '@baselime/react-rum';
 
 function UserProfile({ child }) {
 
 return (<BaselimeErrorBoundary fallback={<div>Could not display your user profile</div>}>
-            <UserProfileImage />
-            <UserName />
-            <UserBiography />
-        </BaselimeErrorBoundary>
-    )
+      <UserProfileImage />
+      <UserName />
+      <UserBiography />
+    </BaselimeErrorBoundary>
+  )
 }
 ```
 

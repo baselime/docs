@@ -35,6 +35,4 @@ The logs are separated in multiple datasets to give you a complete view of your 
 
 All the logs from your Vercel apps are streamed to Baselime. You can search, query or tail your logs from the console and the CLI. You can create alerts from derived metrics from your logs. You can use our dashboard templates to create dashboards based on your Vercel logs, and modify them at will.
 
-![Vercel Logs in Baselime](../../assets/images/illustrations/sending-data/vercel.png)
-
 

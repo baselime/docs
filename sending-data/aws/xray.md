@@ -1,5 +1,5 @@
 ---
-label: AWS X-Ray Traces
+label: AWS X-Ray
 order: -2
 ---
 

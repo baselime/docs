@@ -1,5 +1,5 @@
 ---
-label: AWS App Runner Logs
+label: AWS App Runner
 order: -3
 ---
 

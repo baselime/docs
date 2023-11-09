@@ -12,7 +12,7 @@ Cloudflare Logpush is available only to accounts subscribed to the Cloudflare Wo
 !!!
 
 !!!
-Cloudflare Logpush is not available for Cloudflare Pages. For Cloudflare pages, please refer to the [Baselime Edge Logger](./edge-logger.md) section.
+Cloudflare Logpush is not available for Cloudflare Pages. For Cloudflare pages, please refer to the [Cloudflare Pages](./pages.md) section.
 !!!
 
 ---
