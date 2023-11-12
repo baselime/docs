@@ -1,5 +1,5 @@
 ---
-label: AWS Lambda
+label: Logs
 order: 0
 ---
 
@@ -11,7 +11,7 @@ Once you connect your AWS account to Baselime, it automatically creates [CloudWa
 Baselime automatically captures logs for newly created AWS Lambda functions, and enables you to query and visualise logs across multiple log groups and log streams.
 
 !!!
-It is possible to send logs from AWS Lambda functions to Baselime directly using the [Baselime AWS Lambda Extension](./lambda-logs.md/#logs-using-the-aws-lambda-extension), and bypass Amazon CloudWatch for cost considerations.
+It is possible to send logs from AWS Lambda functions to Baselime directly using the [Baselime AWS Lambda Extension](./logs.md/#logs-using-the-aws-lambda-extension), and bypass Amazon CloudWatch for cost considerations.
 !!!
 ---
 
@@ -19,11 +19,11 @@ It is possible to send logs from AWS Lambda functions to Baselime directly using
 
 Once Baselime is connected to an AWS Account, it automatically creates Logs subscription filters for all the AWS Lambda functions in the account. Log subscription filters enable Baselime to asynchronously ingest logs from the AWS Lambda functions through Amazon CloudWatch, without any impact on the performance of the AWS Lambda functions. 
 
-![Sending Lambda Logs to Baselime](../../assets/images/illustrations/sending-data/lambda-logs.png)
+![Sending Lambda Logs to Baselime](../../../../assets/images/illustrations/sending-data/lambda-logs.png)
 
 Moreover, Baselime automatically creates new subscription filters for newly deployed AWS Lambda functions. Baselime listens to new AWS Lambda events in Amazon CloudTrail and creates subscription filters for newly created AWS Lambda functions.
 
-![AWS Lambda Logs in Baselime](../../assets/images/illustrations/sending-data/lambda-logs-illustration.png)
+![AWS Lambda Logs in Baselime](../../../../assets/images/illustrations/sending-data/lambda-logs-illustration.png)
 
 ---
 
@@ -68,7 +68,7 @@ Where the `BASELIME_KEY` is your public Baselime API Key and the `BASELIME_LAMBD
 
 The Baselime AWS Lambda Extension is language agnostic and is compressed as a single binary, to minimise its impact cold-starts and performance.
 
-![Using the Baselime Lambda Extension](../../assets/images/illustrations/sending-data/lambda-extension.png)
+![Using the Baselime Lambda Extension](../../../../assets/images/illustrations/sending-data/lambda-extension.png)
 
 All the logs and metrics from your AWS Lambda function is collected asynchronously from your invocation, and sent to the Baselime backend in a separate process from your invocation, with no impact on the latency your users experience.
 
@@ -320,6 +320,6 @@ If the message in `@message` is a valid JSON object, Baselime will parse it, oth
 
 If you're having trouble sending data from your AWS Lambda logs to Baselime, here are a few things to check:
 
-- Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as [CloudWatch Metrics](./cloudwatch-metrics.md) or [CloudTrail Events](./cloudtrail.md)
+- Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as [CloudWatch Metrics](../cloudwatch-metrics.md) or [CloudTrail Events](../cloudtrail.md)
 - Check that your Lambda functions are not already using the maximum number of subscription filters allowed per log group. AWS limits each log group to 2 subscription filters at most. If you're already at the limit, you can remove subscription filters with the [cloudwatch-subscription-filters-remover](https://github.com/baselime/cloudwatch-subscription-filters-remover) to delete the ones you don't need anymore.
 - Make sure that your AWS Lambda functions are being invoked and you can view the logs in the CloudWatch section of the AWS Console

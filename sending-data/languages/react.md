@@ -1,6 +1,6 @@
 ---
 order: -5
-label: React Real User Monitoring
+label: React
 ---
 # React Real User Monitoring
 

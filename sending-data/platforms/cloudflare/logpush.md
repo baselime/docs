@@ -33,7 +33,7 @@ To get started, you need to create an API token for your Cloudflare account. Thi
 - **Worker Scripts - Edit:** This permission is needed to list the Workers add them to your Baselime Services and enable LogPush.
 
 Select all the Cloudflare accounts you want to observe in Baselime.
-![Cloudflare Token Creation](../../assets/images/illustrations/sending-data/cloudflare/create-cloudflare-token-2.png)
+![Cloudflare Token Creation](../../../assets/images/illustrations/sending-data/cloudflare/create-cloudflare-token-2.png)
 
 !!!
 Learn more about API tokens in the [Cloudflare Docs](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)
@@ -46,11 +46,11 @@ Use the API Token you created in the previous step to connect your Cloudflare ac
 
 **Step 1:** Create a new environment
 
-![Add Environment](../../assets/images/illustrations/sending-data/cloudflare/create-new-env.png)
+![Add Environment](../../../assets/images/illustrations/sending-data/cloudflare/create-new-env.png)
 
 **Step 2:** Add the API token you created in the previous step and connect your Cloudflare account.
 
-![Add your API Token](../../assets/images/illustrations/sending-data/cloudflare/cloudflare-token.png)
+![Add your API Token](../../../assets/images/illustrations/sending-data/cloudflare/cloudflare-token.png)
 
 ### 3. Enable Logpush on Your Cloudflare Workers
 

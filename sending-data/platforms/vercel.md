@@ -9,7 +9,7 @@ order: -2
 Vercel is a cloud platform for hosting and deploying web applications and websites. It is designed to make the process of deploying, scaling, and managing web apps as simple and efficient as possible. Vercel offers a variety of features and tools for web developers.
 
 !!!
-For distributed tracing on Vercel, check out [OpenTelemetry for Next.js](./opentelemetry/next.js.md).
+For distributed tracing on Vercel, check out [OpenTelemetry for Next.js](../languages/next.js.md).
 !!!
 
 ---

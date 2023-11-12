@@ -58,7 +58,7 @@ provider:
 
 Once Baselime is connected to your AWS Account, it automatically creates Logs subscription filters for all the Amazon API Gateways in the account.
 
-![Sending API Gateway Logs to Baselime](../../assets/images/illustrations/sending-data/apigateway.png)
+![Sending API Gateway Logs to Baselime](../../../assets/images/illustrations/sending-data/apigateway.png)
 
 Moreover, Baselime automatically creates new subscription filters for newly deployed Amazon API Gateways. Baselime listens to new API Gateway events in Amazon CloudTrail and creates subscription filters for newly created Amazon API Gateways. 
 

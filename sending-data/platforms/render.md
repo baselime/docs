@@ -19,14 +19,14 @@ Navigate to the [Baselime console](https://console.baselime.io), create and envi
 
 Once the environment is created, copy the `BASELIME_API_KEY`.
 
-![BASELIME_API_KEY](../assets/images/illustrations/sending-data/render/modal.png)
+![](../../assets/images/illustrations/sending-data/render/modal.png)
 
 ### Step 2. Create the Log Stream in Render
 
 Navigate to your [Render dashboard](https://dashboard.render.com/u/usr-0/settings), select Log Streams, and Add Log Stream.
 
 
-![Log Streams](../assets/images/illustrations/sending-data/render/step2.png)
+![Log Streams](../../assets/images/illustrations/sending-data/render/step2.png)
 
 ### Step 3. Configure the Log Stream
 
@@ -42,7 +42,7 @@ Replace `BASELIME_API_KEY` with the API key from the Baselime console is Step 1.
 Make sure to prefix the `Token` with `render:`. This enables Baselime to adequately parse logs from Render and enable you to run complex queries on them.
 !!!
 
-![Add Log Stream](../assets/images/illustrations/sending-data/render/step3.png)
+![Add Log Stream](../../assets/images/illustrations/sending-data/render/step3.png)
 
 
 ### Step 4. Use your logs from Render

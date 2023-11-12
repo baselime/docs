@@ -123,7 +123,7 @@ We expect the log messages to be in JSON format. For example:
 
 ---
 ## How it works
-![Sending Telemetry data to Baselime](../assets/images/illustrations/sending-data/kubernetes-ingestion.png)
+![Sending Telemetry data to Baselime](../../assets/images/illustrations/sending-data/kubernetes-ingestion.png)
 
 DaemonSet provided above creates an instance of FluentD pod on each node in your cluster.
 The FluentD pod reads the logs from the `/var/log/containers/*.log` and `/var/log/pods/*.log` directories

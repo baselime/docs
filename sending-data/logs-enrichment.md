@@ -19,7 +19,7 @@ The available fields are:
 You can add those fields to your logs to enable the [Requests](../analysing-data/overview.md) view in Baselime.
 
 !!!
-Baselime automatically adds those fields to logs coming from cloud services with deep integrations such as [AWS Lambda](./aws/lambda-logs.md) and [Vercel](./vercel.md).
+Baselime automatically adds those fields to logs coming from cloud services with deep integrations such as [AWS Lambda](./platforms/aws/aws-lambda/index.md) and [Vercel](./platforms/vercel.md).
 !!!
 
 ---
@@ -147,7 +147,7 @@ app.get('/example', (req, res) => {
 
 ## Correlating logs and traces
 
-Refer to the [Correlate Logs with Traces](./opentelemetry/logs-correlation.md) section.
+Refer to the [Correlate Logs with Traces](./logs-correlation.md) section.
 
 ---
 

@@ -25,7 +25,7 @@ Once Baselime is connected to an AWS Account, it automatically created the telem
 
 This pipeline automatically and continuously sends metrics from your AWS account to Baselime.
 
-![Sending Amazon CloudWatch Metrics to Baselime](../../assets/images/illustrations/sending-data/metrics.png)
+![Sending Amazon CloudWatch Metrics to Baselime](../../../assets/images/illustrations/sending-data/metrics.png)
 
 !!! AWS Cost
 Amazon CloudWatch Metrics Stream might incur a minimal cost on your AWS account. AWS charges $0.003 per 1,000 metric updates. Refer to the [AWS docs](https://aws.amazon.com/cloudwatch/pricing/) for more details.
@@ -52,5 +52,5 @@ Once your AWS account is connected to Baselime, you can use any of the our clien
 
 If you're having trouble sending metrics from Amazon CloudWatch to Baselime, here are a few things to check:
 
-- Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as [AWS Lambda Logs](./lambda-logs.md) or [CloudTrail Events](./cloudtrail.md)
+- Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as [AWS Lambda Logs](./aws-lambda/logs.md) or [CloudTrail Events](./cloudtrail.md)
 - Check that the Kinesis Firehose created in your AWS account as part of the Baselime connection has the appropriate API key to connect with the Baselime backend. If the API key is missing, please contact us.

@@ -19,18 +19,18 @@ Generate your Koyeb API Key in 4 steps:
 3. Select "API" from left-hand menu
 4. Create new API key and copy it for later
 
-![](../assets/images/illustrations/sending-data/koyeb/step1234.png)
+![](../../assets/images/illustrations/sending-data/koyeb/step1234.png)
 
 ---
 
-## Create Logger service
+## Create a logger service
 
 Create a Logger service in Koyeb. This service will stream logs from your Koyeb services in real-time to Baselime.
 
 1. Create a new Docker App in Koyeb
 2. Use the `koyeb/log-exporter` image with "Tag" `v1.0.0-webhook`
 
-![](../assets/images/illustrations/sending-data/koyeb/step4.png)
+![](../../assets/images/illustrations/sending-data/koyeb/step4.png)
 
 3. Add environment variables to the new app
 
@@ -48,7 +48,8 @@ Variable Name | Variable Value
 Replace 
 - `BASELIME_API_KEY` with your public `BASELIME_API_KEY`
 - `KOYEB_TOKEN` with the Koyeb API Key generated in the first step
-- `app-name/service-name` with the name of your service
+- `app-name` with the name of your Koyeb app
+- `service-name` with the name of the service within your Koyeb app you want to stream logs to Baselime.
 !!!
 
 !!!

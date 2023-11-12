@@ -52,7 +52,7 @@ Remember to call `logger.flush()`, otherwise the execution will terminate before
 Get your public `BASELIME_API_KEY` from the [Baselime Console](https://console.baselime.io/)
 !!!
 
-![Add Env to Cloudflare Pages](../../assets/images/illustrations/sending-data/cloudflare/pages-envs.png)
+![Add Env to Cloudflare Pages](../../../assets/images/illustrations/sending-data/cloudflare/pages-envs.png)
 
 **Step 4:** View your logs in the [Baselime Console](https://console.baselime.io)
 

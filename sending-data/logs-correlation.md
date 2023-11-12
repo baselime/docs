@@ -39,5 +39,5 @@ Search your favourite package manager for the OpenTelemetry instrumentation of y
 
 Baselime will automatically correlate your logs and traces and you will be able to view the trace associated with a log, or from the trace, hop into the associated logs.
 
-![Logs/Trace correlation in Baselime](../../../assets/images/illustrations/sending-data/opentelemetry/logs.png)
+![Logs/Trace correlation in Baselime](../assets/images/illustrations/sending-data/opentelemetry/logs.png)
 

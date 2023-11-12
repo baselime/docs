@@ -27,7 +27,7 @@ Amazon CloudTrail periodically writes trail data in a pre-configured Amazon S3 b
 
 Baselime configures this Amazon SNS to invoke an AWS Lambda function. This function reads the data from the bucket and sends it to the Baselime backend.
 
-![Sending CloudTrail data to Baselime](../../assets/images/illustrations/sending-data/cloudtrail.png)
+![Sending CloudTrail data to Baselime](../../../assets/images/illustrations/sending-data/cloudtrail.png)
 
 ---
 

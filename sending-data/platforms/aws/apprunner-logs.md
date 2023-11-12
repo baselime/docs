@@ -19,7 +19,7 @@ Once Baselime is connected to your AWS Account, it automatically creates Logs su
 
 Baselime create subscription filters for the log groups ending in `/application`: the logs from the container.
 
-![Sending AWS App Runner logs to Baselime](../../assets/images/illustrations/sending-data/apprunner.png)
+![Sending AWS App Runner logs to Baselime](../../../assets/images/illustrations/sending-data/apprunner.png)
 
 Moreover, Baselime automatically creates new subscription filters for newly deployed AWS App Runner services. Baselime listens to new App Runner events in Amazon CloudTrail and creates subscription filters for newly created AWS App Runner services. 
 

@@ -28,7 +28,7 @@ If you ECS containers don't publish logs to Amazon CloudWatch logs, you can send
 
 [FireLens](https://aws.amazon.com/about-aws/whats-new/2019/11/aws-launches-firelens-log-router-for-amazon-ecs-and-aws-fargate/) is an Amazon ECS native log router that enables you to send logs from your containerized applications to different destinations, including Baselime. By adding the FireLens sidecar to your task definitions, you can configure and route your container logs to different destinations without modifying your application code.
 
-![Sending ECS Logs to Baselime](../../assets/images/illustrations/sending-data/ecs.png)
+![Sending ECS Logs to Baselime](../../../assets/images/illustrations/sending-data/ecs.png)
 
 Each of your ECS tasks can take a sidecar container running the FireLens log driver that will forward all the logs from the containers to Baselime.
 
@@ -37,7 +37,7 @@ Each of your ECS tasks can take a sidecar container running the FireLens log dri
 
 #### Step 1: Obtaining your Baselime API Key
 
-You can get your public Baselime API key in the [Baselime console](https://console.baselime.io) from the [Baselime CLI](../../cli/install.md).
+You can get your public Baselime API key in the [Baselime console](https://console.baselime.io) from the [Baselime CLI](../../../cli/install.md).
 
 In the following instructions we will use `<BASELIME_API_KEY>` to refer to your Baselime API key.
 
@@ -169,7 +169,7 @@ taskDef.addContainer("container", {
 ```
 +++
 
-![Amazom ECS Logs in Baselime](../../assets/images/illustrations/sending-data/ecs-illustration.png)
+![Amazom ECS Logs in Baselime](../../../assets/images/illustrations/sending-data/ecs-illustration.png)
 
 ---
 

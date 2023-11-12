@@ -9,8 +9,8 @@ order: -2
 
 Baselime enables you to ingest this tracing data and make it available for analysis and troubleshooting.
 
-![AWS X-Ray trace diagram in Baselime](../../assets/images/illustrations/sending-data/xray-diagram.png)
-![AWS X-Ray trace waterfall in Baselime](../../assets/images/illustrations/sending-data/xray-waterfall.png)
+![AWS X-Ray trace diagram in Baselime](../../../assets/images/illustrations/sending-data/xray-diagram.png)
+![AWS X-Ray trace waterfall in Baselime](../../../assets/images/illustrations/sending-data/xray-waterfall.png)
 
 ---
 
@@ -18,7 +18,7 @@ Baselime enables you to ingest this tracing data and make it available for analy
 
 Once Baselime is connected to an AWS Account, it will periodically poll your AWS account for new traces and automatically ingest them into your Baselime dataset.
 
-![Sending X-Ray Traces to Baselime](../../assets/images/illustrations/sending-data/xray.png)
+![Sending X-Ray Traces to Baselime](../../../assets/images/illustrations/sending-data/xray.png)
 
 ---
 
