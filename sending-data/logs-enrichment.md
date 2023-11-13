@@ -1,6 +1,6 @@
 ---
 label: Enriching Logs
-order: -10
+order: -9
 ---
 
 # Enriching Logs in Baselime
@@ -13,11 +13,13 @@ The available fields are:
 - `requestId`
 - `duration`
 - `traceId`
+- `error`
+- `namespace`
 
 You can add those fields to your logs to enable the [Requests](../analysing-data/overview.md) view in Baselime.
 
 !!!
-Baselime automatically adds those fields to logs coming from cloud services with deep integrations such as [AWS Lambda](./aws/lambda-logs.md) and [Vercel](./vercel.md).
+Baselime automatically adds those fields to logs coming from cloud services with deep integrations such as [AWS Lambda](./platforms/aws/aws-lambda/index.md) and [Vercel](./platforms/vercel.md).
 !!!
 
 ---
@@ -93,11 +95,59 @@ app.get('/example', (req, res) => {
 
 });
 ```
+
+---
+
+## Capturing errors in your events
+
+Add the `error` field to any event where an error occured in your application. The value of the error field must be a string. Any event with the `error` field will be captured by the Baselime automatic error-tracking.
+
+For example:
+
+```javascript #
+function willThrow() {
+  try {
+    throw new Error("An error message");
+  } catch (error) {
+    console.log(JSON.stringify({ message: "There was an error", error: error.message }));
+  }
+}
+```
+
+---
+
+## Grouping error by namespace or path
+
+Baselime enables you to group your logs by namespace or path by adding a `namespace` field to at least one log from a given request.
+
+In an Express.js server:
+
+```javascript #
+const express = require('express');
+const crypto = require('crypto');
+const app = express();
+
+app.use((req, res, next) => {
+  const requestId = crypto.randomUUID();
+  req.requestId = requestId;
+  next();
+});
+
+app.get('/example', (req, res) => {
+  const requestId = req.requestId;
+
+  // Add the namespace to the log
+  console.log(JSON.stringify({ message: `Hello, World!`, requestId, namespace: "/example" }));
+
+  // Continue your route logic
+});
+```
+
 ---
 
 ## Correlating logs and traces
 
-Refer to the [Correlate Logs with Traces](./opentelemetry/logs-correlation.md) section.
+Refer to the [Correlate Logs with Traces](./logs-correlation.md) section.
 
 ---
 

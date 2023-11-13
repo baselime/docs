@@ -7,33 +7,33 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 
 ## Data Sources
 
-### OpenTelemetry
-[!ref icon="../assets/images/logos/logo_open_telemetry.png"](./opentelemetry/index.md)
+### Platforms
+[!ref icon="../assets/images/logos/aws.svg"](./platforms/aws/index.md)
+[!ref icon="../assets/images/logos/vercel.png"](./platforms/vercel.md)
+[!ref icon="../assets/images/logos/cloudflare.png"](./platforms/cloudflare/index.md)
+[!ref icon="../assets/images/logos/logo_open_telemetry.png"](./platforms/opentelemetry.md)
+[!ref icon="../assets/images/logos/render.png"](./platforms/render.md)
+[!ref icon="../assets/images/logos/logo_docker_icon.png"](./platforms/docker.md)
+[!ref icon="../assets/images/logos/koyeb.png"](./platforms/koyeb.md)
+[!ref icon="../assets/images/logos/vector.png"](./platforms/vector.md)
+[!ref icon="../assets/images/logos/logo_kubernetes_icon.png"](./platforms/kubernetes.md)
 
-### Cloud Providers
-[!ref icon="../assets/images/logos/aws.svg"](./aws/index.md)
-[!ref icon="../assets/images/logos/vercel.png"](./vercel.md)
-[!ref icon="../assets/images/logos/cloudflare.png"](./cloudflare/index.md)
-[!ref icon="../assets/images/logos/render.png"](./render.md)
+### Languages
+[!ref icon="../assets/images/logos/node.svg"](./languages/node.js.md)
+[!ref icon="../assets/images/logos/next.js.svg"](./languages/next.js.md)
+[!ref icon="../assets/images/logos/logo_react_icon.png"](./languages/react.md)
+[!ref icon="../assets/images/logos/pino.png"](./languages/pino.js.md)
+[!ref icon="../assets/images/logos/winston.png"](./languages/winston.md)
 
-### Containers
-[!ref icon="../assets/images/logos/logo_docker_icon.png"](./docker.md)
-[!ref icon="../assets/images/logos/vector.png"](./vector.md)
-[!ref icon="../assets/images/logos/logo_kubernetes_icon.png"](./kubernetes.md)
-
-### Browsers
-
-[!ref icon="../assets/images/logos/logo_react_icon.png"](./react-rum.md)
-
-### Other Sources
+### Direct Sources
 [!ref icon="../assets/images/logo.svg"](./events-api.md)
 [!ref icon="../assets/images/logos/s3_flat@3x.png"](./s3-rehydration.md)
-[!ref icon="../assets/images/logos/pino.png"](./pino.js.md)
-[!ref icon="../assets/images/logos/winston.png"](./winston.md)
+
 
 ---
 
 ## Best Practices
 
+[!ref Correlating logs with traces](./logs-correlation.md)
 [!ref Enriching Logs for faster debugging](./logs-enrichment.md)
-[!ref Data Validation](./validation/index.md)
+[!ref Data Validation](./events-validation.md)
