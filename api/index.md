@@ -45,7 +45,7 @@ Use the temporary authorisation code to retrieve a short-lived access token for 
 ### Endpoint
 
 - **Method**: `POST`
-- **URL**: `https://api.baselime.cc/oauth/token`
+- **URL**: `https://api.baselime.io/oauth/token`
 
 ### Request
 
@@ -97,7 +97,7 @@ The access token grants access for 24 hours. If you will need access for longer 
 ### Endpoint
 
 - **Method**: `POST`
-- **URL**: `https://api.baselime.cc/oauth/token`
+- **URL**: `https://api.baselime.io/oauth/token`
 
 ### Request
 
@@ -138,5 +138,38 @@ The access token grants access for 24 hours. If you will need access for longer 
 - **expiresIn**: Token expiration time in seconds.
 
 
-### Step 4: List users environments
+### Step 4: List Workspaces
 
+To list the workspaces and environments for the authenticated user make a call to `https://api.baselime.io/oauth/workspaces` with the access token you just received. This endpoint also returns an `apiKey` that can be used to upload data to Baselime.
+
+#### Listing Workspaces
+
+### Endpoint
+
+- **Method**: `GET`
+- **URL**: `https://api.baselime.io/oauth/workspaces`
+
+### Request
+
+#### Headers
+
+- **Authorization**: `Bearer <YOUR_ACCESS_TOKEN_GOES_HERE>`
+- **Content-Type**: `application/json`
+
+### Response
+
+#### HTTP Status: `200 OK`
+
+```json # :icon-code:
+[
+    {
+        "workspaceId": "my-workspace",
+        "environmentId": "prod",
+        "apiKey": "abc123def456"
+    }
+]
+```
+
+- **workspaceId**: The workspace that the environment is a part of.
+- **environmentId**: The environment that data will be uploaded to.
+- **apiKey**: A key that can be used to upload data.
