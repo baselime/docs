@@ -26,7 +26,7 @@ Once you have created the Integration you will receive a Client ID and Client Se
 
 Test the integration at `https://console.baselime.io/integrations/<your-client-id>`. 
 
-![A Baselime Integration](../assets/images/illustrations/integrations.png)
+![A Baselime Integration](../assets/images/illustrations/integration.png)
 
 Once the user has Authorized your application they will be redirected to your redirect with the temporary authorization code in the query string parameters.
 
