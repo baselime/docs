@@ -7,6 +7,9 @@ label: Pino
 
 Send structured logs to Baselime with [pino](https://github.com/pinojs/pino) and the [`@baselime/pino-transport`](https://www.npmjs.com/package/@baselime/pino-transport).
 
+!!!
+Don't use this with Vercel, use the native [Log Drain Integration](https://vercel.com/integrations/baselime) instead.
+!!!
 ---
 
 **Step 1:** Install the Transport
