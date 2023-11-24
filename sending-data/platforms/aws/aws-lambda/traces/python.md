@@ -12,67 +12,9 @@ The [Baselime Python OpenTelemetry tracer for AWS Lambda](https://github.com/Bas
 
 ## Automatic Instrumentation
 
-To automatically instrument your AWS Lambda functions with the [Baselime Python OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/python-opentelemetry), set the following tag to your AWS Lambda functions: `baselime:tracing=true`.
+To automatically instrument your AWS Lambda functions with the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry), set the following tag to your AWS Lambda functions: `baselime:tracing=true`.
 
-+++ AWS CDK
-
-To add the Baselime tag to all your AWS Lambda functions in a service or stack add this line to your AWS CDK code.
-
-```typescript #
- Tags.of(app).add("baselime:tracing", `true`);
-```
-
-+++ SST
-
-To add the Baselime tag to all your AWS Lambda functions in a service or stack add this line to your `sst.config.ts` file.
-
-```typescript #
- Tags.of(app).add("baselime:tracing", `true`);
-```
-
-+++ Serverless Framework
-
-To add the Baselime tag to all your AWS Lambda functions in a add this snippet to your `serverless.yml` file.
-
-```yaml #
-provider:
-  name: aws
-  tags:
-    "baselime:tracing": "true"
-```
-
-+++ AWS SAM
-
-To add the Baselime tag to all your AWS Lambda functions in a add this snippet to your AWS SAM configuration file.
-
-```yaml #
-AWSTemplateFormatVersion: "2010-09-09"
-Transform: AWS::Serverless-2016-10-31
-Description: "Gets data from the xxxxx API."
-Globals:
-  Function:
-    Tags:
-       "baselime:tracing": "true"
-```
-+++
-
-That's all you are all set with OpenTelemetry on Python AWS Lambda functions.
-
-!!! 
-OpenTelemetry automatic instrumentation is available only once you have connected your AWS Account to Baselime. Adding the tag to AWS Lambda functions in an AWS Account not connected to Baselime will not have any effect.
-!!!
-
-!!!
-We recommended a miminum of 512mb of memory configured on AWS Lambda functions with the automatic OpenTelemetry instrumentation. AWS Lambda functions with less memory may experience higher latencies as the traces are being processed.
-!!!
-
-!!! 
-To remove the OpenTelemetry instrumentation from your AWS Lambda functions, remove the `baselime:tracing=true` tag from the function and Baselime will revert the function to un-instrumentate state.
-!!!
-
-!!!warning
-Other observability tool layers and tags can adversely interact with the Baselime OpenTelemetry layer. We recommend to disable all other observability layers and tags before instrumenting your AWS Lambda functions with the Baselime OpenTelemetry layer. Failing to do so could result in down-time.  
-!!!
+For detailed instructions on how to add the tag to for your framework go to the [OpenTelemetry for AWS Lambda](./index.md) Guide
 
 ---
 
@@ -121,13 +63,3 @@ def handler(event, context)
 
 
 ```
-
----
-
-## Sending data to another OpenTelemetry backend
-
-OpenTelemetry is an open standard, and you can use the [Baselime Python OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/python-opentelemetry) to send telemetry data to another backend of your choice.
-
-Set environment variable `COLLECTOR_URL` to your observability backend.
-
----
