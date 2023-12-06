@@ -11,7 +11,7 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 [!ref icon="../assets/images/logos/aws.svg"](./platforms/aws/index.md)
 [!ref icon="../assets/images/logos/vercel.png"](./platforms/vercel.md)
 [!ref icon="../assets/images/logos/cloudflare.png"](./platforms/cloudflare/index.md)
-[!ref icon="../assets/images/logos/logo_open_telemetry.png"](./platforms/opentelemetry.md)
+[!ref icon="../assets/images/logos/logo_open_telemetry.png"](platforms/opentelemetry/http.md)
 [!ref icon="../assets/images/logos/render.png"](./platforms/render.md)
 [!ref icon="../assets/images/logos/logo_docker_icon.png"](./platforms/docker.md)
 [!ref icon="../assets/images/logos/koyeb.png"](./platforms/koyeb.md)

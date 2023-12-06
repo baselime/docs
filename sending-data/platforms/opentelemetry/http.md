@@ -1,9 +1,9 @@
 ---
-label: OpenTelemetry
+label: HTTPS
 order: -4
 ---
 
-# OpenTelemetry
+# OpenTelemetry over HTTPS
 
 ---
 

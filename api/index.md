@@ -138,4 +138,4 @@ The response will return an array containing the list of environments the develo
 
 ### Send events to Baselime
 
-Once you have obtained the public API for an environment, it can be used to send events to Baselime, either using the [Events API](../sending-data/events-api.md) or the [OpenTelemetry API](../sending-data/platforms/opentelemetry.md).
+Once you have obtained the public API for an environment, it can be used to send events to Baselime, either using the [Events API](../sending-data/events-api.md) or the [OpenTelemetry API](../sending-data/platforms/opentelemetry/http.md).
