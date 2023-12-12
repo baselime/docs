@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.755711496987">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.755712029786">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../resources/css/retype.css?v=3.5.0.755711496987" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.755712029786" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.755711496987" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.755712029786" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.755711496987" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.755712029786" data-turbo-eval="false" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -204,12 +204,6 @@
     </h1>
 </doc-anchor-target>
 <p>If your codebase is already instrumented with <a href="https://opentelemetry.io/">OpenTelemetry</a>, you can start sending your tracing data to Baselime today.</p>
-<p>At Baselime we support two protocols for sending OpenTelemetry data to our platform:</p>
-<ul>
-<li><doc-anchor-trigger to="#http">HTTP</doc-anchor-trigger></li>
-<li><doc-anchor-trigger to="#grpc">gRPC</doc-anchor-trigger></li>
-</ul>
-<p>For the best experience we recommend using one of our <doc-anchor-trigger to="#baselime-opentelemetry-distros">OpenTelemetry distros</doc-anchor-trigger> for your language or framework.</p>
 <p>Add the Baselime OpenTelemetry endpoint to your exporter:</p>
 <doc-tabs>
 <doc-tab v-cloak id="http">
@@ -253,8 +247,7 @@
         <span>Baselime Opentelemetry Distros</span>
     </h2>
 </doc-anchor-target>
-<ul>
-<li>
+<p>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
@@ -267,22 +260,6 @@
     </div>
     <a href="../../languages/node.js/" class="absolute block inset-0"></a>
 </div>
-</li>
-<li>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <img width="20" src="../../../assets/images/logos/python.svg">
-        </span>
-        <span class="inline-block font-medium ml-2">Python</span>
-    </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>../../languages/python/</span>
-    </div>
-    <a href="../../languages/python/" class="absolute block inset-0"></a>
-</div>
-</li>
-<li>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
@@ -295,36 +272,31 @@
     </div>
     <a href="../../languages/next.js/" class="absolute block inset-0"></a>
 </div>
-</li>
-<li>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
-            <img width="20" src="../../../assets/images/logos/logo_react_icon.svg">
+            <img width="20" src="../../../assets/images/logos/python.svg">
         </span>
-        <span class="inline-block font-medium ml-2">React</span>
+        <span class="inline-block font-medium ml-2">Python</span>
     </div>
     <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>../../languages/react/</span>
+        <span>../../languages/python/</span>
     </div>
-    <a href="../../languages/react/" class="absolute block inset-0"></a>
+    <a href="../../languages/python/" class="absolute block inset-0"></a>
 </div>
-</li>
-<li>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
-            <img width="20" src="../../../assets/images/logos/winston.png">
+            <img width="20" src="../../../assets/images/logos/golang.svg">
         </span>
-        <span class="inline-block font-medium ml-2">Winston</span>
+        <span class="inline-block font-medium ml-2">Go</span>
     </div>
     <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>../../languages/winston/</span>
+        <span>../../languages/go/</span>
     </div>
-    <a href="../../languages/winston/" class="absolute block inset-0"></a>
+    <a href="../../languages/go/" class="absolute block inset-0"></a>
 </div>
-</li>
-</ul>
+</p>
 
                                 
                                 <!-- Required only on API pages -->
