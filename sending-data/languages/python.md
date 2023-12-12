@@ -34,7 +34,7 @@ poetry add baselime-opentelemetry
 Automatically install instrumentation for the python libraries you use with `opentelemetry-bootstrap`
 
 ```bash # :icon-terminal: terminal
-poetry add baselime-opentelemetry
+poetry run opentelemetry-bootstrap
 ```
 
 ### Step 3: Set the Baselime environment variables

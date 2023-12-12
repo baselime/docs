@@ -20,6 +20,8 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 
 ### Languages
 [!ref icon="../assets/images/logos/node.svg"](./languages/node.js.md)
+[!ref icon="../assets/images/logos/python.svg"](./languages/python.md)
+[!ref icon="../assets/images/logos/golang.svg"](./languages/go.md)
 [!ref icon="../assets/images/logos/next.js.svg"](./languages/next.js.md)
 [!ref icon="../assets/images/logos/logo_react_icon.png"](./languages/react.md)
 [!ref icon="../assets/images/logos/pino.png"](./languages/pino.js.md)
