@@ -77,3 +77,5 @@ Learn more about [enabling Logpush on your Cloudflare workers](https://developer
 ### 4. Using the Cloudflare Workers Logpush integration
 
 Once you've connected your Cloudflare account to Baselime, all your Workers Trace Events will be available in Baselime. You can search, query or tail your logs from the console and the CLI. You can create alerts from derived metrics from your logs. You can use our dashboard templates to create dashboards based on your Cloudflare events, and modify them at will.
+
+Due to limitations in Cloudflare your duration is inferred from the last log of a request. If a request does not have any requests this duration will be set at 1ms. To resolve this add a log message as the last step of your invocation.
