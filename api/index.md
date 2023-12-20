@@ -43,7 +43,7 @@ Once a developer installs your integration on Baselime, they will be redirected 
 The temporary authorization code is valid for 3 minutes.
 !!!
 
-### Request an Access Token and Refresh Token
+### Request an Access Token
 
 Once the developer is redirected to your provided Redirect URL, use the temporary authorization code to retrieve a short-lived access token for first-time access.
 
@@ -63,7 +63,7 @@ curl -X 'POST' 'https://api.baselime.io/oauth/token' \
       }'
 ```
 
-The response will return an Access Token valid for 24 hours.
+The response will return an Access Token valid for **24 hours**.
 
 ```json #
 {
@@ -74,7 +74,9 @@ The response will return an Access Token valid for 24 hours.
 }
 ```
 
-The response also includes a long-lived Refresh Token. Use the refresh token to request a new Access Token when the access token expires. To generate a new Access Token using the Refresh Token, send a `POST` request to the token endpoint URL, add the Refresh Token to the request body and change the `grantType` parameter to `refresh_token`.
+### Request a Refresh Token
+
+The response to theaccess token call also includes a long-lived Refresh Token. Use the refresh token to request a new Access Token when the access token expires. To generate a new Access Token using the Refresh Token, send a `POST` request to the token endpoint URL, add the Refresh Token to the request body and change the `grantType` parameter to `refresh_token`.
 
 ```bash # :icon-terminal: terminal
 curl -X 'POST' 'https://api.baselime.io/oauth/token' \

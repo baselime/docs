@@ -12,7 +12,7 @@ The [Baselime Python OpenTelemetry tracer for AWS Lambda](https://github.com/Bas
 
 ## Automatic Instrumentation
 
-To automatically instrument your AWS Lambda functions with the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry), set the following tag to your AWS Lambda functions: `baselime:tracing=true`.
+To automatically instrument your AWS Lambda functions with the [Baselime Python OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/python-opentelemetry), set the following tag to your AWS Lambda functions: `baselime:tracing=true`.
 
 For detailed instructions on how to add the tag to for your framework go to the [OpenTelemetry for AWS Lambda](./index.md) Guide
 
