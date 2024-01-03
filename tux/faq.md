@@ -20,7 +20,7 @@ No, Tux does not train on your telemetry data. Our third-party Language Model (L
 
 This process ensures that Tux can provide helpful answers to your questions while respecting data privacy and security by not training on or retaining your specific telemetry data.
 
-### Is there a public facing Cody API?
+### Is there a public facing Tux API?
 
 Currently, there is no public-facing Tux API available.
 
@@ -41,7 +41,7 @@ Tux is an expert in cloud computing and observability. Tux is not designed to an
 
 ### What third-party cloud services does Tux depend on?
 
-Cody relies on one primary third-party dependency, i.e., OpenAI API.
+Tux relies on one primary third-party dependency, i.e., OpenAI API.
 
 ### Can I use my own API keys?
 
