@@ -8,9 +8,10 @@ order: -1
 Baselime supports AWS PrivateLink, enabling you to securely send the data directly from your VPC to Baselime's platform without exposing your data to the public internet.
 
 !!!info
-Endpoint service name: `com.amazonaws.vpce.eu-west-1.vpce-svc-03611009d136b2d65`
-
-Use name: `otel-ingest.baselime.io` instead of `otel.baselime.io` in your OTEL exporter when using PrivateLink.
+Endpoint service name `com.amazonaws.vpce.eu-west-1.vpce-svc-03611009d136b2d65`
+!!!
+!!!warning
+Use endpoint `otel-ingest.baselime.io` instead of ~~`otel.baselime.io`~~ for both **HTTP** and **gRPC** when using PrivateLink
 !!!
 
 ## How to set it up
