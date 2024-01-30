@@ -14,7 +14,7 @@ The Baselime API Integration enable the creation of appplications that can inter
 
 ## Getting Started
 
-To create an API integration, get in touch with the Baselime Team via email at [boris@baselime.io](mailto:boris@baselime.io).
+To create an API integration, get in touch with the Baselime Team via email at [techies@baselime.io](mailto:techies@baselime.io).
 
 Provide the following details:
 
