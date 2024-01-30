@@ -63,7 +63,7 @@ functions:
 Where the `BASELIME_KEY` is your public Baselime API Key and the `BASELIME_LAMBDA_LAYER_ARN` is the ARN of the Baselime AWS Lambda extension in your region.
 
 ```javascript
-`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:8`
+`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:25`
 ```
 
 The Baselime AWS Lambda Extension is language agnostic and is compressed as a single binary, to minimise its impact cold-starts and performance.
