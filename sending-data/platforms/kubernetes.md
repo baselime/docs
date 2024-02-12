@@ -4,128 +4,52 @@ order: -7
 ---
 
 # Kubernetes Logs
-If you use Docker as your container runtime, you can stream your container logs
-to Baselime by using Fluentd as your logging driver
+If you use Docker or Podman as your container runtime, you can stream your container logs
+to Baselime by using Fluentbit DaemonSet as your logging driver
 
----
-## What is Fluentd?
-[Fluentd](https://www.fluentd.org/) is an open source data collector for unified logging layer that is widely used
-by companies such as AWS, Google, Microsoft, and more.
-
----
-## How to configure Fluentd to stream Kubernetes logs to Baselime?
-The setup is very similar to the [Docker setup](https://baselime.io/docs/sending-data/docker/)
-
-First obtain the API key from the
-[Baselime console](https://console.baselime.io).
-
-Next, create a ConfigMap that will contain the Fluentd configuration.
-```yaml # :icon-code: config.yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: fluentd-config
-data:
-  fluent.conf: |
-    <source>
-      @type tail
-      path /var/log/containers/*.log, /var/log/pods/*.log
-      exclude_path ["/var/log/containers/fluentd-*.log"]
-      pos_file /var/log/fluentd-containers.log.pos
-      tag container_logs
-      <parse>
-        @type regexp
-        expression /^(?<log>.*)$/
-      </parse>
-    </source>
-    <match>
-      @type http
-      endpoint https://events.baselime.io/v1/logs
-      headers {"x-api-key":"BASELIME_API_KEY", "baselime-data-source": "fluentd/k8s"}
-      open_timeout 2
-      json_array true
-      <format>
-        @type json
-      </format>
-    </match>
+## How to configure
+First create a configuration yaml
+```yaml # :icon-code: custom-values.yaml
+apiKey: "YOUR_API_KEY"
 ```
-!!! Note
-Make sure to replace `BASELIME_API_KEY` with the API key you obtained from the Baselime console.
+!!!
+Obtain your API key from the console [Baselime console](https://console.baselime.io).
 !!!
 
-Next, we need to create a DaemonSet that will run Fluentd on each node in your cluster.
-```yaml # :icon-code: daemonset.yaml
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: fluentd
-  labels:
-    k8s-app: fluentd-logging
-    version: v1
-spec:
-  selector:
-    matchLabels:
-      k8s-app: fluentd-logging
-      version: v1
-  template:
-    metadata:
-      labels:
-        k8s-app: fluentd-logging
-        version: v1
-    spec:
-      containers:
-        - name: logger
-          image: fluent/fluentd-kubernetes-daemonset:v1.11.5-debian-elasticsearch7-1.1
-          env:
-            - name: FLUENTD_ARGS
-              value: -c /fluentd/etc/fluent.conf
-          volumeMounts:
-            - mountPath: /fluentd/etc
-              name: config-volume
-            - name: varlog
-              mountPath: /var/log
-            - name: dockercontainerlogdirectory
-              mountPath: /var/lib/docker/containers
-              readOnly: true
-      volumes:
-        - name: varlog
-          hostPath:
-            path: /var/log
-        - name: config-volume
-          configMap:
-            name: fluentd-config
-            items:
-              - key: fluent.conf
-                path: fluent.conf
-        - name: dockercontainerlogdirectory
-          hostPath:
-            path: /var/lib/docker/containers
+Next install the Baselime Helm chart
+```bash
+helm repo add baselime-logs-exporter https://github.com/baselime/helm-charts
+helm repo update
+helm install baselime-logs-exporter baselime-logs-exporter/baselime-logs-exporter-logs-exporter --values custom-values.yaml
 ```
-
 
 ---
 ## Best practices
 We expect the log messages to be in JSON format. For example:
-```json
-{
-  "message": "This is a message from ",
-  "timestamp": 1697109850,
-  "service": "my-service",
-  "namespace": "my-namespace"
+```go # :icon-code: main.go
+package main
+
+import (
+	"log/slog"
+	"os"
+)
+
+func main() {
+	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+	logger.Info("Hello, logs!", "extra", map[string]interface{}{
+		"stringField": "stringVal",
+		"objectField": map[string]interface{}{
+			"nestedField": "nestedVal",
+		},
+	})
 }
 ```
-
-### Required fields
-- `message` - The log message
-- `timestamp` - The timestamp of the log message in seconds since epoch (Unix time) or ISO 8601 format  
-- `service` - The name of the service that generated the log message
-- `namespace` - The namespace of the service that generated the log message
 
 ---
 ## How it works
 ![Sending Telemetry data to Baselime](../../assets/images/illustrations/sending-data/kubernetes-ingestion.png)
 
-DaemonSet provided above creates an instance of FluentD pod on each node in your cluster.
+DaemonSet provided above creates an instance of FluentBit pod on each node in your cluster.
 The FluentD pod reads the logs from the `/var/log/containers/*.log` and `/var/log/pods/*.log` directories
 and sends them to Baselime over HTTPS.
 
