@@ -126,6 +126,7 @@ export default async function Home({}) {
     span.setAttributes(input);
     const result = await yourBusinessLogic(input)
     span.setAttributes(result)
+    span.end();
     return result
   });
 
