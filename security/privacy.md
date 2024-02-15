@@ -29,9 +29,13 @@ The following keys are automatically scrubbed:
 - `apikey`
 - `access_token`
 - `auth`
+- `authorizer`
 - `credentials`
 - `creds`
 - `sourceip`
+- `clientip`
+- `authorization`
+- `x-api-key`
 
 Any nested field in your telemetry data that contains any of these automatically scrubbed keys will be blocked from ingestion by default.
 
