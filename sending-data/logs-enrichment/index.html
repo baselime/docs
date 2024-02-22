@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.761919826517">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.761929745777">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../assets/images/logo.svg" rel="icon">
-    <link href="../../resources/css/retype.css?v=3.5.0.761919826517" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.761929745777" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.761919826517" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.761929745777" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.761919826517" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.761919826517" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.761929745777" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.761929745777" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -213,6 +213,7 @@
 <li><code v-pre>traceId</code></li>
 <li><code v-pre>error</code></li>
 <li><code v-pre>namespace</code></li>
+<li><code v-pre>service</code></li>
 </ul>
 <p>You can add those fields to your logs to enable the <a href="../../analysing-data/overview/">Requests</a> view in Baselime.</p>
 <div class="flex mb-6">
@@ -228,7 +229,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Baselime automatically adds those fields to logs coming from cloud services with deep integrations such as <a href="../platforms/aws/aws-lambda/">AWS Lambda</a> and <a href="../platforms/vercel/">Vercel</a>.</p>
+<p>Baselime automatically adds those fields to logs coming from cloud services with deep integrations such as <a href="../platforms/aws/aws-lambda/">AWS Lambda</a>, <a href="../platforms/vercel/">Vercel</a> and <a href="../platforms/cloudflare/">Cloudflare Workers</a>.</p>
         </div>
     </div>
 </div>
@@ -351,10 +352,10 @@ app.get('/example', (req, res) =&gt; {
 }</code></pre>
 </doc-codeblock></div>
 <hr>
-<doc-anchor-target id="grouping-error-by-namespace-or-path">
+<doc-anchor-target id="grouping-logs-by-namespace-or-path">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#grouping-error-by-namespace-or-path">#</doc-anchor-trigger>
-        <span>Grouping error by namespace or path</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#grouping-logs-by-namespace-or-path">#</doc-anchor-trigger>
+        <span>Grouping logs by namespace or path</span>
     </h2>
 </doc-anchor-target>
 <p>Baselime enables you to group your logs by namespace or path by adding a <code v-pre>namespace</code> field to at least one log from a given request.</p>
@@ -378,6 +379,27 @@ app.get('/example', (req, res) =&gt; {
 
   // Continue your route logic
 });</code></pre>
+</doc-codeblock></div>
+<hr>
+<doc-anchor-target id="grouping-logs-by-service">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#grouping-logs-by-service">#</doc-anchor-trigger>
+        <span>Grouping logs by service</span>
+    </h2>
+</doc-anchor-target>
+<p>Baselime enables you to group your logs by service by adding a <code v-pre>service</code> field to all logs from the same service.</p>
+<p>For example:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-javascript"><code v-pre class="language-javascript">
+const SERVICE = &quot;queue-processor&quot;;
+
+function backgrounJob(data) {
+  console.log(JSON.stringify({ message: &quot;Starting processing&quot;, service: SERVICE, namespace: data.id }))
+  
+  complexCalculation();
+
+  console.log(JSON.stringify({ message: &quot;Processing completed&quot;, service: SERVICE, namespace: data.id }))
+}</code></pre>
 </doc-codeblock></div>
 <hr>
 <doc-anchor-target id="correlating-logs-and-traces">
