@@ -24,8 +24,9 @@ Get your public Baselime API key in the [Baselime console](https://console.basel
 +++
 
 ---
-Baselime supports [AWS PrivateLink](https://aws.amazon.com/privatelink/) for OTEL.
-[!ref icon="../../assets/images/logos/aws.svg"](../private-link.md)
+## Baselime Opentelemetry for Platforms
+[!ref icon="../../assets/images/logos/logo_aws_lambda.png"](../platforms/aws/aws-lambda/traces/index.md)
+[!ref icon="../../assets/images/logos/cloudflare.png"](../platforms/cloudflare/traces.md)
 
 ---
 
@@ -35,3 +36,9 @@ Baselime supports [AWS PrivateLink](https://aws.amazon.com/privatelink/) for OTE
 [!ref icon="../../assets/images/logos/python.svg"](../languages/python.md)
 [!ref icon="../../assets/images/logos/golang.svg"](../languages/go.md)
 
+---
+
+## AWS PrivateLink
+
+Baselime supports [AWS PrivateLink](https://aws.amazon.com/privatelink/) for OpenTelemetry.
+[!ref icon="../../assets/images/logos/aws.svg"](../private-link.md)
