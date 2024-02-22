@@ -15,11 +15,12 @@ The available fields are:
 - `traceId`
 - `error`
 - `namespace`
+- `service`
 
 You can add those fields to your logs to enable the [Requests](../analysing-data/overview.md) view in Baselime.
 
 !!!
-Baselime automatically adds those fields to logs coming from cloud services with deep integrations such as [AWS Lambda](./platforms/aws/aws-lambda/index.md) and [Vercel](./platforms/vercel.md).
+Baselime automatically adds those fields to logs coming from cloud services with deep integrations such as [AWS Lambda](./platforms/aws/aws-lambda/index.md), [Vercel](./platforms/vercel.md) and [Cloudflare Workers](./platforms/cloudflare/index.md).
 !!!
 
 ---
@@ -116,7 +117,7 @@ function willThrow() {
 
 ---
 
-## Grouping error by namespace or path
+## Grouping logs by namespace or path
 
 Baselime enables you to group your logs by namespace or path by adding a `namespace` field to at least one log from a given request.
 
@@ -142,6 +143,28 @@ app.get('/example', (req, res) => {
   // Continue your route logic
 });
 ```
+
+---
+
+## Grouping logs by service
+
+Baselime enables you to group your logs by service by adding a `service` field to all logs from the same service.
+
+For example:
+
+```javascript #
+
+const SERVICE = "queue-processor";
+
+function backgrounJob(data) {
+  console.log(JSON.stringify({ message: "Starting processing", service: SERVICE, namespace: data.id }))
+  
+  complexCalculation();
+
+  console.log(JSON.stringify({ message: "Processing completed", service: SERVICE, namespace: data.id }))
+}
+```
+
 
 ---
 
