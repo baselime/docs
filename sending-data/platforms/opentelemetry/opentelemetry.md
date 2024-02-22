@@ -25,20 +25,20 @@ Get your public Baselime API key in the [Baselime console](https://console.basel
 
 ---
 ## Baselime Opentelemetry for Platforms
-[!ref icon="../../assets/images/logos/logo_aws_lambda.png"](../platforms/aws/aws-lambda/traces/index.md)
-[!ref icon="../../assets/images/logos/cloudflare.png"](../platforms/cloudflare/traces.md)
+[!ref icon="../../../assets/images/logos/logo_aws_lambda.png"](../../platforms/aws/aws-lambda/traces/index.md)
+[!ref icon="../../../assets/images/logos/cloudflare.png"](../../platforms/cloudflare/traces.md)
 
 ---
 
 ## Baselime Opentelemetry Distros
-[!ref icon="../../assets/images/logos/node.svg"](../languages/node.js.md)
-[!ref icon="../../assets/images/logos/next.js.svg"](../languages/next.js.md)
-[!ref icon="../../assets/images/logos/python.svg"](../languages/python.md)
-[!ref icon="../../assets/images/logos/golang.svg"](../languages/go.md)
+[!ref icon="../../../assets/images/logos/node.svg"](../../languages/node.js.md)
+[!ref icon="../../../assets/images/logos/next.js.svg"](../../languages/next.js.md)
+[!ref icon="../../../assets/images/logos/python.svg"](../../languages/python.md)
+[!ref icon="../../../assets/images/logos/golang.svg"](../../languages/go.md)
 
 ---
 
 ## AWS PrivateLink
 
 Baselime supports [AWS PrivateLink](https://aws.amazon.com/privatelink/) for OpenTelemetry.
-[!ref icon="../../assets/images/logos/aws.svg"](../private-link.md)
+[!ref icon="../../../assets/images/logos/aws.svg"](./private-link.md)
