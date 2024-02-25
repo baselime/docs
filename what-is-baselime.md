@@ -49,5 +49,5 @@ Troubleshoot infrastructure and application issues with high cardinality data an
 Query against any nested field and automatically surface anomalies fast; regardless of how unusual or unique this state of your application is.
 
 ### Take control of your data and costs
-Use or backend or **Bring Your Own Backend**. Up to 6x more value than incumbents. No per-function pricing, no per-seat pricing, no per-alert pricing. Start at $0 and scale up as your applications grow, with no hidden fees.
+Use our backend or **Bring Your Own Backend**. Up to 6x more value than incumbents. No per-function pricing, no per-seat pricing, no per-alert pricing. Start at $0 and scale up as your applications grow, with no hidden fees.
 
