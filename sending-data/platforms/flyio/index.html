@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.762534829950">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.762537740442">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Fly.io | Baselime - The cloud-native observability platform</title>
     <meta name="title" content="Fly.io | Baselime - The cloud-native observability platform">
-    <meta name="description" content="Fly.io is a platform for running applications globally. You can stream your Fly.io services logs to Baselime using their log exporter.">
+    <meta name="description" content="Fly.io is a platform for running applications globally. You can stream your Fly.io service logs to Baselime using the ">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://baselime.io/docs/sending-data/platforms/flyio/">
@@ -21,22 +21,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/sending-data/platforms/flyio/">
     <meta property="og:title" content="Fly.io | Baselime - The cloud-native observability platform">
-    <meta property="og:description" content="Fly.io is a platform for running applications globally. You can stream your Fly.io services logs to Baselime using their log exporter.">
+    <meta property="og:description" content="Fly.io is a platform for running applications globally. You can stream your Fly.io service logs to Baselime using the ">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/sending-data/platforms/flyio/">
     <meta property="twitter:title" content="Fly.io | Baselime - The cloud-native observability platform">
-    <meta property="twitter:description" content="Fly.io is a platform for running applications globally. You can stream your Fly.io services logs to Baselime using their log exporter.">
+    <meta property="twitter:description" content="Fly.io is a platform for running applications globally. You can stream your Fly.io service logs to Baselime using the ">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../resources/css/retype.css?v=3.5.0.762534829950" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.762537740442" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.762534829950" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.762537740442" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.762534829950" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.762537740442" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.762537740442" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -203,52 +204,23 @@
         <span>Fly.io</span>
     </h1>
 </doc-anchor-target>
-<p><a href="https://fly.io">Fly.io</a> is a platform for running applications globally. You can stream your Fly.io services logs to Baselime using their log exporter.</p>
+<p><a href="https://fly.io">Fly.io</a> is a platform for running applications globally. You can stream your Fly.io service logs to Baselime using the <a href="https://github.com/superfly/fly-log-shipper?tab=readme-ov-file#provider-configuration">fly-log-shipper</a>.</p>
 <hr>
-<doc-anchor-target id="obtain-baselime-api-key">
+<doc-anchor-target id="setup">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#obtain-baselime-api-key">#</doc-anchor-trigger>
-        <span>Obtain Baselime API Key</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setup">#</doc-anchor-trigger>
+        <span>Setup</span>
     </h2>
 </doc-anchor-target>
-<p>Get your <code v-pre>BASELIME_API_KEY</code> from the <a href="https://console.baselime.io">Baselime console</a>.</p>
-<doc-anchor-target id="create-a-logger-service-and-set-the-secrets-using-following-commands">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#create-a-logger-service-and-set-the-secrets-using-following-commands">#</doc-anchor-trigger>
-        <span>Create a Logger service and set the secrets using following commands:</span>
-    </h2>
-</doc-anchor-target>
-<ol>
-<li><code v-pre>fly launch --image flyio/log-shipper:latest</code></li>
-<li><code v-pre>fly secrets set ACCESS_TOKEN=$(fly auth token)</code></li>
-<li><code v-pre>fly secrets set HTTP_URL=https://events.baselime.io/v1/flyio</code></li>
-<li><code v-pre>fly secrets set HTTP_TOKEN=BASELIME_API_KEY</code></li>
-</ol>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>You can change the destination &quot;dataset&quot; in Baselime.io by changing <del><code v-pre>flyio</code></del> part of  <code v-pre>https://events.baselime.io/v1/flyio</code></p>
-        </div>
-    </div>
-</div>
-<doc-anchor-target id="navigate-to-baselime-console">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#navigate-to-baselime-console">#</doc-anchor-trigger>
-        <span>Navigate to Baselime console</span>
-    </h2>
-</doc-anchor-target>
-<p>You can now navigate to <a href="https://console.baselime.io">Baselime console</a> and see your logs from Fly.io services.</p>
-<p>For more configuration options of the logger consult <a href="https://github.com/superfly/fly-log-shipper?tab=readme-ov-file#provider-configuration">fly-log-shipper</a> documentation.</p>
+<p><strong>Step 1:</strong> Get your <code v-pre>BASELIME_API_KEY</code> from the <a href="https://console.baselime.io">Baselime console</a>.</p>
+<p><strong>Step 2:</strong> Create a Fly Log Shipper service and set the secrets using following commands:</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-bash"><code v-pre class="language-bash">fly launch --image flyio/log-shipper:latest`
+fly secrets set ACCESS_TOKEN=$(fly auth token)`
+fly secrets set HTTP_URL=https://events.baselime.io/v1/flyio`
+fly secrets set HTTP_TOKEN=BASELIME_API_KEY`</code></pre>
+</doc-codeblock></div>
+<p>Once these steps are completed, logs from all services deployed on Fly.io will be streamed to Baselime, and available for search, queries, alerts and dashboards.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -321,7 +293,7 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Fly.io", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Fly.io", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
     <script data-cfasync="false">window.$crisp=[];window.CRISP_WEBSITE_ID="d0cc7f6f-3abb-43bb-a5e9-c1efc10ae33b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
