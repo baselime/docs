@@ -23,8 +23,7 @@ You can change the destination "dataset" in Baselime.io by changing ~~`flyio`~~ 
 
 ## Navigate to Baselime console
 
-You can now deploy the logger service to Fly.io and start streaming your logs to [Baselime console](https://console.baselime.io).
-Once the Log Stream is created, all your logs from Fly.io will be available in Baselime for searching, queries, dashboard and alerts.
+You can now navigate to [Baselime console](https://console.baselime.io) and see your logs from Fly.io services.
 
 For more configuration options of the logger consult [fly-log-shipper](https://github.com/superfly/fly-log-shipper?tab=readme-ov-file#provider-configuration) documentation.
 
