@@ -41,3 +41,4 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 [!ref Correlating logs with traces](./logs-correlation.md)
 [!ref Enriching Logs for faster debugging](./logs-enrichment.md)
 [!ref Data Validation](./events-validation.md)
+[!ref Sampling](./sampling.md)
