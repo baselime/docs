@@ -24,4 +24,4 @@ fly secrets set HTTP_TOKEN=BASELIME_API_KEY
 
 Once these steps are completed, logs from all services deployed on Fly.io will be streamed to Baselime, and available for search, queries, alerts and dashboards.
 
-[!ref Instrument your fly.io tracing and metrics using OpenTelemetry](../platforms/opentelemetry/opentelemetry.md)
+[!ref icon="../../assets/images/logos/logo_open_telemetry.png" text="Instrument fly.io tracing and metrics using OpenTelemetry"](../platforms/opentelemetry/opentelemetry.md)
