@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.762591688310">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.762876835646">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../resources/css/retype.css?v=3.5.0.762591688310" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.762876835646" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.762591688310" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.762876835646" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.762591688310" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.762591688310" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.762876835646" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.762876835646" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -215,12 +215,26 @@
 <p><strong>Step 1:</strong> Get your <code v-pre>BASELIME_API_KEY</code> from the <a href="https://console.baselime.io">Baselime console</a>.</p>
 <p><strong>Step 2:</strong> Create a Fly Log Shipper service and set the secrets using following commands:</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-bash"><code v-pre class="language-bash">fly launch --image flyio/log-shipper:latest`
-fly secrets set ACCESS_TOKEN=$(fly auth token)`
-fly secrets set HTTP_URL=https://events.baselime.io/v1/flyio`
-fly secrets set HTTP_TOKEN=BASELIME_API_KEY`</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">fly launch --image flyio/log-shipper:latest
+fly secrets set ACCESS_TOKEN=$(fly auth token)
+fly secrets set HTTP_URL=https://events.baselime.io/v1/flyio
+fly secrets set HTTP_TOKEN=BASELIME_API_KEY</code></pre>
 </doc-codeblock></div>
 <p>Once these steps are completed, logs from all services deployed on Fly.io will be streamed to Baselime, and available for search, queries, alerts and dashboards.</p>
+<p>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Instrument your fly.io tracing and metrics using OpenTelemetry</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>../opentelemetry/</span>
+    </div>
+    <a href="../opentelemetry/" class="absolute block inset-0"></a>
+</div>
+</p>
 
                                 
                                 <!-- Required only on API pages -->
