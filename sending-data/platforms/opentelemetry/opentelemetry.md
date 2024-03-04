@@ -5,20 +5,20 @@ order: -4
 
 If your codebase is already instrumented with [OpenTelemetry](https://opentelemetry.io/), you can start sending your traces, metrics and logs to Baselime today.
 
-Add the Baselime OpenTelemetry endpoint to your exporter:
+**Step 1:** Get `BASELIME_API_KEY` from the [Baselime console](https://console.baselime.io).
+
+**Step 2:** Set the headers
+```yaml
+x-api-key: <BASELIME_API_KEY>
+x-baselime-dataset: <YOUR_DATASET>
+```
+
+**Step 3:** Set exporter endpoint
 +++HTTP
 - Endpoint `otel.baselime.io/v1/`
-- Header: `x-api-key: <BASELIME_API_KEY>`
-- Header: `x-baselime-dataset: <YOUR_DATASET>` - the dataset to send the data to
 +++gRPC
 - Endpoint `otel-ingest.baselime.io:4317`
-- Header: `api-key: <BASELIME_API_KEY>`
-- Header: `io.baselime.dataset: <YOUR_DATASET>` - the dataset to send the data to
 +++
-
-!!!
-Get your public Baselime API key in the [Baselime console](https://console.baselime.io).
-!!!
 
 ---
 ## Baselime Opentelemetry for Platforms
