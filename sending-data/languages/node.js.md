@@ -9,17 +9,14 @@ The [Baselime Node.js OpenTelemetry SDK](https://github.com/baselime/node-opente
 
 This SDK uses [OpenTelemetry for JavaScript](https://opentelemetry.io/docs/instrumentation/js/) and provides a layer that facilitates instrumenting your Node.js applications.
 
-!!!
-If your application is already instrumented with [OpenTelemetry](https://opentelemetry.io/), you can start sending your tracing data to Baselime without any additional code changes.
-
-Add the Baselime OpenTelemetry endpoint to your exporter:
-- Endpoint `https://otel.baselime.io/v1/`
-- Header: `x-api-key: <BASELIME_API_KEY>` 
-!!!
-
 ---
 
 ## Instrumentation
+!!!info
+Is your application already instrumented with [OpenTelemetry](https://opentelemetry.io/)?
+
+[!ref icon="../../assets/images/logos/logo_open_telemetry.png" text="Configure endpoint and headers"](../platforms/opentelemetry/opentelemetry.md#configuration)
+!!!
 
 ### Step 1: Install the SDKs
 
@@ -35,10 +32,10 @@ npm i --save \
 
 Create a `tracing.js` file
 
-``` javascript # :icon-code: src/tracing.js
+``` typescript # :icon-code: src/tracing.js
 const { BaselimeSDK } = require('@baselime/node-opentelemetry');
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
-
+import opentelemetry from '@opentelemetry/api';
 
 const sdk = new BaselimeSDK({
   instrumentations: [
@@ -47,6 +44,27 @@ const sdk = new BaselimeSDK({
 });
 
 sdk.start();
+
+// Get tracer
+const tracer = opentelemetry.trace.getTracer('example-basic-tracer-node');
+
+//Create a span
+const parentSpan = tracer.startSpan('main');
+parentSpan.end();
+
+// Create meter
+const meter = opentelemetry.metrics.getMeter(
+  'instrumentation-scope-name',
+  'instrumentation-scope-version',
+);
+
+// Create a counter
+const counter = meter.createCounter('my-counter');
+counter.add(1);
+
+// Create a gauge
+const gauge = meter.createUpDownCounter('events.counter');
+counter.add(1);
 ```
 
 ### Step 3: Set the Baselime environment variables
