@@ -55,9 +55,9 @@ export async function handler(event) {
 
 ## Tracing AWS SDK v3
 
-If you bundle the AWS SDK v3 by default it is not traced. For CommonJS builds you can enable tracing with the following esbuild settings
+The [Node.js AWS SDK v3]([link](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/)) is not traced by default using OpenTelemetry on AWS Lambda when bundled as part of your function code. We currently support instrumentation for CommonJS codebases. We currently support instrumentation for  CommonJS codebases. Use the following steps to enable tracing of the Node.js AWS SDK v3.
 
-1. mark `@smithy/middleware-stack` and `@aws-sdk/middleware-stack` as external
+1. Mark `@smithy/middleware-stack` and `@aws-sdk/middleware-stack` as external.
 2. Ensure these packages are installed into the node_modules folder of your lambda
 
 These packages are both extremely small and removing these from your bundle can also decrease your coldstarts
@@ -77,7 +77,7 @@ new lambda.NodejsFunction(this, 'my-handler', {
 
 +++ SST
 
-To add the config globally to your `sst.config.ts` file.
+Add the config globally to your `sst.config.ts` file.
 
 ```typescript #
 app.setDefaultFunctionProps({
@@ -102,7 +102,7 @@ custom:
       - "@smithy/middleware-stack"
       - "@aws-sdk/middleware-stack"
 ```
-
++++
 
 ## Sending data to another OpenTelemetry backend
 

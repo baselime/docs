@@ -13,9 +13,9 @@
     "@tsconfig/node16": "^1.0.4",
     "@types/node": "^18.17.1",
     "aws-cdk-lib": "2.72.1",
-    "constructs": "10.1.156",
+    "constructs": "10.3.0",
     "retypeapp": "^3.1.0",
-    "sst": "^2.22.6",
+    "sst": "^2.40.6",
     "typescript": "^5.1.6"
   },
   "workspaces": [
