@@ -9,17 +9,14 @@ The [Baselime Go OpenTelemetry SDK](https://github.com/baselime/go-opentelemetry
 
 This SDK uses [OpenTelemetry for Go](https://opentelemetry.io/docs/instrumentation/go/) and provides a layer that facilitates instrumenting your Go applications.
 
-!!!
-If your application is already instrumented with [OpenTelemetry](https://opentelemetry.io/), you can start sending your tracing data to Baselime without any additional code changes.
-
-Add the Baselime OpenTelemetry endpoint to your exporter:
-- Endpoint `https://otel.baselime.io/v1/`
-- Header: `x-api-key: <BASELIME_API_KEY>` 
-!!!
-
 ---
 
 ## Instrumentation
+!!!info
+Is your application already instrumented with [OpenTelemetry](https://opentelemetry.io/)?
+
+[!ref icon="../../assets/images/logos/logo_open_telemetry.png" text="Configure endpoint and headers"](../platforms/opentelemetry/opentelemetry.md#configuration)
+!!!
 
 ### Step 1: Install the SDKs
 
@@ -29,32 +26,64 @@ Install the [Baselime Go OpenTelemetry SDK](https://github.com/baselime/go-opent
 go get github.com/baselime/go-opentelemetry
 ```
 
-### Step 2: Set the Baselime environment variables
+### Step 2: Add the OpenTelemetry Instrumentation to your application
 
-Set the environment variables of your comntainer service to include the Baselime API Key
+```go # :icon-code: main.go
+package main
 
-```bash # :icon-terminal: terminal
-export BASELIME_API_KEY=<YOUR_API_KEY>
-export OTEL_SERVICE_NAME='<NAME_OF_YOUR_APP_OR_SERVICE>'
-```
+import (
+	"context"
+	baselime_opentelemetry "github.com/baselime/go-opentelemetry"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/attribute"
+	otelMetric "go.opentelemetry.io/otel/metric"
+	"log"
+	"net/http"
+	"os"
+)
 
-### Step 3: Add the Opentelemetry Instrumentation to your application
+// Example tracer and counter
+var tracer = otel.Tracer("flyio_tracer")
+var reqCounter, _ = otel.Meter("your_service_name").Int64Counter("http.request")
 
-```go # :icon-terminal: terminal
 func main() {
-    params := baselime_opentelemetry.Config{}
-    otelShutdown, err := baselime_opentelemetry.ConfigureOpenTelemetry(params)
+	// Initialise Baselime OTEL distro
+	params := baselime_opentelemetry.Config{}
+	otelShutdown, err := baselime_opentelemetry.ConfigureOpenTelemetry(params)
+	if err != nil {
+		log.Fatalf("error setting up OTel SDK - %e", err)
+	}
+	defer otelShutdown()
 
-    if err != nil {
-        log.Fatalf("error setting up OTel SDK - %e", err)
-    }
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		// Create new span for each request
+		ctx, span := tracer.Start(r.Context(), "request-received")
+		defer span.End()
+		
+		// Increment counter on each request, with path as an attribute
+		reqCounter.Add(r.Context(), 1, otelMetric.WithAttributes(
+			attribute.String("path", r.URL.Path),
+		))
+		
+		// Step into function and produce nested span
+		someCustomFunction(ctx)
+	})
+	log.Fatal(http.ListenAndServe(":"+port, nil))
+}
 
-    defer otelShutdown()
-    ...
+// A function that produces its own span
+func someCustomFunction(ctx context.Context) {
+	ctx, span := tracer.Start(ctx, "get-data-environments")
+	defer span.End()
 }
 ```
 
-Once these steps are completed, distributed traces from your go container applications should be available in Baselime to query via the console or the Baselime CLI.
+### Step 3: Run your application
+Now your Go application is instrumented with OpenTelemetry and will send traces and metrics to Baselime.
+```shell # :icon-terminal: terminal
+BASELIME_API_KEY=your_api_key go run main.go
+```
+![Traces in console.baselime.io](../../assets/images/illustrations/sending-data/flyio_traces.png)
 
 ---
 
@@ -79,13 +108,24 @@ In Go you have to manually instrument the libraries you use. You can find instru
 
 Once you have installed the instrumentation you can find the instructions on how to apply it in their github repo, each instrumentation could be slightly different.
 
-```go # :icon-terminal: terminal
-// init aws config
-cfg, err := awsConfig.LoadDefaultConfig(ctx)
-if err != nil {
-    panic("configuration error, " + err.Error())
-}
+```go # :icon-code: main.go
+package main
 
-// instrument all aws clients
-otelaws.AppendMiddlewares(&cfg.APIOptions)
-    ```
+import (
+	"context"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws"
+)
+
+func main() {
+
+	// init aws config
+	cfg, err := aws.LoadDefaultConfig(context.TODO())
+	if err != nil {
+		panic("configuration error, " + err.Error())
+	}
+
+	// instrument all aws clients
+	otelaws.AppendMiddlewares(&cfg.APIOptions)
+}
+```

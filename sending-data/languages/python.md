@@ -9,17 +9,14 @@ The [Baselime Python OpenTelemetry SDK](https://github.com/baselime/python-opent
 
 This SDK uses [OpenTelemetry for Python](https://opentelemetry.io/docs/instrumentation/python/) and provides a layer that facilitates instrumenting your Python applications.
 
-!!!
-If your application is already instrumented with [OpenTelemetry](https://opentelemetry.io/), you can start sending your tracing data to Baselime without any additional code changes.
-
-Add the Baselime OpenTelemetry endpoint to your exporter:
-- Endpoint `https://otel.baselime.io/v1/`
-- Header: `x-api-key: <BASELIME_API_KEY>` 
-!!!
-
 ---
 
 ## Instrumentation
+!!!info
+Is your application already instrumented with [OpenTelemetry](https://opentelemetry.io/)?
+
+[!ref icon="../../assets/images/logos/logo_open_telemetry.png" text="Configure endpoint and headers"](../platforms/opentelemetry/opentelemetry.md#configuration)
+!!!
 
 ### Step 1: Install the SDKs
 
