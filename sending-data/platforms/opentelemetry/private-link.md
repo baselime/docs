@@ -7,13 +7,6 @@ order: -1
 
 Baselime supports AWS PrivateLink, enabling you to securely send the data directly from your VPC to Baselime's platform without exposing your data to the public internet.
 
-!!!info
-Endpoint service name `com.amazonaws.vpce.eu-west-1.vpce-svc-03611009d136b2d65`
-!!!
-!!!warning
-Use endpoint `otel-ingest.baselime.io` instead of ~~`otel.baselime.io`~~ for both **HTTP** and **gRPC** when using PrivateLink
-!!!
-
 ## How to set it up
 +++ AWS Console
 * Navigate to "VPC" > "Endpoints" > "Create Endpoint"
@@ -28,7 +21,8 @@ Use endpoint `otel-ingest.baselime.io` instead of ~~`otel.baselime.io`~~ for bot
 * Once accepted navigate to "VPC" > "Endpoints" and select the endpoint you just created.
   * "Actions" > "Modify private DNS name" > Tick "Enable private DNS names" > "Save changes"
 
-![Creating VPC Endpoint](../assets/images/illustrations/sending-data/privateLink/private_link_console_1.png)
+
+![Creating VPC Endpoint](../../../assets/images/illustrations/sending-data/privateLink/private_link_console_1.png)
 
 +++ CDK
 ```typescript
@@ -110,7 +104,16 @@ resource "aws_vpc_endpoint" "baselime-otel" {
 ```
 +++
 
+!!!info
+Endpoint service name `com.amazonaws.vpce.eu-west-1.vpce-svc-03611009d136b2d65`
+!!!
+!!!warning
+Use endpoint `otel-ingest.baselime.io` instead of ~~`otel.baselime.io`~~ for both **HTTP** and **gRPC** when using PrivateLink
+!!!
+
 After about 60 seconds all your traffic to `otel-ingest.baselime.io` will be routed through the PrivateLink.
+
+---
 
 ## How it works
 
@@ -118,7 +121,7 @@ After about 60 seconds all your traffic to `otel-ingest.baselime.io` will be rou
 When using Baselime without a PrivateLink endpoint, the DNS `otel-ingest.baslime.io` resolves to the public
 IP address of Baselime's platform. Your OTEL collector then sends the telemetry data to Baselime's platform
 over the public internet. Our endpoints are protected by TLS, so your data is encrypted in transit.
-![Sending data without PrivateLink](../assets/images/illustrations/sending-data/privateLink/without_private_link.png)
+![Sending data without PrivateLink](../../../assets/images/illustrations/sending-data/privateLink/without_private_link.png)
 
 #### With PrivateLink Endpoint
 When using Baselime with a PrivateLink endpoint, the DNS `otel-ingest.baslime.io` resolves the the private IP of a Network
@@ -126,6 +129,6 @@ Interface that exists in your VPC, and the IP itself is one of from the CIDR ran
 then sends the data to Baselime's platform over the private network. This means that your data never leaves AWS
 infrastructure, and is never exposed to the public internet.
 
-![Sending data with PrivateLink](../assets/images/illustrations/sending-data/privateLink/with_private_link.png)
+![Sending data with PrivateLink](../../../assets/images/illustrations/sending-data/privateLink/with_private_link.png)
 
 Read more about [AWS PrivateLink](https://aws.amazon.com/privatelink/) on the AWS website.

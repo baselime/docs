@@ -1,6 +1,6 @@
 ---
 order: 0
-label: Distributed Tracing
+label: OpenTelemetry for Cloudflare Workers
 ---
 
 # OpenTelemetry for Cloudflare Workers

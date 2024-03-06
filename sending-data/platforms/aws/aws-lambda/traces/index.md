@@ -67,7 +67,7 @@ Other observability tool layers and tags can adversely interact with the Baselim
 
 ---
 
-## Remove OpenTelemetry
+## Remove OpenTelemetry Instrumentation
 To remove the OpenTelemetry instrumentation from your AWS Lambda functions, remove the `baselime:tracing=true` tag from the function and Baselime will revert the function to un-instrumentate state.
 
 ---
