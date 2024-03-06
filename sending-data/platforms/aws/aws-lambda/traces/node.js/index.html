@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.762879124262">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.763042977857">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../../../resources/css/retype.css?v=3.5.0.762879124262" rel="stylesheet">
+    <link href="../../../../../../resources/css/retype.css?v=3.5.0.763042977857" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.5.0.762879124262" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.5.0.763042977857" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.5.0.762879124262" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../../resources/js/prism.js?v=3.5.0.762879124262" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.5.0.763042977857" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../../resources/js/prism.js?v=3.5.0.763042977857" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -249,6 +249,56 @@ export async function handler(event) {
 </code></pre>
 </doc-codeblock></div>
 <hr>
+<doc-anchor-target id="tracing-aws-sdk-v3">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tracing-aws-sdk-v3">#</doc-anchor-trigger>
+        <span>Tracing AWS SDK v3</span>
+    </h2>
+</doc-anchor-target>
+<p>If you bundle the AWS SDK v3 by default it is not traced. For CommonJS builds you can enable tracing with the following esbuild settings</p>
+<ol>
+<li>mark <code v-pre>@smithy/middleware-stack</code> and <code v-pre>@aws-sdk/middleware-stack</code> as external</li>
+<li>Ensure these packages are installed into the node_modules folder of your lambda</li>
+</ol>
+<p>These packages are both extremely small and removing these from your bundle can also decrease your coldstarts</p>
+<doc-tabs>
+<doc-tab v-cloak id="aws-cdk">
+<template #title>AWS CDK</template>
+<p>Add the following config to your <code v-pre>lambda.NodejsFunction</code> settings</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-typescript"><code v-pre class="language-typescript">new lambda.NodejsFunction(this, 'my-handler', {
+  bundling: {
+    nodeModules: ['@smithy/middleware-stack', '@aws-sdk/middleware-stack'],
+    format: lambda.OutputFormat.CJS
+  },
+});</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="sst">
+<template #title>SST</template>
+<p>To add the config globally to your <code v-pre>sst.config.ts</code> file.</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-typescript"><code v-pre class="language-typescript">app.setDefaultFunctionProps({
+  nodejs: {
+    format: 'cjs',
+    install: [&quot;@smithy/middleware-stack&quot;, &quot;@aws-sdk/middleware-stack&quot;]
+  },
+});</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="serverless-framework">
+<template #title>Serverless Framework</template>
+<p>If using the <a href=""><code v-pre>serverless-esbuild</code></a> plugin set the following options in your <code v-pre>serverless.yml</code></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-yaml"><code v-pre class="language-yaml">plugins:
+  - serverless-esbuild
+
+custom:
+  esbuild:
+    external:
+      - &quot;@smithy/middleware-stack&quot;
+      - &quot;@aws-sdk/middleware-stack&quot;</code></pre>
+</doc-codeblock></div>
 <doc-anchor-target id="sending-data-to-another-opentelemetry-backend">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#sending-data-to-another-opentelemetry-backend">#</doc-anchor-trigger>
@@ -271,6 +321,7 @@ export async function handler(event) {
 
 SignersV4.prototype.unsignableHeaders.push('traceparent');</code></pre>
 </doc-codeblock></div>
+</doc-tab>
 
                                 
                                 <!-- Required only on API pages -->
