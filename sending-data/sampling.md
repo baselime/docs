@@ -52,4 +52,3 @@ Baselime also surfaces the average sample rate in the query results in the [cons
 ### `COUNT_DISTINCT`
 
 `COUNT_DISTINCT` enables you to compute the number of unique values a property take in your dataset. This is impossible to accurately compute with sampled data. When performing a `COUNT_DISTINCT` aggregation, Baselime will count the number of unique values present in the sampled dataset and will not compensate for the sampling rate.
-

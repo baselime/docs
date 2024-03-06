@@ -53,6 +53,57 @@ export async function handler(event) {
 
 ---
 
+## Tracing AWS SDK v3
+
+If you bundle the AWS SDK v3 by default it is not traced. For CommonJS builds you can enable tracing with the following esbuild settings
+
+1. mark `@smithy/middleware-stack` and `@aws-sdk/middleware-stack` as external
+2. Ensure these packages are installed into the node_modules folder of your lambda
+
+These packages are both extremely small and removing these from your bundle can also decrease your coldstarts
+
++++ AWS CDK
+
+Add the following config to your `lambda.NodejsFunction` settings
+
+```typescript #
+new lambda.NodejsFunction(this, 'my-handler', {
+  bundling: {
+    nodeModules: ['@smithy/middleware-stack', '@aws-sdk/middleware-stack'],
+    format: lambda.OutputFormat.CJS
+  },
+});
+```
+
++++ SST
+
+To add the config globally to your `sst.config.ts` file.
+
+```typescript #
+app.setDefaultFunctionProps({
+  nodejs: {
+    format: 'cjs',
+    install: ["@smithy/middleware-stack", "@aws-sdk/middleware-stack"]
+  },
+});
+```
+
++++ Serverless Framework
+
+If using the [`serverless-esbuild`]() plugin set the following options in your `serverless.yml`
+
+```yaml #
+plugins:
+  - serverless-esbuild
+
+custom:
+  esbuild:
+    external:
+      - "@smithy/middleware-stack"
+      - "@aws-sdk/middleware-stack"
+```
+
+
 ## Sending data to another OpenTelemetry backend
 
 OpenTelemetry is an open standard, and you can use the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) to send telemetry data to another backend of your choice.
