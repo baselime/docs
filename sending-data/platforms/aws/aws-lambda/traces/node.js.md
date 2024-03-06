@@ -58,9 +58,11 @@ export async function handler(event) {
 The [Node.js AWS SDK v3]([link](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/)) is not traced by default using OpenTelemetry on AWS Lambda when bundled as part of your function code. We currently support instrumentation for CommonJS codebases. We currently support instrumentation for  CommonJS codebases. Use the following steps to enable tracing of the Node.js AWS SDK v3.
 
 1. Mark `@smithy/middleware-stack` and `@aws-sdk/middleware-stack` as external.
-2. Ensure these packages are installed into the node_modules folder of your lambda
+2. Ensure your functions `.zip` file includes these dependencies
 
 These packages are both extremely small and removing these from your bundle can also decrease your coldstarts
+
+Follow the example below for popular serverless frameworks
 
 +++ AWS CDK
 
