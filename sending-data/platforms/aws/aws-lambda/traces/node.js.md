@@ -108,11 +108,18 @@ custom:
 
 ## Step functions
 
-Traces can be propogated accross Lambda invocations in step functions by adding the environment variable `BASELIME_TRACE_STEP_FUNCTIONS`. Step function intrinsic functions are not be included. If you are using [custom parameters](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html) update the functions input to include the following.
+Traces can be propogated accross Lambda invocations in step functions by adding the environment variable `BASELIME_TRACE_STEP_FUNCTIONS`.
+
+### Propogation
+
+Lambda functions will automatically propogate the trace state between steps by attaching the `_baselime` tracing metadata object to your functions response. This will be automatically detected if the lambda payloads are not modified.
+
+If you are using [custom parameters](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html) update the functions input to include the following.
 
 +++ CDK
 
-If using the [AWS CDK](https://aws.amazon.com/cdk/) and are modifying the payload use the following to propogate the _baselime tracing metadata.
+Using the [AWS CDK](https://aws.amazon.com/cdk/) manually propagate the _baselime tracing metadata using the following code snippet
+
 ```ts #
  const taskTwoA = new LambdaInvoke(stack, "TaskTwoA", {
     lambdaFunction: new Function(stack, "task-two-a", {
@@ -126,7 +133,7 @@ If using the [AWS CDK](https://aws.amazon.com/cdk/) and are modifying the payloa
 ```
 +++ State Machine Definition
 
-If using the [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) and are modifying the payload use the following to propogate the _baselime tracing metadata.
+Using the [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) manually propagate the _baselime tracing metadata using the following code snippet
 
 ```json #
 {
@@ -149,7 +156,26 @@ If using the [Amazon States Language](https://docs.aws.amazon.com/step-functions
 ```
 +++
 
-If you are using tasks which cannot be instrumented like [SNS: Publish](https://docs.aws.amazon.com/step-functions/latest/dg/connect-sns.html) then to propogate the traceparent you must set the [result path](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html) so the Baselime state is appended to the output of the task.
+If you have tasks which cannot be instrumented like [SNS: Publish](https://docs.aws.amazon.com/step-functions/latest/dg/connect-sns.html) then propogate the traceparent with the result path [result path](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html) so the Baselime state is appended to the output of the task.
+
+
++++ CDK
+
+Using the [AWS CDK](https://aws.amazon.com/cdk/) manually propagate the _baselime tracing metadata using the following code snippet
+
+```ts #
+const snsPublish = new SnsPublish(stack, "SnsPublish", {
+    topic: SNS.fromTopicArn(stack, "SnsTopic", "arn:aws:sns:us-east-1:123456789012:MyTopic"),
+    message: TaskInput.fromObject({
+      ...
+    }),
+    resultPath: "$.['Payload._baselime', 'null']",
+})
+```
+
++++ State Machine Definition
+
+Using the [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) manually propagate the _baselime tracing metadata using the following code snippet
 
 ```json #
 {
@@ -164,6 +190,7 @@ If you are using tasks which cannot be instrumented like [SNS: Publish](https://
   "ResultPath": "$.['Payload._baselime', 'null']"
 }
 ```
++++
 
 ---
 
