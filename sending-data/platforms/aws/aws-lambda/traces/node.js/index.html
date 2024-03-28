@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.764953926061">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.764955879550">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../../../resources/css/retype.css?v=3.5.0.764953926061" rel="stylesheet">
+    <link href="../../../../../../resources/css/retype.css?v=3.5.0.764955879550" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.5.0.764953926061" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.5.0.764955879550" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.5.0.764953926061" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../../resources/js/prism.js?v=3.5.0.764953926061" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.5.0.764955879550" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../../resources/js/prism.js?v=3.5.0.764955879550" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -328,7 +328,7 @@ custom:
     }),
     payload: TaskInput.fromObject({
       code: TaskInput.fromJsonPathAt(&quot;$.Payload.statusCode&quot;).value,
-      _baselime: TaskInput.fromJsonPathAt(&quot;$.['Payload._baselime', 'null']&quot;).value
+      _baselime: TaskInput.fromJsonPathAt(&quot;$.Payload._baselime&quot;).value
     })
   })</code></pre>
 </doc-codeblock></div>
@@ -348,7 +348,7 @@ custom:
           &quot;FunctionName&quot;: &quot;arn:aws:lambda:us-east-1:123456789:function:prod-state-machine-lambda-time&quot;,
           &quot;Payload&quot;: {
             &quot;code.$&quot;: &quot;$.Payload.statusCode&quot;,
-            &quot;_baselime.$&quot;: &quot;$.['Payload._baselime', 'null']&quot;
+            &quot;_baselime.$&quot;: &quot;$.Payload._baselime&quot;
           }
         }
       }
@@ -368,7 +368,7 @@ custom:
     message: TaskInput.fromObject({
       ...
     }),
-    resultPath: &quot;$.['Payload._baselime', 'null']&quot;,
+    resultPath: &quot;$.Payload._baselime&quot;,
 })</code></pre>
 </doc-codeblock></div>
 </doc-tab>
@@ -385,7 +385,7 @@ custom:
     &quot;TopicArn&quot;: &quot;arn:aws:sns::1249256823:topic:my-topic&quot;
   },
   &quot;Next&quot;: &quot;TaskTwoA&quot;,
-  &quot;ResultPath&quot;: &quot;$.['Payload._baselime', 'null']&quot;
+  &quot;ResultPath&quot;: &quot;$.Payload._baselime&quot;
 }</code></pre>
 </doc-codeblock></div>
 </doc-tab>
