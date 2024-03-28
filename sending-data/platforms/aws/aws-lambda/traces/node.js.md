@@ -127,7 +127,7 @@ Using the [AWS CDK](https://aws.amazon.com/cdk/) manually propagate the _baselim
     }),
     payload: TaskInput.fromObject({
       code: TaskInput.fromJsonPathAt("$.Payload.statusCode").value,
-      _baselime: TaskInput.fromJsonPathAt("$.['Payload._baselime', 'null']").value
+      _baselime: TaskInput.fromJsonPathAt("$.Payload._baselime").value
     })
   })
 ```
@@ -147,7 +147,7 @@ Using the [Amazon States Language](https://docs.aws.amazon.com/step-functions/la
           "FunctionName": "arn:aws:lambda:us-east-1:123456789:function:prod-state-machine-lambda-time",
           "Payload": {
             "code.$": "$.Payload.statusCode",
-            "_baselime.$": "$.['Payload._baselime', 'null']"
+            "_baselime.$": "$.Payload._baselime"
           }
         }
       }
@@ -169,7 +169,7 @@ const snsPublish = new SnsPublish(stack, "SnsPublish", {
     message: TaskInput.fromObject({
       ...
     }),
-    resultPath: "$.['Payload._baselime', 'null']",
+    resultPath: "$.Payload._baselime",
 })
 ```
 
@@ -187,7 +187,7 @@ Using the [Amazon States Language](https://docs.aws.amazon.com/step-functions/la
     "TopicArn": "arn:aws:sns::1249256823:topic:my-topic"
   },
   "Next": "TaskTwoA",
-  "ResultPath": "$.['Payload._baselime', 'null']"
+  "ResultPath": "$.Payload._baselime"
 }
 ```
 +++
