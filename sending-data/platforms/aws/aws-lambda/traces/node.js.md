@@ -106,6 +106,67 @@ custom:
 ```
 +++
 
+## Step functions
+
+Traces can be propogated accross Lambda invocations in step functions by adding the environment variable `BASELIME_TRACE_STEP_FUNCTIONS`. Step function intrinsic functions are not be included. If you are using [custom parameters](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html) update the functions input to include the following.
+
++++ CDK
+
+If using the [AWS CDK](https://aws.amazon.com/cdk/) and are modifying the payload use the following to propogate the _baselime tracing metadata.
+```ts #
+ const taskTwoA = new LambdaInvoke(stack, "TaskTwoA", {
+    lambdaFunction: new Function(stack, "task-two-a", {
+      handler: "packages/functions/src/task-two.handler",
+    }),
+    payload: TaskInput.fromObject({
+      code: TaskInput.fromJsonPathAt("$.Payload.statusCode").value,
+      _baselime: TaskInput.fromJsonPathAt("$.['Payload._baselime', 'null']").value
+    })
+  })
+```
++++ State Machine Definition
+
+If using the [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) and are modifying the payload use the following to propogate the _baselime tracing metadata.
+
+```json #
+{
+    "StartAt": "TaskTwoA",
+    "States": {
+      "TaskTwoA": {
+        "End": true,
+        "Type": "Task",
+        "Resource": "arn:aws:states:::lambda:invoke",
+        "Parameters": {
+          "FunctionName": "arn:aws:lambda:us-east-1:123456789:function:prod-state-machine-lambda-time",
+          "Payload": {
+            "code.$": "$.Payload.statusCode",
+            "_baselime.$": "$.['Payload._baselime', 'null']"
+          }
+        }
+      }
+    }
+}
+```
++++
+
+If you are using tasks which cannot be instrumented like [SNS: Publish](https://docs.aws.amazon.com/step-functions/latest/dg/connect-sns.html) then to propogate the traceparent you must set the [result path](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html) so the Baselime state is appended to the output of the task.
+
+```json #
+{
+  "SNS Publish": {
+  "Type": "Task",
+  "Resource": "arn:aws:states:::sns:publish",
+  "Parameters": {
+    "Message.$": "$",
+    "TopicArn": "arn:aws:sns::1249256823:topic:my-topic"
+  },
+  "Next": "TaskTwoA",
+  "ResultPath": "$.['Payload._baselime', 'null']"
+}
+```
+
+---
+
 ## Sending data to another OpenTelemetry backend
 
 OpenTelemetry is an open standard, and you can use the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry) to send telemetry data to another backend of your choice.
