@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.764952689992">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.764953926061">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../../../resources/css/retype.css?v=3.5.0.764952689992" rel="stylesheet">
+    <link href="../../../../../../resources/css/retype.css?v=3.5.0.764953926061" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.5.0.764952689992" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.5.0.764953926061" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.5.0.764952689992" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../../resources/js/prism.js?v=3.5.0.764952689992" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.5.0.764953926061" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../../resources/js/prism.js?v=3.5.0.764953926061" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -308,11 +308,19 @@ custom:
         <span>Step functions</span>
     </h2>
 </doc-anchor-target>
-<p>Traces can be propogated accross Lambda invocations in step functions by adding the environment variable <code v-pre>BASELIME_TRACE_STEP_FUNCTIONS</code>. Step function intrinsic functions are not be included. If you are using <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html">custom parameters</a> update the functions input to include the following.</p>
+<p>Traces can be propogated accross Lambda invocations in step functions by adding the environment variable <code v-pre>BASELIME_TRACE_STEP_FUNCTIONS</code>.</p>
+<doc-anchor-target id="propogation">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#propogation">#</doc-anchor-trigger>
+        <span>Propogation</span>
+    </h3>
+</doc-anchor-target>
+<p>Lambda functions will automatically propogate the trace state between steps by attaching the <code v-pre>_baselime</code> tracing metadata object to your functions response. This will be automatically detected if the lambda payloads are not modified.</p>
+<p>If you are using <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html">custom parameters</a> update the functions input to include the following.</p>
 <doc-tabs>
 <doc-tab v-cloak id="cdk">
 <template #title>CDK</template>
-<p>If using the <a href="https://aws.amazon.com/cdk/">AWS CDK</a> and are modifying the payload use the following to propogate the _baselime tracing metadata.</p>
+<p>Using the <a href="https://aws.amazon.com/cdk/">AWS CDK</a> manually propagate the _baselime tracing metadata using the following code snippet</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-typescript"><code v-pre class="language-typescript"> const taskTwoA = new LambdaInvoke(stack, &quot;TaskTwoA&quot;, {
     lambdaFunction: new Function(stack, &quot;task-two-a&quot;, {
@@ -327,7 +335,7 @@ custom:
 </doc-tab>
 <doc-tab v-cloak id="state-machine-definition">
 <template #title>State Machine Definition</template>
-<p>If using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> and are modifying the payload use the following to propogate the _baselime tracing metadata.</p>
+<p>Using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> manually propagate the _baselime tracing metadata using the following code snippet</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-json"><code v-pre class="language-json">{
     &quot;StartAt&quot;: &quot;TaskTwoA&quot;,
@@ -349,7 +357,24 @@ custom:
 </doc-codeblock></div>
 </doc-tab>
 </doc-tabs>
-<p>If you are using tasks which cannot be instrumented like <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-sns.html">SNS: Publish</a> then to propogate the traceparent you must set the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">result path</a> so the Baselime state is appended to the output of the task.</p>
+<p>If you have tasks which cannot be instrumented like <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-sns.html">SNS: Publish</a> then propogate the traceparent with the result path <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">result path</a> so the Baselime state is appended to the output of the task.</p>
+<doc-tabs>
+<doc-tab v-cloak id="cdk">
+<template #title>CDK</template>
+<p>Using the <a href="https://aws.amazon.com/cdk/">AWS CDK</a> manually propagate the _baselime tracing metadata using the following code snippet</p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-typescript"><code v-pre class="language-typescript">const snsPublish = new SnsPublish(stack, &quot;SnsPublish&quot;, {
+    topic: SNS.fromTopicArn(stack, &quot;SnsTopic&quot;, &quot;arn:aws:sns:us-east-1:123456789012:MyTopic&quot;),
+    message: TaskInput.fromObject({
+      ...
+    }),
+    resultPath: &quot;$.['Payload._baselime', 'null']&quot;,
+})</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="state-machine-definition">
+<template #title>State Machine Definition</template>
+<p>Using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> manually propagate the _baselime tracing metadata using the following code snippet</p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-json"><code v-pre class="language-json">{
   &quot;SNS Publish&quot;: {
@@ -363,6 +388,8 @@ custom:
   &quot;ResultPath&quot;: &quot;$.['Payload._baselime', 'null']&quot;
 }</code></pre>
 </doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
 <hr>
 <doc-anchor-target id="sending-data-to-another-opentelemetry-backend">
     <h2>
