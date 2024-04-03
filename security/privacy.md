@@ -17,9 +17,9 @@ Keep in mind that obfuscating keys is a one-way process, meaning that once a key
 
 ## Automatic scrubbing
 
-Baselime that automatically obfuscate sensitive information from being ingested into the telemetry data by default. This is done to ensure that sensitive data is not accidentally exposed.
+Baselime automatically obfuscates sensitive information from being ingested into the telemetry data by default. This is done to ensure that sensitive data is not accidentally exposed.
 
-The following keys are automatically scrubbed:
+The following keys are automatically obfuscated:
 
 - `password`
 - `secret`
