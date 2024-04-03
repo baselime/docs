@@ -54,7 +54,7 @@ Use the API Token you created in the previous step to connect your Cloudflare ac
 
 ### 3. Enable Logpush on Your Cloudflare Workers
 
-To complete the setup, it's necessary to enable Logpush on your Cloudflare workers.
+To complete the setup, it's necessary to enable Logpush on your Cloudflare Workers.
 
 Add `logpush = true` to the top level section of your Workers `wrangler.toml` file
 
@@ -71,7 +71,7 @@ route = { pattern = "example.org/*", zone_name = "example.org" }
 ```
 
 !!!
-Learn more about [enabling Logpush on your Cloudflare workers](https://developers.cloudflare.com/workers/observability/logpush/#enable-logging-on-your-worker).
+Learn more about [enabling Logpush on your Cloudflare Workers](https://developers.cloudflare.com/workers/observability/logpush/#enable-logging-on-your-worker).
 !!!
 
 ### 4. Using the Cloudflare Workers Logpush integration
