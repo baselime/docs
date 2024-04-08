@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.765728033772">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.765910689068">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.5.0.765728033772" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.765910689068" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.765728033772" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.765910689068" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.765728033772" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.765728033772" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.765910689068" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.765910689068" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -289,12 +289,13 @@ export function API({ stack }: StackContext) {
         logging: new ecs.FireLensLogDriver({
           options: {
             &quot;Name&quot;: &quot;http&quot;,
-            &quot;Host&quot;: &quot;ecs-logs-ingest.baselime.io&quot;,
+            &quot;Host&quot;: &quot;events.baselime.io&quot;,
             &quot;Port&quot;: &quot;443&quot;,
             &quot;TLS&quot;: &quot;on&quot;,
             &quot;format&quot;: &quot;json&quot;,
             &quot;retry_limit&quot;: &quot;2&quot;,
             &quot;header&quot;: `x-api-key ${key}`,
+            &quot;URI&quot;: &quot;/v1/ecs-logs&quot;
           },
         }),
       }
@@ -320,12 +321,13 @@ export function API({ stack }: StackContext) {
         log_driver      = &quot;awsfirelens&quot;
         options = {
           &quot;Name&quot;        = &quot;http&quot;
-          &quot;Host&quot;        = &quot;ecs-logs-ingest.baselime.io&quot;
+          &quot;Host&quot;        = &quot;events.baselime.io&quot;
           &quot;Port&quot;        = &quot;443&quot;
           &quot;TLS&quot;         = &quot;on&quot;
           &quot;format&quot;      = &quot;json&quot;
           &quot;retry_limit&quot; = &quot;2&quot;
           &quot;header&quot;      = &quot;x-api-key &lt;BASELIME_API_KEY&gt;&quot;
+          &quot;URI&quot;         = &quot;/v1/ecs-logs&quot;
         }
       }
     }
@@ -347,12 +349,13 @@ taskDef.addContainer(&quot;container&quot;, {
   logging: new ecs.FireLensLogDriver({
     options: {
       &quot;Name&quot;: &quot;http&quot;,
-      &quot;Host&quot;: &quot;ecs-logs-ingest.baselime.io&quot;,
+      &quot;Host&quot;: &quot;events.baselime.io&quot;,
       &quot;Port&quot;: &quot;443&quot;,
       &quot;TLS&quot;: &quot;on&quot;,
       &quot;format&quot;: &quot;json&quot;,
       &quot;retry_limit&quot;: &quot;2&quot;,
       &quot;header&quot;: `x-api-key &lt;BASELIME_API_KEY&gt;`,
+      &quot;URI&quot;: &quot;/v1/ecs-logs&quot;
     },
   }),
 });
@@ -374,13 +377,14 @@ taskDef.addContainer(&quot;container&quot;, {
       &quot;logConfiguration&quot;: {
         &quot;logDriver&quot;: &quot;awsfirelens&quot;,
         &quot;options&quot;: {
-          &quot;Host&quot;: &quot;ecs-logs-ingest.baselime.io&quot;,
+          &quot;Host&quot;: &quot;events.baselime.io&quot;,
           &quot;Name&quot;: &quot;http&quot;,
           &quot;Port&quot;: &quot;443&quot;,
           &quot;TLS&quot;: &quot;on&quot;,
           &quot;format&quot;: &quot;json&quot;,
           &quot;header&quot;: &quot;x-api-key &lt;BASELIME_API_KEY&gt;&quot;,
-          &quot;retry_limit&quot;: &quot;2&quot;
+          &quot;retry_limit&quot;: &quot;2&quot;,
+          &quot;URI&quot;: &quot;/v1/ecs-logs&quot;
         },
         &quot;secretOptions&quot;: []
       }
