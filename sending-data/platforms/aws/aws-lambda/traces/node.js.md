@@ -18,6 +18,20 @@ For detailed instructions on how to add the tag to for your framework go to the 
 
 ---
 
+## Configuration
+
+Our OpenTelemetry SDK can be configured with the following environment variables. For each value other than log level set it to 'true' to turn the feature on.
+
+| Environment Variable       | Description                                            | Default Value |
+|----------------------------|--------------------------------------------------------|---------------|
+| BASELIME_REQUEST_CAPTURE   | Controls capturing of incoming requests                | Not set       |
+| AWS_SDK_INTERNALS          | Controls whether AWS SDK internals are logged          | Not set       |
+| BASELIME_CAPTURE_EVENT     | Controls capturing of specific events                  | Not set       |
+| BASELIME_CAPTURE_RESPONSE  | Controls capturing of outgoing responses               | Not set       |
+| OTEL_LOG_LEVEL             | Sets the logging level for OpenTelemetry instrumentation. Set to "debug" to see granular diagnostics | Not set       |
+
+
+
 ## Adding custom OpenTelemetry spans
 
 To add custom spans to your OpenTelemetry traces, install the `@opentelemetry/api` package.
