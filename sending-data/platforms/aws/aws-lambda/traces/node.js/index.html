@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.765910689068">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.766150336172">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../../../resources/css/retype.css?v=3.5.0.765910689068" rel="stylesheet">
+    <link href="../../../../../../resources/css/retype.css?v=3.5.0.766150336172" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.5.0.765910689068" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.5.0.766150336172" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.5.0.765910689068" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../../resources/js/prism.js?v=3.5.0.765910689068" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.5.0.766150336172" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../../resources/js/prism.js?v=3.5.0.766150336172" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -215,6 +215,51 @@
 <p>To automatically instrument your AWS Lambda functions with the <a href="https://github.com/Baselime/lambda-node-opentelemetry">Baselime Node.js OpenTelemetry tracer for AWS Lambda</a>, set the following tag to your AWS Lambda functions: <code v-pre>baselime:tracing=true</code>.</p>
 <p>For detailed instructions on how to add the tag to for your framework go to the <a href="../">OpenTelemetry for AWS Lambda</a> Guide</p>
 <hr>
+<doc-anchor-target id="configuration">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#configuration">#</doc-anchor-trigger>
+        <span>Configuration</span>
+    </h2>
+</doc-anchor-target>
+<p>Our OpenTelemetry SDK can be configured with the following environment variables. For each value other than log level set it to &#x27;true&#x27; to turn the feature on.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Description</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BASELIME_REQUEST_CAPTURE</td>
+<td>Controls capturing of incoming requests</td>
+<td>Not set</td>
+</tr>
+<tr>
+<td>AWS_SDK_INTERNALS</td>
+<td>Controls whether AWS SDK internals are logged</td>
+<td>Not set</td>
+</tr>
+<tr>
+<td>BASELIME_CAPTURE_EVENT</td>
+<td>Controls capturing of specific events</td>
+<td>Not set</td>
+</tr>
+<tr>
+<td>BASELIME_CAPTURE_RESPONSE</td>
+<td>Controls capturing of outgoing responses</td>
+<td>Not set</td>
+</tr>
+<tr>
+<td>OTEL_LOG_LEVEL</td>
+<td>Sets the logging level for OpenTelemetry instrumentation. Set to &quot;debug&quot; to see granular diagnostics</td>
+<td>Not set</td>
+</tr>
+</tbody>
+</table>
+</div>
 <doc-anchor-target id="adding-custom-opentelemetry-spans">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#adding-custom-opentelemetry-spans">#</doc-anchor-trigger>
