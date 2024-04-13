@@ -18,9 +18,9 @@ Obtain your API key from the console [Baselime console](https://console.baselime
 
 Next install the Baselime Helm chart
 ```bash
-helm repo add baselime-logs-exporter https://github.com/baselime/helm-charts
+helm repo add baselime-logs-exporter https://baselime.github.io/helm-charts
 helm repo update
-helm install baselime-logs-exporter baselime-logs-exporter/baselime-logs-exporter-logs-exporter --values custom-values.yaml
+helm install baselime-logs-exporter baselime-logs-exporter/baselime-logs-exporter --values custom-values.yaml
 ```
 
 ---

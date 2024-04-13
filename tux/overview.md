@@ -7,7 +7,7 @@ order: -1
 
 ---
 
-Tux is an AI assistant that resolves errors and performance issues in your applications. Tux understands your architecture by leveraging the powers of Baselime to gather context from your telemtry data, and enables you to resolve issues before they become problems.
+Tux is an AI assistant that resolves errors and performance issues in your applications. Tux understands your architecture by leveraging the powers of Baselime to gather context from your telemetry data, and enables you to resolve issues before they become problems.
 
 [!embed](https://www.youtube.com/watch?v=gcF1XW8aIuQ)
 

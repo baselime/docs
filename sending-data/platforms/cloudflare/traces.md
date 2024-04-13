@@ -81,7 +81,7 @@ Get your pulic BASELIME_API_KEY from the [Baselime console](https://console.base
 SERVICE_NAME = "my-service-name"
 ```
 
-Once these steps are completed, distributed traces from your Cloudflare workers application should be available in Baselime to query via the console or the Baselime CLI.
+Once these steps are completed, distributed traces from your Cloudflare Workers application should be available in Baselime to query via the console or the Baselime CLI.
 
 ![Example Cloudflare Worker Trace](../../../assets/images/illustrations/sending-data/opentelemetry/cf-tracing.png)
 

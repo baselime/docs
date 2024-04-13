@@ -69,12 +69,13 @@ export function API({ stack }: StackContext) {
         logging: new ecs.FireLensLogDriver({
           options: {
             "Name": "http",
-            "Host": "ecs-logs-ingest.baselime.io",
+            "Host": "events.baselime.io",
             "Port": "443",
             "TLS": "on",
             "format": "json",
             "retry_limit": "2",
             "header": `x-api-key ${key}`,
+            "URI": "/v1/ecs-logs"
           },
         }),
       }
@@ -99,12 +100,13 @@ resource "aws_ecs_task_definition" "example_task" {
         log_driver      = "awsfirelens"
         options = {
           "Name"        = "http"
-          "Host"        = "ecs-logs-ingest.baselime.io"
+          "Host"        = "events.baselime.io"
           "Port"        = "443"
           "TLS"         = "on"
           "format"      = "json"
           "retry_limit" = "2"
           "header"      = "x-api-key <BASELIME_API_KEY>"
+          "URI"         = "/v1/ecs-logs"
         }
       }
     }
@@ -126,12 +128,13 @@ taskDef.addContainer("container", {
   logging: new ecs.FireLensLogDriver({
     options: {
       "Name": "http",
-      "Host": "ecs-logs-ingest.baselime.io",
+      "Host": "events.baselime.io",
       "Port": "443",
       "TLS": "on",
       "format": "json",
       "retry_limit": "2",
       "header": `x-api-key <BASELIME_API_KEY>`,
+      "URI": "/v1/ecs-logs"
     },
   }),
 });
@@ -153,13 +156,14 @@ taskDef.addContainer("container", {
       "logConfiguration": {
         "logDriver": "awsfirelens",
         "options": {
-          "Host": "ecs-logs-ingest.baselime.io",
+          "Host": "events.baselime.io",
           "Name": "http",
           "Port": "443",
           "TLS": "on",
           "format": "json",
           "header": "x-api-key <BASELIME_API_KEY>",
-          "retry_limit": "2"
+          "retry_limit": "2",
+          "URI": "/v1/ecs-logs"
         },
         "secretOptions": []
       }
