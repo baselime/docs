@@ -31,7 +31,6 @@ Baselime supports a variety of data sources, including logs, metrics, traces, an
 
 ### Direct Sources
 [!ref icon="../assets/images/logo.svg"](./events-api.md)
-[!ref icon="../assets/images/logos/s3_flat@3x.png"](./s3-rehydration.md)
 
 
 ---
