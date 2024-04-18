@@ -21,7 +21,7 @@ npm i -S @baselime/edge-logger
 **Step 2:** Add the logger to your server-side code in the `functions` directory
  
 
-```javascript #1,4-10,12 :icon-code: functions/index.js
+```javascript #1,4-10,12,14 :icon-code: functions/index.js
 import { BaselimeLogger } from "@baselime/edge-logger"
 
 export function onRequest(context) {
