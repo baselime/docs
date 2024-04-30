@@ -11,14 +11,13 @@ Data specification of the constructs referenced in the requests can be found und
 [Data Specification](#data-specification) section
 
 ## Endpoints
-[!ref api](#api)
-[!ref data](#data)
-[!ref go](#go)
+[!ref api.baselime.io](#apibaselimeiov1)
+[!ref data.baselime.io](#databaselimeiov1)
+[!ref go.baselime.io](#gobaselimeiov1)
 
 ---
 
-### Api
-Endpoint: `https://api.baselime.io/v1`
+### api.baselime.io/v1
 
 This endpoint requires OAuth2 authentication, and is used by `https://console.baselime.io` to
 query the majority of the data.
@@ -343,9 +342,7 @@ Alert
 
 ---
 
-### Data
-Endpoint: `https://data.baselime.io/v1
-
+### data.baselime.io/v1
 
 #### Headers
 * `content-type: application/json`
@@ -401,8 +398,7 @@ Endpoint: `https://data.baselime.io/v1
 
 
 
-### Go
-Endpoint: `https://go.baselime.io/v1`
+### go.baselime.io/v1
 
 Endpoint uses API key for authentication, and provides the majority of the functionality
 offered by `https://api.baselime.io/v1` endpoint. It is the endpoint utilised by tools such as the
