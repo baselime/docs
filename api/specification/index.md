@@ -24,7 +24,7 @@ query the majority of the data.
 
 #### Headers
 * `content-type: application/json`
-* `Authorization: Bearer <access token>` - [how to obtain access token](http://localhost:5000/docs/api/#oauth-authentication)
+* `Authorization: Bearer <access token>` - [how to obtain access token](https://baselime.io/docs/api/#oauth-authentication)
 
 
 #### Dashboards
