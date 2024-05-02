@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.767952854233">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.767960660395">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.5.0.767952854233" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.767960660395" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.767952854233" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.767960660395" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.767952854233" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.767952854233" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.767960660395" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.767960660395" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -213,6 +213,8 @@ requests that can be made to them and the expected responses.</p>
         <span>Endpoint <code v-pre>go.baselime.io/v1</code></span>
     </h3>
 </doc-anchor-target>
+<p>This endpoint enables the client to interact with the entities within Baselime platform, such as queries, alerts, dashboards
+and many other.</p>
 <p>Endpoint uses API key for authentication.</p>
 <doc-anchor-target id="headers">
     <h4>
@@ -870,6 +872,166 @@ requests that can be made to them and the expected responses.</p>
 </doc-codeblock></div>
    </doc-panel>
 </doc-panels>
+<doc-anchor-target id="endpoint-databaselimeiov1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#endpoint-databaselimeiov1">#</doc-anchor-trigger>
+        <span>Endpoint <code v-pre>data.baselime.io/v1</code></span>
+    </h3>
+</doc-anchor-target>
+<p>This endpoint enables client to query the processed telemetry data.</p>
+<doc-anchor-target id="headers-1">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#headers-1">#</doc-anchor-trigger>
+        <span>Headers</span>
+    </h4>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>content-type: application/json</code></li>
+<li><code v-pre>Authorization: Bearer &lt;access token&gt;</code></li>
+</ul>
+<doc-panel id="badge-post-query-runs" collapsed>
+    <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
+    <span>POST</span>
+</span> <code v-pre>/query_runs</code></template>
+<p><strong>Description:</strong> Creates a new query run and returns its results.</p>
+<hr>
+<p><strong>Request</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Body</div>
+<pre class="language-typescript"><code v-pre class="language-typescript">{
+  &quot;workspaceId&quot;: string
+  &quot;environmentId&quot;: string
+  &quot;queryId&quot;: string
+  &quot;parameters&quot;: {
+    &quot;datasets&quot;: Array&lt;string&gt;
+    &quot;calculations&quot;: Array&lt;{
+      &quot;key&quot;: string
+      &quot;operator&quot;: CalculationOperator
+    }&gt;
+    &quot;filters&quot;: Array&lt;{
+      &quot;type&quot;: string
+      &quot;operation&quot;: FilterOperator
+      &quot;value&quot;: string | number | boolean
+      &quot;key&quot;: string
+    }&gt;
+  }
+  &quot;timeframe&quot;: {
+    &quot;from&quot;: number
+    &quot;to&quot;: number
+  }
+  &quot;granularity&quot;: number
+  &quot;limit&quot;: number
+  &quot;view&quot;: &quot;traces&quot; | &quot;events&quot; | &quot;calculations&quot; | &quot;invocations&quot; | &quot;requests&quot; // (LITERAL)
+}</code></pre>
+</doc-codeblock></div>
+<hr>
+<p><strong>Response</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Body</div>
+<pre class="language-typescript"><code v-pre class="language-typescript">{
+  &quot;message&quot;: &quot;Success&quot;,
+  &quot;data&quot;: {
+    &quot;calculations&quot;: {
+      &quot;aggregates&quot;: Array&lt;{
+        &quot;values&quot;: QueryDependent
+      }&gt;
+      &quot;series&quot;: Array&lt;{
+        &quot;time&quot;: string
+        &quot;data&quot;: Array&lt;{
+          &quot;aggregates&quot;: QueryDependent
+        }&gt;
+      }&gt;
+    }
+    &quot;events&quot;: {}
+    &quot;queryRun&quot;: {
+      &quot;id&quot;: number
+      &quot;workspaceId&quot;: string
+      &quot;environmentId&quot;: string
+      &quot;timeframe&quot;: {
+        &quot;from&quot;: number
+        &quot;to&quot;: number
+      }
+      &quot;userId&quot;: string
+      &quot;status&quot;: string
+      &quot;granularity&quot;: number
+      &quot;query&quot;: Query
+      &quot;statistics&quot;: {
+        &quot;elapsed&quot;: number
+        &quot;rows_read&quot;: number
+        &quot;bytes_read&quot;: number
+      }
+    }
+    &quot;events&quot;: Array&lt;Event&gt;
+    &quot;invocations&quot;: Record&lt;string, Invocation&gt;
+    &quot;rootSpans&quot;: Array&lt;Span&gt;
+    &quot;fields&quot;: Array&lt;Field&gt;
+    &quot;statistics&quot;: {
+      &quot;elapsed&quot;: number
+      &quot;rows_read&quot;: number
+      &quot;bytes_read&quot;: number
+    }
+  }
+}</code></pre>
+</doc-codeblock></div>
+</doc-panel>
+<doc-anchor-target id="query-data-types">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#query-data-types">#</doc-anchor-trigger>
+        <span>Query data types</span>
+    </h4>
+</doc-anchor-target>
+<doc-panels>
+   <doc-panel id="calculationoperator" collapsed>
+       <template #title>CalculationOperator</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">enum CalculationOperator {
+  COUNT_DISTINCT = &quot;COUNT_DISTINCT&quot;,
+  COUNT = &quot;COUNT&quot;,
+  MAX = &quot;MAX&quot;,
+  MIN = &quot;MIN&quot;,
+  SUM = &quot;SUM&quot;,
+  AVG = &quot;AVG&quot;,
+  MEDIAN = &quot;MEDIAN&quot;,
+  P001 = &quot;P001&quot;,
+  P01 = &quot;P01&quot;,
+  P05 = &quot;P05&quot;,
+  P10 = &quot;P10&quot;,
+  P25 = &quot;P25&quot;,
+  P75 = &quot;P75&quot;,
+  P90 = &quot;P90&quot;,
+  P95 = &quot;P95&quot;,
+  P99 = &quot;P99&quot;,
+  P999 = &quot;P999&quot;,
+  STDDEV = &quot;STDDEV&quot;,
+  VARIANCE = &quot;VARIANCE&quot;,
+}</code></pre>
+</doc-codeblock></div>
+   </doc-panel>
+   <doc-panel id="filteroperator" collapsed>
+       <template #title>FilterOperator</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">enum FilterOperator {
+  EQUAL = &quot;=&quot;,
+  DIFFERENT = &quot;!=&quot;,
+  GREATER_THAN = &quot;&gt;&quot;,
+  GREATER_THAN_EQUAL = &quot;&gt;=&quot;,
+  LOWER_THAN = &quot;&lt;&quot;,
+  LOWER_THAN_EQUAL = &quot;&lt;=&quot;,
+  LIKE = &quot;LIKE&quot;,
+  NOT_LIKE = &quot;NOT_LIKE&quot;,
+  INCLUDES = &quot;INCLUDES&quot;,
+  DOES_NOT_INCLUDE = &quot;DOES_NOT_INCLUDE&quot;,
+  MATCH_REGEX = &quot;MATCH_REGEX&quot;,
+  EXISTS = &quot;EXISTS&quot;,
+  DOES_NOT_EXIST = &quot;DOES_NOT_EXIST&quot;,
+  IN = &quot;IN&quot;,
+  NOT_IN = &quot;NOT_IN&quot;,
+  STARTS_WITH = &quot;STARTS_WITH&quot;,
+}</code></pre>
+</doc-codeblock></div>
+   </doc-panel>
+</doc-panels>
+<hr>
 
                                 
                                 <!-- Required only on API pages -->
