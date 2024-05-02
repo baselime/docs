@@ -8,6 +8,7 @@ This documentation highlights what Baselime is, how to get it working with your 
 [!ref](./sending-data/index.md)
 [!ref Analyzing Data in Baselime](./analysing-data/overview.md)
 [!ref Data Security](./security/overview.md)
+[!ref API Docs](./api-docs/index.md)
 
 ---
 
