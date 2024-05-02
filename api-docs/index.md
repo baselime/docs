@@ -151,24 +151,24 @@ Endpoint uses API key for authentication.
     "environmentId": string
     "id": string
     "parameters": {
-      "dataset": Array<string>
+      "datasets": Array<string>
       "calculations": Array<{
         "key": string
         "operator": string
         "alias": string
       }>
       "filters": Array<{
-        "type": string | number | boolean // (LITERAL)
+        "type": "string" | "number" | "boolean" // (LITERAL)
         "key": string
         "operation": string
-        "value": string
+        "value": string | number | boolean
       }>
       "groupBys": Array<{
-        "type": string
-        "value": string
+        "type": "string" | "number" | "boolean"
+        "value": string | number | boolean
       }>
       "needle": {
-        "value": string
+        "value": string | number | boolean
         "isRegex": boolean
       }
       "filterCombination": "AND" | "OR" // (LITERAL)
@@ -191,24 +191,24 @@ Endpoint uses API key for authentication.
     "environmentId": string
     "id": string
     "parameters": {
-      "dataset": Array<string>
+      "datasets": Array<string>
       "calculations": Array<{
         "key": string
         "operator": string
         "alias": string
       }>
       "filters": Array<{
-        "type": string | number | boolean // (LITERAL)
+        "type": "string" | "number" | "boolean" // (LITERAL)
         "key": string
         "operation": string
-        "value": string
+        "value": string | number | boolean
       }>
       "groupBys": Array<{
-        "type": string
-        "value": string
+        "type": "string" | "number" | "boolean"
+        "value": string | number | boolean
       }>
       "needle": {
-        "value": string
+        "value": string | number | boolean
         "isRegex": boolean
       }
       "filterCombination": "AND" | "OR" // (LITERAL)
@@ -227,24 +227,24 @@ Endpoint uses API key for authentication.
   "environmentId": string
   "id": string
   "parameters": {
-    "dataset": Array<string>
+    "datasets": Array<string>
     "calculations": Array<{
       "key": string
       "operator": string
       "alias": string
     }>
     "filters": Array<{
-      "type": string | number | boolean // (LITERAL)
+      "type": "string" | "number" | "boolean" // (LITERAL)
       "key": string
       "operation": string
-      "value": string
+      "value": string | number | boolean
     }>
     "groupBys": Array<{
-      "type": string
-      "value": string
+      "type": "string" | "number" | "boolean"
+      "value": string | number | boolean
     }>
     "needle": {
-      "value": string
+      "value": string | number | boolean
       "isRegex": boolean
     }
     "filterCombination": "AND" | "OR" // (LITERAL)
@@ -260,24 +260,24 @@ Endpoint uses API key for authentication.
     "environmentId": string
     "id": string
     "parameters": {
-      "dataset": Array<string>
+      "datasets": Array<string>
       "calculations": Array<{
         "key": string
         "operator": string
         "alias": string
       }>
       "filters": Array<{
-        "type": string | number | boolean // (LITERAL)
+        "type": "string" | "number" | "boolean" // (LITERAL)
         "key": string
         "operation": string
-        "value": string
+        "value": string | number | boolean
       }>
       "groupBys": Array<{
-        "type": string
-        "value": string
+        "type": "string" | "number" | "boolean"
+        "value": string | number | boolean
       }>
       "needle": {
-        "value": string
+        "value": string | number | boolean
         "isRegex": boolean
       }
       "filterCombination": "AND" | "OR" // (LITERAL)
@@ -297,24 +297,24 @@ Endpoint uses API key for authentication.
   "environmentId": string
   "id": string
   "parameters": {
-    "dataset": Array<string>
+    "datasets": Array<string>
     "calculations": Array<{
       "key": string
       "operator": string
       "alias": string
     }>
     "filters": Array<{
-      "type": string | number | boolean // (LITERAL)
+      "type": "string" | "number" | "boolean" // (LITERAL)
       "key": string
       "operation": string
-      "value": string
+      "value": string | number | boolean
     }>
     "groupBys": Array<{
-      "type": string
-      "value": string
+      "type": "string" | "number" | "boolean" // (LITERAL)
+      "value": string | number | boolean
     }>
     "needle": {
-      "value": string
+      "value": string | number | boolean
       "isRegex": boolean
     }
     "filterCombination": "AND" | "OR" // (LITERAL)
@@ -330,24 +330,24 @@ Endpoint uses API key for authentication.
     "environmentId": string
     "id": string
     "parameters": {
-      "dataset": Array<string>
+      "datasets": Array<string>
       "calculations": Array<{
         "key": string
         "operator": string
         "alias": string
       }>
       "filters": Array<{
-        "type": string | number | boolean // (LITERAL)
+        "type": "string" | "number" | "boolean" // (LITERAL)
         "key": string
         "operation": string
-        "value": string
+        "value": string | number | boolean
       }>
       "groupBys": Array<{
-        "type": string
-        "value": string
+        "type": "string" | "number" | "boolean"
+        "value": string | number | boolean
       }>
       "needle": {
-        "value": string
+        "value": string | number | boolean
         "isRegex": boolean
       }
       "filterCombination": "AND" | "OR" // (LITERAL)
@@ -576,10 +576,24 @@ Endpoint uses API key for authentication.
       "threshold": {
         "operation": string
         "value": number
-      },
+      }
       "frequency": string
       "window": string
-    },
+      "filters": Array<{
+        "type": "string" | "number" | "boolean" // (LITERAL)
+        "key": string
+        "operation": string
+        "value": string | number | boolean
+      }>
+      "groupBys": Array<{
+        "type": "string" | "number" | "boolean"
+        "value": string | number | boolean
+      }>
+      "needle": {
+        "value": string | number | boolean
+        "isRegex": boolean
+      }
+    }
     "snoozed": {
       "value": boleean
       "until": number
