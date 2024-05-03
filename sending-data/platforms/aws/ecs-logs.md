@@ -46,7 +46,7 @@ In the following instructions we will use `<BASELIME_API_KEY>` to refer to your 
 Adding the FireLens sidecar to your task definitions is a straightforward process that can be accomplished using various Infrastructure as Code solutions or manually in the console.
 
 Add the Baselime ECS endpoint to your FireLens configuration:
-- Endpoint `ecs-logs-ingest.baselime.io`
+- Endpoint `events.baselime.io`
 - Header: `x-api-key <BASELIME_API_KEY>` 
 
 +++ SST
@@ -89,7 +89,7 @@ export function API({ stack }: StackContext) {
 ```
 +++ Terraform
 
-```hcl #
+```ts 
 resource "aws_ecs_task_definition" "example_task" {
   family                = "example-task"
   container_definitions = jsonencode([
