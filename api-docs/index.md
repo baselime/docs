@@ -31,7 +31,7 @@ Endpoint uses API key for authentication.
     "id": string
     "parameters": {
       "widgets": Array<{
-        "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // (LITERAL)
+        "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // literal
         "queryId": string
       }>
     }
@@ -54,7 +54,7 @@ Endpoint uses API key for authentication.
     "id": string
     "parameters": {
       "widgets": Array<{
-        "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // (LITERAL)
+        "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // literal
         "queryId": string
       }>
     }
@@ -71,7 +71,7 @@ Endpoint uses API key for authentication.
   "id": string
   "parameters": {
     "widgets": Array<{
-      "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // (LITERAL)
+      "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // literal
       "queryId": string
     }>
   }
@@ -85,7 +85,7 @@ Endpoint uses API key for authentication.
     "id": string
     "parameters": {
       "widgets": Array<{
-        "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // (LITERAL)
+        "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // literal
         "queryId": string
       }>
     }
@@ -104,7 +104,7 @@ Endpoint uses API key for authentication.
   "id": string
   "parameters": {
     "widgets": Array<{
-      "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // (LITERAL)
+      "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // literal
       "queryId": string
     }>
   }
@@ -118,7 +118,7 @@ Endpoint uses API key for authentication.
     "id": string
     "parameters": {
       "widgets": Array<{
-        "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // (LITERAL)
+        "type": "table" | "timeseries" | "statistic" | "timeseries_bar" // literal
         "queryId": string
       }>
     }
@@ -160,7 +160,7 @@ Endpoint uses API key for authentication.
         "alias": string
       }>
       "filters": Array<{
-        "type": "string" | "number" | "boolean" // (LITERAL)
+        "type": "string" | "number" | "boolean" // literal
         "key": string
         "operation": string
         "value": string | number | boolean
@@ -173,7 +173,7 @@ Endpoint uses API key for authentication.
         "value": string | number | boolean
         "isRegex": boolean
       }
-      "filterCombination": "AND" | "OR" // (LITERAL)
+      "filterCombination": "AND" | "OR" // literal
     }
   }>
 }
@@ -200,7 +200,7 @@ Endpoint uses API key for authentication.
         "alias": string
       }>
       "filters": Array<{
-        "type": "string" | "number" | "boolean" // (LITERAL)
+        "type": "string" | "number" | "boolean" // literal
         "key": string
         "operation": string
         "value": string | number | boolean
@@ -213,7 +213,7 @@ Endpoint uses API key for authentication.
         "value": string | number | boolean
         "isRegex": boolean
       }
-      "filterCombination": "AND" | "OR" // (LITERAL)
+      "filterCombination": "AND" | "OR" // literal
     }
   }
 }
@@ -236,7 +236,7 @@ Endpoint uses API key for authentication.
       "alias": string
     }>
     "filters": Array<{
-      "type": "string" | "number" | "boolean" // (LITERAL)
+      "type": "string" | "number" | "boolean" // literal
       "key": string
       "operation": string
       "value": string | number | boolean
@@ -249,7 +249,7 @@ Endpoint uses API key for authentication.
       "value": string | number | boolean
       "isRegex": boolean
     }
-    "filterCombination": "AND" | "OR" // (LITERAL)
+    "filterCombination": "AND" | "OR" // literal
   }
 }
 ```
@@ -269,7 +269,7 @@ Endpoint uses API key for authentication.
         "alias": string
       }>
       "filters": Array<{
-        "type": "string" | "number" | "boolean" // (LITERAL)
+        "type": "string" | "number" | "boolean" // literal
         "key": string
         "operation": string
         "value": string | number | boolean
@@ -282,7 +282,7 @@ Endpoint uses API key for authentication.
         "value": string | number | boolean
         "isRegex": boolean
       }
-      "filterCombination": "AND" | "OR" // (LITERAL)
+      "filterCombination": "AND" | "OR" // literal
     }
   }
 }
@@ -306,20 +306,20 @@ Endpoint uses API key for authentication.
       "alias": string
     }>
     "filters": Array<{
-      "type": "string" | "number" | "boolean" // (LITERAL)
+      "type": "string" | "number" | "boolean" // literal
       "key": string
       "operation": string
       "value": string | number | boolean
     }>
     "groupBys": Array<{
-      "type": "string" | "number" | "boolean" // (LITERAL)
+      "type": "string" | "number" | "boolean" // literal
       "value": string | number | boolean
     }>
     "needle": {
       "value": string | number | boolean
       "isRegex": boolean
     }
-    "filterCombination": "AND" | "OR" // (LITERAL)
+    "filterCombination": "AND" | "OR" // literal
   }
 }
 ```
@@ -339,7 +339,7 @@ Endpoint uses API key for authentication.
         "alias": string
       }>
       "filters": Array<{
-        "type": "string" | "number" | "boolean" // (LITERAL)
+        "type": "string" | "number" | "boolean" // literal
         "key": string
         "operation": string
         "value": string | number | boolean
@@ -352,7 +352,7 @@ Endpoint uses API key for authentication.
         "value": string | number | boolean
         "isRegex": boolean
       }
-      "filterCombination": "AND" | "OR" // (LITERAL)
+      "filterCombination": "AND" | "OR" // literal
     }
   }
 }
@@ -390,7 +390,7 @@ Endpoint uses API key for authentication.
     "generated": boolean
     "generatedType": string
     "channels": Array<{
-      "type": "email" | "slack" | "webhook" // (LITERAL)
+      "type": "email" | "slack" | "webhook" // literal
       "targets": Array<string>
     }>
     "parameters": {
@@ -430,7 +430,7 @@ Endpoint uses API key for authentication.
     "generated": boolean
     "generatedType": string
     "channels": Array<{
-      "type": "email" | "slack" | "webhook" // (LITERAL)
+      "type": "email" | "slack" | "webhook" // literal
       "targets": Array<string>
     }>
     "parameters": {
@@ -466,7 +466,7 @@ Endpoint uses API key for authentication.
   "generated": boolean
   "generatedType": string
   "channels": Array<{
-    "type": "email" | "slack" | "webhook" // (LITERAL)
+    "type": "email" | "slack" | "webhook" // literal
     "targets": Array<string>
   }>
   "parameters": {
@@ -499,7 +499,7 @@ Endpoint uses API key for authentication.
     "generated": boolean
     "generatedType": string
     "channels": Array<{
-      "type": "email" | "slack" | "webhook" // (LITERAL)
+      "type": "email" | "slack" | "webhook" // literal
       "targets": Array<string>
     }>
     "parameters": {
@@ -537,7 +537,7 @@ Endpoint uses API key for authentication.
   "generated": boolean
   "generatedType": string
   "channels": Array<{
-    "type": "email" | "slack" | "webhook" // (LITERAL)
+    "type": "email" | "slack" | "webhook" // literal
     "targets": Array<string>
   }>
   "parameters": {
@@ -570,7 +570,7 @@ Endpoint uses API key for authentication.
     "generated": boolean
     "generatedType": string
     "channels": Array<{
-      "type": "email" | "slack" | "webhook" // (LITERAL)
+      "type": "email" | "slack" | "webhook" // literal
       "targets": Array<string>
     }>
     "parameters": {
@@ -582,7 +582,7 @@ Endpoint uses API key for authentication.
       "frequency": string
       "window": string
       "filters": Array<{
-        "type": "string" | "number" | "boolean" // (LITERAL)
+        "type": "string" | "number" | "boolean" // literal
         "key": string
         "operation": string
         "value": string | number | boolean
@@ -650,14 +650,28 @@ This endpoint enables client to query the processed telemetry data.
       "value": string | number | boolean
       "key": string
     }>
+    "groupBys": Array<{
+        "type": "string" | "number" | "boolean" // literal
+        "value": string | number | boolean
+    }>
+    "orderBy": {
+      "value": string,
+      "order": "ASC" | "DESC"
+    }
+    "needle": {
+        "value": string | number | boolean
+        "isRegex": boolean
+        "matchCase": boolean
+    }
+    "limit": number
   }
   "timeframe": {
-    "from": number
-    "to": number
+    "from": number // unix milliseconds
+    "to": number // unix milliseconds
   }
-  "granularity": number
+  "granularity": number // milliseconds
   "limit": number
-  "view": "traces" | "events" | "calculations" | "invocations" | "requests" // (LITERAL)
+  "view": "traces" | "events" | "calculations" | "invocations" | "requests" // literal
 }
 ```
 
@@ -689,7 +703,7 @@ This endpoint enables client to query the processed telemetry data.
       }
       "userId": string
       "status": string
-      "granularity": number
+      "granularity": number // milliseconds
       "query": Query
       "statistics": {
         "elapsed": number
