@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.768053292586">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.768059315792">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../resources/css/retype.css?v=3.5.0.768053292586" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.768059315792" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.768053292586" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.768059315792" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.768053292586" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.768053292586" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.768059315792" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.768059315792" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -265,7 +265,7 @@
 <p>Adding the FireLens sidecar to your task definitions is a straightforward process that can be accomplished using various Infrastructure as Code solutions or manually in the console.</p>
 <p>Add the Baselime ECS endpoint to your FireLens configuration:</p>
 <ul>
-<li>Endpoint <code v-pre>ecs-logs-ingest.baselime.io</code></li>
+<li>Endpoint <code v-pre>events.baselime.io</code></li>
 <li>Header: <code v-pre>x-api-key &lt;BASELIME_API_KEY&gt;</code></li>
 </ul>
 <doc-tabs>
@@ -310,8 +310,8 @@ export function API({ stack }: StackContext) {
 </doc-tab>
 <doc-tab v-cloak id="terraform">
 <template #title>Terraform</template>
-<div class="codeblock-wrapper"><doc-codeblock line-numbers>
-<pre class="language-hcl"><code v-pre class="language-hcl">resource &quot;aws_ecs_task_definition&quot; &quot;example_task&quot; {
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">resource &quot;aws_ecs_task_definition&quot; &quot;example_task&quot; {
   family                = &quot;example-task&quot;
   container_definitions = jsonencode([
     {
