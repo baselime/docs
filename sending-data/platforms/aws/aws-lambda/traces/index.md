@@ -5,8 +5,13 @@ label: OpenTelemetry for AWS Lambda
 
 # OpenTelemetry for AWS Lambda
 
-To automatically instrument your AWS Lambda functions with the [Baselime Node.js OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry), set the following tag to your AWS Lambda functions: `baselime:tracing=true`.
+To automatically instrument your AWS Lambda functions with the [Baselime OpenTelemetry tracer for AWS Lambda](https://github.com/Baselime/lambda-node-opentelemetry), set the following tag to your AWS Lambda functions: `baselime:tracing=true`.
 
+This method for distributed tracing is available only for Node.js and Python runtimes on AWS Lambda.
+
+!!!
+Distributed tracing with OpenTelemetry requires additional resources from your AWS Lambda functions. We recommend increasing the memory allocation of your functions to 1024MB after adding the Baselime OpenTelemetry instrumentation.
+!!!
 
 ![AWS Lambda Tracing](../../../../../assets/images/illustrations/sending-data/otel-lambda-python.png)
 
