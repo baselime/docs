@@ -51,7 +51,7 @@ These services may add a minimal cost on your AWS monthly bill. Please refer to 
 
 ## Troubleshooting
 
-If you encounter any issues or error when connecting your AWS environment, please don't hesitate to contact us, or join our [Slack community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-1eu7l0ag1-wxYXQV6Fr_aiB3ZPm3LhDQ) where we are always available to support.
+If you encounter any issues or error when connecting your AWS environment, please don't hesitate to contact us, or join our [Slack community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-2iqnawlfl-jODT1lZMyq8b5YH5qhZ5ew) where we are always available to support.
 
 ---
 
