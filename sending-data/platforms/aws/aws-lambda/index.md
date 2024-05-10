@@ -8,5 +8,5 @@ Baselime automatically captures logs from your AWS Lambda functions through Amaz
 
 
 [!ref Logs](./logs.md)
-[!ref Distributed Tracing with OpenTelemetry](./traces/node.js.md)
+[!ref Distributed Tracing with OpenTelemetry](./traces/index.md)
 [!ref Distributed Tracing with AWS X-Ray](../xray.md)

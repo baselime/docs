@@ -124,8 +124,8 @@ over the public internet. Our endpoints are protected by TLS, so your data is en
 ![Sending data without PrivateLink](../../../assets/images/illustrations/sending-data/privateLink/without_private_link.png)
 
 #### With PrivateLink Endpoint
-When using Baselime with a PrivateLink endpoint, the DNS `otel-ingest.baslime.io` resolves the the private IP of a Network
-Interface that exists in your VPC, and the IP itself is one of from the CIDR range of your VPC. Your OTEL collector
+When using Baselime with a PrivateLink endpoint, the DNS `otel-ingest.baslime.io` resolves the private IP of a Network
+Interface that exists in your VPC, and the IP itself is one of the addresses from the CIDR range of your VPC. Your OTEL collector
 then sends the data to Baselime's platform over the private network. This means that your data never leaves AWS
 infrastructure, and is never exposed to the public internet.
 
