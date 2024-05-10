@@ -26,8 +26,8 @@ import { BaselimeLogger } from "@baselime/edge-logger"
 
 export function onRequest(context) {
   const logger = new BaselimeLogger({
-    service: "your-service-name"
-    namespace: context.request.url
+    service: "your-service-name",
+    namespace: (new URL(request.url)).hostname,
     apiKey: context.env.BASELIME_API_KEY,
     ctx: context,
     isLocalDev: context.env.IS_LOCAL
@@ -92,7 +92,7 @@ export const handle = async ({ event, resolve }: { event: any, resolve: any}) =>
   const context = event.platform?.context || { waitUntil: () => {}, passThroughOnException: () => {} }
   const logger = new BaselimeLogger({
     service: 'your-service-name',
-    namespace: event.request.url,
+    namespace: (new URL(request.url)).hostname,
     apiKey: baselimeApiKey,
     isLocalDev: event.platform ? false : true,
     ctx: context
