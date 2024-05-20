@@ -24,7 +24,7 @@ links:
 - text: Signup
   link: https://console.baselime.io/
 - text: Community
-  link: https://join.slack.com/t/baselimecommunity/shared_invite/zt-2iqnawlfl-jODT1lZMyq8b5YH5qhZ5ew
+  link: https://discord.cloudflare.com
 
 footer:
   copyright: "© Copyright {{ year }}. [Baselime Limited](https://baselime.io/) All rights reserved."
