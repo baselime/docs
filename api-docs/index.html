@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769565876286">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769805146032">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>API Docs | Baselime - The cloud-native observability platform</title>
-    <meta name="title" content="API Docs | Baselime - The cloud-native observability platform">
+    <title>Application resources | Baselime - The cloud-native observability platform</title>
+    <meta name="title" content="Application resources | Baselime - The cloud-native observability platform">
     <meta name="description" content="This page contains the information about Baselime API endpoints, types of requests that can be made to them and the expected responses.">
 
     <!-- Canonical -->
@@ -20,24 +20,24 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baselime.io/docs/api-docs/">
-    <meta property="og:title" content="API Docs | Baselime - The cloud-native observability platform">
+    <meta property="og:title" content="Application resources | Baselime - The cloud-native observability platform">
     <meta property="og:description" content="This page contains the information about Baselime API endpoints, types of requests that can be made to them and the expected responses.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://baselime.io/docs/api-docs/">
-    <meta property="twitter:title" content="API Docs | Baselime - The cloud-native observability platform">
+    <meta property="twitter:title" content="Application resources | Baselime - The cloud-native observability platform">
     <meta property="twitter:description" content="This page contains the information about Baselime API endpoints, types of requests that can be made to them and the expected responses.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.5.0.769565876286" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.769805146032" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.769565876286" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.769805146032" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.769565876286" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.769565876286" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.769805146032" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.769805146032" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -198,46 +198,39 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="api-docs" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#api-docs">#</doc-anchor-trigger>
-        <span>API Docs</span>
-    </h1>
-</doc-anchor-target>
 <p>This page contains the information about Baselime API endpoints, types of
 requests that can be made to them and the expected responses.</p>
 <hr>
-<doc-anchor-target id="endpoint-gobaselimeiov1">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#endpoint-gobaselimeiov1">#</doc-anchor-trigger>
-        <span>Endpoint <code v-pre>go.baselime.io/v1</code></span>
-    </h3>
+<doc-anchor-target id="application-resources" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#application-resources">#</doc-anchor-trigger>
+        <span>Application resources</span>
+    </h1>
 </doc-anchor-target>
-<p>This endpoint enables the client to interact with the entities within Baselime platform, such as queries, alerts, dashboards
-and many other.</p>
-<p>Endpoint uses API key for authentication.</p>
-<doc-anchor-target id="headers">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#headers">#</doc-anchor-trigger>
-        <span>Headers</span>
-    </h4>
+<p><strong>Endpoint: <code v-pre>go.baselime.io/v1</code></strong></p>
+<p>This endpoint enables the client to interact with resources on Baselime platform, such as queries, alerts or dashboards.</p>
+<doc-anchor-target id="authentication-headers">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#authentication-headers">#</doc-anchor-trigger>
+        <span>Authentication Headers</span>
+    </h2>
 </doc-anchor-target>
 <ul>
 <li><code v-pre>content-type: application/json</code></li>
-<li><code v-pre>x-api-key: &lt;api key&gt;</code> - obtain api key from <a href="https://console.baselime.io">Baselime console</a></li>
+<li><code v-pre>x-api-key: &lt;api key&gt;</code> - get your API key from <a href="https://console.baselime.io">Baselime console</a></li>
 </ul>
 <doc-anchor-target id="dashboards">
-    <h4>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#dashboards">#</doc-anchor-trigger>
         <span>Dashboards</span>
-    </h4>
+    </h2>
 </doc-anchor-target>
 <doc-panels>
    <doc-panel id="badge-get-dashboards" collapsed>
        <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>GET</span>
 </span> <code v-pre>/dashboards</code></template>
-<p><strong>Description:</strong> Lists all dashboards in the workspace and environment.</p>
+<p><strong>Description:</strong> Lists all dashboards in the environment.</p>
 <p><strong>Response</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Body</div>
@@ -352,7 +345,7 @@ and many other.</p>
        <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-red-600 bg-red-100 h-6 px-2 text-xs rounded-md">
     <span>DELETE</span>
 </span> <code v-pre>/dashboards/{id}</code></template>
-<p><strong>Description:</strong> Deletes a dashboard</p>
+<p><strong>Description:</strong> Deletes a dashboard.</p>
 <p><strong>Request</strong></p>
 <ul>
 <li><code v-pre>{id}</code> - The ID of the dashboard.</li>
@@ -367,17 +360,17 @@ and many other.</p>
    </doc-panel>
 </doc-panels>
 <doc-anchor-target id="queries">
-    <h4>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#queries">#</doc-anchor-trigger>
         <span>Queries</span>
-    </h4>
+    </h2>
 </doc-anchor-target>
 <doc-panels>
    <doc-panel id="badge-get-queries" collapsed>
        <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>GET</span>
 </span> <code v-pre>/queries</code></template>
-<p><strong>Description:</strong> Lists all queries in the workspace and environment.</p>
+<p><strong>Description:</strong> Lists all queries in the environment.</p>
 <p><strong>Response</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Body</div>
@@ -605,7 +598,7 @@ and many other.</p>
        <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-red-600 bg-red-100 h-6 px-2 text-xs rounded-md">
     <span>DELETE</span>
 </span> <code v-pre>/queries/{id}</code></template>
-<p><strong>Description:</strong> Deletes a query</p>
+<p><strong>Description:</strong> Deletes a query.</p>
 <p><strong>Request</strong></p>
 <ul>
 <li><code v-pre>{id}</code> - The ID of the query.</li>
@@ -620,17 +613,17 @@ and many other.</p>
    </doc-panel>
 </doc-panels>
 <doc-anchor-target id="alerts">
-    <h4>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#alerts">#</doc-anchor-trigger>
         <span>Alerts</span>
-    </h4>
+    </h2>
 </doc-anchor-target>
 <doc-panels>
    <doc-panel id="badge-get-alerts" collapsed>
        <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>GET</span>
 </span> <code v-pre>/alerts</code></template>
-<p><strong>Description:</strong> Lists all alerts in the workspace and environment.</p>
+<p><strong>Description:</strong> Lists all alerts in the environment.</p>
 <p><strong>Response</strong></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Body</div>
@@ -872,7 +865,7 @@ and many other.</p>
        <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-red-600 bg-red-100 h-6 px-2 text-xs rounded-md">
     <span>DELETE</span>
 </span> <code v-pre>/alerts/{id}</code></template>
-<p><strong>Description:</strong> Deletes an alert</p>
+<p><strong>Description:</strong> Deletes an alert.</p>
 <p><strong>Request</strong></p>
 <ul>
 <li><code v-pre>{id}</code> - The ID of the alert.</li>
@@ -886,22 +879,24 @@ and many other.</p>
 </doc-codeblock></div>
    </doc-panel>
 </doc-panels>
-<doc-anchor-target id="endpoint-databaselimeiov1">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#endpoint-databaselimeiov1">#</doc-anchor-trigger>
-        <span>Endpoint <code v-pre>data.baselime.io/v1</code></span>
-    </h3>
+<hr>
+<doc-anchor-target id="telemetry-data">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#telemetry-data">#</doc-anchor-trigger>
+        <span>Telemetry data</span>
+    </h1>
 </doc-anchor-target>
-<p>This endpoint enables client to query the processed telemetry data.</p>
-<doc-anchor-target id="headers-1">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#headers-1">#</doc-anchor-trigger>
-        <span>Headers</span>
-    </h4>
+<p><strong>Endpoint <code v-pre>data.baselime.io/v1</code></strong></p>
+<p>This endpoint enables you to query your telemetry data.</p>
+<doc-anchor-target id="authentication">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#authentication">#</doc-anchor-trigger>
+        <span>Authentication</span>
+    </h2>
 </doc-anchor-target>
 <ul>
 <li><code v-pre>content-type: application/json</code></li>
-<li><code v-pre>Authorization: Bearer &lt;access token&gt;</code></li>
+<li><code v-pre>x-api-key: &lt;api key&gt;</code> - get your API key from <a href="https://console.baselime.io">Baselime console</a></li>
 </ul>
 <doc-panel id="badge-post-query-runs" collapsed>
     <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
@@ -949,7 +944,8 @@ and many other.</p>
   }
   &quot;granularity&quot;: number // milliseconds
   &quot;limit&quot;: number
-  &quot;view&quot;: &quot;traces&quot; | &quot;events&quot; | &quot;calculations&quot; | &quot;invocations&quot; | &quot;requests&quot; // literal
+  &quot;view&quot;: &quot;traces&quot; | &quot;events&quot; | &quot;calculations&quot; | &quot;invocations&quot; | &quot;requests&quot;  | &quot;patterns&quot; // literal
+  &quot;patternType&quot;: &quot;message&quot; | &quot;error&quot;
 }</code></pre>
 </doc-codeblock></div>
 <hr>
@@ -970,7 +966,6 @@ and many other.</p>
         }&gt;
       }&gt;
     }
-    &quot;events&quot;: {}
     &quot;queryRun&quot;: {
       &quot;id&quot;: number
       &quot;workspaceId&quot;: string
@@ -990,6 +985,7 @@ and many other.</p>
       }
     }
     &quot;events&quot;: Array&lt;Event&gt;
+    &quot;patterns&quot;: Array&lt;EventPatterns&gt;
     &quot;invocations&quot;: Record&lt;string, Invocation&gt;
     &quot;rootSpans&quot;: Array&lt;Span&gt;
     &quot;fields&quot;: Array&lt;Field&gt;
