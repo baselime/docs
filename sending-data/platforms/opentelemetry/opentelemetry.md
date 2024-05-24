@@ -18,6 +18,15 @@ x-api-key: <BASELIME_API_KEY>
 x-baselime-dataset: <YOUR_DATASET> # Optional, defaults to "otel"
 ```
 
+## Debugging
+
+If events do not appear in the [Baselime Console](https://console.baselime.io) enable DEBUG logging using the sdk or collector you are using.
+
+For our [OpenTelemetry Distros](#baselime-opentelemetry-distros) add the env `OTEL_LOG_LEVEL=DEBUG` to enable debug logging. 
+
+If you use the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) follow the debugging steps in the [troubleshooting guide](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/troubleshooting.md).
+
+
 ---
 ## Baselime OpenTelemetry for Platforms
 [!ref icon="../../../assets/images/logos/logo_aws_lambda.png"](../../platforms/aws/aws-lambda/traces/index.md)
