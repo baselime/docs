@@ -9,20 +9,20 @@ requests that can be made to them and the expected responses.
 
 ---
 
-### Endpoint `go.baselime.io/v1`
-This endpoint enables the client to interact with the entities within Baselime platform, such as queries, alerts, dashboards
-and many other.
+# Application resources
 
-Endpoint uses API key for authentication.
+**Endpoint: `go.baselime.io/v1`**
 
-#### Headers
+This endpoint enables the client to interact with resources on Baselime platform, such as queries, alerts or dashboards.
+
+## Authentication Headers
 * `content-type: application/json`
-* `x-api-key: <api key>` - obtain api key from [Baselime console](https://console.baselime.io)
+* `x-api-key: <api key>` - get your API key from [Baselime console](https://console.baselime.io)
 
-#### Dashboards
+## Dashboards
 
 ==- [!badge GET] `/dashboards`
-**Description:** Lists all dashboards in the workspace and environment.
+**Description:** Lists all dashboards in the environment.
 
 **Response**
 ```typescript Body
@@ -128,7 +128,7 @@ Endpoint uses API key for authentication.
 
 
 ==- [!badge variant="danger" text="DELETE"] `/dashboards/{id}`
-**Description:** Deletes a dashboard
+**Description:** Deletes a dashboard.
 
 **Request**
 * `{id}` - The ID of the dashboard.
@@ -140,10 +140,10 @@ Endpoint uses API key for authentication.
 }
 ```
 ===
-#### Queries
+## Queries
 
 ==- [!badge GET] `/queries`
-**Description:** Lists all queries in the workspace and environment.
+**Description:** Lists all queries in the environment.
 
 **Response**
 ```typescript Body
@@ -359,7 +359,7 @@ Endpoint uses API key for authentication.
 ```
 
 ==- [!badge variant="danger" text="DELETE"] `/queries/{id}`
-**Description:** Deletes a query
+**Description:** Deletes a query.
 
 **Request**
 * `{id}` - The ID of the query.
@@ -372,10 +372,10 @@ Endpoint uses API key for authentication.
 ```
 ===
 
-#### Alerts
+## Alerts
 
 ==- [!badge GET] `/alerts`
-**Description:** Lists all alerts in the workspace and environment.
+**Description:** Lists all alerts in the environment.
 
 **Response**
 ```typescript Body
@@ -606,7 +606,7 @@ Endpoint uses API key for authentication.
 ```
 
 ==- [!badge variant="danger" text="DELETE"] `/alerts/{id}`
-**Description:** Deletes an alert
+**Description:** Deletes an alert.
 
 **Request**
 * `{id}` - The ID of the alert.
@@ -619,14 +619,18 @@ Endpoint uses API key for authentication.
 ```
 ===
 
+---
 
-### Endpoint `data.baselime.io/v1`
 
-This endpoint enables client to query the processed telemetry data.
+# Telemetry data
 
-#### Headers
+**Endpoint `data.baselime.io/v1`**
+
+This endpoint enables you to query your telemetry data.
+
+## Authentication
 * `content-type: application/json`
-* `Authorization: Bearer <access token>`
+* `x-api-key: <api key>` - get your API key from [Baselime console](https://console.baselime.io)
 
 ==- [!badge POST] `/query_runs`
 **Description:** Creates a new query run and returns its results.
@@ -671,7 +675,8 @@ This endpoint enables client to query the processed telemetry data.
   }
   "granularity": number // milliseconds
   "limit": number
-  "view": "traces" | "events" | "calculations" | "invocations" | "requests" // literal
+  "view": "traces" | "events" | "calculations" | "invocations" | "requests"  | "patterns" // literal
+  "patternType": "message" | "error"
 }
 ```
 
@@ -692,7 +697,6 @@ This endpoint enables client to query the processed telemetry data.
         }>
       }>
     }
-    "events": {}
     "queryRun": {
       "id": number
       "workspaceId": string
@@ -712,6 +716,7 @@ This endpoint enables client to query the processed telemetry data.
       }
     }
     "events": Array<Event>
+    "patterns": Array<EventPatterns>
     "invocations": Record<string, Invocation>
     "rootSpans": Array<Span>
     "fields": Array<Field>

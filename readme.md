@@ -14,4 +14,4 @@ This documentation highlights what Baselime is, how to get it working with your 
 
 ## Support
 
-Join the [Baselime Slack Community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-2iqnawlfl-jODT1lZMyq8b5YH5qhZ5ew) if you have any questions, or you want to learn and discuss ideas around observability practices.
+Join the [Cloudflare Discord Community](https://discord.cloudflare.com) if you have any questions, or you want to learn and discuss ideas around observability practices.

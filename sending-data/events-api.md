@@ -83,7 +83,7 @@ The Events API validates the every request and returns a `400 Bad Request` statu
 
 Baselime returns a `202` response for all valid requests to the Events API, and a range on of non-`200` responses for errors.
 
-We welcome feedback on API responses and error messages. Reach out to us in our [Slack community](https://join.slack.com/t/baselimecommunity/shared_invite/zt-2iqnawlfl-jODT1lZMyq8b5YH5qhZ5ew) with any request or suggestion you may have.
+We welcome feedback on API responses and error messages. Reach out to us in the [Cloudflare Discord community](https://discord.cloudflare.com) with any request or suggestion you may have.
 
 ### Successful responses
 
