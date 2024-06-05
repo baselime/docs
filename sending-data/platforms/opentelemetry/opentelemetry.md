@@ -13,7 +13,7 @@ If your codebase is already instrumented with [OpenTelemetry](https://openteleme
   * `otel.baselime.io/v1/traces` - traces
   * `otel.baselime.io/v1/metrics` - metrics
   * `otel.baselime.io/v1/logs` - logs
-* gRPC: `otel-ingest.baselime.io:4317`
+* gRPC: `otel-ingest.baselime.io:8443`
 
 ### Headers
 ```yaml
