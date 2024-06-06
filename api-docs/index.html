@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.770907968361">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.771000881930">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../assets/images/logo.svg" rel="icon">
-    <link href="../resources/css/retype.css?v=3.5.0.770907968361" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.771000881930" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.770907968361" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.771000881930" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.770907968361" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.770907968361" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.771000881930" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.771000881930" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -217,7 +217,7 @@ requests that can be made to them and the expected responses.</p>
 </doc-anchor-target>
 <ul>
 <li><code v-pre>content-type: application/json</code></li>
-<li><code v-pre>x-api-key: &lt;api key&gt;</code> - get your API key from <a href="https://console.baselime.io">Baselime console</a></li>
+<li><code v-pre>x-api-key: &lt;api key&gt;</code> - get your admin API key from <a href="https://console.baselime.io">Baselime console</a></li>
 </ul>
 <doc-anchor-target id="dashboards">
     <h2>
@@ -880,6 +880,80 @@ requests that can be made to them and the expected responses.</p>
    </doc-panel>
 </doc-panels>
 <hr>
+<doc-anchor-target id="services">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#services">#</doc-anchor-trigger>
+        <span>Services</span>
+    </h2>
+</doc-anchor-target>
+<doc-panels>
+   <doc-panel id="badge-get-services" collapsed>
+       <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
+    <span>GET</span>
+</span> <code v-pre>/services</code></template>
+<p><strong>Description:</strong> Lists all services in the environment.</p>
+<p><strong>Response</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Body</div>
+<pre class="language-typescript"><code v-pre class="language-typescript">{
+  &quot;data&quot;: Array&lt;{
+    &quot;name&quot;: string
+    &quot;workspaceId&quot;: string
+    &quot;environmentId&quot;: string
+    &quot;userId&quot;: string
+    &quot;generated&quot;: boolean
+    &quot;created&quot;: string
+    &quot;updated&quot;: string
+    &quot;metadata&quot;: Record&lt;string, any&gt;
+  }&gt;
+}
+</code></pre>
+</doc-codeblock></div>
+   </doc-panel>
+   <doc-panel id="badge-get-services-name" collapsed>
+       <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
+    <span>GET</span>
+</span> <code v-pre>/services/{name}</code></template>
+<p><strong>Description:</strong> Gets a service by name.</p>
+<p><strong>Request</strong></p>
+<ul>
+<li><code v-pre>{id}</code> - The name of the service.</li>
+</ul>
+<p><strong>Response</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Body</div>
+<pre class="language-typescript"><code v-pre class="language-typescript">{
+  &quot;data&quot;: {
+    &quot;name&quot;: string
+    &quot;workspaceId&quot;: string
+    &quot;environmentId&quot;: string
+    &quot;userId&quot;: string
+    &quot;generated&quot;: boolean
+    &quot;created&quot;: string
+    &quot;updated&quot;: string
+    &quot;metadata&quot;: Record&lt;string, any&gt;
+  }
+}</code></pre>
+</doc-codeblock></div>
+   </doc-panel>
+   <doc-panel id="badge-variant-danger-text-delete-services-name" collapsed>
+       <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-red-600 bg-red-100 h-6 px-2 text-xs rounded-md">
+    <span>DELETE</span>
+</span> <code v-pre>/services/{name}</code></template>
+<p><strong>Description:</strong> Deletes a service.</p>
+<p><strong>Request</strong></p>
+<ul>
+<li><code v-pre>{name}</code> - The name of the service.</li>
+</ul>
+<p><strong>Response</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Body</div>
+<pre class="language-typescript"><code v-pre class="language-typescript">{
+  &quot;message&quot;: &quot;Service deleted&quot;,
+}</code></pre>
+</doc-codeblock></div>
+   </doc-panel>
+</doc-panels>
 <doc-anchor-target id="telemetry-data">
     <h1>
         <doc-anchor-trigger class="header-anchor-trigger" to="#telemetry-data">#</doc-anchor-trigger>
@@ -896,7 +970,7 @@ requests that can be made to them and the expected responses.</p>
 </doc-anchor-target>
 <ul>
 <li><code v-pre>content-type: application/json</code></li>
-<li><code v-pre>x-api-key: &lt;api key&gt;</code> - get your API key from <a href="https://console.baselime.io">Baselime console</a></li>
+<li><code v-pre>x-api-key: &lt;api key&gt;</code> - get your admin API key from <a href="https://console.baselime.io">Baselime console</a></li>
 </ul>
 <doc-panel id="badge-post-query-runs" collapsed>
     <template #title><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
