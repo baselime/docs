@@ -17,7 +17,7 @@ This endpoint enables the client to interact with resources on Baselime platform
 
 ## Authentication Headers
 * `content-type: application/json`
-* `x-api-key: <api key>` - get your API key from [Baselime console](https://console.baselime.io)
+* `x-api-key: <api key>` - get your admin API key from [Baselime console](https://console.baselime.io)
 
 ## Dashboards
 
@@ -371,7 +371,6 @@ This endpoint enables the client to interact with resources on Baselime platform
 }
 ```
 ===
-
 ## Alerts
 
 ==- [!badge GET] `/alerts`
@@ -621,6 +620,65 @@ This endpoint enables the client to interact with resources on Baselime platform
 
 ---
 
+## Services
+
+==- [!badge GET] `/services`
+**Description:** Lists all services in the environment.
+
+**Response**
+```typescript Body
+{
+  "data": Array<{
+    "name": string
+    "workspaceId": string
+    "environmentId": string
+    "userId": string
+    "generated": boolean
+    "created": string
+    "updated": string
+    "metadata": Record<string, any>
+  }>
+}
+
+```
+
+==- [!badge GET] `/services/{name}`
+**Description:** Gets a service by name.
+
+
+**Request**
+* `{id}` - The name of the service.
+
+**Response**
+```typescript Body
+{
+  "data": {
+    "name": string
+    "workspaceId": string
+    "environmentId": string
+    "userId": string
+    "generated": boolean
+    "created": string
+    "updated": string
+    "metadata": Record<string, any>
+  }
+}
+```
+
+==- [!badge variant="danger" text="DELETE"] `/services/{name}`
+**Description:** Deletes a service.
+
+**Request**
+* `{name}` - The name of the service.
+
+**Response**
+```typescript Body
+{
+  "message": "Service deleted",
+}
+```
+===
+
 
 # Telemetry data
 
@@ -630,7 +688,7 @@ This endpoint enables you to query your telemetry data.
 
 ## Authentication
 * `content-type: application/json`
-* `x-api-key: <api key>` - get your API key from [Baselime console](https://console.baselime.io)
+* `x-api-key: <api key>` - get your admin API key from [Baselime console](https://console.baselime.io)
 
 ==- [!badge POST] `/query_runs`
 **Description:** Creates a new query run and returns its results.
