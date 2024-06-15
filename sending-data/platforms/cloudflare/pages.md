@@ -25,10 +25,10 @@ npm i -S @baselime/edge-logger
 import { BaselimeLogger } from "@baselime/edge-logger"
 
 export function onRequest(context) {
-  const  url = new URL(request.url);
+  const  url = new URL(context.request.url);
   const logger = new BaselimeLogger({
     service: "your-service-name",
-    namespace: `${request.method} ${url.hostname}${url.pathname}`,
+    namespace: `${context.request.method} ${url.hostname}${url.pathname}`,
     apiKey: context.env.BASELIME_API_KEY,
     ctx: context,
     isLocalDev: context.env.IS_LOCAL
