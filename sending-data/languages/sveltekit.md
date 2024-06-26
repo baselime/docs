@@ -49,5 +49,5 @@ If you use a `/src` folder your project, add the `instrumentation.ts` file in th
 
 ### Step 3: Set the Baselime environment variables
 
-Set the `BASELIME_KEY` environment variable to your Baselime public API Key. Get your pulic API key from the [Baselime console](https://console.baselime.io).
+Set the `BASELIME_KEY` environment variable to your Baselime public API Key. Get your public API key from the [Baselime console](https://console.baselime.io).
 
