@@ -9,8 +9,11 @@ If your codebase is already instrumented with [OpenTelemetry](https://openteleme
 ## Configuration
 
 ### Endpoint
-* HTTP: `otel.baselime.io/v1/`
-* gRPC: `otel-ingest.baselime.io:4317`
+* HTTP:
+  * `otel.baselime.io/v1/traces` - traces
+  * `otel.baselime.io/v1/metrics` - metrics
+  * `otel.baselime.io/v1/logs` - logs
+* gRPC: `otel-ingest.baselime.io:8443`
 
 ### Headers
 ```yaml
