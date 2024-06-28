@@ -72,7 +72,6 @@ Once connected, Baselime will automatically ingest data from your AWS environmen
 * Amazon Cloudwatch Metrics
 * Amazon ECS Logs (through fluentd)
 * Open Telemetry Metrics
-* AWS X-Ray Traces
 
 Once ingested, the telemetry data is streamed through a Kinesis Firehose to an Amazon S3 bucket in your AWS account for cold storage. There you can access the raw data and use it for your own purposes.
 

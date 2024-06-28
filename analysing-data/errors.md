@@ -18,7 +18,7 @@ The **Errors** page displays errors in your applications, across your services. 
 
 When you connect your cloud account to Baselime, your applications send logs, metrics, traces and wide events to Baselime. On each event, Baselime determines if it's an error. This is typically determined by:
 - The log level: anything above `error` or `critical` log level
-- The status of the span: every span with an error (from both OpenTelemetry and AWS X-Ray)
+- The status of the span: every span with an error (from OpenTelemetry)
 - If the event has a root level property `level` set to `error` or `critical`.
 
 Baselime then computes the fingerpring of the error. The fingerprit is based on multiple variables:
