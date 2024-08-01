@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773316976160">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.775833296403">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -34,12 +34,12 @@
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../../../../assets/images/logo.svg" rel="icon">
-    <link href="../../../../../resources/css/retype.css?v=3.5.0.773316976160" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=3.5.0.775833296403" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.5.0.773316976160" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.5.0.775833296403" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.5.0.773316976160" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=3.5.0.773316976160" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.5.0.775833296403" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=3.5.0.775833296403" defer></script>
 
     <script defer data-domain="baselime.io" src="https://plausible.io/js/plausible.js"></script>
     <script type="text/javascript">
@@ -304,7 +304,7 @@ functions:
     <figcaption class="caption">Using the Baselime Lambda Extension</figcaption>
 </figure>
 </p>
-<p>All the logs and metrics from your AWS Lambda function is collected asynchronously from your invocation, and sent to the Baselime backend in a separate process from your invocation, with no impact on the latency your users experience.</p>
+<p>All the logs from your AWS Lambda function is collected asynchronously from your invocation, and sent to the Baselime backend in a separate process from your invocation, with no impact on the latency your users experience.</p>
 <doc-anchor-target id="configuration">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#configuration">#</doc-anchor-trigger>
@@ -597,7 +597,7 @@ logger.info(&quot;Unfortunately something went wrong&quot;, { customer_id: &quot
 </doc-anchor-target>
 <p>If you&#x27;re having trouble sending data from your AWS Lambda logs to Baselime, here are a few things to check:</p>
 <ul>
-<li>Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as <a href="../../cloudwatch-metrics/">CloudWatch Metrics</a> or <a href="../../cloudtrail/">CloudTrail Events</a></li>
+<li>Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as <a href="../../cloudtrail/">CloudTrail Events</a></li>
 <li>Check that your Lambda functions are not already using the maximum number of subscription filters allowed per log group. AWS limits each log group to 2 subscription filters at most. If you&#x27;re already at the limit, you can remove subscription filters with the <a href="https://github.com/baselime/cloudwatch-subscription-filters-remover">cloudwatch-subscription-filters-remover</a> to delete the ones you don&#x27;t need anymore.</li>
 <li>Make sure that your AWS Lambda functions are being invoked and you can view the logs in the CloudWatch section of the AWS Console</li>
 </ul>
