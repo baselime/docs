@@ -17,4 +17,3 @@ The following sections highlight how Baselime captures telemetry data for suppor
 [!ref icon="../../../assets/images/logos/apprunner_logo.png"](./apprunner-logs.md)
 [!ref icon="../../../assets/images/logos/logo_aws_apigateway.png"](./apigateway-logs.md)
 [!ref icon="../../../assets/images/logos/logo_cloudtrail.png"](./cloudtrail.md)
-[!ref icon="../../../assets/images/logos/logo_cloudwatch.png"](./cloudwatch-metrics.md)

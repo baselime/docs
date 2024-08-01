@@ -19,7 +19,7 @@ Check out our [pricing page](https://baselime.io/pricing) for more details.
 
 ## How does Baselime count events for billing?
 
-Baselime counts the number of events daily and updates your dashboard accordingly. Baselime does not count Amazon CloudWatch metrics or Amazon CloudTrail logs as part of the monthly event cap. All other events are counted, including the `START`, `END` and `REPORT` log lines from serverless functions.
+Baselime counts the number of events daily and updates your dashboard accordingly. Baselime does not count Amazon CloudTrail logs as part of the monthly event cap. All other events are counted, including the `START`, `END` and `REPORT` log lines from serverless functions.
 
 ---
 

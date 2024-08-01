@@ -29,7 +29,7 @@ Moreover, Baselime automatically creates new subscription filters for newly depl
 
 If you're having trouble sending data from your AWS App Runner logs to Baselime, here are a few things to check:
 
-- Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as [CloudWatch Metrics](./cloudwatch-metrics.md) or [CloudTrail Events](./cloudtrail.md)
+- Verify that your AWS account is correctly connected to Baselime and you receive data in other datasets such as [CloudTrail Events](./cloudtrail.md)
 - Check that your App Runner services functions are not already using the maximum number of subscription filters allowed per log group. AWS limits each log group to 2 subscription filters at most. If you're already at the limit, you can remove subscription filters with the [cloudwatch-subscription-filters-remover](https://github.com/baselime/cloudwatch-subscription-filters-remover) to delete the ones you don't need anymore.
 - Make sure that your AWS App Runner services are being live and you can view the logs in the CloudWatch section of the AWS Console.
 
