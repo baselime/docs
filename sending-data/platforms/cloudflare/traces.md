@@ -73,7 +73,7 @@ BASELIME_API_KEY=$YOUR_BASELIME_API_KEY
 In your `wrangler.toml` file set the `SERVICE_NAME` variable
 
 !!!
-Get your pulic BASELIME_API_KEY from the [Baselime console](https://console.baselime.io).
+Get your public BASELIME_API_KEY from the [Baselime console](https://console.baselime.io).
 !!!
 
 ```txt # :icon-code: wrangler.toml
