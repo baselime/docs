@@ -682,7 +682,7 @@ This endpoint enables the client to interact with resources on Baselime platform
 
 # Telemetry data
 
-**Endpoint `data.baselime.io/v1`**
+**Endpoint `data.baselime.io`**
 
 This endpoint enables you to query your telemetry data.
 
