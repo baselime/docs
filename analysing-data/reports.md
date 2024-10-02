@@ -3,7 +3,7 @@ label: Reports
 order: -3
 ---
 
-# Reports
+# [Deprecated] Reports
 
 ---
 

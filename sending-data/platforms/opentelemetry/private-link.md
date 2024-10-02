@@ -3,7 +3,7 @@ label: AWS PrivateLink for OpenTelemetry
 order: -1
 ---
 
-# AWS PrivateLink for OpenTelemetry
+# [Deprecated] AWS PrivateLink for OpenTelemetry
 
 Baselime supports AWS PrivateLink, enabling you to securely send the data directly from your VPC to Baselime's platform without exposing your data to the public internet.
 

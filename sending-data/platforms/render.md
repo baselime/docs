@@ -3,7 +3,7 @@ label: Render
 order: -4
 ---
 
-# Render
+# [Deprecated] Render
 
 Render is a cloud platform for hosting and deploying web applications and websites. It provides a way to securely stream logs from your services deployed on Render to Baselime using the [Syslog protocol](https://en.wikipedia.org/wiki/Syslog) over [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 

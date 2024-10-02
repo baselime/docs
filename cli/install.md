@@ -3,7 +3,7 @@ label: Installing the Baselime CLI
 order: -1
 ---
 
-# Installing the Baselime CLI
+# [Deprecated] Installing the Baselime CLI
 
 The Baselime CLI enables you to interact with Baselime and your observability data through the command line.
 

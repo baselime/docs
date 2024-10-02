@@ -3,7 +3,7 @@ label: Real-Time Error Tracking
 order: 5
 ---
 
-# Real-Time Error Tracking in Baselime
+# [Deprecated] Real-Time Error Tracking in Baselime
 
 
 Baselime automatically tracks all errors occuring in your applications and notifies you with those that need your attention in real-time.

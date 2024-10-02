@@ -3,6 +3,8 @@ label: Sampling
 order: -11
 ---
 
+# [Deprecated]
+
 Sampling enables you to control the volume of data processed and ingested in Baselime, by selecting only a portion of your data, whilst keeping the ability to extrapolate key insights from the selected set.
 
 ---

@@ -3,7 +3,7 @@ label: Cloudflare Logpush
 order: 0
 ---
 
-# Using Cloudflare Logpush
+# [Deprecated] Using Cloudflare Logpush
 
 [Cloudflare Logpush](https://developers.cloudflare.com/logs/about/) is a service provided by Cloudflare that enables you to stream your Cloudflare Worker Trace Event Logs to Baselime.
 

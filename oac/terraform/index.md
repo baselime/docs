@@ -3,7 +3,7 @@ label: Terraform
 order: 0
 ---
 
-# Baselime Terraform Provider
+# [Deprecated] Baselime Terraform Provider
 
 Observability is a first class citizen of your infrastructure with Baselime. You can use [Terraform](https://www.terraform.io/) to define and automate your observability configurations in Baselime.
 
