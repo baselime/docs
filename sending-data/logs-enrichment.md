@@ -156,7 +156,7 @@ For example:
 
 const SERVICE = "queue-processor";
 
-function backgrounJob(data) {
+function backgroundJob(data) {
   console.log(JSON.stringify({ message: "Starting processing", service: SERVICE, namespace: data.id }))
   
   complexCalculation();
