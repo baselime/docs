@@ -14,9 +14,9 @@ order: 2
 
 Baselime is fundamentally different from most other observability and monitoring providers in 4 key aspects:
 
-### High cardinality and dimentionality
+### High cardinality and dimensionality
 
-Cardinality and dimentionality are best described using examples. Imagine you log an HTTP request that makes database calls.
+Cardinality and dimensionality are best described using examples. Imagine you log an HTTP request that makes database calls.
 
 - High cardinality means that in your logs, you can have a unique `userId` or `requestId` (which can take over a million distinct values). Those are high cardinality fields. Baselime enables you to query against any specific value of a high cardinality field so that you can narrow down your search to a specific user or request.
 
